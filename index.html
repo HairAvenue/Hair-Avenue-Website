@@ -168,14 +168,9 @@
     .section--services-green .section-label { color: #C9A96E; }
     .section--services-green .section-title { color: #1d1d1f; }
     .section--services-green .section-subtitle { color: #86868b; }
-    .section--services-green .special-offers-banner { background: #ffffff; border-color: #d2d2d7; }
-    .section--services-green .special-offers-banner__header { color: #1d1d1f; }
-    .section--services-green .special-offers-banner__title { color: #1d1d1f; }
-    .section--services-green .special-offers-banner__toggle { color: #86868b; }
-    .section--services-green .offer-item { border-color: rgba(0,0,0,0.06); }
-    .section--services-green .offer-item__title { color: #1d1d1f; }
-    .section--services-green .offer-item__desc { color: #424245; }
-    .section--services-green .offer-item__code { color: #2E7D42; }
+    .section--services-green .services-card { max-width: 1100px; margin: 0 auto 16px; background: #ffffff; border-radius: 16px; box-shadow: 0 2px 20px rgba(0,0,0,0.06); border: 1.5px solid rgba(201,169,110,0.25); }
+    .section--services-green .services-card .service-tabs { margin: 0; border-bottom: 1px solid rgba(201,169,110,0.15); padding: 24px 24px 20px; max-width: none; background: rgba(201,169,110,0.04); }
+    .section--services-green .services-card .service-panel { border-radius: 0; box-shadow: none; border: none; }
     .section--services-green .service-panel { background: #ffffff; border-radius: var(--radius-md); box-shadow: var(--shadow-card); border: 1.5px solid rgba(201,169,110,0.3); }
     .section--services-green .service-panel__item { border-color: rgba(0,0,0,0.04); }
     .section--services-green .service-panel__name { color: #1d1d1f; }
@@ -1182,12 +1177,17 @@
        blank pages on slow first-load (iPhone Safari with large files). */
     .reveal.reveal--hidden {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+      will-change: opacity, transform;
     }
     .reveal.reveal--hidden.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+    /* Reduce motion for users who prefer it */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal.reveal--hidden { transition-duration: 0.01s; transform: none; }
     }
 
     /* ===== CAREERS / RECRUITMENT ===== */
@@ -1467,55 +1467,94 @@
     .pricing-tabs__row--has-desc { flex-wrap: wrap; }
     .pricing-tabs__row--has-desc .pricing-tabs__desc { flex-basis: 100%; }
 
-    /* === Special Offers Banner === */
-    .special-offers-banner {
+    /* === Special Offers — Elegant Expandable Strip === */
+    .special-offers {
       max-width: 1100px;
-      margin: 0 auto 36px;
-      border: 1.5px solid rgba(201,169,110,0.35);
-      border-radius: var(--radius-md);
+      margin: 24px auto 0;
+      border-radius: 14px;
       overflow: hidden;
-      background: #ffffff;
+      background: linear-gradient(135deg, #2E5339 0%, #3a6b48 100%);
+      box-shadow: 0 2px 16px rgba(46,83,57,0.2);
     }
-    .special-offers-banner__header {
+    .special-offers__bar {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 16px 24px;
+      gap: 10px;
+      padding: 14px 20px;
       cursor: pointer;
-      transition: background 0.3s ease;
+      list-style: none;
     }
-    .special-offers-banner__header:hover {
-      background: rgba(201,169,110,0.08);
-    }
-    .special-offers-banner__icon { font-size: 1.4rem; }
-    .special-offers-banner__title {
-      font-family: var(--ff-body);
-      font-size: 1.1rem;
+    .special-offers__bar::-webkit-details-marker { display: none; }
+    .special-offers__bar::marker { display: none; content: ''; }
+    .special-offers__badge {
+      font-family: var(--ff-display);
+      font-size: 0.95rem;
       font-weight: 600;
-      color: #1d1d1f;
+      color: #ffffff;
+      letter-spacing: 0.02em;
     }
-    .special-offers-banner__subtitle {
-      font-size: 0.85rem;
-      color: #C9A96E;
-      font-weight: 500;
+    .special-offers__hint {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
       margin-left: auto;
     }
-    .special-offers-banner__arrow {
+    .special-offers__chevron {
+      color: #C9A96E;
       transition: transform 0.3s ease;
-      color: var(--clr-forest);
+      flex-shrink: 0;
     }
-    .special-offers-banner[open] .special-offers-banner__arrow {
+    .special-offers[open] .special-offers__chevron {
       transform: rotate(180deg);
     }
-    .special-offers-banner__body {
-      padding: 0 24px;
+    .special-offers[open] .special-offers__hint {
+      display: none;
     }
-    .special-offers-banner__body--open {
-      padding: 8px 24px 24px;
+    .special-offers__body {
+      padding: 0 16px 16px;
     }
-    .special-offers-banner > summary { list-style: none; }
-    .special-offers-banner > summary::-webkit-details-marker { display: none; }
-    .special-offers-banner > summary::marker { display: none; content: ''; }
+    .special-offers__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .special-offers__deal {
+      display: flex;
+      flex-direction: column;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .special-offers__deal:hover {
+      background: rgba(255,255,255,0.18);
+      transform: translateY(-1px);
+    }
+    .special-offers__deal-name {
+      font-family: var(--ff-display);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #ffffff;
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+    .special-offers__deal-price {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.7);
+    }
+    .special-offers__deal-save {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #E8D49A;
+      margin-top: 6px;
+    }
+    @media (min-width: 769px) {
+      .special-offers__grid { grid-template-columns: repeat(4, 1fr); }
+      .special-offers__bar { padding: 16px 28px; }
+      .special-offers__body { padding: 0 28px 20px; }
+      .special-offers__badge { font-size: 1.05rem; }
+    }
 
     /* === Pricing Subcategory Accordion === */
     .pricing-subcat {
@@ -1684,7 +1723,18 @@
 
       /* Services — compact 2-column grid */
       .services__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-      .service-tab { font-size: 1rem; padding: 12px 24px; }
+      /* Service tabs — clean stacked layout on mobile */
+      .services-card .service-tabs { flex-direction: column; align-items: stretch; gap: 0; margin-bottom: 0; border-radius: 0; overflow: hidden; border: none; padding: 0; border-bottom: 1px solid rgba(201,169,110,0.15); }
+      .services-card .service-tab { font-size: 1rem; padding: 14px 20px; border-radius: 0; border: none; border-bottom: 1px solid rgba(201,169,110,0.1); }
+      .services-card .service-tab:last-child { border-bottom: none; }
+      .services-card .service-tab::after { display: none; }
+      #svc-tab-colouring:checked ~ .service-tabs label[for="svc-tab-colouring"],
+      #svc-tab-cutting:checked ~ .service-tabs label[for="svc-tab-cutting"],
+      #svc-tab-treatments:checked ~ .service-tabs label[for="svc-tab-treatments"] {
+        transform: none;
+        border-radius: 0;
+        box-shadow: none;
+      }
       .btn--sm { padding: 8px 16px; font-size: 0.78rem; }
 
       /* Reviews — smaller cards */
@@ -1708,7 +1758,7 @@
       .team-card__body { padding: 14px; }
       .team-card__name { font-size: 1rem; }
       .team-card__role { font-size: 0.75rem; margin-bottom: 8px; }
-      .team-card__bio { font-size: 0.78rem; line-height: 1.5; }
+      .team-card__bio { font-size: 0.82rem; line-height: 1.55; }
 
       /* Social — mobile adjustments */
       .social__icons { gap: 14px; margin-top: 16px; }
@@ -1826,7 +1876,7 @@
 
       /* Services single column on very small screens */
       .services__grid { grid-template-columns: 1fr; gap: 10px; }
-      .service-tab { font-size: 0.95rem; padding: 10px 20px; }
+      .services-card .service-tab { font-size: 0.95rem; padding: 12px 16px; }
 
       #new-clients [style*="font-size: 1.6rem"] { font-size: 1.3rem !important; }
 
@@ -1836,7 +1886,7 @@
 
       /* Team stays 2-col but tighter */
       .team-card__photo { height: 170px; }
-      .team-card__bio { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+      .team-card__bio { font-size: 0.8rem; line-height: 1.55; }
     }
   
     /* Service cards responsive */
@@ -1846,11 +1896,8 @@
       .pricing-item { padding: 12px 16px; }
       .pricing-item__name { font-size: 0.88rem; }
       .pricing-item__price { font-size: 0.88rem; }
-      .special-offers-banner__title { font-size: 1rem; }
-      .special-offers-banner__subtitle { display: none; }
 
-      .service-tabs { gap: 10px; }
-      .service-tab { font-size: 1rem; padding: 12px 24px; }
+
     }
     @media (min-width: 769px) and (max-width: 1024px) {
       .service-tab { font-size: 1.05rem; padding: 12px 28px; }
@@ -2052,55 +2099,14 @@
 
 
 
-      <!-- Special Offers Banner -->
-      <details class="special-offers-banner reveal">
-        <summary class="special-offers-banner__header">
-          <span class="special-offers-banner__icon">&#x2728;</span>
-          <span class="special-offers-banner__title">Special Offers</span>
-          <span class="special-offers-banner__subtitle">Tuesday — Friday Deals</span>
-          <svg class="special-offers-banner__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <div class="special-offers-banner__body special-offers-banner__body--open">
-<div class="pricing-item">
-                  <div class="pricing-item__header">
-                    <span class="pricing-item__name">Balayage Special Deal – Tuesday to Friday Only (Save $65)</span>
-                    <span class="pricing-item__price">$375 – $420</span>
-                  </div>
-                  <p class="pricing-item__desc">from $375.00 Holiday Glow-Up: Balayage with complimentary Mist Hair Treatment OR Haircut &amp; Blow Dry. Hand-painted highlights for a sun-kissed, natural look. Includes toner &amp; styling. Limited time, Tues–Fri only.</p>
-                  <a href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVzO1Js8jlGXGQs07gAe5Sko" class="pricing-item__book" target="_blank" rel="noopener">Book Now</a>
-                </div>
-                <div class="pricing-item">
-                  <div class="pricing-item__header">
-                    <span class="pricing-item__name">All Over Colour Special Deal - Tuesday to Friday only (Save $35)</span>
-                    <span class="pricing-item__price">$195 – $260</span>
-                  </div>
-                  <p class="pricing-item__desc">from $195.00 All-Over Colour Special (Tues–Fri only). Includes FREE Mist Hair Treatment OR Haircut &amp; Blow Dry. Full colour transformation with premium Wella products, toner &amp; styling included.</p>
-                  <a href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV3YuKrD_7sTrdGKw9pkhjg8" class="pricing-item__book" target="_blank" rel="noopener">Book Now</a>
-                </div>
-                <div class="pricing-item">
-                  <div class="pricing-item__header">
-                    <span class="pricing-item__name">Full Head Foils Special Deal – Save $85)</span>
-                    <span class="pricing-item__price">$350 – $410</span>
-                  </div>
-                  <p class="pricing-item__desc">from $350.00 Full Head Foils Special (Tues–Fri only). Save $85+! Includes complimentary Mist Hair Treatment OR Haircut &amp; Blow Dry. Precision foiling for radiant, multi-dimensional highlights.</p>
-                  <a href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV2QQHpJ6hAgpy5YaNvslGa0" class="pricing-item__book" target="_blank" rel="noopener">Book Now</a>
-                </div>
-                <div class="pricing-item">
-                  <div class="pricing-item__header">
-                    <span class="pricing-item__name">Haircuts and Style (Tuesday to Friday only Only)</span>
-                    <span class="pricing-item__price">$99 – $125</span>
-                  </div>
-                  <p class="pricing-item__desc">New salon energy on Lonsdale Street — and a proper introduction for new faces.</p>
-                  <a href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV35KZ-62IFNvfTXjj-indc4" class="pricing-item__book" target="_blank" rel="noopener">Book Now</a>
-        </div>
-        </div>
-      </details>
+      <!-- Unified Services Card -->
+      <div class="services-card reveal">
 
       <!-- Service Category Cards -->
       <input type="radio" name="svc-tab" id="svc-tab-colouring" class="svc-tab-radio" checked>
       <input type="radio" name="svc-tab" id="svc-tab-cutting" class="svc-tab-radio">
       <input type="radio" name="svc-tab" id="svc-tab-treatments" class="svc-tab-radio">
-      <div class="service-tabs reveal">
+      <div class="service-tabs">
         <label for="svc-tab-colouring" class="service-tab">Colouring</label>
         <label for="svc-tab-cutting" class="service-tab">Cutting &amp; Blow Wave</label>
         <label for="svc-tab-treatments" class="service-tab">Treatments &amp; Styling</label>
@@ -2500,8 +2506,43 @@
               </details>
       </div>
 
+      </div><!-- /.services-card -->
+
+      <!-- Special Offers — elegant expandable strip -->
+      <details class="special-offers reveal">
+        <summary class="special-offers__bar">
+          <span class="special-offers__badge">✨ Special Offers</span>
+          <span class="special-offers__hint">Tues – Fri Deals &nbsp;·&nbsp; Tap to see</span>
+          <svg class="special-offers__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="special-offers__body">
+          <div class="special-offers__grid">
+            <a href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVzO1Js8jlGXGQs07gAe5Sko" class="special-offers__deal" target="_blank" rel="noopener">
+              <span class="special-offers__deal-name">Balayage Special</span>
+              <span class="special-offers__deal-price">from $375</span>
+              <span class="special-offers__deal-save">Save $65</span>
+            </a>
+            <a href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV3YuKrD_7sTrdGKw9pkhjg8" class="special-offers__deal" target="_blank" rel="noopener">
+              <span class="special-offers__deal-name">All Over Colour</span>
+              <span class="special-offers__deal-price">from $195</span>
+              <span class="special-offers__deal-save">Save $35</span>
+            </a>
+            <a href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV2QQHpJ6hAgpy5YaNvslGa0" class="special-offers__deal" target="_blank" rel="noopener">
+              <span class="special-offers__deal-name">Full Head Foils</span>
+              <span class="special-offers__deal-price">from $350</span>
+              <span class="special-offers__deal-save">Save $85</span>
+            </a>
+            <a href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV35KZ-62IFNvfTXjj-indc4" class="special-offers__deal" target="_blank" rel="noopener">
+              <span class="special-offers__deal-name">Cut &amp; Style</span>
+              <span class="special-offers__deal-price">from $99</span>
+              <span class="special-offers__deal-save">Tues–Fri</span>
+            </a>
+          </div>
+        </div>
+      </details>
+
       <div class="section-cta reveal" style="text-align:center; margin-top:40px;">
-        <a href="https://www.phorest.com/salon/hairavenue/book/service-selection" class="btn btn--primary" target="_blank" rel="noopener">View All Services & Book</a>
+        <a href="https://www.phorest.com/salon/hairavenue/book/service-selection" class="btn btn--primary" target="_blank" rel="noopener">View All Services &amp; Make Booking</a>
       </div>
     </div>
   </section>
@@ -2938,10 +2979,24 @@
 
     // ---- Scroll reveal animation ----
     // Elements start VISIBLE. We hide them with .reveal--hidden only after
-    // confirming IntersectionObserver exists, then reveal on scroll.
-    // This prevents blank pages if JS is slow on first load.
+    // confirming IntersectionObserver works. This prevents blank pages
+    // if JS is slow on first load.
     if ('IntersectionObserver' in window) {
       var revealElements = document.querySelectorAll('.reveal');
+
+      // Assign stagger delays to sibling .reveal elements within the same parent
+      // (e.g. why__card, team-card, faq-item) for a cascading effect.
+      var parentMap = new Map();
+      revealElements.forEach(function(el) {
+        var parent = el.parentElement;
+        if (!parentMap.has(parent)) parentMap.set(parent, 0);
+        var idx = parentMap.get(parent);
+        if (idx > 0) {
+          el.style.transitionDelay = (idx * 0.1) + 's';
+        }
+        parentMap.set(parent, idx + 1);
+      });
+
       var revealObserver = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
@@ -2949,13 +3004,12 @@
             revealObserver.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 
       // Hide elements that are NOT already in viewport, then observe
       revealElements.forEach(function(el) {
         var rect = el.getBoundingClientRect();
         if (rect.top > window.innerHeight) {
-          // Below viewport — safe to hide for animation
           el.classList.add('reveal--hidden');
         }
         revealObserver.observe(el);
