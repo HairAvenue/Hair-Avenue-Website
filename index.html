@@ -2981,129 +2981,164 @@
 
   <!-- ===== JAVASCRIPT ===== -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-    // ---- Navigation scroll effect ----
-    const nav = document.getElementById('nav');
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
+    /* ============================================================
+       MAIN INIT — wrapped in a function so we can call it reliably
+       whether DOMContentLoaded has already fired or not.
+       ============================================================ */
+    function hairAvenueInit() {
+      // Guard against double-init
+      if (window.__haInitDone) return;
+      window.__haInitDone = true;
 
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 60);
-    });
+      // ---- Navigation scroll effect ----
+      var nav = document.getElementById('nav');
+      var navToggle = document.getElementById('navToggle');
+      var navLinks = document.getElementById('navLinks');
 
-    // Mobile menu now uses pure CSS checkbox hack — no JS needed for toggle.
-    // Close menu when a nav link is clicked (uncheck the checkbox)
-    const navCheckbox = document.getElementById('navToggleChk');
-    if (navCheckbox) {
-      navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          navCheckbox.checked = false;
+      if (nav) {
+        window.addEventListener('scroll', function() {
+          nav.classList.toggle('scrolled', window.scrollY > 60);
         });
-      });
-    }
+        // Apply immediately in case page loaded already scrolled
+        nav.classList.toggle('scrolled', window.scrollY > 60);
+      }
 
-    // ---- Infinite scroll reviews: duplicate cards ----
-    const track = document.getElementById('reviewsTrack');
-    if (track) {
-      const cards = track.innerHTML;
-      track.innerHTML = cards + cards; // duplicate for seamless loop
-    }
+      // Mobile menu: close on link click
+      var navCheckbox = document.getElementById('navToggleChk');
+      if (navCheckbox && navLinks) {
+        navLinks.querySelectorAll('a').forEach(function(link) {
+          link.addEventListener('click', function() {
+            navCheckbox.checked = false;
+          });
+        });
+      }
 
-    // FAQ accordion now uses native <details>/<summary> — no JS needed.
+      // ---- Infinite scroll reviews: duplicate cards ----
+      var track = document.getElementById('reviewsTrack');
+      if (track && !track.dataset.duped) {
+        var cards = track.innerHTML;
+        track.innerHTML = cards + cards;
+        track.dataset.duped = '1';
+      }
 
-    // ---- Scroll reveal animation ----
-    // Elements start VISIBLE. We hide them with .reveal--hidden only after
-    // confirming IntersectionObserver works. This prevents blank pages
-    // if JS is slow on first load.
-    if ('IntersectionObserver' in window) {
-      var revealElements = document.querySelectorAll('.reveal');
+      // ---- Scroll reveal animation ----
+      if ('IntersectionObserver' in window) {
+        var revealElements = document.querySelectorAll('.reveal');
 
-      // Assign stagger delays to sibling .reveal elements within the same parent
-      // (e.g. why__card, team-card, faq-item) for a cascading effect.
-      var parentMap = new Map();
-      revealElements.forEach(function(el) {
-        var parent = el.parentElement;
-        if (!parentMap.has(parent)) parentMap.set(parent, 0);
-        var idx = parentMap.get(parent);
-        if (idx > 0) {
-          el.style.transitionDelay = (idx * 0.1) + 's';
-        }
-        parentMap.set(parent, idx + 1);
-      });
+        var parentMap = new Map();
+        revealElements.forEach(function(el) {
+          var parent = el.parentElement;
+          if (!parentMap.has(parent)) parentMap.set(parent, 0);
+          var idx = parentMap.get(parent);
+          if (idx > 0) {
+            el.style.transitionDelay = (idx * 0.1) + 's';
+          }
+          parentMap.set(parent, idx + 1);
+        });
 
-      var revealObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            revealObserver.unobserve(entry.target);
+        var revealObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+        revealElements.forEach(function(el) {
+          var rect = el.getBoundingClientRect();
+          if (rect.top > window.innerHeight) {
+            el.classList.add('reveal--hidden');
+          }
+          revealObserver.observe(el);
+        });
+      }
+
+      // ---- Smooth scroll for anchor links ----
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          var target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            var offset = 80;
+            var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: top, behavior: 'smooth' });
           }
         });
-      }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-
-      // Hide elements that are NOT already in viewport, then observe
-      revealElements.forEach(function(el) {
-        var rect = el.getBoundingClientRect();
-        if (rect.top > window.innerHeight) {
-          el.classList.add('reveal--hidden');
-        }
-        revealObserver.observe(el);
       });
+
+      /* Google Maps iframe fallback for local file:// viewing only */
+      (function() {
+        var mapFrame = document.getElementById('mapFrame');
+        var mapFallback = document.getElementById('mapFallback');
+        if (mapFrame && mapFallback && window.location.protocol === 'file:') {
+          var showFallback = function() {
+            mapFrame.style.display = 'none';
+            mapFallback.style.display = 'block';
+          };
+          mapFrame.onerror = showFallback;
+          setTimeout(function() { showFallback(); }, 3000);
+        }
+      })();
+
+      /* Pricing sub-section toggle */
+      document.querySelectorAll('.pricing-tabs__subhead').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', !expanded);
+          var body = this.nextElementSibling;
+          if (!expanded) {
+            body.classList.add('pricing-tabs__subbody--open');
+            body.style.maxHeight = body.scrollHeight + 'px';
+          } else {
+            body.style.maxHeight = '0';
+            body.classList.remove('pricing-tabs__subbody--open');
+          }
+        });
+      });
+
+      /* Carousels: stop auto-scroll on touch, enable manual swipe */
+      (function() {
+        var wrappers = document.querySelectorAll('.expect-scroll-wrapper, .reviews__track-wrapper');
+        wrappers.forEach(function(wrapper) {
+          wrapper.addEventListener('touchstart', function() {
+            wrapper.classList.add('is-touched');
+          }, { passive: true });
+        });
+      })();
+    } // end hairAvenueInit
+
+    /* ============================================================
+       RELIABLE INIT: Run immediately if DOM is ready, otherwise wait.
+       This fixes the bug where DOMContentLoaded has already fired
+       on cached / bookmark / bfcache loads, so the listener
+       never triggers and the page appears blank.
+       ============================================================ */
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', hairAvenueInit);
+    } else {
+      // DOM already parsed — run init now
+      hairAvenueInit();
     }
 
-    // ---- Smooth scroll for anchor links ----
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          const offset = 80;
-          const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-          window.scrollTo({ top, behavior: 'smooth' });
-        }
-      });
-    });
-
-    /* Google Maps iframe fallback for local file:// viewing only */
-    (function() {
-      var mapFrame = document.getElementById('mapFrame');
-      var mapFallback = document.getElementById('mapFallback');
-      if (mapFrame && mapFallback && window.location.protocol === 'file:') {
-        var showFallback = function() {
-          mapFrame.style.display = 'none';
-          mapFallback.style.display = 'block';
-        };
-        mapFrame.onerror = showFallback;
-        setTimeout(function() { showFallback(); }, 3000);
+    /* ============================================================
+       PAGESHOW HANDLER — registered OUTSIDE of init so it always
+       exists, even if DOMContentLoaded was missed. Handles:
+       1. bfcache restores (e.persisted === true)
+       2. Any page load where init somehow didn't run
+       ============================================================ */
+    window.addEventListener('pageshow', function(e) {
+      // On bfcache restore, show all hidden reveal elements immediately
+      if (e.persisted) {
+        document.querySelectorAll('.reveal.reveal--hidden').forEach(function(el) {
+          el.classList.add('visible');
+        });
       }
-    })();
-
-    /* Pricing sub-section toggle */
-    document.querySelectorAll('.pricing-tabs__subhead').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        var expanded = this.getAttribute('aria-expanded') === 'true';
-        this.setAttribute('aria-expanded', !expanded);
-        var body = this.nextElementSibling;
-        if (!expanded) {
-          body.classList.add('pricing-tabs__subbody--open');
-          body.style.maxHeight = body.scrollHeight + 'px';
-        } else {
-          body.style.maxHeight = '0';
-          body.classList.remove('pricing-tabs__subbody--open');
-        }
-      });
+      // Safety net: if init never ran (edge case), run it now
+      if (!window.__haInitDone) {
+        hairAvenueInit();
+      }
     });
-
-    /* Carousels: stop auto-scroll on touch, enable manual swipe */
-    (function() {
-      var wrappers = document.querySelectorAll('.expect-scroll-wrapper, .reviews__track-wrapper');
-      wrappers.forEach(function(wrapper) {
-        wrapper.addEventListener('touchstart', function() {
-          wrapper.classList.add('is-touched');
-        }, { passive: true });
-      });
-    })();
-
-    }); // end DOMContentLoaded
   </script>
 </body>
 </html>
