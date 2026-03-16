@@ -10,6 +10,9 @@
   <meta name="robots" content="index, follow">
   <meta name="author" content="Hair Avenue Braddon">
   <link rel="canonical" href="https://hairavenue.com.au/">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+  <meta property="og:image" content="https://hairavenue.com.au/logo.png">
   <meta property="og:title" content="Hair Avenue Braddon — Colour, Cuts &amp; Hair Health Specialists">
   <meta property="og:description" content="Braddon's top-rated salon. 4.9★ from 111+ reviews. Colour, balayage, hair botox, nanoplasty &amp; advanced treatments. Women-owned, LGBTQ+ friendly.">
   <meta property="og:type" content="website">
@@ -1173,22 +1176,24 @@
     .footer__copy { font-size: 0.8rem; }
 
     /* ===== ANIMATIONS / SCROLL REVEAL ===== */
-    /* Reveal elements are VISIBLE by default. JS adds .reveal--hidden
-       only after confirming IntersectionObserver works. This prevents
-       blank pages on slow first-load (iPhone Safari with large files). */
-    .reveal.reveal--hidden {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
-      will-change: opacity, transform;
+    /* Pure CSS fade-in on page load. No JavaScript involved — cannot break
+       on bookmark loads, bfcache restores, or any Safari caching behaviour. */
+    @keyframes revealFadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
-    .reveal.reveal--hidden.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .reveal {
+      animation: revealFadeIn 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) both;
     }
+    /* Stagger siblings for a gentle cascade effect */
+    .reveal:nth-child(2) { animation-delay: 0.1s; }
+    .reveal:nth-child(3) { animation-delay: 0.2s; }
+    .reveal:nth-child(4) { animation-delay: 0.3s; }
+    .reveal:nth-child(5) { animation-delay: 0.35s; }
+    .reveal:nth-child(n+6) { animation-delay: 0.4s; }
     /* Reduce motion for users who prefer it */
     @media (prefers-reduced-motion: reduce) {
-      .reveal.reveal--hidden { transition-duration: 0.01s; transform: none; }
+      .reveal { animation-duration: 0.01s; animation-delay: 0s; }
     }
 
     /* ===== CAREERS / RECRUITMENT ===== */
@@ -3021,38 +3026,7 @@
         track.dataset.duped = '1';
       }
 
-      // ---- Scroll reveal animation ----
-      if ('IntersectionObserver' in window) {
-        var revealElements = document.querySelectorAll('.reveal');
-
-        var parentMap = new Map();
-        revealElements.forEach(function(el) {
-          var parent = el.parentElement;
-          if (!parentMap.has(parent)) parentMap.set(parent, 0);
-          var idx = parentMap.get(parent);
-          if (idx > 0) {
-            el.style.transitionDelay = (idx * 0.1) + 's';
-          }
-          parentMap.set(parent, idx + 1);
-        });
-
-        var revealObserver = new IntersectionObserver(function(entries) {
-          entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-              revealObserver.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-
-        revealElements.forEach(function(el) {
-          var rect = el.getBoundingClientRect();
-          if (rect.top > window.innerHeight) {
-            el.classList.add('reveal--hidden');
-          }
-          revealObserver.observe(el);
-        });
-      }
+      // Scroll reveal is now pure CSS — no JS needed.
 
       // ---- Smooth scroll for anchor links ----
       document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
@@ -3121,23 +3095,9 @@
       hairAvenueInit();
     }
 
-    /* ============================================================
-       PAGESHOW HANDLER — registered OUTSIDE of init so it always
-       exists, even if DOMContentLoaded was missed. Handles:
-       1. bfcache restores (e.persisted === true)
-       2. Any page load where init somehow didn't run
-       ============================================================ */
-    window.addEventListener('pageshow', function(e) {
-      // On bfcache restore, show all hidden reveal elements immediately
-      if (e.persisted) {
-        document.querySelectorAll('.reveal.reveal--hidden').forEach(function(el) {
-          el.classList.add('visible');
-        });
-      }
-      // Safety net: if init never ran (edge case), run it now
-      if (!window.__haInitDone) {
-        hairAvenueInit();
-      }
+    /* Safety net: if init never ran, pageshow will catch it */
+    window.addEventListener('pageshow', function() {
+      if (!window.__haInitDone) { hairAvenueInit(); }
     });
   </script>
 </body>
