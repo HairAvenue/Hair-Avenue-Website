@@ -8,8 +8,8 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="upgrade-insecure-requests" http-equiv="Content-Security-Policy"/>
 <title>Hair Avenue Braddon — Colour, Cuts &amp; Hair Health Specialists | Canberra Hair Salon</title>
-<meta content="Hair Avenue Braddon — top-rated salon for colour, balayage, hair botox &amp; nanoplasty. 4.9★ from 127+ Google reviews. Book online now." name="description"/>
-<meta content="hair salon Braddon, hairdresser Canberra, hair colour Canberra, balayage Canberra, foils Canberra, highlights Canberra, hair botox Canberra, nanoplasty Canberra, keratin treatment Canberra, best hairdresser Canberra, women haircut Canberra, men haircut Braddon, grey blending Canberra, hair extensions Canberra, bridal hair Canberra, LGBTQ friendly salon Canberra, kids haircut Canberra, micro mist treatment Canberra, hair health specialist Canberra, women-owned salon Braddon" name="keywords"/>
+<meta content="Hair Avenue Braddon — top-rated salon for colour, balayage, hair smoothfiller &amp; nanoplasty. 4.9★ from 127+ Google reviews. Book online now." name="description"/>
+<meta content="hair salon Braddon, hairdresser Canberra, hair colour Canberra, balayage Canberra, foils Canberra, highlights Canberra, hair smoothfiller Canberra, nanoplasty Canberra, keratin treatment Canberra, best hairdresser Canberra, women haircut Canberra, men haircut Braddon, grey blending Canberra, hair extensions Canberra, bridal hair Canberra, LGBTQ friendly salon Canberra, kids haircut Canberra, micro mist treatment Canberra, hair health specialist Canberra, women-owned salon Braddon" name="keywords"/>
 <meta content="index, follow" name="robots"/>
 <meta content="Hair Avenue Braddon" name="author"/>
 <link href="https://hairavenue.com.au/" rel="canonical"/>
@@ -17,7 +17,7 @@
 <link href="logo.png" rel="apple-touch-icon"/>
 <meta content="https://hairavenue.com.au/logo.png" property="og:image"/>
 <meta content="Hair Avenue Braddon — Colour, Cuts &amp; Hair Health Specialists" property="og:title"/>
-<meta content="Braddon's top-rated salon. 4.9★ from 127+ reviews. Colour, balayage, hair botox, nanoplasty &amp; advanced treatments. Women-owned, LGBTQ+ friendly." property="og:description"/>
+<meta content="Braddon's top-rated salon. 4.9★ from 127+ reviews. Colour, balayage, hair smoothfiller, nanoplasty &amp; advanced treatments. Women-owned, LGBTQ+ friendly." property="og:description"/>
 <meta content="website" property="og:type"/>
 <meta content="https://hairavenue.com.au/" property="og:url"/>
 <meta content="en_AU" property="og:locale"/>
@@ -28,10 +28,10 @@
     "@context": "https://schema.org",
     "@type": "HairSalon",
     "name": "Hair Avenue Braddon",
-    "description": "Braddon's top-rated hair salon specialising in colour, balayage, hair botox, nanoplasty, and advanced hair health treatments. Women-owned, LGBTQ+ friendly.",
+    "description": "Braddon's top-rated hair salon specialising in colour, balayage, hair smoothfiller, nanoplasty, and advanced hair health treatments. Women-owned, LGBTQ+ friendly.",
     "image": "https://hairavenue.com.au/logo.png",
     "url": "https://hairavenue.com.au",
-    "knowsAbout": ["hair botox", "nanoplasty", "micro mist treatment", "balayage", "hair colour", "hair health treatments"],
+    "knowsAbout": ["hair smoothfiller", "nanoplasty", "micro mist treatment", "balayage", "hair colour", "hair health treatments"],
     "telephone": "+61449801937",
     "email": "hairavenueatbraddon@gmail.com",
     "address": {
@@ -89,7 +89,7 @@
       { "@type": "Question", "name": "What payment methods does Hair Avenue accept?", "acceptedAnswer": { "@type": "Answer", "text": "We accept cash, all major credit and debit cards, EFTPOS, and contactless payments including Apple Pay and Google Pay." }},
       { "@type": "Question", "name": "Does Hair Avenue offer a complimentary consultation?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely! We offer free consultations for colour services and major changes. Book a Complimentary Consultation through our online booking system." }},
       { "@type": "Question", "name": "Is Hair Avenue LGBTQ+ friendly?", "acceptedAnswer": { "@type": "Answer", "text": "100%. Hair Avenue is a proudly inclusive, LGBTQ+ friendly salon. Everyone is welcome and celebrated here." }},
-      { "@type": "Question", "name": "What is hair botox and how long does it last?", "acceptedAnswer": { "@type": "Answer", "text": "Hair botox is a deep conditioning treatment that repairs damage, eliminates frizz, and restores shine. Formaldehyde-free and safe for colour-treated hair. Results last 8-12 weeks." }},
+      { "@type": "Question", "name": "What is Hair SmoothFiller and how long does it last?", "acceptedAnswer": { "@type": "Answer", "text": "Hair SmoothFiller is a deep conditioning treatment that repairs damage, eliminates frizz, and restores shine. Formaldehyde-free and safe for colour-treated hair. Results last 8-12 weeks." }},
       { "@type": "Question", "name": "What is nanoplasty?", "acceptedAnswer": { "@type": "Answer", "text": "Nanoplasty is an advanced smoothing treatment using nanotechnology to eliminate frizz and add lasting shine without harsh chemicals. Ideal for curly, wavy, or unruly hair." }},
       { "@type": "Question", "name": "Do you do kids haircuts?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! We welcome children and families. Our team creates a relaxed, fun environment so kids feel comfortable." }}
     ]
@@ -1560,7 +1560,8 @@
     #svc-tab-botox:checked ~ .service-tabs label[for="svc-tab-botox"],
     #svc-tab-nanoplasty:checked ~ .service-tabs label[for="svc-tab-nanoplasty"],
     #svc-tab-tinsel:checked ~ .service-tabs label[for="svc-tab-tinsel"],
-    #svc-tab-offers:checked ~ .service-tabs label[for="svc-tab-offers"] {
+    #svc-tab-offers:checked ~ .service-tabs label[for="svc-tab-offers"],
+    #svc-tab-regrowth:checked ~ .service-tabs label[for="svc-tab-regrowth"] {
       color: #1d1d1f;
       background: linear-gradient(135deg, #e8d5a8, #c9a96e);
       border: 1.5px solid rgba(201,169,110,0.5);
@@ -1568,6 +1569,7 @@
       transform: translateY(-1px);
     }
     #svc-tab-colouring:checked ~ #panel-colouring,
+    #svc-tab-regrowth:checked ~ #panel-regrowth,
     #svc-tab-highlights:checked ~ #panel-highlights,
     #svc-tab-cutting:checked ~ #panel-cutting,
     #svc-tab-blowwave:checked ~ #panel-blowwave,
@@ -1580,6 +1582,7 @@
     /* Category indicator text — show/hide based on active tab */
     .indicator-text { display: none; }
     #svc-tab-colouring:checked ~ .service-category-indicator #ind-colouring,
+    #svc-tab-regrowth:checked ~ .service-category-indicator #ind-regrowth,
     #svc-tab-highlights:checked ~ .service-category-indicator #ind-highlights,
     #svc-tab-cutting:checked ~ .service-category-indicator #ind-cutting,
     #svc-tab-blowwave:checked ~ .service-category-indicator #ind-blowwave,
@@ -1919,6 +1922,7 @@
       .tab-short { display: inline; }
       /* Active tab: show full name, expand */
       #svc-tab-colouring:checked ~ .service-tabs label[for="svc-tab-colouring"],
+      #svc-tab-regrowth:checked ~ .service-tabs label[for="svc-tab-regrowth"],
       #svc-tab-highlights:checked ~ .service-tabs label[for="svc-tab-highlights"],
       #svc-tab-cutting:checked ~ .service-tabs label[for="svc-tab-cutting"],
       #svc-tab-blowwave:checked ~ .service-tabs label[for="svc-tab-blowwave"],
@@ -1935,6 +1939,7 @@
       }
       /* Show full name on active tab, hide short */
       #svc-tab-colouring:checked ~ .service-tabs label[for="svc-tab-colouring"] .tab-full,
+      #svc-tab-regrowth:checked ~ .service-tabs label[for="svc-tab-regrowth"] .tab-full,
       #svc-tab-highlights:checked ~ .service-tabs label[for="svc-tab-highlights"] .tab-full,
       #svc-tab-cutting:checked ~ .service-tabs label[for="svc-tab-cutting"] .tab-full,
       #svc-tab-blowwave:checked ~ .service-tabs label[for="svc-tab-blowwave"] .tab-full,
@@ -1943,6 +1948,7 @@
       #svc-tab-tinsel:checked ~ .service-tabs label[for="svc-tab-tinsel"] .tab-full,
       #svc-tab-offers:checked ~ .service-tabs label[for="svc-tab-offers"] .tab-full { display: inline; }
       #svc-tab-colouring:checked ~ .service-tabs label[for="svc-tab-colouring"] .tab-short,
+      #svc-tab-regrowth:checked ~ .service-tabs label[for="svc-tab-regrowth"] .tab-short,
       #svc-tab-highlights:checked ~ .service-tabs label[for="svc-tab-highlights"] .tab-short,
       #svc-tab-cutting:checked ~ .service-tabs label[for="svc-tab-cutting"] .tab-short,
       #svc-tab-blowwave:checked ~ .service-tabs label[for="svc-tab-blowwave"] .tab-short,
@@ -2204,7 +2210,7 @@
 <div aria-hidden="true" class="why__icon"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg></div>
 <div class="why__card-info">
 <h3 class="why__card-title">Hair Health Experts</h3>
-<p class="why__card-text">Hair botox, nanoplasty &amp; micro mist — treatments most salons can't offer</p>
+<p class="why__card-text">Hair SmoothFiller, nanoplasty &amp; micro mist — advanced care most salons can't offer</p>
 </div>
 </div>
 <div class="why__card reveal">
@@ -2328,6 +2334,7 @@
 <div class="services-card reveal">
 <!-- Service Category Cards -->
 <input checked="" class="svc-tab-radio" id="svc-tab-colouring" name="svc-tab" type="radio"/>
+<input class="svc-tab-radio" id="svc-tab-regrowth" name="svc-tab" type="radio"/>
 <input class="svc-tab-radio" id="svc-tab-highlights" name="svc-tab" type="radio"/>
 <input class="svc-tab-radio" id="svc-tab-cutting" name="svc-tab" type="radio"/>
 <input class="svc-tab-radio" id="svc-tab-blowwave" name="svc-tab" type="radio"/>
@@ -2336,21 +2343,23 @@
 <input class="svc-tab-radio" id="svc-tab-tinsel" name="svc-tab" type="radio"/>
 <input class="svc-tab-radio" id="svc-tab-offers" name="svc-tab" type="radio"/>
 <div class="service-tabs">
-<label class="service-tab" for="svc-tab-colouring"><span class="tab-full">Colouring &amp; Regrowth</span><span class="tab-short">Colour</span></label>
+<label class="service-tab" for="svc-tab-colouring"><span class="tab-full">Colouring</span><span class="tab-short">Colour</span></label>
+<label class="service-tab" for="svc-tab-regrowth"><span class="tab-full">Regrowth</span><span class="tab-short">Regrowth</span></label>
 <label class="service-tab" for="svc-tab-highlights"><span class="tab-full">Highlight &amp; Balayage</span><span class="tab-short">Highlights</span></label>
 <label class="service-tab" for="svc-tab-cutting"><span class="tab-full">Cutting</span><span class="tab-short">Cuts</span></label>
 <label class="service-tab" for="svc-tab-blowwave"><span class="tab-full">Blow Wave &amp; Upstyle</span><span class="tab-short">Blowwave</span></label>
-<label class="service-tab" for="svc-tab-botox"><span class="tab-full">Hair Botox &amp; Scalp Detox</span><span class="tab-short">Hair Botox</span></label>
+<label class="service-tab" for="svc-tab-botox"><span class="tab-full">Hair SmoothFiller &amp; Scalp Detox</span><span class="tab-short">Hair SmoothFiller</span></label>
 <label class="service-tab" for="svc-tab-nanoplasty"><span class="tab-full">Nanoplasty &amp; Perm</span><span class="tab-short">Nanoplasty</span></label>
 <label class="service-tab" for="svc-tab-tinsel"><span class="tab-full">Hair Tinsel &amp; Extensions</span><span class="tab-short">Tinsel</span></label>
-<label class="service-tab service-tab--offers" for="svc-tab-offers"><span class="tab-full">&#10024; Special Offers</span><span class="tab-short">&#10024; Special Offers</span></label>
+<label class="service-tab" for="svc-tab-offers"><span class="tab-full">Special Offers</span><span class="tab-short">Offers</span></label>
 </div>
 <div class="service-category-indicator" aria-live="polite">
-<span class="indicator-text" id="ind-colouring">Colouring &amp; Regrowth</span>
+<span class="indicator-text" id="ind-colouring">Colouring</span>
+<span class="indicator-text" id="ind-regrowth">Regrowth</span>
 <span class="indicator-text" id="ind-highlights">Highlight &amp; Balayage</span>
 <span class="indicator-text" id="ind-cutting">Cutting</span>
 <span class="indicator-text" id="ind-blowwave">Blow Wave &amp; Upstyle</span>
-<span class="indicator-text" id="ind-botox">Hair Botox &amp; Scalp Detox</span>
+<span class="indicator-text" id="ind-botox">Hair SmoothFiller &amp; Scalp Detox</span>
 <span class="indicator-text" id="ind-nanoplasty">Nanoplasty &amp; Perm</span>
 <span class="indicator-text" id="ind-tinsel">Hair Tinsel &amp; Extensions</span>
 <span class="indicator-text" id="ind-offers">Special Offers</span>
@@ -2371,22 +2380,6 @@
 </div>
 <p class="pricing-item__desc">Transform your hair with our premium All-Over Colour service using top-quality Wella products for rich, long-lasting vibrancy. Every session includes a personalised consultation, luxurious shampoo, expert colour application &amp; beautiful styling.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVxF_C_4mQMY3w_h9tMAd_0s" rel="noopener" target="_blank">Book Now</a>
-</div>
-<div class="pricing-item">
-<div class="pricing-item__header">
-<span class="pricing-item__name">Regrowth</span>
-<span class="pricing-item__price">from $199</span>
-</div>
-<p class="pricing-item__desc">Seamlessly blend new growth with your existing colour for a flawless, natural finish. Ideal for regular maintenance to keep your shade looking fresh. Includes shampoo, professional regrowth colour, toner &amp; a polished blow wave.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-2CYQcH03edgARkSEc1xXo" rel="noopener" target="_blank">Book Now</a>
-</div>
-<div class="pricing-item">
-<div class="pricing-item__header">
-<span class="pricing-item__name">Regrowth + All Over Toner Package</span>
-<span class="pricing-item__price">from $230</span>
-</div>
-<p class="pricing-item__desc">Revitalise your look with expert regrowth colour paired with a complete toner refresh. This package delivers seamless, vibrant coverage from roots to ends, ensuring your shade stays rich, even and beautifully blended throughout.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV7cS6yvWGVZdj26jjsS84r8" rel="noopener" target="_blank">Book Now</a>
 </div>
 </div>
 </details>
@@ -2424,6 +2417,27 @@
 </div>
 </div>
 </details>
+</div>
+
+<div class="service-panel" id="panel-regrowth">
+<div class="pricing-subcat__list pricing-subcat__list--open">
+<div class="pricing-item">
+<div class="pricing-item__header">
+<span class="pricing-item__name">Regrowth</span>
+<span class="pricing-item__price">from $199</span>
+</div>
+<p class="pricing-item__desc">Seamlessly blend new growth with your existing colour for a flawless, natural finish. Ideal for regular maintenance to keep your shade looking fresh. Includes shampoo, professional regrowth colour, toner &amp; a polished blow wave.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-2CYQcH03edgARkSEc1xXo" rel="noopener" target="_blank">Book Now</a>
+</div>
+<div class="pricing-item">
+<div class="pricing-item__header">
+<span class="pricing-item__name">Regrowth + All Over Toner Package</span>
+<span class="pricing-item__price">from $230</span>
+</div>
+<p class="pricing-item__desc">Revitalise your look with expert regrowth colour paired with a complete toner refresh. This package delivers seamless, vibrant coverage from roots to ends, ensuring your shade stays rich, even and beautifully blended throughout.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV7cS6yvWGVZdj26jjsS84r8" rel="noopener" target="_blank">Book Now</a>
+</div>
+</div>
 </div>
 
 <div class="service-panel" id="panel-highlights">
@@ -2718,7 +2732,7 @@
 <div class="pricing-subcat__list pricing-subcat__list--open">
 <div class="pricing-item">
 <div class="pricing-item__header">
-<span class="pricing-item__name">Hair Botox</span>
+<span class="pricing-item__name">Hair SmoothFiller</span>
 <span class="pricing-item__price">from $299</span>
 </div>
 <p class="pricing-item__desc">An advanced deep conditioning treatment that restores strength, brilliant shine and silky smoothness to tired, stressed hair. Effectively reduces frizz and repairs damage from within, leaving your locks revitalised and healthier.</p>
@@ -3136,10 +3150,10 @@ window.addEventListener('load', function() {
 </details>
 <details class="faq-item reveal">
 <summary class="faq-item__q">
-            What is hair botox and how long does it last?
+            What is Hair SmoothFiller and how long does it last?
             <span class="faq-item__icon">+</span>
 </summary>
-<div class="faq-item__a"><div class="faq-item__a-inner">Hair botox is a deep conditioning treatment that infuses your hair with proteins and vitamins, repairing damage, eliminating frizz, and restoring incredible shine. It's formaldehyde-free and safe for colour-treated hair. Results typically last 8-12 weeks. It's one of our most popular treatments and a service most Canberra salons don't offer.</div></div>
+<div class="faq-item__a"><div class="faq-item__a-inner">Hair SmoothFiller is a deep conditioning treatment that infuses your hair with proteins and vitamins, repairing damage, eliminating frizz, and restoring incredible shine. It's formaldehyde-free and safe for colour-treated hair. Results typically last 8-12 weeks. It's one of our most popular services and something most Canberra salons don't offer.</div></div>
 </details>
 <details class="faq-item reveal">
 <summary class="faq-item__q">
