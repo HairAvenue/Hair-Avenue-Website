@@ -1513,13 +1513,13 @@
     }
     .service-tab {
       font-family: var(--ff-display);
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 600;
       color: #86868b;
       background: rgba(255,255,255,0.5);
       border: 1.5px solid rgba(201,169,110,0.2);
       border-radius: 50px;
-      padding: 12px 28px;
+      padding: 14px 28px;
       cursor: pointer;
       transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
       letter-spacing: 0.02em;
@@ -1534,18 +1534,6 @@
     }
     .service-tab:hover { color: #2E5339; background: rgba(255,255,255,0.85); border-color: rgba(201,169,110,0.4); transform: translateY(-1px); box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
     .service-tab:active { transform: translateY(0) scale(0.97); }
-    /* Special Offers tab — distinct styling */
-    .service-tab--offers {
-      background: transparent !important;
-      border: 1.5px dashed rgba(201,169,110,0.5) !important;
-      color: #b8943e !important;
-      font-weight: 600 !important;
-    }
-    .service-tab--offers:hover {
-      background: rgba(201,169,110,0.06) !important;
-      border-color: rgba(201,169,110,0.65) !important;
-      border-style: solid !important;
-    }
     .tab-short { display: none; }
     .tab-full { display: inline; }
 
@@ -1914,9 +1902,9 @@
       /* Services — compact 2-column grid */
       .services__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
       /* Service tabs — horizontal scroll on mobile, left-aligned so first tabs are fully visible */
-      .services-card .service-tabs { gap: 8px; padding: 10px; background: rgba(46,83,57,0.06); border-radius: 16px; border-bottom: none; }
+      .services-card .service-tabs { display: grid !important; grid-template-columns: repeat(3, 1fr); gap: 5px; padding: 8px; background: rgba(46,83,57,0.06); border-radius: 16px; border-bottom: none; }
       .services-card .service-tabs::-webkit-scrollbar { display: none; }
-      .services-card .service-tab { font-size: 0.78rem; font-weight: 600; padding: 12px 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; border: 1.5px solid rgba(201,169,110,0.2); margin-bottom: 0; border-radius: 50px; letter-spacing: 0.01em; text-align: center; background: rgba(255,255,255,0.5); transition: all 0.3s ease; box-sizing: border-box; }
+      .services-card .service-tab { font-size: clamp(0.48rem, 1.8vw, 0.78rem); font-weight: 600; padding: 9px 2px; white-space: nowrap; overflow: visible; border: 1.5px solid rgba(201,169,110,0.2); margin-bottom: 0; border-radius: 50px; letter-spacing: -0.02em; text-align: center; background: rgba(255,255,255,0.5); transition: all 0.3s ease; box-sizing: border-box; min-width: 0; }
       .services-card .service-tab::after { display: none; }
       .tab-full { display: none; }
       .tab-short { display: inline; }
@@ -2097,7 +2085,7 @@
 
       /* Services single column on very small screens */
       .services__grid { grid-template-columns: 1fr; gap: 10px; }
-      .services-card .service-tab { font-size: 0.8rem; font-weight: 600; padding: 9px 14px; border-radius: 50px; border: none; margin-bottom: 0; }
+      .services-card .service-tab { font-size: 0.78rem; font-weight: 600; padding: 11px 8px; border-radius: 50px; border: 1.5px solid rgba(201,169,110,0.2); margin-bottom: 0; }
 
       #new-clients [style*="font-size: 1.6rem"] { font-size: 1.3rem !important; }
 
@@ -2133,9 +2121,6 @@
         display: grid !important;
         grid-template-columns: repeat(3, 1fr) !important;
         gap: 8px !important;
-      }
-      .services-card .service-tab--offers {
-        grid-column: 2 / 4 !important;
       }
       /* Always show short names on mobile */
       .service-tab .tab-full { display: none !important; }
@@ -2333,7 +2318,8 @@
 <!-- Unified Services Card -->
 <div class="services-card reveal">
 <!-- Service Category Cards -->
-<input checked="" class="svc-tab-radio" id="svc-tab-colouring" name="svc-tab" type="radio"/>
+<input checked="" class="svc-tab-radio" id="svc-tab-offers" name="svc-tab" type="radio"/>
+<input class="svc-tab-radio" id="svc-tab-colouring" name="svc-tab" type="radio"/>
 <input class="svc-tab-radio" id="svc-tab-regrowth" name="svc-tab" type="radio"/>
 <input class="svc-tab-radio" id="svc-tab-highlights" name="svc-tab" type="radio"/>
 <input class="svc-tab-radio" id="svc-tab-cutting" name="svc-tab" type="radio"/>
@@ -2341,37 +2327,30 @@
 <input class="svc-tab-radio" id="svc-tab-botox" name="svc-tab" type="radio"/>
 <input class="svc-tab-radio" id="svc-tab-nanoplasty" name="svc-tab" type="radio"/>
 <input class="svc-tab-radio" id="svc-tab-tinsel" name="svc-tab" type="radio"/>
-<input class="svc-tab-radio" id="svc-tab-offers" name="svc-tab" type="radio"/>
 <div class="service-tabs">
+<label class="service-tab" for="svc-tab-offers"><span class="tab-full">Special Offers (Tue &#8211; Fri Only)</span><span class="tab-short">Tue-Fri Offers</span></label>
 <label class="service-tab" for="svc-tab-colouring"><span class="tab-full">Colouring</span><span class="tab-short">Colour</span></label>
 <label class="service-tab" for="svc-tab-regrowth"><span class="tab-full">Regrowth</span><span class="tab-short">Regrowth</span></label>
 <label class="service-tab" for="svc-tab-highlights"><span class="tab-full">Highlight &amp; Balayage</span><span class="tab-short">Highlights</span></label>
-<label class="service-tab" for="svc-tab-cutting"><span class="tab-full">Cutting</span><span class="tab-short">Cuts</span></label>
 <label class="service-tab" for="svc-tab-blowwave"><span class="tab-full">Blow Wave &amp; Upstyle</span><span class="tab-short">Blowwave</span></label>
-<label class="service-tab" for="svc-tab-botox"><span class="tab-full">Hair SmoothFiller &amp; Scalp Detox</span><span class="tab-short">Hair SmoothFiller</span></label>
+<label class="service-tab" for="svc-tab-cutting"><span class="tab-full">Cutting</span><span class="tab-short">Cuts</span></label>
+<label class="service-tab" for="svc-tab-botox"><span class="tab-full">Hair SmoothFiller &amp; Scalp Detox</span><span class="tab-short">SmoothFiller</span></label>
 <label class="service-tab" for="svc-tab-nanoplasty"><span class="tab-full">Nanoplasty &amp; Perm</span><span class="tab-short">Nanoplasty</span></label>
-<label class="service-tab" for="svc-tab-tinsel"><span class="tab-full">Hair Tinsel &amp; Extensions</span><span class="tab-short">Tinsel</span></label>
-<label class="service-tab" for="svc-tab-offers"><span class="tab-full">Special Offers</span><span class="tab-short">Offers</span></label>
+<label class="service-tab" for="svc-tab-tinsel"><span class="tab-full">Upstyle</span><span class="tab-short">Upstyle</span></label>
 </div>
 <div class="service-category-indicator" aria-live="polite">
 <span class="indicator-text" id="ind-colouring">Colouring</span>
 <span class="indicator-text" id="ind-regrowth">Regrowth</span>
-<span class="indicator-text" id="ind-highlights">Highlight &amp; Balayage</span>
+<span class="indicator-text" id="ind-highlights">Highlights and Foils</span>
+<span class="indicator-text" id="ind-blowwave">Blowwave</span>
 <span class="indicator-text" id="ind-cutting">Cutting</span>
-<span class="indicator-text" id="ind-blowwave">Blow Wave &amp; Upstyle</span>
-<span class="indicator-text" id="ind-botox">Hair SmoothFiller &amp; Scalp Detox</span>
+<span class="indicator-text" id="ind-botox">SmoothFiller and Mist Hair Treatment</span>
 <span class="indicator-text" id="ind-nanoplasty">Nanoplasty &amp; Perm</span>
-<span class="indicator-text" id="ind-tinsel">Hair Tinsel &amp; Extensions</span>
-<span class="indicator-text" id="ind-offers">Special Offers</span>
+<span class="indicator-text" id="ind-tinsel">Upstyle &amp; Hair Tinsels</span>
+<span class="indicator-text" id="ind-offers">Tue &#8211; Fri Only Special Offers</span>
 </div>
 <!-- All Service Panels -->
 <div class="service-panel" id="panel-colouring">
-<details class="pricing-subcat">
-<summary class="pricing-subcat__toggle"><span class="pricing-subcat__toggle-inner">
-<span>Colour</span>
-<svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="6 9 12 15 18 9"></polyline></svg>
-</span>
-</summary>
 <div class="pricing-subcat__list pricing-subcat__list--open">
 <div class="pricing-item">
 <div class="pricing-item__header">
@@ -2381,32 +2360,6 @@
 <p class="pricing-item__desc">Transform your hair with our premium All-Over Colour service using top-quality Wella products for rich, long-lasting vibrancy. Every session includes a personalised consultation, luxurious shampoo, expert colour application &amp; beautiful styling.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVxF_C_4mQMY3w_h9tMAd_0s" rel="noopener" target="_blank">Book Now</a>
 </div>
-</div>
-</details>
-<details class="pricing-subcat">
-<summary class="pricing-subcat__toggle"><span class="pricing-subcat__toggle-inner">
-<span>Grey Blending</span>
-<svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="6 9 12 15 18 9"></polyline></svg>
-</span>
-</summary>
-<div class="pricing-subcat__list pricing-subcat__list--open">
-<div class="pricing-item">
-<div class="pricing-item__header">
-<span class="pricing-item__name">Grey Blending</span>
-<span class="pricing-item__price">from $390</span>
-</div>
-<p class="pricing-item__desc">Embrace your grey and make it truly gorgeous. We use gentle highlights or demi-permanent colour to soften and blend silver tones seamlessly, giving you a natural, sophisticated and beautifully low-maintenance result every time.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV6mGnLVeD6QbatjKTtZVU30" rel="noopener" target="_blank">Book Now</a>
-</div>
-</div>
-</details>
-<details class="pricing-subcat">
-<summary class="pricing-subcat__toggle"><span class="pricing-subcat__toggle-inner">
-<span>Gloss &amp; Toner</span>
-<svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="6 9 12 15 18 9"></polyline></svg>
-</span>
-</summary>
-<div class="pricing-subcat__list pricing-subcat__list--open">
 <div class="pricing-item">
 <div class="pricing-item__header">
 <span class="pricing-item__name">Refresh / Gloss Colour Maintenance Package</span>
@@ -2416,7 +2369,6 @@
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV6wcEr-BYEhezWV3JShetyw" rel="noopener" target="_blank">Book Now</a>
 </div>
 </div>
-</details>
 </div>
 
 <div class="service-panel" id="panel-regrowth">
@@ -2437,16 +2389,18 @@
 <p class="pricing-item__desc">Revitalise your look with expert regrowth colour paired with a complete toner refresh. This package delivers seamless, vibrant coverage from roots to ends, ensuring your shade stays rich, even and beautifully blended throughout.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV7cS6yvWGVZdj26jjsS84r8" rel="noopener" target="_blank">Book Now</a>
 </div>
+<div class="pricing-item">
+<div class="pricing-item__header">
+<span class="pricing-item__name">Scalp Bleach Regrowth</span>
+<span class="pricing-item__price">from $295</span>
+</div>
+<p class="pricing-item__desc">Lift your roots to a flawless, even blonde with our expert scalp bleach regrowth service. Carefully applied to minimise damage while achieving a seamless, bright result. Includes a professional toner &amp; polished blow wave.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVwvCD5fUIGpAR13s5zzX528" rel="noopener" target="_blank">Book Now</a>
+</div>
 </div>
 </div>
 
 <div class="service-panel" id="panel-highlights">
-<details class="pricing-subcat">
-<summary class="pricing-subcat__toggle"><span class="pricing-subcat__toggle-inner">
-<span>Balayage &amp; Ombre</span>
-<svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="6 9 12 15 18 9"></polyline></svg>
-</span>
-</summary>
 <div class="pricing-subcat__list pricing-subcat__list--open">
 <div class="pricing-item">
 <div class="pricing-item__header">
@@ -2456,8 +2410,15 @@
 <p class="pricing-item__desc">A tailored balayage colour experience designed for a vibrant, easy-to-maintain look with a gorgeous face-framing glow. Our stylists use strategic placement techniques for maximum visual impact with minimal upkeep between visits.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0b39yNcvZ1XnvdShve23Mg" rel="noopener" target="_blank">Book Now</a>
 </div>
+<div class="pricing-item">
+<div class="pricing-item__header">
+<span class="pricing-item__name">Grey Blending</span>
+<span class="pricing-item__price">from $390</span>
 </div>
-</details>
+<p class="pricing-item__desc">Embrace your grey and make it truly gorgeous. We use gentle highlights or demi-permanent colour to soften and blend silver tones seamlessly, giving you a natural, sophisticated and beautifully low-maintenance result every time.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV6mGnLVeD6QbatjKTtZVU30" rel="noopener" target="_blank">Book Now</a>
+</div>
+</div>
 <details class="pricing-subcat">
 <summary class="pricing-subcat__toggle"><span class="pricing-subcat__toggle-inner">
 <span>Foils &amp; Highlights</span>
@@ -2497,14 +2458,6 @@
 <p class="pricing-item__desc">Keep your blonde looking fresh, bright and vibrant between full services with a targeted refresh of strategically placed foils, a professional toner application and a gorgeous blow wave to finish your look beautifully.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-S0uG5BBlX3Jqb4e3iW0GY" rel="noopener" target="_blank">Book Now</a>
 </div>
-<div class="pricing-item">
-<div class="pricing-item__header">
-<span class="pricing-item__name">Scalp Bleach Regrowth</span>
-<span class="pricing-item__price">from $295</span>
-</div>
-<p class="pricing-item__desc">Lift your roots to a flawless, even blonde with our expert scalp bleach regrowth service. Carefully applied to minimise damage while achieving a seamless, bright result. Includes a professional toner &amp; polished blow wave.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVwvCD5fUIGpAR13s5zzX528" rel="noopener" target="_blank">Book Now</a>
-</div>
 </div>
 </details>
 </div>
@@ -2522,7 +2475,7 @@
 <span class="pricing-item__name">Short</span>
 <span class="pricing-item__price">$110</span>
 </div>
-<p class="pricing-item__desc">A perfectly shaped short haircut tailored to complement your face and style. Includes a relaxing shampoo, nourishing treatment mask, precision customised cut &amp; a sleek blow wave to finish your look with polish.</p>
+<p class="pricing-item__desc">A perfectly shaped short haircut tailored to complement your face and style. Includes a relaxing shampoo, nourishing treatment mask, precision customised cut &amp; a sleek blow wave to finish your look with polish. Short hair guide: above chin length.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV4D4Wv0tvnnaakLnEH0gJ3A" rel="noopener" target="_blank">Book Now</a>
 </div>
 <div class="pricing-item">
@@ -2530,7 +2483,7 @@
 <span class="pricing-item__name">Medium</span>
 <span class="pricing-item__price">$129</span>
 </div>
-<p class="pricing-item__desc">A beautifully crafted medium-length haircut designed to enhance your natural texture and movement. Includes a relaxing shampoo, hydrating treatment mask, expert customised cut &amp; a stunning blow wave styling finish.</p>
+<p class="pricing-item__desc">A beautifully crafted medium-length haircut designed to enhance your natural texture and movement. Includes a relaxing shampoo, hydrating treatment mask, expert customised cut &amp; a stunning blow wave styling finish. Medium hair guide: chin to shoulder length.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV0qDbPSFl2GQFmyEixso_5Q" rel="noopener" target="_blank">Book Now</a>
 </div>
 <div class="pricing-item">
@@ -2538,7 +2491,7 @@
 <span class="pricing-item__name">Long</span>
 <span class="pricing-item__price">$139</span>
 </div>
-<p class="pricing-item__desc">Keep your long locks looking healthy, fresh and full of life with an expert customised cut. Includes a luxurious shampoo, deep nourishing treatment mask, precision shaping &amp; a smooth, voluminous blow wave finish.</p>
+<p class="pricing-item__desc">Keep your long locks looking healthy, fresh and full of life with an expert customised cut. Includes a luxurious shampoo, deep nourishing treatment mask, precision shaping &amp; a smooth, voluminous blow wave finish. Long hair guide: shoulder to mid-arm length.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV3KxCYrBOa9UtdPSGe-Z638" rel="noopener" target="_blank">Book Now</a>
 </div>
 <div class="pricing-item">
@@ -2546,7 +2499,7 @@
 <span class="pricing-item__name">Extra Long or Thick</span>
 <span class="pricing-item__price">$149</span>
 </div>
-<p class="pricing-item__desc">Designed for extra-long or thick hair that needs special attention and care. Includes a thorough shampoo, intensive treatment mask, customised cut for shape &amp; movement, and a professionally styled blow wave finish.</p>
+<p class="pricing-item__desc">Designed for extra-long or thick hair that needs special attention and care. Includes a thorough shampoo, intensive treatment mask, customised cut for shape &amp; movement, and a professionally styled blow wave finish. Extra long/thick hair guide: below mid-arm length.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV2i60fEipxEMuXdUDEIQluw" rel="noopener" target="_blank">Book Now</a>
 </div>
 <div class="pricing-item">
@@ -2561,7 +2514,7 @@
 </details>
 <details class="pricing-subcat">
 <summary class="pricing-subcat__toggle"><span class="pricing-subcat__toggle-inner">
-<span>Haircuts Only &#8212; Dry Cuts</span>
+<span>Hair Cuts Only</span>
 <svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="6 9 12 15 18 9"></polyline></svg>
 </span>
 </summary>
@@ -2606,23 +2559,6 @@
 <p class="pricing-item__desc">A quick, precise fringe trim to keep your bangs looking neat and perfectly shaped between full haircut appointments. Walk-ins are always welcome for this express service. Please note that no shampoo or blow-dry is included.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV2GmuxY40GO52Rtnt9-sVQU" rel="noopener" target="_blank">Book Now</a>
 </div>
-</div>
-</details>
-<details class="pricing-subcat">
-<summary class="pricing-subcat__toggle"><span class="pricing-subcat__toggle-inner">
-<span>Kids&#8217; Cuts</span>
-<svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="6 9 12 15 18 9"></polyline></svg>
-</span>
-</summary>
-<div class="pricing-subcat__list pricing-subcat__list--open">
-<div class="pricing-item">
-<div class="pricing-item__header">
-<span class="pricing-item__name">Kid Dry Cuts (K &#8211; Y10)</span>
-<span class="pricing-item__price">$45</span>
-</div>
-<p class="pricing-item__desc">A neat, stylish dry cut designed especially for kids from Kindergarten through to Year 10. Our friendly stylists make the experience comfortable and fun. No shampoo or blow-dry included, so please arrive with clean, dry hair.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV957xVnKDYdJEXj4PgW1XiM" rel="noopener" target="_blank">Book Now</a>
-</div>
 <div class="pricing-item">
 <div class="pricing-item__header">
 <span class="pricing-item__name">Student Dry Cuts (Y11 &#8211; Y12)</span>
@@ -2631,32 +2567,18 @@
 <p class="pricing-item__desc">A fresh, on-trend dry cut tailored for senior students in Year 11 and Year 12. Whether you need a tidy-up or a brand-new style, our experienced stylists will get you looking great. Please arrive with clean, dry hair.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV-YoFismQTEVBsLk5RVXLuQ" rel="noopener" target="_blank">Book Now</a>
 </div>
-<div class="pricing-item">
-<div class="pricing-item__header">
-<span class="pricing-item__name">Fringe Trim &#8211; School Kids</span>
-<span class="pricing-item__price">$25</span>
-</div>
-<p class="pricing-item__desc">A quick, tidy fringe trim for school-aged kids to keep their bangs neat and out of their eyes. Walk-ins are always welcome for this fast, fuss-free service. No shampoo or blow-dry included, so please come with clean hair.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV52XwG3JtQWSYXDRgqPtKxc" rel="noopener" target="_blank">Book Now</a>
-</div>
 </div>
 </details>
 </div>
 
 <div class="service-panel" id="panel-blowwave">
-<details class="pricing-subcat">
-<summary class="pricing-subcat__toggle"><span class="pricing-subcat__toggle-inner">
-<span>Blow Wave</span>
-<svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="6 9 12 15 18 9"></polyline></svg>
-</span>
-</summary>
 <div class="pricing-subcat__list pricing-subcat__list--open">
 <div class="pricing-item">
 <div class="pricing-item__header">
 <span class="pricing-item__name">Short</span>
-<span class="pricing-item__price">$85</span>
+<span class="pricing-item__price">$79</span>
 </div>
-<p class="pricing-item__desc">A polished blow wave for short hair that adds volume, shape and a salon-quality shine. Includes a relaxing shampoo and nourishing treatment to leave your locks feeling silky, healthy and perfectly styled for any occasion.</p>
+<p class="pricing-item__desc">A polished blow wave for short hair that adds volume, shape and a salon-quality shine. Includes a relaxing shampoo and nourishing treatment to leave your locks feeling silky, healthy and perfectly styled. Short hair guide: above chin length.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV9BJFUbjqc2skLHOjo89r84" rel="noopener" target="_blank">Book Now</a>
 </div>
 <div class="pricing-item">
@@ -2664,7 +2586,7 @@
 <span class="pricing-item__name">Medium</span>
 <span class="pricing-item__price">$95</span>
 </div>
-<p class="pricing-item__desc">A smooth, gorgeous blow wave for medium-length hair that enhances body and natural movement. Includes a thorough shampoo and hydrating treatment to nourish your hair, finished with expert styling for a sleek, refined look.</p>
+<p class="pricing-item__desc">A smooth, gorgeous blow wave for medium-length hair that enhances body and natural movement. Includes a thorough shampoo and hydrating treatment to nourish your hair, finished with expert styling. Medium hair guide: chin to shoulder length.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV8Ny7htuZqI19iEqcNTRe7Q" rel="noopener" target="_blank">Book Now</a>
 </div>
 <div class="pricing-item">
@@ -2672,7 +2594,7 @@
 <span class="pricing-item__name">Long</span>
 <span class="pricing-item__price">$105</span>
 </div>
-<p class="pricing-item__desc">A luxurious blow wave for long hair that delivers stunning volume, bounce and a beautiful flowing finish. Includes a gentle shampoo and deep conditioning treatment to keep your long locks nourished, smooth and radiantly shiny.</p>
+<p class="pricing-item__desc">A luxurious blow wave for long hair that delivers stunning volume, bounce and a beautiful flowing finish. Includes a gentle shampoo and deep conditioning treatment to keep your locks nourished and smooth. Long hair guide: shoulder to mid-arm length.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFVzwzPy54qZ8aD5oHg87fRr0" rel="noopener" target="_blank">Book Now</a>
 </div>
 <div class="pricing-item">
@@ -2680,7 +2602,7 @@
 <span class="pricing-item__name">Long or Thick Hair</span>
 <span class="pricing-item__price">$120</span>
 </div>
-<p class="pricing-item__desc">A comprehensive blow wave designed for thick or extra-long hair that needs extra time and care. Includes a thorough shampoo and intensive treatment to tame and nourish, followed by expert styling for a smooth, polished result.</p>
+<p class="pricing-item__desc">A comprehensive blow wave designed for thick or extra-long hair that needs extra time and care. Includes a thorough shampoo and intensive treatment to tame and nourish, followed by expert styling. Extra long/thick hair guide: below mid-arm.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV3J6e8rcsm1bvq9SPAwrdS4" rel="noopener" target="_blank">Book Now</a>
 </div>
 <div class="pricing-item">
@@ -2700,32 +2622,6 @@
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV5KyYOhz4YOsdKH3NGRSO54" rel="noopener" target="_blank">Book Now</a>
 </div>
 </div>
-</details>
-<details class="pricing-subcat">
-<summary class="pricing-subcat__toggle"><span class="pricing-subcat__toggle-inner">
-<span>Special Occasion / Upstyle</span>
-<svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="6 9 12 15 18 9"></polyline></svg>
-</span>
-</summary>
-<div class="pricing-subcat__list pricing-subcat__list--open">
-<div class="pricing-item">
-<div class="pricing-item__header">
-<span class="pricing-item__name">Up Style (no Shampoo)</span>
-<span class="pricing-item__price">from $150</span>
-</div>
-<p class="pricing-item__desc">An elegant, beautifully crafted updo perfect for weddings, proms and special occasions. Includes a personalised consultation to design a style that complements your outfit and features. Please arrive with clean, dry hair.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV-83KVI_nv3DzoQU4cJP1o0" rel="noopener" target="_blank">Book Now</a>
-</div>
-<div class="pricing-item">
-<div class="pricing-item__header">
-<span class="pricing-item__name">Up Style (with Shampoo &amp; Blow Wave)</span>
-<span class="pricing-item__price">from $200</span>
-</div>
-<p class="pricing-item__desc">A complete upstyle experience for your special event, including a relaxing shampoo, professional blow wave and elegant formal styling. Our stylists will create a stunning, long-lasting updo tailored to your look and occasion.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV4b5ngtlA2aIcoz-AGTU3Vo" rel="noopener" target="_blank">Book Now</a>
-</div>
-</div>
-</details>
 </div>
 
 <div class="service-panel" id="panel-botox">
@@ -2772,6 +2668,22 @@
 
 <div class="service-panel" id="panel-tinsel">
 <div class="pricing-subcat__list pricing-subcat__list--open">
+<div class="pricing-item">
+<div class="pricing-item__header">
+<span class="pricing-item__name">Up Style (no Shampoo)</span>
+<span class="pricing-item__price">from $150</span>
+</div>
+<p class="pricing-item__desc">An elegant, beautifully crafted updo perfect for weddings, proms and special occasions. Includes a personalised consultation to design a style that complements your outfit and features. Please arrive with clean, dry hair.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV-83KVI_nv3DzoQU4cJP1o0" rel="noopener" target="_blank">Book Now</a>
+</div>
+<div class="pricing-item">
+<div class="pricing-item__header">
+<span class="pricing-item__name">Up Style (with Shampoo &amp; Blow Wave)</span>
+<span class="pricing-item__price">from $200</span>
+</div>
+<p class="pricing-item__desc">A complete upstyle experience for your special event, including a relaxing shampoo, professional blow wave and elegant formal styling. Our stylists will create a stunning, long-lasting updo tailored to your look and occasion.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV4b5ngtlA2aIcoz-AGTU3Vo" rel="noopener" target="_blank">Book Now</a>
+</div>
 <div class="pricing-item">
 <div class="pricing-item__header">
 <span class="pricing-item__name">Hair Tinsels</span>
