@@ -175,11 +175,12 @@
     .section--light-sage .expect-card__icon { color: #E8D49A; }
     .section--services-green {
       background: #eef3ee;
+      padding-bottom: 60px;
     }
     .section--services-green .section-label { color: #C9A96E; }
     .section--services-green .section-title { color: #1d1d1f; }
     .section--services-green .section-subtitle { color: #86868b; }
-    .section--services-green .services-card { max-width: 860px; margin: 0 auto 16px; background: #ffffff; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.06); }
+    .section--services-green .services-card { max-width: 860px; margin: 0 auto 16px; background: #ffffff; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.03); border: 1.5px solid rgba(201,169,110,0.3); }
     .section--services-green .services-card .service-tabs { margin: 0; border-bottom: none; padding: 6px; max-width: none; background: rgba(46,83,57,0.06); border-radius: 16px; }
     .section--services-green .services-card .service-panel { border-radius: 0; box-shadow: none; border: none; }
     .section--services-green .service-panel { background: #ffffff; border-radius: var(--radius-md); box-shadow: var(--shadow-card); border: 1.5px solid rgba(201,169,110,0.3); }
@@ -448,10 +449,10 @@
       border-radius: 0;
       font-size: 0.78rem;
       font-weight: 500;
-      color: rgba(255,255,255,0.55);
+      color: rgba(255,255,255,0.75);
       letter-spacing: 2px;
       text-transform: uppercase;
-      text-shadow: none;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.3);
       margin-bottom: 28px;
       box-shadow: none;
     }
@@ -468,20 +469,20 @@
       display: block;
       font-family: var(--ff-display);
       font-size: clamp(1.3rem, 3vw, 1.85rem);
-      font-weight: 300;
+      font-weight: 400;
       font-style: italic;
-      color: rgba(255,255,255,0.75);
+      color: rgba(255,255,255,0.95);
       letter-spacing: 0;
       line-height: 1.4;
-      text-shadow: none;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.4);
     }
     .hero__tagline {
       font-size: clamp(0.92rem, 1.6vw, 1.05rem);
-      color: rgba(255,255,255,0.45);
+      color: rgba(255,255,255,0.7);
       max-width: 460px;
       margin: 20px auto 36px;
       line-height: 1.6;
-      text-shadow: none;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.3);
       font-weight: 400;
       letter-spacing: 0.01em;
     }
@@ -492,21 +493,26 @@
       gap: 14px;
     }
     .hero__ctas .btn--primary {
-      padding: 16px 48px;
-      font-size: 0.92rem;
-      font-weight: 400;
-      letter-spacing: 0.1em;
-      border: 1px solid rgba(201,169,110,0.45);
-      background: transparent;
-      color: #C9A96E;
+      padding: 18px 52px;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      border: 2px solid #C9A96E;
+      background: linear-gradient(135deg, rgba(201,169,110,0.25), rgba(201,169,110,0.15));
+      color: #ffffff;
       border-radius: 980px;
-      box-shadow: none;
+      box-shadow: 0 4px 24px rgba(201,169,110,0.35), 0 8px 32px rgba(0,0,0,0.25);
       transition: all 0.3s ease;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      text-shadow: 0 1px 4px rgba(0,0,0,0.3);
     }
     .hero__ctas .btn--primary:hover {
-      border-color: rgba(201,169,110,0.7);
-      color: #d4b87a;
-      transform: translateY(-1px);
+      border-color: #E8D49A;
+      background: linear-gradient(135deg, rgba(201,169,110,0.4), rgba(201,169,110,0.25));
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 30px rgba(201,169,110,0.45), 0 12px 40px rgba(0,0,0,0.3);
     }
     .hero__ctas .btn--secondary {
       background: none;
@@ -1483,43 +1489,34 @@
       padding: 6px;
     }
     .service-category-indicator {
-      text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 14px;
       font-family: var(--ff-display);
       font-size: 0.82rem;
       font-weight: 500;
       color: #C9A96E;
       letter-spacing: 0.04em;
-      padding: 12px 0 8px;
+      padding: 12px 24px 8px;
       max-width: 860px;
       margin: 0 auto;
     }
-    .service-category-indicator::before {
-      content: '';
-      display: inline-block;
-      width: 16px;
-      height: 1.5px;
-      background: #C9A96E;
-      vertical-align: middle;
-      margin-right: 10px;
-    }
+    .service-category-indicator::before,
     .service-category-indicator::after {
       content: '';
-      display: inline-block;
-      width: 16px;
+      flex: 1;
       height: 1.5px;
-      background: #C9A96E;
-      vertical-align: middle;
-      margin-left: 10px;
+      background: rgba(201,169,110,0.3);
     }
     .service-tab {
       font-family: var(--ff-display);
-      font-size: 1rem;
+      font-size: 0.92rem;
       font-weight: 600;
       color: #86868b;
       background: rgba(255,255,255,0.5);
       border: 1.5px solid rgba(201,169,110,0.2);
       border-radius: 50px;
-      padding: 14px 28px;
+      padding: 12px 24px;
       cursor: pointer;
       transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
       letter-spacing: 0.02em;
@@ -2109,7 +2106,7 @@
       .pricing-subcat__list--open { padding: 2px 0 0; }
     }
     @media (min-width: 769px) and (max-width: 1024px) {
-      .service-tab { font-size: 1rem; font-weight: 600; padding: 14px 28px; border-radius: 50px; }
+      .service-tab { font-size: 0.92rem; font-weight: 600; padding: 12px 24px; border-radius: 50px; }
     }
     @media (min-width: 769px) {
       .tab-full { display: inline; }
@@ -2165,7 +2162,7 @@
       </div>
 <div style="margin-bottom:16px; display:flex; justify-content:center;"><img alt="Hair Avenue Braddon" src="images/image-1.png" style="height:100px;width:auto;max-width:320px;"/></div>
 <h1 class="hero__title">
-<span class="hero__accent">Colour, Cuts &amp; Hair Health Specialists — Where Everyone Belongs</span>
+<span class="hero__accent">Colour, Cut &amp; Blonde Specialists — Where Everyone Belongs</span>
 </h1>
 <p class="hero__tagline">
         Expert colouring. Advanced treatments. A salon where everyone belongs. Walk-ins welcome.
@@ -2404,30 +2401,6 @@
 <div class="pricing-subcat__list pricing-subcat__list--open">
 <div class="pricing-item">
 <div class="pricing-item__header">
-<span class="pricing-item__name">Balayage &amp; Ombre</span>
-<span class="pricing-item__price">from $360</span>
-</div>
-<p class="pricing-item__desc">A tailored balayage colour experience designed for a vibrant, easy-to-maintain look with a gorgeous face-framing glow. Our stylists use strategic placement techniques for maximum visual impact with minimal upkeep between visits.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0b39yNcvZ1XnvdShve23Mg" rel="noopener" target="_blank">Book Now</a>
-</div>
-<div class="pricing-item">
-<div class="pricing-item__header">
-<span class="pricing-item__name">Grey Blending</span>
-<span class="pricing-item__price">from $390</span>
-</div>
-<p class="pricing-item__desc">Embrace your grey and make it truly gorgeous. We use gentle highlights or demi-permanent colour to soften and blend silver tones seamlessly, giving you a natural, sophisticated and beautifully low-maintenance result every time.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV6mGnLVeD6QbatjKTtZVU30" rel="noopener" target="_blank">Book Now</a>
-</div>
-</div>
-<details class="pricing-subcat">
-<summary class="pricing-subcat__toggle"><span class="pricing-subcat__toggle-inner">
-<span>Foils &amp; Highlights</span>
-<svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="6 9 12 15 18 9"></polyline></svg>
-</span>
-</summary>
-<div class="pricing-subcat__list pricing-subcat__list--open">
-<div class="pricing-item">
-<div class="pricing-item__header">
 <span class="pricing-item__name">Full-Head Foils / Blonde Package</span>
 <span class="pricing-item__price">from $350</span>
 </div>
@@ -2453,13 +2426,28 @@
 <div class="pricing-item">
 <div class="pricing-item__header">
 <span class="pricing-item__name">Blonde Refresh Package</span>
-<span class="pricing-item__price">from $299</span>
+<span class="pricing-item__price">from $275</span>
 </div>
 <p class="pricing-item__desc">Keep your blonde looking fresh, bright and vibrant between full services with a targeted refresh of strategically placed foils, a professional toner application and a gorgeous blow wave to finish your look beautifully.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-S0uG5BBlX3Jqb4e3iW0GY" rel="noopener" target="_blank">Book Now</a>
 </div>
+<div class="pricing-item">
+<div class="pricing-item__header">
+<span class="pricing-item__name">Balayage &amp; Ombre</span>
+<span class="pricing-item__price">from $360</span>
 </div>
-</details>
+<p class="pricing-item__desc">A tailored balayage colour experience designed for a vibrant, easy-to-maintain look with a gorgeous face-framing glow. Our stylists use strategic placement techniques for maximum visual impact with minimal upkeep between visits.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0b39yNcvZ1XnvdShve23Mg" rel="noopener" target="_blank">Book Now</a>
+</div>
+<div class="pricing-item">
+<div class="pricing-item__header">
+<span class="pricing-item__name">Grey Blending</span>
+<span class="pricing-item__price">from $390</span>
+</div>
+<p class="pricing-item__desc">Embrace your grey and make it truly gorgeous. We use gentle highlights or demi-permanent colour to soften and blend silver tones seamlessly, giving you a natural, sophisticated and beautifully low-maintenance result every time.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV6mGnLVeD6QbatjKTtZVU30" rel="noopener" target="_blank">Book Now</a>
+</div>
+</div>
 </div>
 
 <div class="service-panel" id="panel-cutting">
@@ -2505,7 +2493,7 @@
 <div class="pricing-item">
 <div class="pricing-item__header">
 <span class="pricing-item__name">Restyle Cut &amp; Blow Wave</span>
-<span class="pricing-item__price">$145</span>
+<span class="pricing-item__price">$149</span>
 </div>
 <p class="pricing-item__desc">Ready for a bold new look? Our restyle service features an in-depth consultation to find your perfect style, followed by precision cutting and reshaping. Includes shampoo, treatment mask, expert restyle cut &amp; blow wave finish.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFVz0wvkdpiZWHaYkOy2GP7BY" rel="noopener" target="_blank">Book Now</a>
@@ -2519,6 +2507,14 @@
 </span>
 </summary>
 <div class="pricing-subcat__list pricing-subcat__list--open">
+<div class="pricing-item">
+<div class="pricing-item__header">
+<span class="pricing-item__name">Clipper Cut / Men&#8217;s Cuts</span>
+<span class="pricing-item__price">$55</span>
+</div>
+<p class="pricing-item__desc">Fresh, stylish clipper haircuts crafted to suit your look. Add $20 if you would like a complete restyle with a new shape. This is a haircut only service &#8212; no shampoo or blow wave styling is included in the price.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV_2sKO91oCqwKSEoY0JbueA" rel="noopener" target="_blank">Book Now</a>
+</div>
 <div class="pricing-item">
 <div class="pricing-item__header">
 <span class="pricing-item__name">Dry Cuts</span>
@@ -2537,14 +2533,6 @@
 </div>
 <div class="pricing-item">
 <div class="pricing-item__header">
-<span class="pricing-item__name">Clipper Cut / Men&#8217;s Cuts</span>
-<span class="pricing-item__price">$55</span>
-</div>
-<p class="pricing-item__desc">Fresh, stylish clipper haircuts crafted to suit your look. Add $20 if you would like a complete restyle with a new shape. This is a haircut only service &#8212; no shampoo or blow wave styling is included in the price.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV_2sKO91oCqwKSEoY0JbueA" rel="noopener" target="_blank">Book Now</a>
-</div>
-<div class="pricing-item">
-<div class="pricing-item__header">
 <span class="pricing-item__name">Skin Fade</span>
 <span class="pricing-item__price">$65</span>
 </div>
@@ -2558,14 +2546,6 @@
 </div>
 <p class="pricing-item__desc">A quick, precise fringe trim to keep your bangs looking neat and perfectly shaped between full haircut appointments. Walk-ins are always welcome for this express service. Please note that no shampoo or blow-dry is included.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV2GmuxY40GO52Rtnt9-sVQU" rel="noopener" target="_blank">Book Now</a>
-</div>
-<div class="pricing-item">
-<div class="pricing-item__header">
-<span class="pricing-item__name">Student Dry Cuts (Y11 &#8211; Y12)</span>
-<span class="pricing-item__price">$55</span>
-</div>
-<p class="pricing-item__desc">A fresh, on-trend dry cut tailored for senior students in Year 11 and Year 12. Whether you need a tidy-up or a brand-new style, our experienced stylists will get you looking great. Please arrive with clean, dry hair.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV-YoFismQTEVBsLk5RVXLuQ" rel="noopener" target="_blank">Book Now</a>
 </div>
 </div>
 </details>
@@ -2757,7 +2737,7 @@
 </div>
 </div><!-- /.services-card -->
 <!-- Special Offers — elegant expandable strip -->
-<div class="section-cta reveal" style="text-align:center; margin-top:40px;">
+<div class="section-cta reveal" style="text-align:center; margin-top:24px;">
 <a class="btn btn--primary" href="https://www.phorest.com/salon/hairavenue/book/service-selection" rel="noopener" target="_blank">View All Services &amp; Make Booking</a>
 </div>
 </div>
