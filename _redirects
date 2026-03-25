@@ -1,2 +1,5 @@
 /terms-and-conditions    /hair-avenue-policy.html    200
 /terms-and-conditions/   /hair-avenue-policy.html    200
+
+# Catch-all: redirect any old/unknown paths to homepage
+/*    /    301
