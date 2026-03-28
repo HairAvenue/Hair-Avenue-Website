@@ -857,12 +857,12 @@
     .reviews-bg .reviews__count { color: rgba(255,255,255,0.6); font-weight: 400; }
     .reviews-bg .review-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(201,169,110,0.2); box-shadow: none; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
     .reviews-bg .review-card__stars { color: #C9A96E; }
-    .reviews-bg .review-card__text { color: rgba(255,255,255,0.75); }
+    .reviews-bg .review-card__text { color: rgba(255,255,255,0.92); }
     .reviews-bg .review-card__name { color: rgba(255,255,255,0.9); }
     .reviews-bg .review-card__author { color: rgba(255,255,255,0.9); font-weight: 500; }
-    .reviews-bg .review-card__date { color: rgba(255,255,255,0.4); }
+    .reviews-bg .review-card__date { color: rgba(255,255,255,0.6); }
     .reviews-bg .review-card__avatar { background: rgba(201,169,110,0.2); color: #C9A96E; }
-    .reviews-bg .review-card__google { color: rgba(255,255,255,0.45); }
+    .reviews-bg .review-card__google { color: rgba(255,255,255,0.65); }
 
     /* ===== TEAM ===== */
     .team__grid {
@@ -1035,7 +1035,7 @@
       overflow: hidden;
       transition: max-height 0.4s ease;
     }
-    .faq-item[open] .faq-item__a { max-height: 300px; }
+    .faq-item[open] .faq-item__a { max-height: 800px; }
     .faq-item__a-inner {
       padding: 0 28px 24px;
       font-size: 0.92rem;
@@ -1145,7 +1145,6 @@
       border: 1px solid rgba(201,169,110,0.45) !important;
       box-shadow: none;
       letter-spacing: 0.08em;
-      font-size: 0.9rem;
       padding: 16px 40px;
       font-size: 1.05rem;
     }
@@ -1476,9 +1475,8 @@
     /* ===== SERVICE TABS (Pure CSS with radio inputs) ===== */
     .svc-tab-radio { display: none !important; }
     .service-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
       gap: 6px;
       max-width: 860px;
       margin: 0 auto 0;
@@ -1487,6 +1485,9 @@
       background: rgba(46,83,57,0.06);
       border-radius: 16px;
       padding: 6px;
+    }
+    .service-tab[for="svc-tab-offers"] {
+      grid-column: span 2;
     }
     .service-category-indicator {
       display: flex;
@@ -1510,13 +1511,13 @@
     }
     .service-tab {
       font-family: var(--ff-display);
-      font-size: 0.92rem;
+      font-size: 0.78rem;
       font-weight: 600;
       color: #86868b;
       background: rgba(255,255,255,0.5);
       border: 1.5px solid rgba(201,169,110,0.2);
       border-radius: 50px;
-      padding: 12px 24px;
+      padding: 10px 14px;
       cursor: pointer;
       transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
       letter-spacing: 0.02em;
@@ -1526,7 +1527,6 @@
       text-align: center;
       position: relative;
       margin-bottom: 0;
-      flex: 1 1 22%;
       min-width: 0;
     }
     .service-tab:hover { color: #2E5339; background: rgba(255,255,255,0.85); border-color: rgba(201,169,110,0.4); transform: translateY(-1px); box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
@@ -1900,6 +1900,7 @@
       .services__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
       /* Service tabs — horizontal scroll on mobile, left-aligned so first tabs are fully visible */
       .services-card .service-tabs { display: grid !important; grid-template-columns: repeat(3, 1fr); gap: 5px; padding: 8px; background: rgba(46,83,57,0.06); border-radius: 16px; border-bottom: none; }
+      .services-card .service-tab[for="svc-tab-offers"] { grid-column: span 1; }
       .services-card .service-tabs::-webkit-scrollbar { display: none; }
       .services-card .service-tab { font-size: clamp(0.48rem, 1.8vw, 0.78rem); font-weight: 600; padding: 9px 2px; white-space: nowrap; overflow: visible; border: 1.5px solid rgba(201,169,110,0.2); margin-bottom: 0; border-radius: 50px; letter-spacing: -0.02em; text-align: center; background: rgba(255,255,255,0.5); transition: all 0.3s ease; box-sizing: border-box; min-width: 0; }
       .services-card .service-tab::after { display: none; }
@@ -1931,7 +1932,7 @@
       #svc-tab-botox:checked ~ .service-tabs label[for="svc-tab-botox"] .tab-full,
       #svc-tab-nanoplasty:checked ~ .service-tabs label[for="svc-tab-nanoplasty"] .tab-full,
       #svc-tab-tinsel:checked ~ .service-tabs label[for="svc-tab-tinsel"] .tab-full,
-      #svc-tab-offers:checked ~ .service-tabs label[for="svc-tab-offers"] .tab-full { display: inline; }
+      #svc-tab-offers:checked ~ .service-tabs label[for="svc-tab-offers"] .tab-full { display: inline !important; }
       #svc-tab-colouring:checked ~ .service-tabs label[for="svc-tab-colouring"] .tab-short,
       #svc-tab-regrowth:checked ~ .service-tabs label[for="svc-tab-regrowth"] .tab-short,
       #svc-tab-highlights:checked ~ .service-tabs label[for="svc-tab-highlights"] .tab-short,
@@ -1940,7 +1941,7 @@
       #svc-tab-botox:checked ~ .service-tabs label[for="svc-tab-botox"] .tab-short,
       #svc-tab-nanoplasty:checked ~ .service-tabs label[for="svc-tab-nanoplasty"] .tab-short,
       #svc-tab-tinsel:checked ~ .service-tabs label[for="svc-tab-tinsel"] .tab-short,
-      #svc-tab-offers:checked ~ .service-tabs label[for="svc-tab-offers"] .tab-short { display: none; }
+      #svc-tab-offers:checked ~ .service-tabs label[for="svc-tab-offers"] .tab-short { display: none !important; }
       .btn--sm { padding: 8px 16px; font-size: 0.78rem; }
 
       /* Reviews — smaller cards */
@@ -2329,10 +2330,10 @@
 <label class="service-tab" for="svc-tab-colouring"><span class="tab-full">Colouring</span><span class="tab-short">Colour</span></label>
 <label class="service-tab" for="svc-tab-regrowth"><span class="tab-full">Regrowth</span><span class="tab-short">Regrowth</span></label>
 <label class="service-tab" for="svc-tab-highlights"><span class="tab-full">Highlight &amp; Balayage</span><span class="tab-short">Highlights</span></label>
-<label class="service-tab" for="svc-tab-blowwave"><span class="tab-full">Blow Wave &amp; Upstyle</span><span class="tab-short">Blowwave</span></label>
+<label class="service-tab" for="svc-tab-blowwave"><span class="tab-full">Blow Wave</span><span class="tab-short">Blowwave</span></label>
 <label class="service-tab" for="svc-tab-cutting"><span class="tab-full">Cutting</span><span class="tab-short">Cuts</span></label>
-<label class="service-tab" for="svc-tab-botox"><span class="tab-full">Hair SmoothFiller &amp; Scalp Detox</span><span class="tab-short">SmoothFiller</span></label>
-<label class="service-tab" for="svc-tab-nanoplasty"><span class="tab-full">Nanoplasty &amp; Perm</span><span class="tab-short">Nanoplasty</span></label>
+<label class="service-tab" for="svc-tab-botox"><span class="tab-full">SmoothFiller</span><span class="tab-short">SmoothFiller</span></label>
+<label class="service-tab" for="svc-tab-nanoplasty"><span class="tab-full">Nanoplasty</span><span class="tab-short">Nanoplasty</span></label>
 <label class="service-tab" for="svc-tab-tinsel"><span class="tab-full">Upstyle</span><span class="tab-short">Upstyle</span></label>
 </div>
 <div class="service-category-indicator" aria-live="polite">
@@ -2433,8 +2434,8 @@
 </div>
 <div class="pricing-item">
 <div class="pricing-item__header">
-<span class="pricing-item__name">Balayage &amp; Ombre</span>
-<span class="pricing-item__price">from $360</span>
+<span class="pricing-item__name">Balayage Package</span>
+<span class="pricing-item__price">from $395</span>
 </div>
 <p class="pricing-item__desc">A tailored balayage colour experience designed for a vibrant, easy-to-maintain look with a gorgeous face-framing glow. Our stylists use strategic placement techniques for maximum visual impact with minimal upkeep between visits.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0b39yNcvZ1XnvdShve23Mg" rel="noopener" target="_blank">Book Now</a>
@@ -2950,7 +2951,7 @@
 </div>
 </div>
 <div class="text-center reveal" style="margin-top:32px;">
-<a class="btn" href="https://www.google.com/maps/search/Hair+Avenue+Braddon+Canberra" rel="noopener" style="background:transparent; border:2px solid #ffffff; color:#ffffff; padding:12px 28px; border-radius:var(--radius-pill); font-size:0.9rem; font-weight:600;" target="_blank">Read All Reviews on Google</a>
+<a class="btn" href="https://www.google.com/maps/search/Hair+Avenue+Braddon+Canberra" rel="noopener" style="background:transparent; border:2px solid #ffffff; color:#ffffff; padding:12px 28px; border-radius:50px; font-size:0.9rem; font-weight:600;" target="_blank">Read All Reviews on Google</a>
 </div>
 </div>
 </section>
@@ -2974,7 +2975,7 @@
 </a>
 </div>
 <!-- Elfsight Facebook Feed | Untitled Facebook Feed 2 -->
-<div class="reveal" style="max-width:1100px; margin:0 auto; border-radius:12px; border: 2px solid #C9A96E;">
+<div class="reveal" style="max-width:600px; margin:0 auto; border-radius:12px; border: 2px solid #C9A96E;">
 <div class="elfsight-app-c6cc8525-ea16-4cbf-b81c-5aab315a2178" data-elfsight-app-lazy></div>
 <script>
 /* Load Elfsight after page is fully rendered to prevent render-blocking on iOS */
