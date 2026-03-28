@@ -1533,6 +1533,7 @@
     .service-tab:active { transform: translateY(0) scale(0.97); }
     .tab-short { display: none; }
     .tab-full { display: inline; }
+    .tab-mob-active { display: none; }
 
     /* Service panel revealed below — CSS-only via radio sibling selectors */
     .service-panel { display: none; max-width: 860px; margin: 0 auto; }
@@ -1926,22 +1927,14 @@
       /* Show full name on active tab, hide short */
       #svc-tab-colouring:checked ~ .service-tabs label[for="svc-tab-colouring"] .tab-full,
       #svc-tab-regrowth:checked ~ .service-tabs label[for="svc-tab-regrowth"] .tab-full,
-      #svc-tab-highlights:checked ~ .service-tabs label[for="svc-tab-highlights"] .tab-full,
       #svc-tab-cutting:checked ~ .service-tabs label[for="svc-tab-cutting"] .tab-full,
-      #svc-tab-blowwave:checked ~ .service-tabs label[for="svc-tab-blowwave"] .tab-full,
       #svc-tab-botox:checked ~ .service-tabs label[for="svc-tab-botox"] .tab-full,
-      #svc-tab-nanoplasty:checked ~ .service-tabs label[for="svc-tab-nanoplasty"] .tab-full,
-      #svc-tab-tinsel:checked ~ .service-tabs label[for="svc-tab-tinsel"] .tab-full,
-      #svc-tab-offers:checked ~ .service-tabs label[for="svc-tab-offers"] .tab-full { display: inline !important; }
+      #svc-tab-nanoplasty:checked ~ .service-tabs label[for="svc-tab-nanoplasty"] .tab-full { display: inline !important; }
       #svc-tab-colouring:checked ~ .service-tabs label[for="svc-tab-colouring"] .tab-short,
       #svc-tab-regrowth:checked ~ .service-tabs label[for="svc-tab-regrowth"] .tab-short,
-      #svc-tab-highlights:checked ~ .service-tabs label[for="svc-tab-highlights"] .tab-short,
       #svc-tab-cutting:checked ~ .service-tabs label[for="svc-tab-cutting"] .tab-short,
-      #svc-tab-blowwave:checked ~ .service-tabs label[for="svc-tab-blowwave"] .tab-short,
       #svc-tab-botox:checked ~ .service-tabs label[for="svc-tab-botox"] .tab-short,
-      #svc-tab-nanoplasty:checked ~ .service-tabs label[for="svc-tab-nanoplasty"] .tab-short,
-      #svc-tab-tinsel:checked ~ .service-tabs label[for="svc-tab-tinsel"] .tab-short,
-      #svc-tab-offers:checked ~ .service-tabs label[for="svc-tab-offers"] .tab-short { display: none !important; }
+      #svc-tab-nanoplasty:checked ~ .service-tabs label[for="svc-tab-nanoplasty"] .tab-short { display: none !important; }
       .btn--sm { padding: 8px 16px; font-size: 0.78rem; }
 
       /* Reviews — smaller cards */
@@ -2123,6 +2116,18 @@
       /* Always show short names on mobile */
       .service-tab .tab-full { display: none !important; }
       .service-tab .tab-short { display: inline !important; }
+      /* Keep offers short even when active */
+      #svc-tab-offers:checked ~ .service-tabs label[for="svc-tab-offers"] .tab-full { display: none !important; }
+      #svc-tab-offers:checked ~ .service-tabs label[for="svc-tab-offers"] .tab-short { display: inline !important; }
+      /* Hide tab-mob-active by default on mobile */
+      .tab-mob-active { display: none !important; }
+      /* When highlights/upstyle selected on mobile: hide short, show mob-active */
+      #svc-tab-highlights:checked ~ .service-tabs label[for="svc-tab-highlights"] .tab-short,
+      #svc-tab-tinsel:checked ~ .service-tabs label[for="svc-tab-tinsel"] .tab-short { display: none !important; }
+      #svc-tab-highlights:checked ~ .service-tabs label[for="svc-tab-highlights"] .tab-full,
+      #svc-tab-tinsel:checked ~ .service-tabs label[for="svc-tab-tinsel"] .tab-full { display: none !important; }
+      #svc-tab-highlights:checked ~ .service-tabs label[for="svc-tab-highlights"] .tab-mob-active,
+      #svc-tab-tinsel:checked ~ .service-tabs label[for="svc-tab-tinsel"] .tab-mob-active { display: inline !important; }
     }
     </style>
   <noscript>
@@ -2329,12 +2334,12 @@
 <label class="service-tab" for="svc-tab-offers"><span class="tab-full">Special Offers (Tue &#8211; Fri Only)</span><span class="tab-short">Tue-Fri Offers</span></label>
 <label class="service-tab" for="svc-tab-colouring"><span class="tab-full">Colouring</span><span class="tab-short">Colour</span></label>
 <label class="service-tab" for="svc-tab-regrowth"><span class="tab-full">Regrowth</span><span class="tab-short">Regrowth</span></label>
-<label class="service-tab" for="svc-tab-highlights"><span class="tab-full">Highlight &amp; Balayage</span><span class="tab-short">Highlights</span></label>
-<label class="service-tab" for="svc-tab-blowwave"><span class="tab-full">Blow Wave</span><span class="tab-short">Blowwave</span></label>
+<label class="service-tab" for="svc-tab-highlights"><span class="tab-full">Highlight &amp; Balayage</span><span class="tab-short">Highlight</span><span class="tab-mob-active">Highlighting</span></label>
+<label class="service-tab" for="svc-tab-blowwave"><span class="tab-full">Blowwave</span><span class="tab-short">Blowwave</span><span class="tab-mob-active">Blowwaving</span></label>
 <label class="service-tab" for="svc-tab-cutting"><span class="tab-full">Cutting</span><span class="tab-short">Cuts</span></label>
 <label class="service-tab" for="svc-tab-botox"><span class="tab-full">SmoothFiller</span><span class="tab-short">SmoothFiller</span></label>
 <label class="service-tab" for="svc-tab-nanoplasty"><span class="tab-full">Nanoplasty</span><span class="tab-short">Nanoplasty</span></label>
-<label class="service-tab" for="svc-tab-tinsel"><span class="tab-full">Upstyle</span><span class="tab-short">Upstyle</span></label>
+<label class="service-tab" for="svc-tab-tinsel"><span class="tab-full">Upstyling</span><span class="tab-short">Upstyle</span><span class="tab-mob-active">Upstyling</span></label>
 </div>
 <div class="service-category-indicator" aria-live="polite">
 <span class="indicator-text" id="ind-colouring">Colouring</span>
