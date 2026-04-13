@@ -514,9 +514,9 @@
       z-index: 1000;
       padding: 14px 0;
       transition: var(--transition);
-      background: rgba(29,29,31,0.72);
-      backdrop-filter: saturate(180%) blur(20px);
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      background: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
     }
     .nav.scrolled {
       background: rgba(255,255,255,0.72);
@@ -637,7 +637,7 @@
       position: relative;
       min-height: 100vh;
       min-height: 100dvh;
-      margin-top: 60px; /* push below the fixed nav */
+      margin-top: 0;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -2180,9 +2180,25 @@
       .wella-quote::before { font-size: 3rem; }
       .trust-badges { gap: 8px; }
       .trust-badge { padding: 6px 14px; font-size: 0.72rem; }
-      /* Hero on mobile */
-      .hero { margin-top: 52px; min-height: calc(100vh - 52px); }
-      .hero__bg-left, .hero__bg-right { object-position: center 20%; }
+      /* Nav solid dark green on mobile */
+      .nav:not(.scrolled) {
+        background: #0a1f0e !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        box-shadow: none !important;
+      }
+      /* Hero on mobile — photos start below nav, dark green fills gap */
+      .hero { margin-top: 56px; min-height: 50vh; }
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        height: 56px;
+        background: #0e2112;
+        z-index: 999;
+        pointer-events: none;
+      }
+      .hero__bg-left, .hero__bg-right { object-fit: cover; object-position: center top; }
       .hero [style*="margin-bottom:16px"] img { height: 64px !important; max-width: 200px !important; }
       .hero [style*="margin-bottom:16px"] { margin-bottom: 12px !important; }
       .hero__accent { font-size: 1.2rem !important; }
@@ -2656,7 +2672,7 @@
 <div class="pricing-item">
 <div class="pricing-item__header">
 <span class="pricing-item__name">Refresh / Gloss Colour Maintenance Package</span>
-<span class="pricing-item__price">from $110</span>
+<span class="pricing-item__price">from $135</span>
 </div>
 <p class="pricing-item__desc">Freshly toned, salon-perfect colour — using Wella Color Touch for demi-permanent vibrancy between full colour appointments. Adds brilliant shine, beautiful depth and expert tone correction to keep your shade looking salon-fresh and vibrant for longer.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV6wcEr-BYEhezWV3JShetyw" rel="noopener" target="_blank">Book Now</a>
@@ -2705,14 +2721,6 @@
 </div>
 <div class="pricing-item">
 <div class="pricing-item__header">
-<span class="pricing-item__name">3/4 Head Foils</span>
-<span class="pricing-item__price">$360</span>
-</div>
-<p class="pricing-item__desc">Strategically placed foils covering three-quarters of your head for beautiful dimension and natural-looking brightness. A fantastic option when you want impactful highlights without the commitment of a full-head foil service.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV7pTbRc3sa9hBRkOUgsrbuo" rel="noopener" target="_blank">Book Now</a>
-</div>
-<div class="pricing-item">
-<div class="pricing-item__header">
 <span class="pricing-item__name">Half-Head Foils Package</span>
 <span class="pricing-item__price">from $265</span>
 </div>
@@ -2725,7 +2733,7 @@
 <span class="pricing-item__price">from $275</span>
 </div>
 <p class="pricing-item__desc">Keep your blonde looking fresh, bright and vibrant between full services with a targeted refresh of strategically placed foils, a professional toner application and a gorgeous blow wave to finish your look beautifully.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-S0uG5BBlX3Jqb4e3iW0GY" rel="noopener" target="_blank">Book Now</a>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0XSrbYs4yC5dP63MH3845A" rel="noopener" target="_blank">Book Now</a>
 </div>
 <div class="pricing-item">
 <div class="pricing-item__header">
