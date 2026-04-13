@@ -3,12 +3,10 @@
 <html lang="en-AU">
 <head>
 <meta charset="utf-8"/>
-<meta http-equiv="Cache-Control" content="no-store"/>
-<meta http-equiv="Pragma" content="no-cache"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="upgrade-insecure-requests" http-equiv="Content-Security-Policy"/>
 <title>Hair Avenue Braddon — Colour, Cuts &amp; Hair Health Specialists | Canberra Hair Salon</title>
-<meta content="Hair Avenue Braddon — top-rated salon for colour, balayage, hair smoothfiller &amp; nanoplasty. 4.9★ from 132+ Google reviews. Book online now." name="description"/>
+<meta content="Hair Avenue Braddon — top-rated salon for colour, balayage, hair smoothfiller &amp; nanoplasty. 4.9★ from 140+ Google reviews. Book online now." name="description"/>
 <meta content="hair salon Braddon, hairdresser Canberra, hair colour Canberra, balayage Canberra, foils Canberra, highlights Canberra, hair smoothfiller Canberra, nanoplasty Canberra, keratin treatment Canberra, best hairdresser Canberra, women haircut Canberra, men haircut Braddon, grey blending Canberra, hair extensions Canberra, bridal hair Canberra, LGBTQ friendly salon Canberra, kids haircut Canberra, micro mist treatment Canberra, hair health specialist Canberra, women-owned salon Braddon" name="keywords"/>
 <meta content="index, follow" name="robots"/>
 <meta content="Hair Avenue Braddon" name="author"/>
@@ -17,7 +15,7 @@
 <link href="logo.png" rel="apple-touch-icon"/>
 <meta content="https://hairavenue.com.au/logo.png" property="og:image"/>
 <meta content="Hair Avenue Braddon — Colour, Cuts &amp; Hair Health Specialists" property="og:title"/>
-<meta content="Braddon's top-rated salon. 4.9★ from 132+ reviews. Colour, balayage, hair smoothfiller, nanoplasty &amp; advanced treatments. Women-owned, LGBTQ+ friendly." property="og:description"/>
+<meta content="Braddon's top-rated salon. 4.9★ from 140+ reviews. Colour, balayage, hair smoothfiller, nanoplasty &amp; advanced treatments. Women-owned, LGBTQ+ friendly." property="og:description"/>
 <meta content="website" property="og:type"/>
 <meta content="https://hairavenue.com.au/" property="og:url"/>
 <meta content="en_AU" property="og:locale"/>
@@ -192,6 +190,227 @@
 
     .section--forest { background: #142a18; color: #ffffff; }
     .section--warm { background: var(--clr-cream-warm); }
+
+    /* Products section */
+    .products__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .products__text {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: #424245;
+      margin-bottom: 20px;
+    }
+    .products__wella-logo {
+      height: 40px;
+      width: auto;
+      margin-top: 16px;
+      opacity: 0.8;
+      mix-blend-mode: multiply;
+    }
+    .products__image-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .products__img {
+      width: 100%;
+      border-radius: var(--radius-md);
+      object-fit: cover;
+      aspect-ratio: 1;
+      box-shadow: var(--shadow-md);
+      border: 1.5px solid rgba(201,169,110,0.2);
+    }
+    .products__img:first-child {
+      grid-column: 1 / -1;
+      aspect-ratio: 2 / 1;
+    }
+
+    /* Kelly Wella quote */
+    .wella-quote {
+      margin: 60px auto 0;
+      max-width: 760px;
+      text-align: center;
+      padding: 40px;
+      background: rgba(255,255,255,0.6);
+      border-radius: var(--radius-lg);
+      border: 1.5px solid rgba(201,169,110,0.25);
+      position: relative;
+    }
+    .wella-quote::before {
+      content: '\201C';
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 4rem;
+      color: var(--clr-gold);
+      line-height: 1;
+      font-family: Georgia, serif;
+    }
+    .wella-quote__text {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: #424245;
+      font-style: italic;
+    }
+    .wella-quote__cite {
+      display: block;
+      margin-top: 16px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--clr-gold);
+      font-style: normal;
+    }
+
+    /* Gallery tile — shared wrapper for images & video */
+    .gallery-tile {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+    }
+    .gallery-tile img,
+    .gallery-tile video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: var(--radius-md);
+      transition: transform 0.5s cubic-bezier(0.25,0.1,0.25,1);
+    }
+    .gallery-tile:hover img,
+    .gallery-tile:hover video { transform: scale(1.04); }
+    /* Label overlay */
+    .gallery-tile__label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 28px 14px 12px;
+      background: linear-gradient(to top, rgba(10,25,12,0.78) 0%, transparent 100%);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      line-height: 1.3;
+      border-radius: 0 0 var(--radius-md) var(--radius-md);
+      pointer-events: none;
+    }
+    .gallery-tile__tag {
+      display: inline-block;
+      background: rgba(201,169,110,0.9);
+      color: #1a2e1c;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 980px;
+      margin-bottom: 4px;
+      margin-right: 4px;
+    }
+    /* Video tile play icon */
+    .gallery-tile--video video { object-position: center top; }
+    .gallery-tile__play {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 38px; height: 38px;
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(6px);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem;
+      color: #fff;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .gallery-tile--video:hover .gallery-tile__play { opacity: 0; }
+
+    /* Before/After gallery tile */
+    .gallery-tile--ba {
+      display: flex;
+      flex-direction: column;
+    }
+    .gallery-tile__ba-split {
+      display: flex;
+      flex: 1;
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .gallery-tile__ba-half {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+    .gallery-tile__ba-split img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-tile__ba-pill {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.55);
+      color: #fff;
+      font-size: 0.55rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 980px;
+      white-space: nowrap;
+    }
+    .gallery-tile__ba-split .gallery-tile__ba-half:first-child::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0;
+      width: 1px;
+      background: rgba(255,255,255,0.5);
+      z-index: 1;
+    }
+
+    /* Hair Gallery — explicit named grid areas */
+    .hair-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 12px;
+    }
+    .hair-gallery__item--1 { grid-column: 1; grid-row: 1; }
+    .hair-gallery__item--2 { grid-column: 2; grid-row: 1; }
+    .hair-gallery__item--3 { grid-column: 3; grid-row: 1; }
+    .hair-gallery__item--4 { grid-column: 1; grid-row: 2; }
+    .hair-gallery__item--5 { grid-column: 2; grid-row: 2; }
+    .hair-gallery__item--6 { grid-column: 3; grid-row: 2; }
+
+    .hair-gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: var(--radius-md);
+      display: block;
+    }
+    .hair-gallery .gallery-tile:not(.gallery-tile--ba) img { aspect-ratio: 3 / 4; }
+    .gallery-tile--ba .gallery-tile__ba-split { aspect-ratio: 3 / 4; }
+
+    @media (max-width: 768px) {
+      .hair-gallery { grid-template-columns: 1fr 1fr; grid-template-rows: unset; }
+      .hair-gallery__item--1,
+      .hair-gallery__item--2,
+      .hair-gallery__item--3,
+      .hair-gallery__item--4,
+      .hair-gallery__item--5,
+      .hair-gallery__item--6 { grid-column: span 1; grid-row: unset; }
+      .hair-gallery img { aspect-ratio: 1 !important; }
+      .gallery-tile--ba .gallery-tile__ba-split { aspect-ratio: 1; }
+    }
 
     .section-label {
       font-family: var(--ff-body);
@@ -372,6 +591,24 @@
     }
     .nav__book:hover { background: #388E4C; opacity: 0.9; }
 
+    /* Wella Professionals badge in nav */
+    .nav__wella-badge {
+      display: flex;
+      align-items: center;
+      list-style: none;
+    }
+    .nav__wella-logo {
+      height: 22px;
+      width: auto;
+      opacity: 0.85;
+      mix-blend-mode: screen;
+      transition: var(--transition);
+    }
+    .nav.scrolled .nav__wella-logo {
+      mix-blend-mode: multiply;
+      opacity: 0.55;
+    }
+
     /* Persistent Book Now button — always visible on all screen sizes */
     .nav__book--persistent {
       display: none; /* hidden on desktop, shown via media query on mobile */
@@ -403,7 +640,8 @@
     .hero {
       position: relative;
       min-height: 100vh;
-      min-height: 100dvh; /* iOS Safari: use dynamic viewport height */
+      min-height: 100dvh;
+      margin-top: 60px; /* push below the fixed nav */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -425,13 +663,14 @@
       width: 50%;
       height: 100%;
       object-fit: cover;
+      object-position: center top;
     }
-    /* Dark overlay — lighter at top so photos show through more */
+    /* Dark overlay */
     .hero__bg::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(10,31,14,0.45) 0%, rgba(20,42,24,0.6) 40%, rgba(26,53,32,0.82) 100%);
+      background: linear-gradient(180deg, rgba(10,31,14,0.35) 0%, rgba(20,42,24,0.5) 40%, rgba(26,53,32,0.75) 100%);
       z-index: 1;
     }
 
@@ -440,8 +679,6 @@
       max-width: 780px;
       padding: 40px 48px;
       z-index: 2;
-      background: none;
-      border-radius: 20px;
       position: relative;
     }
     .hero__badge {
@@ -1133,6 +1370,42 @@
       border-radius: 2px;
       margin: 14px auto 0;
     }
+    /* Trust badges row */
+    .trust-badges {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(201,169,110,0.35);
+      border-radius: 980px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.01em;
+    }
+    .trust-badge__logo {
+      height: 16px;
+      width: auto;
+      mix-blend-mode: screen;
+      opacity: 0.9;
+    }
+    .trust-badge__star {
+      color: #FF9500;
+      font-size: 0.9rem;
+    }
+    .trust-badge__icon {
+      font-size: 0.95rem;
+      color: var(--clr-gold);
+    }
+
     .final-cta__subtitle {
       font-size: 1rem;
       color: rgba(255,255,255,0.55);
@@ -1143,19 +1416,16 @@
       line-height: 1.7;
       margin-right: auto;
       position: relative;
-      line-height: 1.7;
     }
     .final-cta .btn--primary {
       background: rgba(255,255,255,0.08) !important;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       color: #C9A96E !important;
+      border: 1px solid rgba(201,169,110,0.9) !important;
       box-shadow: 0 0 15px rgba(201,169,110,0.5), 0 0 40px rgba(201,169,110,0.3), 0 0 80px rgba(201,169,110,0.15), 0 0 120px rgba(201,169,110,0.08), inset 0 1px 0 rgba(255,255,255,0.15);
-      border-color: rgba(201,169,110,0.9) !important;
       animation: cta-glow 2.5s ease-in-out infinite alternate;
       font-weight: 400;
-      border: 1px solid rgba(201,169,110,0.45) !important;
-      box-shadow: none;
       letter-spacing: 0.08em;
       padding: 16px 40px;
       font-size: 1.05rem;
@@ -1171,7 +1441,6 @@
       box-shadow: 0 0 25px rgba(201,169,110,0.8), 0 0 60px rgba(201,169,110,0.5), 0 0 120px rgba(201,169,110,0.25), 0 0 160px rgba(201,169,110,0.1), inset 0 1px 0 rgba(255,255,255,0.2);
       animation: none;
       transform: translateY(-1px);
-      box-shadow: none;
     }
     .final-cta__info {
       display: flex;
@@ -1548,7 +1817,7 @@
       margin-bottom: 0;
       min-width: 0;
     }
-    .service-tab:hover { color: #2E5339; background: rgba(255,255,255,0.85); border-color: rgba(201,169,110,0.4); transform: translateY(-1px); box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+    .service-tab:hover { color: #2E5339; background: rgba(255,255,255,0.85); border-color: rgba(201,169,110,0.4); transform: none; box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
     .service-tab:active { transform: translateY(0) scale(0.97); }
     .tab-short { display: none; }
     .tab-full { display: inline; }
@@ -1571,8 +1840,8 @@
       font-weight: 700;
       background: linear-gradient(135deg, #e8d5a8, #c9a96e);
       border: 1.5px solid rgba(201,169,110,0.5);
-      box-shadow: 0 3px 12px rgba(201,169,110,0.3), inset 0 -3px 0 0 #b8943e;
-      transform: scale(1.05) translateY(-1px);
+      box-shadow: 0 2px 8px rgba(201,169,110,0.25), inset 0 -2px 0 0 #b8943e;
+      transform: none;
     }
     #svc-tab-colouring:checked ~ #panel-colouring,
     #svc-tab-regrowth:checked ~ #panel-regrowth,
@@ -1894,6 +2163,9 @@
       }
       .nav__toggle-chk:checked ~ .nav__inner .nav__links .nav__link { color: #1d1d1f; font-size: 0.95rem; }
       .nav__toggle-chk:checked ~ .nav__inner .nav__links .nav__book { display: none; } /* hide duplicate in dropdown */
+      .nav__wella-badge { display: none; }
+      .nav__toggle-chk:checked ~ .nav__inner .nav__links .nav__wella-badge { display: flex; justify-content: center; padding: 8px 0 4px; }
+      .nav__toggle-chk:checked ~ .nav__inner .nav__links .nav__wella-badge .nav__wella-logo { mix-blend-mode: multiply; opacity: 0.5; height: 18px; }
       .nav__toggle { display: flex; }
       .nav__book--persistent {
         display: inline-block !important;
@@ -1904,13 +2176,20 @@
       }
       .nav__toggle { order: 3; }
 
-      /* Hero — much shorter on mobile */
-      .hero { min-height: auto; padding: 100px 0 60px; }
-      .hero__bg-split { flex-direction: row; }
-      .hero__bg-left, .hero__bg-right { width: 50%; }
+      /* Products section mobile */
+      .products__grid { grid-template-columns: 1fr; gap: 32px; }
+      .products__wella-logo { height: 32px; }
+      .wella-quote { padding: 28px 20px; margin-top: 40px; }
+      .wella-quote__text { font-size: 0.95rem; }
+      .wella-quote::before { font-size: 3rem; }
+      .trust-badges { gap: 8px; }
+      .trust-badge { padding: 6px 14px; font-size: 0.72rem; }
+      /* Hero on mobile */
+      .hero { margin-top: 52px; min-height: calc(100vh - 52px); }
+      .hero__bg-left, .hero__bg-right { object-position: center 20%; }
       .hero [style*="margin-bottom:16px"] img { height: 64px !important; max-width: 200px !important; }
       .hero [style*="margin-bottom:16px"] { margin-bottom: 12px !important; }
-      .hero__accent { font-size: 1rem !important; }
+      .hero__accent { font-size: 1.2rem !important; }
       .hero__tagline { font-size: 0.82rem; margin: 14px auto 28px; }
       .hero__badge { font-size: 0.7rem; padding: 0; margin-bottom: 16px; }
       .hero__ctas { flex-direction: column; align-items: center; gap: 12px; }
@@ -2018,38 +2297,6 @@
       /* Careers — responsive */
       .careers__content { grid-template-columns: 1fr; gap: 32px; }
   
-    .expect-bg-wrapper {
-      position: relative;
-      overflow: hidden;
-      border-radius: 20px;
-      margin: 40px auto 0;
-      max-width: 1000px;
-      padding: 40px 32px;
-    }
-    .expect-bg-wrapper .expect-bg-split {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      z-index: 0;
-    }
-    .expect-bg-wrapper .expect-bg-split img {
-      width: 50%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .expect-bg-wrapper::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(36,62,43,0.92), rgba(46,83,57,0.88));
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      z-index: 1;
-    }
-    .expect-bg-wrapper > *:not(.expect-bg-split) {
-      position: relative;
-      z-index: 2;
-    }
     /* Mobile: auto-scrolling carousel with manual scroll support */
       .expect-scroll-wrapper {
         overflow-x: auto;
@@ -2118,16 +2365,13 @@
 
     @media (max-width: 420px) {
       .section { padding: 36px 0; }
-      .hero { padding: 88px 0 48px; }
       .hero [style*="margin-bottom:16px"] img { height: 52px !important; max-width: 170px !important; }
-      .hero__accent { font-size: 0.9rem !important; }
+      .hero__accent { font-size: 1.1rem !important; }
       .hero__content { padding: 0 16px; }
 
       /* Services single column on very small screens */
       .services__grid { grid-template-columns: 1fr; gap: 10px; }
       .services-card .service-tab { font-size: 0.78rem; font-weight: 600; padding: 11px 8px; border-radius: 50px; border: 1.5px solid rgba(201,169,110,0.2); margin-bottom: 0; }
-
-      #new-clients [style*="font-size: 1.6rem"] { font-size: 1.3rem !important; }
 
       /* Before/After stack */
       .ba__grid { grid-template-columns: 1fr; gap: 10px; }
@@ -2193,6 +2437,7 @@
 <div class="nav__inner">
 <a aria-label="Hair Avenue Home" class="nav__logo" href="#"><img alt="Hair Avenue Braddon" src="images/hair-avenue-braddon-3.png" style="height:42px;width:auto;display:block;"/></a>
 <ul class="nav__links" id="navLinks">
+<li><a class="nav__link" href="#products">Our Products</a></li>
 <li><a class="nav__link" href="#services">Services &amp; Pricing</a></li>
 <li><a class="nav__link" href="#team">Our Team</a></li>
 <li><a class="nav__link" href="#reviews">Reviews</a></li>
@@ -2208,30 +2453,26 @@
 <header class="hero" id="home">
 <div class="hero__bg">
 <div class="hero__bg-split">
-<img alt="Hair Avenue treatment and styling" class="hero__bg-left" src="images/hero__bg-left-1.jpg"/>
-<img alt="Hair Avenue colouring services" class="hero__bg-right" src="images/hero__bg-right-1.jpg"/>
+<img alt="Blonde SmoothFiller editorial" class="hero__bg-left" src="wella-assets/smoothfiller/wella-professionals-smoothfiller-kv-blonde-2-jpg"/>
+<img alt="Brunette SmoothFiller — sleek close up" class="hero__bg-right" src="wella-assets/smoothfiller/wp-procolor-smoothfiller-1x1-kv-brunette-1-1-2026-psdhighres-na-jpg"/>
 </div>
 </div>
 <div class="hero__content">
 <div class="hero__badge">
-<span>★</span> Rated 4.9 Stars · 132+ Reviews
+<span>★</span> Rated 4.9 Stars · 140+ Reviews
       </div>
 <div style="margin-bottom:16px; display:flex; justify-content:center;"><img alt="Hair Avenue Braddon" src="images/image-1.png" style="height:100px;width:auto;max-width:320px;"/></div>
 <h1 class="hero__title">
-<span class="hero__accent">Colour, Cut &amp; Blonde Specialists — Where Everyone Belongs</span>
+<span class="hero__accent">Your Hair, Elevated.</span>
 </h1>
 <p class="hero__tagline">
-        Expert colouring. Advanced treatments. A salon where everyone belongs. Walk-ins welcome.
+        Braddon's destination for beautiful colour, effortless style, and hair that feels as good as it looks.
       </p>
 <div class="hero__ctas">
 <a class="btn btn--primary btn--lg" href="#services">
-          View Our Services &amp; Pricing
+          View Our Services
         </a>
 </div>
-</div>
-<div aria-hidden="true" class="hero__scroll">
-<span>Scroll</span>
-<div class="hero__scroll-line"></div>
 </div>
 </header>
 <!-- ===== WHY CHOOSE US ===== -->
@@ -2245,31 +2486,31 @@
 <!-- Quick identity pills -->
 <div class="why__grid" style="margin-bottom: 40px;">
 <div class="why__card reveal">
-<div aria-hidden="true" class="why__icon"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg></div>
+<div aria-hidden="true" class="why__icon"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg></div>
 <div class="why__card-info">
 <h3 class="why__card-title">Hair Health Experts</h3>
-<p class="why__card-text">Hair SmoothFiller, nanoplasty &amp; micro mist — advanced care most salons can't offer</p>
+<p class="why__card-text">Advanced SmoothFiller &amp; nanoplasty — care few salons offer</p>
 </div>
 </div>
 <div class="why__card reveal">
-<div aria-hidden="true" class="why__icon"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" x2="4" y1="22" y2="15"></line></svg></div>
+<div aria-hidden="true" class="why__icon"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" x2="4" y1="22" y2="15"></line></svg></div>
 <div class="why__card-info">
 <h3 class="why__card-title">LGBTQ+ Friendly</h3>
 <p class="why__card-text">A safe, welcoming space for everyone — exactly as you are</p>
 </div>
 </div>
 <div class="why__card reveal">
-<div aria-hidden="true" class="why__icon"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+<div aria-hidden="true" class="why__icon"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
 <div class="why__card-info">
 <h3 class="why__card-title">Women-Owned</h3>
 <p class="why__card-text">Founded by Kelly — built on genuine care, not corporate formulas</p>
 </div>
 </div>
 <div class="why__card reveal">
-<div aria-hidden="true" class="why__icon"><svg fill="var(--clr-gold)" height="20" stroke="var(--clr-gold)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div>
+<div aria-hidden="true" class="why__icon"><svg fill="var(--clr-gold)" height="20" stroke="var(--clr-gold)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div>
 <div class="why__card-info">
 <h3 class="why__card-title">4.9★ Google Rating</h3>
-<p class="why__card-text">132+ five-star reviews from real clients</p>
+<p class="why__card-text">140+ five-star reviews from real clients</p>
 </div>
 </div>
 </div>
@@ -2285,73 +2526,73 @@
 <div class="expect-scroll-wrapper">
 <div class="expect-grid">
 <div class="expect-card">
-<div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="28"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg></div>
+<div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="28"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg></div>
 <div class="expect-card__body"><h4 class="expect-card__title">Premium Wella Products</h4>
 <p class="expect-card__text">Exclusively Wella professional-grade colour and care.</p></div>
 </div>
 <div class="expect-card">
-<div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="28"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></div>
+<div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="28"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></div>
 <div class="expect-card__body"><h4 class="expect-card__title">Massage Chairs at Every Basin</h4>
 <p class="expect-card__text">Relax in massage chairs while your hair is treated.</p></div>
 </div>
 <div class="expect-card">
-<div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="28"><path d="M12 22c-4-4-8-7.5-8-12a8 8 0 0 1 16 0c0 4.5-4 8-8 12z"></path><path d="M12 10v6"></path><path d="M9 13l3-3 3 3"></path></svg></div>
+<div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="28"><path d="M12 22c-4-4-8-7.5-8-12a8 8 0 0 1 16 0c0 4.5-4 8-8 12z"></path><path d="M12 10v6"></path><path d="M9 13l3-3 3 3"></path></svg></div>
 <div class="expect-card__body"><h4 class="expect-card__title">Best-Equipped Salon in Braddon</h4>
 <p class="expect-card__text">State-of-the-art tools and a beautifully designed space.</p></div>
 </div>
 <div class="expect-card">
-<div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="28"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
+<div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="28"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
 <div class="expect-card__body"><h4 class="expect-card__title">Personalised Consultations</h4>
 <p class="expect-card__text">We listen to your vision and tailor a plan just for you.</p></div>
 </div>
 <div class="expect-card">
-<div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="28"><rect height="17" rx="2" transform="rotate(45 12 12)" width="17" x="3.5" y="3.5"></rect></svg></div>
+<div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="28"><rect height="17" rx="2" transform="rotate(45 12 12)" width="17" x="3.5" y="3.5"></rect></svg></div>
 <div class="expect-card__body"><h4 class="expect-card__title">Luxury Without the Luxury Price</h4>
 <p class="expect-card__text">Premium experience at prices that won't break the bank.</p></div>
 </div>
 <div class="expect-card">
-<div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="28"><path d="M17 8h1a4 4 0 1 1 0 8h-1"></path><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path><line x1="6" x2="6" y1="2" y2="4"></line><line x1="10" x2="10" y1="2" y2="4"></line><line x1="14" x2="14" y1="2" y2="4"></line></svg></div>
+<div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="28"><path d="M17 8h1a4 4 0 1 1 0 8h-1"></path><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path><line x1="6" x2="6" y1="2" y2="4"></line><line x1="10" x2="10" y1="2" y2="4"></line><line x1="14" x2="14" y1="2" y2="4"></line></svg></div>
 <div class="expect-card__body"><h4 class="expect-card__title">Complimentary Drinks &amp; Snacks</h4>
 <p class="expect-card__text">Free drinks from our menu plus snacks while you relax.</p></div>
 </div>
 <div class="expect-card">
-<div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="28"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+<div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="28"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
 <div class="expect-card__body"><h4 class="expect-card__title">Open Saturdays &amp; Late Nights</h4>
 <p class="expect-card__text">Book around your schedule, not the other way around.</p></div>
 </div>
 <!-- Duplicate set for seamless infinite scroll -->
 <div aria-hidden="true" class="expect-card">
-<div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="28"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg></div>
+<div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="28"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg></div>
 <div class="expect-card__body"><h4 class="expect-card__title">Premium Wella Products</h4>
 <p class="expect-card__text">Exclusively Wella professional-grade colour and care.</p></div>
 </div>
 <div aria-hidden="true" class="expect-card">
-<div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="28"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></div>
+<div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="28"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></div>
 <div class="expect-card__body"><h4 class="expect-card__title">Massage Chairs at Every Basin</h4>
 <p class="expect-card__text">Relax in massage chairs while your hair is treated.</p></div>
 </div>
 <div aria-hidden="true" class="expect-card">
-<div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="28"><path d="M12 22c-4-4-8-7.5-8-12a8 8 0 0 1 16 0c0 4.5-4 8-8 12z"></path><path d="M12 10v6"></path><path d="M9 13l3-3 3 3"></path></svg></div>
+<div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="28"><path d="M12 22c-4-4-8-7.5-8-12a8 8 0 0 1 16 0c0 4.5-4 8-8 12z"></path><path d="M12 10v6"></path><path d="M9 13l3-3 3 3"></path></svg></div>
 <div class="expect-card__body"><h4 class="expect-card__title">Best-Equipped Salon in Braddon</h4>
 <p class="expect-card__text">State-of-the-art tools and a beautifully designed space.</p></div>
 </div>
 <div aria-hidden="true" class="expect-card">
-<div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="28"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
+<div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="28"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
 <div class="expect-card__body"><h4 class="expect-card__title">Personalised Consultations</h4>
 <p class="expect-card__text">We listen to your vision and tailor a plan just for you.</p></div>
 </div>
 <div aria-hidden="true" class="expect-card">
-<div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="28"><rect height="17" rx="2" transform="rotate(45 12 12)" width="17" x="3.5" y="3.5"></rect></svg></div>
+<div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="28"><rect height="17" rx="2" transform="rotate(45 12 12)" width="17" x="3.5" y="3.5"></rect></svg></div>
 <div class="expect-card__body"><h4 class="expect-card__title">Luxury Without the Luxury Price</h4>
 <p class="expect-card__text">Premium experience at prices that won't break the bank.</p></div>
 </div>
 <div aria-hidden="true" class="expect-card">
-<div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="28"><path d="M17 8h1a4 4 0 1 1 0 8h-1"></path><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path><line x1="6" x2="6" y1="2" y2="4"></line><line x1="10" x2="10" y1="2" y2="4"></line><line x1="14" x2="14" y1="2" y2="4"></line></svg></div>
+<div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="28"><path d="M17 8h1a4 4 0 1 1 0 8h-1"></path><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path><line x1="6" x2="6" y1="2" y2="4"></line><line x1="10" x2="10" y1="2" y2="4"></line><line x1="14" x2="14" y1="2" y2="4"></line></svg></div>
 <div class="expect-card__body"><h4 class="expect-card__title">Complimentary Drinks &amp; Snacks</h4>
 <p class="expect-card__text">Free drinks from our menu plus snacks while you relax.</p></div>
 </div>
 <div aria-hidden="true" class="expect-card">
-<div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="28"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+<div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="28"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
 <div class="expect-card__body"><h4 class="expect-card__title">Open Saturdays &amp; Late Nights</h4>
 <p class="expect-card__text">Book around your schedule, not the other way around.</p></div>
 </div>
@@ -2360,6 +2601,7 @@
 </div>
 </div>
 </section>
+<!-- ===== OUR PRODUCTS — WELLA PROFESSIONALS ===== -->
 <!-- ===== SERVICES & PRICING ===== -->
 <section class="section section--services-green" id="services">
 <div class="container">
@@ -2410,7 +2652,9 @@
 <span class="pricing-item__name">All Over Colour Package</span>
 <span class="pricing-item__price">from $235</span>
 </div>
-<p class="pricing-item__desc">Transform your hair with our premium All-Over Colour service using top-quality Wella products for rich, long-lasting vibrancy. Every session includes a personalised consultation, luxurious shampoo, expert colour application &amp; beautiful styling.</p>
+<p class="pricing-item__desc">Your colour, perfected. Every Hair Avenue colour service uses Wella's Koleston Perfect ME+ — the world's most advanced professional permanent colour. With Pure Balance Technology, it neutralises free radicals caused by mineral build-up in your hair, delivering richer, truer-to-tone results with significantly less damage, colour after colour.</p>
+<p class="pricing-item__desc">The ME+ molecule is a Wella-exclusive breakthrough — over seven years of research and 3,000+ formulations tested — that reduces the risk of developing a new colour allergy by up to 60 times. Gorgeous colour shouldn't come with compromise, and with Koleston Perfect, it doesn't.</p>
+<p class="pricing-item__desc" style="font-weight:500; color:#2E5339;">Up to 100% grey coverage, up to 5 levels of lift, and natural depth and shine that lasts.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVxF_C_4mQMY3w_h9tMAd_0s" rel="noopener" target="_blank">Book Now</a>
 </div>
 <div class="pricing-item">
@@ -2418,7 +2662,7 @@
 <span class="pricing-item__name">Refresh / Gloss Colour Maintenance Package</span>
 <span class="pricing-item__price">from $110</span>
 </div>
-<p class="pricing-item__desc">Revive and enhance your colour between lightening sessions with this refreshing gloss treatment. Adds brilliant shine, beautiful depth and expert tone correction to keep your shade looking salon-fresh and vibrant for longer.</p>
+<p class="pricing-item__desc">Freshly toned, salon-perfect colour — using Wella Color Touch for demi-permanent vibrancy between full colour appointments. Adds brilliant shine, beautiful depth and expert tone correction to keep your shade looking salon-fresh and vibrant for longer.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV6wcEr-BYEhezWV3JShetyw" rel="noopener" target="_blank">Book Now</a>
 </div>
 </div>
@@ -2460,7 +2704,7 @@
 <span class="pricing-item__name">Full-Head Foils / Blonde Package</span>
 <span class="pricing-item__price">from $350</span>
 </div>
-<p class="pricing-item__desc">Precision foiling expertly placed across your entire head for radiant, multi-dimensional highlights that catch the light beautifully. Tailored to suit all hair types and lengths, with toner and blow wave included.</p>
+<p class="pricing-item__desc">Our highlight and balayage services are powered by Wella Blondor — the professional lightening system trusted for controlled, reliable lift across the full blonde spectrum. Blondor delivers up to 9 levels of lift with built-in Bond Builder Technology for up to 97% less breakage. Anti-yellow molecules work during the lifting process to neutralise unwanted warmth, so your blonde comes out clean and exactly where you want it. Paired with Wellaplex bond protection, your hair stays strong and feels as healthy as it looks. Includes toner and blow wave.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV_2sKO91oCqwKSEoY0JbueA" rel="noopener" target="_blank">Book Now</a>
 </div>
 <div class="pricing-item">
@@ -2510,7 +2754,7 @@
 <details class="pricing-subcat">
 <summary class="pricing-subcat__toggle"><span class="pricing-subcat__toggle-inner">
 <span>Hair Cuts &amp; Blow Wave</span>
-<svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="6 9 12 15 18 9"></polyline></svg>
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="14"><polyline points="6 9 12 15 18 9"></polyline></svg>
 </span>
 </summary>
 <div class="pricing-subcat__list pricing-subcat__list--open">
@@ -2559,7 +2803,7 @@
 <details class="pricing-subcat">
 <summary class="pricing-subcat__toggle"><span class="pricing-subcat__toggle-inner">
 <span>Hair Cuts Only</span>
-<svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="6 9 12 15 18 9"></polyline></svg>
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="14"><polyline points="6 9 12 15 18 9"></polyline></svg>
 </span>
 </summary>
 <div class="pricing-subcat__list pricing-subcat__list--open">
@@ -2614,7 +2858,7 @@
 <span class="pricing-item__name">Short</span>
 <span class="pricing-item__price">$79</span>
 </div>
-<p class="pricing-item__desc">A polished blow wave for short hair that adds volume, shape and a salon-quality shine. Includes a relaxing shampoo and nourishing treatment to leave your locks feeling silky, healthy and perfectly styled. Short hair guide: above chin length.</p>
+<p class="pricing-item__desc">A polished blow wave for short hair that adds volume, shape and a salon-quality shine. Includes a relaxing shampoo and nourishing treatment to leave your locks feeling silky, healthy and perfectly styled. Every blowout is set with Wella EIMI professional styling products for hold that lasts. Short hair guide: above chin length.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV9BJFUbjqc2skLHOjo89r84" rel="noopener" target="_blank">Book Now</a>
 </div>
 <div class="pricing-item">
@@ -2656,10 +2900,23 @@
 <div class="pricing-subcat__list pricing-subcat__list--open">
 <div class="pricing-item">
 <div class="pricing-item__header">
-<span class="pricing-item__name">Hair SmoothFiller</span>
+<span class="pricing-item__name">Wella SmoothFiller — Smooth. Fill. Restructure.</span>
 <span class="pricing-item__price">from $249</span>
 </div>
-<p class="pricing-item__desc">An advanced deep conditioning treatment that restores strength, brilliant shine and silky smoothness to tired, stressed hair. Effectively reduces frizz and repairs damage from within, leaving your locks revitalised and healthier.</p>
+<p class="pricing-item__desc">Tired of fighting frizz every morning? SmoothFiller by Wella Professionals is a revolutionary demi-permanent treatment that transforms your hair in a single salon session. Its Smart Delivery System carries active ingredients deep into the cortex, building new bonds from the inside out for smoothness that lasts up to three months.</p>
+<p class="pricing-item__desc">Unlike traditional keratin treatments, SmoothFiller preserves your natural texture — your waves and curls keep their shape, just smoother and infinitely more manageable. There's no harsh regrowth line, no sulfate-free shampoo rules, and no waiting days to wash. You leave the chair with humidity-proof hair, faster blow-dry time, and a style that holds.</p>
+<p class="pricing-item__desc" style="color:#2E5339; font-weight:500;"><strong>Who it's for:</strong> Anyone dealing with frizz and hard-to-manage hair — especially if you find yourself reaching for the straightener or blow-dryer daily. Results are cumulative, so the more you do it, the smoother it gets.</p>
+<details class="smoothfiller-faq" style="margin-top:8px;">
+<summary style="cursor:pointer; font-size:0.85rem; font-weight:600; color:#2E7D42;">Common Questions ▾</summary>
+<div style="padding:8px 0 0; font-size:0.85rem; color:#86868b; line-height:1.6;">
+<p style="margin-bottom:6px;"><strong>How long does it last?</strong> Up to 3 months.</p>
+<p><strong>Will it straighten my curls?</strong> No — it smooths and reduces frizz while keeping your natural pattern.</p>
+</div>
+</details>
+<div class="smoothfiller-ba" style="display:flex; gap:8px; margin-top:12px; border-radius:12px; overflow:hidden;">
+<div style="flex:1; position:relative;"><img alt="Before SmoothFiller" loading="lazy" src="wella-assets/smoothfiller/wp-procolor-smoothfiller-1x1-before-2026-psdhighres-na-jpg" style="width:100%; aspect-ratio:1; object-fit:cover; border-radius:8px;"/><span style="position:absolute; bottom:6px; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.55); color:#fff; font-size:0.6rem; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; padding:2px 8px; border-radius:980px;">Before</span></div>
+<div style="flex:1; position:relative;"><img alt="After SmoothFiller" loading="lazy" src="wella-assets/smoothfiller/wp-procolor-smoothfiller-1x1-aftersalon-2026-psdhighres-na-jpg" style="width:100%; aspect-ratio:1; object-fit:cover; border-radius:8px;"/><span style="position:absolute; bottom:6px; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.55); color:#fff; font-size:0.6rem; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; padding:2px 8px; border-radius:980px;">After</span></div>
+</div>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVxYFTEV4nabNlcEqjEKQA1U" rel="noopener" target="_blank">Book Now</a>
 </div>
 <div class="pricing-item">
@@ -2790,6 +3047,8 @@
 </div>
 </div>
 </section>
+<!-- ===== THE HAIR AVENUE EXPERIENCE ===== -->
+<!-- ===== HAIR GALLERY ===== -->
 <!-- ===== MEET THE TEAM ===== -->
 <section class="section section--cream" id="team">
 <div class="container">
@@ -2847,14 +3106,14 @@
 <div class="container">
 <div class="section-header reveal">
 <span class="section-label">Client Love</span>
-<h2 class="section-title">132+ Five-Star Reviews</h2>
+<h2 class="section-title">140+ Five-Star Reviews</h2>
 <p class="section-subtitle">Don't just take our word for it. Here's what real clients have to say.</p>
 </div>
 <div class="reviews__header-stats reveal">
 <div class="reviews__big-rating">4.9</div>
 <div class="reviews__stars-block">
 <div class="reviews__stars">★★★★★</div>
-<div class="reviews__count">Based on 132+ Google Reviews</div>
+<div class="reviews__count">Based on 140+ Google Reviews</div>
 </div>
 </div>
 <div class="reviews__track-wrapper">
@@ -2870,7 +3129,7 @@
 </div>
 <div class="review-card__stars">★★★★★</div>
 <p class="review-card__text">"Had such a great experience today! Krystle was so lovely and did an amazing job. Will definitely be back if I'm ever visiting Canberra again. Highly recommend!"</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
+<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 <div class="review-card">
 <div class="review-card__header">
@@ -2882,7 +3141,7 @@
 </div>
 <div class="review-card__stars">★★★★★</div>
 <p class="review-card__text">"Without a doubt the best hairdresser in Canberra. Everyone is so friendly and my hair always turns out amazing. Krystle is incredible!"</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
+<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 <div class="review-card">
 <div class="review-card__header">
@@ -2894,7 +3153,7 @@
 </div>
 <div class="review-card__stars">★★★★★</div>
 <p class="review-card__text">"Great experience with Krystle! She did a great cut — exactly what I was after — and was incredibly friendly and chatty. I'll definitely be back!"</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
+<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 <div class="review-card">
 <div class="review-card__header">
@@ -2906,7 +3165,7 @@
 </div>
 <div class="review-card__stars">★★★★★</div>
 <p class="review-card__text">"What a wonderful experience. Krystle is a great master of colour and cut. Love my new hair and the pampering I received."</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
+<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 <div class="review-card">
 <div class="review-card__header">
@@ -2918,7 +3177,7 @@
 </div>
 <div class="review-card__stars">★★★★★</div>
 <p class="review-card__text">"Kayla was wonderful, friendly and did a great job. Will definitely be a return customer."</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
+<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 <div class="review-card">
 <div class="review-card__header">
@@ -2930,7 +3189,7 @@
 </div>
 <div class="review-card__stars">★★★★★</div>
 <p class="review-card__text">"Trin was amazing — she knows how to take care of hair and is super sweet. I have recommended this salon to friends and family (who are fussy) and they love it."</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
+<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 <div class="review-card">
 <div class="review-card__header">
@@ -2942,7 +3201,7 @@
 </div>
 <div class="review-card__stars">★★★★★</div>
 <p class="review-card__text">"As always, I am very satisfied with the haircut Trinisha gave me today. I love the way she cuts my short hair. Very stylish!"</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
+<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 <div class="review-card">
 <div class="review-card__header">
@@ -2954,7 +3213,7 @@
 </div>
 <div class="review-card__stars">★★★★★</div>
 <p class="review-card__text">"My first visit to Hair Avenue and it was a great experience. I felt pampered sitting on the massage chair while Kayla washed and massaged my hair. Highly recommend!"</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
+<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 <div class="review-card">
 <div class="review-card__header">
@@ -2966,7 +3225,7 @@
 </div>
 <div class="review-card__stars">★★★★★</div>
 <p class="review-card__text">"Was the best haircut experience I have had! From good chats to actually teaching me tips and tricks for my hair — will definitely be back!"</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
+<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 <div class="review-card">
 <div class="review-card__header">
@@ -2978,7 +3237,7 @@
 </div>
 <div class="review-card__stars">★★★★★</div>
 <p class="review-card__text">"I booked in at the last minute for an upstyle for an event. Kayla was lovely and did a great job on my hair."</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
+<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 <div class="review-card">
 <div class="review-card__header">
@@ -2990,7 +3249,7 @@
 </div>
 <div class="review-card__stars">★★★★★</div>
 <p class="review-card__text">"20 out of 10! After leaving the salon, I caught a glimpse of myself in a window as I passed by. I thought that person is wearing same clothes as me. And then I realised it was me!"</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
+<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 <div class="review-card">
 <div class="review-card__header">
@@ -3002,7 +3261,7 @@
 </div>
 <div class="review-card__stars">★★★★★</div>
 <p class="review-card__text">"I've been trying to find a new hairdresser that does what I want and also that I like — I found that in Kayla. Love my hair and felt relaxed, heard and very welcome."</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
+<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 <div class="review-card">
 <div class="review-card__header">
@@ -3014,7 +3273,7 @@
 </div>
 <div class="review-card__stars">★★★★★</div>
 <p class="review-card__text">"I desperately wanted my hair cut and thought I'd give Hair Avenue a go. My haircut was awesome, the consultation was in-depth, and the mist treatment was incredible!"</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
+<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 <div class="review-card">
 <div class="review-card__header">
@@ -3026,7 +3285,7 @@
 </div>
 <div class="review-card__stars">★★★★★</div>
 <p class="review-card__text">"Amazing service by Trin! She gave me exactly the colour and haircut I asked for. The salon was very welcoming. Highly recommend."</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
+<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 <div class="review-card">
 <div class="review-card__header">
@@ -3038,7 +3297,7 @@
 </div>
 <div class="review-card__stars">★★★★★</div>
 <p class="review-card__text">"Love this place! Super affordable and they really listen to what you want. I had Kayla and she was fantastic."</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
+<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 <div class="review-card">
 <div class="review-card__header">
@@ -3050,7 +3309,7 @@
 </div>
 <div class="review-card__stars">★★★★★</div>
 <p class="review-card__text">"Kayla was amazing. Really listened to exactly what I wanted and gave me some great advice. Very happy!"</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
+<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 <div class="review-card">
 <div class="review-card__header">
@@ -3062,7 +3321,7 @@
 </div>
 <div class="review-card__stars">★★★★★</div>
 <p class="review-card__text">"Had a wonderful time getting to know Krystle and have her do my hair. She was very open, confident, and honest. I loved that she kept me in the loop every step of the way."</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
+<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 <div class="review-card">
 <div class="review-card__header">
@@ -3074,7 +3333,7 @@
 </div>
 <div class="review-card__stars">★★★★★</div>
 <p class="review-card__text">"Trin was so lovely! She did an amazing job on my hair, gave me exactly what I wanted!"</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
+<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 <div class="review-card">
 <div class="review-card__header">
@@ -3086,7 +3345,7 @@
 </div>
 <div class="review-card__stars">★★★★★</div>
 <p class="review-card__text">"Trin is amazing! Love love love the haircut she gave me, just what I needed. Lovely atmosphere and people with the professional quality to boot!"</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewbox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
+<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 </div>
 </div>
@@ -3095,23 +3354,24 @@
 </div>
 </div>
 </section>
+<!-- ===== CLIENT TRANSFORMATIONS ===== -->
 <!-- ===== SOCIAL MEDIA FEED ===== -->
 <section class="section social-bg" id="social" style="background: url('images/text-center-reveal.jpg') center center / cover no-repeat;">
 <div class="container">
 <div class="section-header reveal">
 <span class="section-label">Follow Along</span>
 <h2 class="section-title">Latest from Our Facebook</h2>
-<p class="section-subtitle">Stay in the loop — follow us on Facebook for daily inspo, behind-the-scenes moments, and our latest transformations.</p>
+<p class="section-subtitle">Follow our colour journey @hairavenuebraddon — proudly featuring Wella Professionals. Stay in the loop for daily inspo, behind-the-scenes moments, and our latest transformations.</p>
 </div>
 <div class="social__icons reveal">
 <a aria-label="Follow us on Facebook" class="social__icon-link social__icon-link--branded" href="https://www.facebook.com/profile.php?id=61577142741921" rel="noopener" target="_blank">
-<svg height="22" viewbox="0 0 320 512" width="22"><path fill="#1877F2" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>
+<svg height="22" viewBox="0 0 320 512" width="22"><path fill="#1877F2" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>
 </a>
 <a aria-label="Follow us on Instagram" class="social__icon-link social__icon-link--branded" href="https://www.instagram.com/hairavenue_braddon16/" rel="noopener" target="_blank">
-<svg height="24" viewbox="0 0 448 512" width="24"><defs><linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#FFDC80"/><stop offset="25%" style="stop-color:#F77737"/><stop offset="50%" style="stop-color:#E1306C"/><stop offset="75%" style="stop-color:#C13584"/><stop offset="100%" style="stop-color:#833AB4"/></linearGradient></defs><path fill="url(#ig-grad)" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
+<svg height="24" viewBox="0 0 448 512" width="24"><defs><linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#FFDC80"/><stop offset="25%" style="stop-color:#F77737"/><stop offset="50%" style="stop-color:#E1306C"/><stop offset="75%" style="stop-color:#C13584"/><stop offset="100%" style="stop-color:#833AB4"/></linearGradient></defs><path fill="url(#ig-grad)" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
 </a>
 <a aria-label="Follow us on TikTok" class="social__icon-link social__icon-link--branded" href="https://www.tiktok.com/@hairavenue_braddon102" rel="noopener" target="_blank">
-<svg height="22" viewbox="0 0 448 512" width="22"><path fill="#25F4EE" d="M448 209.91a210.06 210.06 0 01-122.77-39.25V349.38A162.55 162.55 0 11185 188.31v89.89a74.62 74.62 0 1052.23 71.18V0h88a121.18 121.18 0 001.86 22.17A122.18 122.18 0 00381 102.39a121.43 121.43 0 0067 20.14z"></path><path fill="#FE2C55" d="M448 209.91a210.06 210.06 0 01-122.77-39.25V349.38A162.55 162.55 0 11185 188.31v89.89a74.62 74.62 0 1052.23 71.18V0h88a121.18 121.18 0 001.86 22.17A122.18 122.18 0 00381 102.39a121.43 121.43 0 0067 20.14z" opacity="0.5"></path></svg>
+<svg height="22" viewBox="0 0 448 512" width="22"><path fill="#25F4EE" d="M448 209.91a210.06 210.06 0 01-122.77-39.25V349.38A162.55 162.55 0 11185 188.31v89.89a74.62 74.62 0 1052.23 71.18V0h88a121.18 121.18 0 001.86 22.17A122.18 122.18 0 00381 102.39a121.43 121.43 0 0067 20.14z"></path><path fill="#FE2C55" d="M448 209.91a210.06 210.06 0 01-122.77-39.25V349.38A162.55 162.55 0 11185 188.31v89.89a74.62 74.62 0 1052.23 71.18V0h88a121.18 121.18 0 001.86 22.17A122.18 122.18 0 00381 102.39a121.43 121.43 0 0067 20.14z" opacity="0.5"></path></svg>
 </a>
 </div>
 <!-- Elfsight Facebook Feed | Untitled Facebook Feed 2 -->
@@ -3129,7 +3389,86 @@ window.addEventListener('load', function() {
 </div>
 </div>
 </section>
-<!-- ===== CAREERS / JOIN OUR TEAM ===== -->
+<!-- ===== HAIR GALLERY ===== -->
+<section class="section section--cream" id="gallery" style="padding-top:60px; padding-bottom:60px;">
+<div class="container" id="products">
+<div class="section-header reveal">
+<span class="section-label">Beautiful Hair</span>
+<h2 class="section-title">Colour Worth Obsessing Over</h2>
+<p class="section-subtitle">A look at what's possible with Wella Professionals colour and care.</p>
+</div>
+<div class="products__grid reveal" style="margin-bottom:48px;">
+<div class="products__copy">
+<p class="products__text">Every service at Hair Avenue is backed by Wella Professionals — the world's leading salon colour brand, trusted by stylists in over 80 countries. From Koleston Perfect ME+ colour to SmoothFiller treatments, we choose Wella for results you can feel and trust.</p>
+<p class="products__text">Why Wella? Over 140 years of colour science, Pure Balance Technology that protects while delivering rich, true-to-tone results, and the ME+ molecule — proven to reduce new colour allergy risk by up to 60 times. Colour that cares.</p>
+</div>
+<div class="products__images">
+<div class="products__image-grid">
+<img alt="Wella LuxeOil — golden editorial" class="products__img" loading="lazy" src="wella-assets/luxeoil/16-igpost-beauty-christmas-luxeoilline-02-jpg"/>
+<img alt="Wella Ultimate Repair trio" class="products__img" loading="lazy" src="wella-assets/ultimate-repair/wp-md26-ultimate-repair-trio-1x1-jpg"/>
+<img alt="Wella LuxeOil — luxury hair oil collection" class="products__img" loading="lazy" src="wella-assets/luxeoil/anz-sp-chr24-luxeoil-quad-lifestyle-1x1-jpg"/>
+</div>
+</div>
+</div>
+<!-- Kelly's "Why We Chose Wella" quote -->
+<blockquote class="wella-quote reveal" style="margin-bottom:48px;">
+<p class="wella-quote__text">"When I opened Hair Avenue, I wanted every product on our shelves to reflect the standard I'd want for my own hair. Wella Professionals was the clear choice — over 140 years of colour innovation, the gentlest formulas in the industry, and results that speak for themselves. When clients sit in our chairs, I want them to know their colour isn't just beautiful — it's backed by the best science in the business."</p>
+<cite class="wella-quote__cite">— Kelly, Founder &amp; Owner, Hair Avenue Braddon</cite>
+</blockquote>
+<div class="hair-gallery reveal">
+
+<div class="hair-gallery__item--1 gallery-tile">
+<img alt="Warm blonde balayage — Wella Blondor" loading="lazy" src="wella-assets/blondor/blondor-basebreaker-beauty-1"/>
+<div class="gallery-tile__label"><span class="gallery-tile__tag">Blondor</span>Sun-Kissed Blonde</div>
+</div>
+
+<div class="hair-gallery__item--2 gallery-tile">
+<img alt="Blonde SmoothFiller editorial" loading="lazy" src="wella-assets/smoothfiller/wella-professionals-smoothfiller-kv-blonde-2-jpg"/>
+<div class="gallery-tile__label"><span class="gallery-tile__tag">SmoothFiller</span>Glossy Blonde</div>
+</div>
+
+<div class="hair-gallery__item--3 gallery-tile gallery-tile--video">
+<video autoplay loop muted playsinline src="wella-assets/eimi/care-styling-wave1-eimi-oceanspritz-tip-f1-igs-mp4"></video>
+<div class="gallery-tile__label gallery-tile__label--video"><span class="gallery-tile__tag">EIMI</span>Beach Waves Tip</div>
+<div class="gallery-tile__play">▶</div>
+</div>
+
+<div class="hair-gallery__item--4 gallery-tile">
+<img alt="Brunette SmoothFiller — sleek close up" loading="lazy" src="wella-assets/smoothfiller/wp-procolor-smoothfiller-1x1-kv-brunette-1-1-2026-psdhighres-na-jpg"/>
+<div class="gallery-tile__label"><span class="gallery-tile__tag">SmoothFiller</span>Rich Brunette</div>
+</div>
+
+<div class="hair-gallery__item--5 gallery-tile gallery-tile--ba">
+<div class="gallery-tile__ba-split">
+<div class="gallery-tile__ba-half">
+<img alt="Before — flat hair before EIMI beach waves" loading="lazy" src="wella-assets/eimi/care-styling-wave1-eimioceanspritz-before-feed-jpg"/>
+<span class="gallery-tile__ba-pill">Before</span>
+</div>
+<div class="gallery-tile__ba-half">
+<img alt="After — beach waves with EIMI Ocean Spritz" loading="lazy" src="wella-assets/eimi/care-styling-wave1-eimioceanspritz-after-feed-jpg"/>
+<span class="gallery-tile__ba-pill">After</span>
+</div>
+</div>
+<div class="gallery-tile__label"><span class="gallery-tile__tag">EIMI</span>Beach Waves</div>
+</div>
+
+<div class="hair-gallery__item--6 gallery-tile gallery-tile--ba">
+<div class="gallery-tile__ba-split">
+<div class="gallery-tile__ba-half">
+<img alt="Before — frizzy hair before SmoothFiller" loading="lazy" src="wella-assets/smoothfiller/wp-procolor-smoothfiller-1x1-before-2026-psdhighres-na-jpg"/>
+<span class="gallery-tile__ba-pill">Before</span>
+</div>
+<div class="gallery-tile__ba-half">
+<img alt="After — smooth sleek hair with SmoothFiller" loading="lazy" src="wella-assets/smoothfiller/wp-procolor-smoothfiller-1x1-aftersalon-2026-psdhighres-na-jpg"/>
+<span class="gallery-tile__ba-pill">After</span>
+</div>
+</div>
+<div class="gallery-tile__label"><span class="gallery-tile__tag">SmoothFiller</span>Frizz to Sleek</div>
+</div>
+
+</div>
+</div>
+</section>
 <!-- ===== FAQ ===== -->
 <section class="section faq-bg" id="faq" style="background: url('images/careers-role-card.jpg') center center / cover no-repeat;">
 <div class="container">
@@ -3248,7 +3587,12 @@ window.addEventListener('load', function() {
 <div class="reveal">
 <div style="margin-bottom:20px;"><span class="section-label">Ready?</span></div>
 <h2 class="final-cta__title">Your Best Hair Day Starts Here</h2>
-<p class="final-cta__subtitle">Book your appointment today or simply walk in — discover why 132+ clients have rated us 4.9 stars. Walk-ins welcome.</p>
+<p class="final-cta__subtitle">Book your appointment today or simply walk in — discover why 140+ clients have rated us 4.9 stars. Walk-ins welcome.</p>
+<div class="trust-badges">
+<div class="trust-badge"><img alt="Wella Professionals" class="trust-badge__logo" src="wella-assets/logos/wella-professionals-logo-web.jpg"/><span>Wella Professional Salon</span></div>
+<div class="trust-badge"><span class="trust-badge__star">★</span><span>4.9 — 140+ Reviews</span></div>
+<div class="trust-badge"><span class="trust-badge__icon">♀</span><span>Women-Owned</span></div>
+</div>
 <a class="btn btn--primary btn--lg" href="https://www.phorest.com/salon/hairavenue/book/service-selection?showSpecialOffers=false" rel="noopener" target="_blank">Book Your Appointment</a>
 <p style="margin-top:14px; font-size:0.85rem; opacity:0.75; font-style:italic;">Any issues with online booking? Call us on <a href="tel:0449801937" style="color:inherit; text-decoration:underline; padding:6px 0; display:inline-block;">0449 801 937</a> — we're happy to help.</p>
 </div>
