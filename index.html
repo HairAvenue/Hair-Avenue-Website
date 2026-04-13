@@ -378,16 +378,14 @@
     /* Hair Gallery — explicit named grid areas */
     .hair-gallery {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       grid-template-rows: auto auto;
       gap: 12px;
     }
     .hair-gallery__item--1 { grid-column: 1; grid-row: 1; }
     .hair-gallery__item--2 { grid-column: 2; grid-row: 1; }
-    .hair-gallery__item--3 { grid-column: 3; grid-row: 1; }
-    .hair-gallery__item--4 { grid-column: 1; grid-row: 2; }
-    .hair-gallery__item--5 { grid-column: 2; grid-row: 2; }
-    .hair-gallery__item--6 { grid-column: 3; grid-row: 2; }
+    .hair-gallery__item--3 { grid-column: 1; grid-row: 2; }
+    .hair-gallery__item--4 { grid-column: 2; grid-row: 2; }
 
     .hair-gallery img {
       width: 100%;
@@ -405,9 +403,7 @@
       .hair-gallery__item--1,
       .hair-gallery__item--2,
       .hair-gallery__item--3,
-      .hair-gallery__item--4,
-      .hair-gallery__item--5,
-      .hair-gallery__item--6 { grid-column: span 1; grid-row: unset; }
+      .hair-gallery__item--4 { grid-column: span 1; grid-row: unset; }
       .hair-gallery img { aspect-ratio: 1 !important; }
       .gallery-tile--ba .gallery-tile__ba-split { aspect-ratio: 1; }
     }
@@ -3418,27 +3414,16 @@ window.addEventListener('load', function() {
 <div class="hair-gallery reveal">
 
 <div class="hair-gallery__item--1 gallery-tile">
-<img alt="Warm blonde balayage — Wella Blondor" loading="lazy" src="wella-assets/blondor/blondor-basebreaker-beauty-1"/>
-<div class="gallery-tile__label"><span class="gallery-tile__tag">Blondor</span>Sun-Kissed Blonde</div>
-</div>
-
-<div class="hair-gallery__item--2 gallery-tile">
 <img alt="Blonde SmoothFiller editorial" loading="lazy" src="wella-assets/smoothfiller/wella-professionals-smoothfiller-kv-blonde-2-jpg"/>
 <div class="gallery-tile__label"><span class="gallery-tile__tag">SmoothFiller</span>Glossy Blonde</div>
 </div>
 
-<div class="hair-gallery__item--3 gallery-tile gallery-tile--video">
-<video autoplay loop muted playsinline src="wella-assets/eimi/care-styling-wave1-eimi-oceanspritz-tip-f1-igs-mp4"></video>
-<div class="gallery-tile__label gallery-tile__label--video"><span class="gallery-tile__tag">EIMI</span>Beach Waves Tip</div>
-<div class="gallery-tile__play">▶</div>
-</div>
-
-<div class="hair-gallery__item--4 gallery-tile">
+<div class="hair-gallery__item--2 gallery-tile">
 <img alt="Brunette SmoothFiller — sleek close up" loading="lazy" src="wella-assets/smoothfiller/wp-procolor-smoothfiller-1x1-kv-brunette-1-1-2026-psdhighres-na-jpg"/>
 <div class="gallery-tile__label"><span class="gallery-tile__tag">SmoothFiller</span>Rich Brunette</div>
 </div>
 
-<div class="hair-gallery__item--5 gallery-tile gallery-tile--ba">
+<div class="hair-gallery__item--3 gallery-tile gallery-tile--ba">
 <div class="gallery-tile__ba-split">
 <div class="gallery-tile__ba-half">
 <img alt="Before — flat hair before EIMI beach waves" loading="lazy" src="wella-assets/eimi/care-styling-wave1-eimioceanspritz-before-feed-jpg"/>
@@ -3452,7 +3437,7 @@ window.addEventListener('load', function() {
 <div class="gallery-tile__label"><span class="gallery-tile__tag">EIMI</span>Beach Waves</div>
 </div>
 
-<div class="hair-gallery__item--6 gallery-tile gallery-tile--ba">
+<div class="hair-gallery__item--4 gallery-tile gallery-tile--ba">
 <div class="gallery-tile__ba-split">
 <div class="gallery-tile__ba-half">
 <img alt="Before — frizzy hair before SmoothFiller" loading="lazy" src="wella-assets/smoothfiller/wp-procolor-smoothfiller-1x1-before-2026-psdhighres-na-jpg"/>
