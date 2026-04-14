@@ -446,6 +446,18 @@
 
     .text-center { text-align: center; }
 
+    /* ===== FOCUS STYLES (keyboard a11y) ===== */
+    a:focus-visible,
+    button:focus-visible,
+    label:focus-visible,
+    summary:focus-visible,
+    [role="button"]:focus-visible,
+    input:focus-visible {
+      outline: 2px solid var(--clr-gold);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
     /* ===== BUTTONS ===== */
     .btn {
       display: inline-flex;
@@ -615,9 +627,12 @@
     .nav__toggle {
       display: none;
       flex-direction: column;
+      justify-content: center;
       gap: 5px;
-      padding: 8px;
+      padding: 12px;
       cursor: pointer;
+      min-width: 44px;
+      min-height: 44px;
       -webkit-tap-highlight-color: rgba(46,125,66,0.3);
     }
     .nav__toggle span {
@@ -2441,6 +2456,14 @@
       .pricing-tabs__subbody { max-height: none !important; overflow: visible !important; }
     </style>
   </noscript>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8BM4ZYQCSS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8BM4ZYQCSS');
+</script>
 </head>
 <body>
 <!-- ===== NAVIGATION ===== -->
@@ -3069,7 +3092,7 @@
 <div class="team-card__body">
 <h3 class="team-card__name">Kelly</h3>
 <p class="team-card__role">Owner &amp; Creative Director</p>
-<p class="team-card__bio">The visionary behind Hair Avenue. With over 10 years of industry experience, Kelly founded the salon with a mission to create a welcoming space where everyone belongs. Her expert eye for colour and passion for hair health set the standard for the whole team.</p>
+<p class="team-card__bio">The visionary behind Hair Avenue and our resident balayage specialist. With over 10 years of industry experience, Kelly is known for her signature hand-painted blondes, lived-in colour, and seamless dimension. She founded the salon to create a welcoming space where everyone belongs.</p>
 </div>
 </div>
 <div class="team-card reveal">
@@ -3079,7 +3102,7 @@
 <div class="team-card__body">
 <h3 class="team-card__name">Krystle</h3>
 <p class="team-card__role">Senior Colourist</p>
-<p class="team-card__bio">With over 10 years in the industry, Krystle is known by clients as a "hair magician." She specialises in balayage and colour transformations that bring out each client's individuality. Her creative flair and technical precision keep clients coming back.</p>
+<p class="team-card__bio">With over 10 years in the industry, Krystle is known by clients as a "hair magician." She specialises in full-head foils and bold colour transformations that bring out each client's individuality. Her creative flair and technical precision keep clients coming back.</p>
 </div>
 </div>
 <div class="team-card reveal">
