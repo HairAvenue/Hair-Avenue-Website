@@ -376,17 +376,12 @@
       z-index: 1;
     }
 
-    /* Hair Gallery — explicit named grid areas */
+    /* Hair Gallery — simple 2-col grid (auto-flow) */
     .hair-gallery {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: auto auto;
       gap: 12px;
     }
-    .hair-gallery__item--1 { grid-column: 1; grid-row: 1; }
-    .hair-gallery__item--2 { grid-column: 2; grid-row: 1; }
-    .hair-gallery__item--3 { grid-column: 1; grid-row: 2; }
-    .hair-gallery__item--4 { grid-column: 2; grid-row: 2; }
 
     .hair-gallery img {
       width: 100%;
@@ -400,11 +395,6 @@
     .gallery-tile--ba .gallery-tile__ba-split { aspect-ratio: 3 / 4; }
 
     @media (max-width: 768px) {
-      .hair-gallery { grid-template-columns: 1fr 1fr; grid-template-rows: unset; }
-      .hair-gallery__item--1,
-      .hair-gallery__item--2,
-      .hair-gallery__item--3,
-      .hair-gallery__item--4 { grid-column: span 1; grid-row: unset; }
       .hair-gallery img { aspect-ratio: 1 !important; }
       .gallery-tile--ba .gallery-tile__ba-split { aspect-ratio: 1; }
     }
@@ -4156,16 +4146,6 @@ window.addEventListener('load', function() {
 <cite class="wella-quote__cite">— Kelly, Founder &amp; Owner, Hair Avenue Braddon</cite>
 </blockquote>
 <div class="hair-gallery reveal">
-
-<div class="hair-gallery__item--1 gallery-tile">
-<img alt="Blonde SmoothFiller editorial" loading="lazy" src="wella-assets/smoothfiller/wella-professionals-smoothfiller-kv-blonde-2-jpg"/>
-<div class="gallery-tile__label"><span class="gallery-tile__tag">SmoothFiller</span>Glossy Blonde</div>
-</div>
-
-<div class="hair-gallery__item--2 gallery-tile">
-<img alt="Brunette SmoothFiller — sleek close up" loading="lazy" src="wella-assets/smoothfiller/wp-procolor-smoothfiller-1x1-kv-brunette-1-1-2026-psdhighres-na-jpg"/>
-<div class="gallery-tile__label"><span class="gallery-tile__tag">SmoothFiller</span>Rich Brunette</div>
-</div>
 
 <div class="hair-gallery__item--3 gallery-tile gallery-tile--ba">
 <div class="gallery-tile__ba-split">
