@@ -2447,50 +2447,6 @@
       opacity: 0.85;
       margin-left: 2px;
     }
-    .pkg-tiers {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 0;
-      margin: 10px 0 14px;
-      background: #ffffff;
-      border: 1px solid rgba(201,169,110,0.25);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    .pkg-tiers__head {
-      display: contents;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #86868b;
-    }
-    .pkg-tiers__head > span {
-      padding: 9px 14px;
-      background: rgba(46,83,57,0.05);
-      border-bottom: 1px solid rgba(201,169,110,0.2);
-    }
-    .pkg-tiers__row {
-      display: contents;
-      font-size: 0.82rem;
-    }
-    .pkg-tiers__row > span {
-      padding: 10px 14px;
-      border-bottom: 1px solid rgba(0,0,0,0.04);
-      display: flex;
-      align-items: center;
-    }
-    .pkg-tiers__row:last-child > span { border-bottom: none; }
-    .pkg-tiers__row .pkg-tiers__length {
-      color: #1d1d1f;
-      font-weight: 500;
-    }
-    .pkg-tiers__row .pkg-tiers__price {
-      color: #2E5339;
-      font-weight: 700;
-      white-space: nowrap;
-      justify-content: flex-end;
-    }
     .pkg-restriction {
       display: flex;
       gap: 10px;
@@ -2594,24 +2550,26 @@
     }
     .pkg-compare__prices {
       display: flex;
-      flex-direction: column;
-      gap: 4px;
-      margin-bottom: 12px;
-      padding: 10px;
+      align-items: baseline;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 14px;
+      padding: 14px 10px;
       background: rgba(46,83,57,0.04);
       border-radius: 8px;
     }
-    .pkg-compare__price-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.78rem;
-    }
-    .pkg-compare__price-row span:first-child {
+    .pkg-compare__prices .pkg-compare__from {
+      font-size: 0.72rem;
       color: #86868b;
+      font-weight: 500;
+      letter-spacing: 0.02em;
     }
-    .pkg-compare__price-row span:last-child {
-      color: #1d1d1f;
-      font-weight: 600;
+    .pkg-compare__prices .pkg-compare__price {
+      font-family: var(--ff-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #2E5339;
+      letter-spacing: -0.01em;
     }
     .pkg-compare__features {
       list-style: none;
@@ -2689,8 +2647,6 @@
       .pkg-bonuses { gap: 6px; }
       .pkg-bonus { font-size: 0.7rem; padding: 5px 10px; }
       .pkg-save-headline { display: block; margin: 6px 0 0; width: fit-content; }
-      .pkg-tiers { font-size: 0.78rem; }
-      .pkg-tiers__head > span, .pkg-tiers__row > span { padding: 8px 10px; }
       .pkg-compare { padding: 16px 12px 20px; }
       .pkg-compare__sub::after {
         content: ' — swipe to compare →';
@@ -3653,14 +3609,6 @@
 <span class="pkg-bonus pkg-bonus--free"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect height="5" width="20" x="2" y="7"></rect><line x1="12" x2="12" y1="22" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"></path></svg><strong>FREE</strong> Intense Mist Hair Treatment <small>(Normally $35)</small></span>
 <span class="pkg-bonus pkg-bonus--discount"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" x2="8.12" y1="4" y2="15.88"></line><line x1="14.47" x2="20" y1="14.48" y2="20"></line><line x1="8.12" x2="12" y1="8.12" y2="12"></line></svg><strong>50% Off</strong> Hair Cut Add-On <small>(Normally $55 &#8594; $27.50)</small></span>
 </div>
-<div class="pkg-tiers" role="table" aria-label="All Over Colour Package pricing by hair length">
-<div class="pkg-tiers__head" role="row"><span role="columnheader">Hair Length</span><span role="columnheader">Package Price</span></div>
-<div class="pkg-tiers__row" role="row"><span class="pkg-tiers__length" role="cell">Short</span><span class="pkg-tiers__price" role="cell">$210</span></div>
-<div class="pkg-tiers__row" role="row"><span class="pkg-tiers__length" role="cell">Medium</span><span class="pkg-tiers__price" role="cell">$225</span></div>
-<div class="pkg-tiers__row" role="row"><span class="pkg-tiers__length" role="cell">Long</span><span class="pkg-tiers__price" role="cell">$250</span></div>
-<div class="pkg-tiers__row" role="row"><span class="pkg-tiers__length" role="cell">Extra Long / Thick</span><span class="pkg-tiers__price" role="cell">$310</span></div>
-</div>
-<p class="pkg-note">Extra Long / Thick pricing applies to hair past mid-back or very thick hair.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV3YuKrD_7sTrdGKw9pkhjg8" rel="noopener" target="_blank" aria-label="Book the All Over Colour Package online">Book Now</a>
 </div>
 
@@ -3675,13 +3623,6 @@
 <div class="pkg-bonuses">
 <span class="pkg-bonus pkg-bonus--free"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect height="5" width="20" x="2" y="7"></rect><line x1="12" x2="12" y1="22" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"></path></svg><strong>FREE</strong> Intense Mist Hair Treatment <small>(Normally $35)</small></span>
 <span class="pkg-bonus pkg-bonus--discount"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" x2="8.12" y1="4" y2="15.88"></line><line x1="14.47" x2="20" y1="14.48" y2="20"></line><line x1="8.12" x2="12" y1="8.12" y2="12"></line></svg><strong>50% Off</strong> Hair Cut Add-On <small>(Normally $55 &#8594; $27.50)</small></span>
-</div>
-<div class="pkg-tiers" role="table" aria-label="Full Head Foils Package pricing by hair length">
-<div class="pkg-tiers__head" role="row"><span role="columnheader">Hair Length</span><span role="columnheader">Package Price</span></div>
-<div class="pkg-tiers__row" role="row"><span class="pkg-tiers__length" role="cell">Short</span><span class="pkg-tiers__price" role="cell">$330</span></div>
-<div class="pkg-tiers__row" role="row"><span class="pkg-tiers__length" role="cell">Medium</span><span class="pkg-tiers__price" role="cell">$350</span></div>
-<div class="pkg-tiers__row" role="row"><span class="pkg-tiers__length" role="cell">Long</span><span class="pkg-tiers__price" role="cell">$380</span></div>
-<div class="pkg-tiers__row" role="row"><span class="pkg-tiers__length" role="cell">Extra Long / Thick</span><span class="pkg-tiers__price" role="cell">$410</span></div>
 </div>
 <p class="pkg-note">Includes full head foils, professional toner, intense mist treatment &amp; blow wave / iron styling.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV2QQHpJ6hAgpy5YaNvslGa0" rel="noopener" target="_blank" aria-label="Book the Full Head Foils Package online">Book Now</a>
@@ -3705,11 +3646,6 @@
 <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg>
 <span><strong>Only suitable for clients who had their hair done less than 12 weeks ago.</strong> If it&#8217;s been more than 12 weeks, we recommend our <strong>Full Head Foils Package</strong> or <strong>Half Head Foils Package</strong> for the best result.</span>
 </div>
-<div class="pkg-tiers" role="table" aria-label="Blonde Maintenance Refresh Package pricing by hair length">
-<div class="pkg-tiers__head" role="row"><span role="columnheader">Hair Length</span><span role="columnheader">Package Price</span></div>
-<div class="pkg-tiers__row" role="row"><span class="pkg-tiers__length" role="cell">Short to Medium</span><span class="pkg-tiers__price" role="cell">$299</span></div>
-<div class="pkg-tiers__row" role="row"><span class="pkg-tiers__length" role="cell">Long</span><span class="pkg-tiers__price" role="cell">$350</span></div>
-</div>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0XSrbYs4yC5dP63MH3845A" rel="noopener" target="_blank" aria-label="Book the Blonde Maintenance Refresh Package online">Book Now</a>
 </div>
 
@@ -3727,13 +3663,6 @@
 <span class="pkg-bonus pkg-bonus--free"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect height="5" width="20" x="2" y="7"></rect><line x1="12" x2="12" y1="22" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"></path></svg><strong>FREE</strong> Intense Mist Hair Treatment <small>(Normally $35)</small></span>
 <span class="pkg-bonus pkg-bonus--free"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="9 12 11 14 15 10"></polyline></svg>Blow wave finish</span>
 </div>
-<div class="pkg-tiers" role="table" aria-label="Balayage Special Deal pricing by hair length">
-<div class="pkg-tiers__head" role="row"><span role="columnheader">Hair Length</span><span role="columnheader">Package Price</span></div>
-<div class="pkg-tiers__row" role="row"><span class="pkg-tiers__length" role="cell">Short to Medium</span><span class="pkg-tiers__price" role="cell">$395</span></div>
-<div class="pkg-tiers__row" role="row"><span class="pkg-tiers__length" role="cell">Long</span><span class="pkg-tiers__price" role="cell">$420</span></div>
-<div class="pkg-tiers__row" role="row"><span class="pkg-tiers__length" role="cell">Extra Long / Thick</span><span class="pkg-tiers__price" role="cell">+$50 surcharge</span></div>
-</div>
-<p class="pkg-note">Extra Long / Thick surcharge applies to hair past the middle of your arm or very thick hair.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVzO1Js8jlGXGQs07gAe5Sko" rel="noopener" target="_blank" aria-label="Book the Balayage Special Deal online">Book Now</a>
 </div>
 
@@ -3747,10 +3676,7 @@
 <div class="pkg-compare__name">Full Head Foils Package</div>
 <p class="pkg-compare__best-for">Best for a complete transformation or starting a blonde journey.</p>
 <div class="pkg-compare__prices">
-<div class="pkg-compare__price-row"><span>Short</span><span>$330</span></div>
-<div class="pkg-compare__price-row"><span>Medium</span><span>$350</span></div>
-<div class="pkg-compare__price-row"><span>Long</span><span>$380</span></div>
-<div class="pkg-compare__price-row"><span>Extra Long / Thick</span><span>$410</span></div>
+<span class="pkg-compare__from">from</span><span class="pkg-compare__price">$330</span>
 </div>
 <ul class="pkg-compare__features">
 <li><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>Full head foils</li>
@@ -3768,10 +3694,7 @@
 <div class="pkg-compare__name">Half-Head Foils Package</div>
 <p class="pkg-compare__best-for">Best for adding dimension and maintaining existing blonde with natural grow-out.</p>
 <div class="pkg-compare__prices">
-<div class="pkg-compare__price-row"><span>Short</span><span>$265</span></div>
-<div class="pkg-compare__price-row"><span>Medium</span><span>$295</span></div>
-<div class="pkg-compare__price-row"><span>Long</span><span>$310</span></div>
-<div class="pkg-compare__price-row"><span>Extra Long / Thick</span><span>&#8212;</span></div>
+<span class="pkg-compare__from">from</span><span class="pkg-compare__price">$265</span>
 </div>
 <ul class="pkg-compare__features">
 <li><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>Half head foils (face &amp; crown)</li>
@@ -3789,10 +3712,7 @@
 <div class="pkg-compare__name">Blonde Maintenance Refresh</div>
 <p class="pkg-compare__best-for">Best for refreshing blonde within 12 weeks of your last appointment.</p>
 <div class="pkg-compare__prices">
-<div class="pkg-compare__price-row"><span>Short to Medium</span><span>$299</span></div>
-<div class="pkg-compare__price-row"><span>Long</span><span>$350</span></div>
-<div class="pkg-compare__price-row"><span>&nbsp;</span><span>&nbsp;</span></div>
-<div class="pkg-compare__price-row"><span>&nbsp;</span><span>&nbsp;</span></div>
+<span class="pkg-compare__from">from</span><span class="pkg-compare__price">$299</span>
 </div>
 <ul class="pkg-compare__features">
 <li><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>20&#8211;25 strategic foils</li>
