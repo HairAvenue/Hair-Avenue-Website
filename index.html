@@ -2621,8 +2621,9 @@
       display: grid;
       grid-template-columns: 1fr 300px;
       grid-template-areas:
-        "info  phone"
-        "badges phone";
+        "info     phone"
+        "features phone"
+        "badges   phone";
       column-gap: 56px;
       row-gap: 0;
       align-items: start;
@@ -2647,6 +2648,7 @@
       pointer-events: none;
     }
     .loyalty__app-info { grid-area: info; }
+    .loyalty__app-features { grid-area: features; }
     .loyalty__app-badges { grid-area: badges; }
     .loyalty__app-visual {
       grid-area: phone;
@@ -2773,8 +2775,9 @@
       .loyalty__app {
         grid-template-columns: 1fr;
         grid-template-areas:
-          "badges"
           "info"
+          "badges"
+          "features"
           "phone";
         column-gap: 0;
         row-gap: 22px;
@@ -2783,7 +2786,7 @@
       }
       .loyalty__app-feature { text-align: left; padding: 14px 0; }
       .loyalty__app-headline { font-size: 1.55rem; margin-bottom: 8px; }
-      .loyalty__app-sub { margin-bottom: 18px; }
+      .loyalty__app-sub { margin-bottom: 0; }
       .loyalty__app-features { margin-bottom: 0; }
       .loyalty__app-badges { justify-content: center; gap: 8px; }
       .loyalty__phone { max-width: 180px; }
@@ -4131,6 +4134,7 @@
 <div class="loyalty__app-info">
 <h3 class="loyalty__app-headline">Download the Hair Avenue app</h3>
 <p class="loyalty__app-sub">Booking, points and rewards — all in your pocket.</p>
+</div>
 <div class="loyalty__app-features">
 <div class="loyalty__app-feature">
 <span class="loyalty__app-feature-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
@@ -4143,7 +4147,6 @@
 <div class="loyalty__app-feature">
 <span class="loyalty__app-feature-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
 <span class="loyalty__app-feature-title">Book on the go, any time</span>
-</div>
 </div>
 </div>
 <div class="loyalty__app-badges">
