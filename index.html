@@ -2646,55 +2646,58 @@
       filter: drop-shadow(0 30px 50px rgba(0,0,0,0.5));
     }
     .loyalty__app-headline {
-      font-size: 1.55rem;
+      font-size: 1.85rem;
       font-weight: 700;
       color: #ffffff;
-      margin-bottom: 10px;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
+      margin-bottom: 12px;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
     }
     .loyalty__app-sub {
-      font-size: 0.94rem;
+      font-size: 1rem;
       color: rgba(255,255,255,0.72);
-      margin-bottom: 22px;
+      margin-bottom: 32px;
       line-height: 1.55;
+      letter-spacing: 0.005em;
     }
     .loyalty__app-features {
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      margin: 4px 0 24px;
+      gap: 0;
+      margin: 0 0 32px;
+      border-top: 1px solid rgba(201,169,110,0.18);
     }
     .loyalty__app-feature {
       display: grid;
-      grid-template-columns: 36px 1fr;
-      gap: 14px;
+      grid-template-columns: 28px 1fr;
+      gap: 18px;
       align-items: start;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(201,169,110,0.18);
     }
     .loyalty__app-feature-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      background: rgba(201,169,110,0.12);
-      border: 1px solid rgba(201,169,110,0.3);
+      width: 28px;
+      height: 28px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       color: #E8D49A;
       flex-shrink: 0;
+      margin-top: 1px;
     }
-    .loyalty__app-feature-icon svg { width: 18px; height: 18px; }
+    .loyalty__app-feature-icon svg { width: 24px; height: 24px; stroke-width: 1.4; }
     .loyalty__app-feature-title {
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 600;
       color: #ffffff;
       line-height: 1.3;
-      margin-bottom: 2px;
+      margin-bottom: 3px;
+      letter-spacing: -0.005em;
     }
     .loyalty__app-feature-text {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.45;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.5;
     }
     .loyalty__app-badges {
       display: flex;
@@ -2729,20 +2732,25 @@
     }
     .loyalty__qr {
       background: #ffffff;
-      padding: 14px;
-      border-radius: 16px;
-      text-align: center;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+      padding: 8px 16px 8px 10px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
-    .loyalty__qr img { width: 116px; height: 116px; display: block; }
+    .loyalty__qr:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
+    .loyalty__qr img { width: 88px; height: 88px; display: block; }
     .loyalty__qr-label {
-      font-size: 0.64rem;
+      font-size: 0.7rem;
       font-weight: 600;
       color: #142a18;
-      margin-top: 8px;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
+      line-height: 1.3;
+      white-space: nowrap;
     }
+    .loyalty__qr-label br { display: block; content: ''; }
     @media (max-width: 900px) {
       .loyalty__app { grid-template-columns: 1fr; gap: 36px; padding: 36px 28px; text-align: center; }
       .loyalty__app-feature { text-align: left; }
@@ -2755,6 +2763,270 @@
       .loyalty__rewards { grid-template-columns: repeat(2, 1fr); gap: 12px; }
       .loyalty__reward { padding: 22px 16px 20px; }
       .loyalty__reward-name { font-size: 0.86rem; min-height: 2.7em; }
+    }
+
+    /* Loyalty learn-more collapsible block */
+    .loyalty__learn {
+      max-width: 880px;
+      margin: 56px auto 0;
+    }
+    .loyalty__learn-heading {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #E8D49A;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .loyalty__learn-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(201,169,110,0.18);
+      border-radius: 18px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: border-color 0.25s ease, background 0.25s ease;
+    }
+    .loyalty__learn-item[open] {
+      border-color: rgba(201,169,110,0.4);
+      background: rgba(255,255,255,0.05);
+    }
+    .loyalty__learn-toggle {
+      list-style: none;
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: 44px 1fr 20px;
+      gap: 18px;
+      align-items: center;
+      padding: 22px 28px;
+      transition: color 0.25s ease;
+    }
+    .loyalty__learn-toggle::-webkit-details-marker { display: none; }
+    .loyalty__learn-toggle::marker { content: ''; }
+    .loyalty__learn-num {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #C9A96E;
+      letter-spacing: 0.08em;
+    }
+    .loyalty__learn-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+    .loyalty__learn-chev {
+      width: 18px;
+      height: 18px;
+      color: #C9A96E;
+      transition: transform 0.3s ease;
+      justify-self: end;
+    }
+    .loyalty__learn-item[open] .loyalty__learn-chev { transform: rotate(180deg); }
+    .loyalty__learn-body {
+      padding: 4px 28px 26px;
+      animation: pkgDetailsIn 0.3s ease;
+    }
+    .loyalty__learn-body > :first-child { margin-top: 0; }
+    .loyalty__learn-body > :last-child { margin-bottom: 0; }
+
+    /* Step list (How it works) */
+    .loyalty__steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      list-style: none;
+      padding: 0;
+      margin: 6px 0 0;
+    }
+    .loyalty__step {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,169,110,0.15);
+      border-radius: 14px;
+      padding: 20px 18px;
+    }
+    .loyalty__step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #E8D49A, #C9A96E);
+      color: #142a18;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .loyalty__step-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+    .loyalty__step-text {
+      font-size: 0.84rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.5;
+    }
+
+    /* Earn rules */
+    .loyalty__rules {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin: 6px 0 0;
+    }
+    .loyalty__rule {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,169,110,0.15);
+      border-radius: 14px;
+      padding: 18px 20px;
+    }
+    .loyalty__rule-rate {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #E8D49A;
+      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+    }
+    .loyalty__rule-desc {
+      font-size: 0.84rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.5;
+    }
+
+    /* Treat menu list */
+    .loyalty__treats {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 6px 0 0;
+    }
+    .loyalty__treat {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,169,110,0.15);
+      border-radius: 14px;
+      padding: 16px 20px;
+    }
+    .loyalty__treat-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 6px;
+    }
+    .loyalty__treat-name {
+      font-size: 0.96rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+    .loyalty__treat-cost {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #142a18;
+      background: linear-gradient(135deg, #E8D49A, #C9A96E);
+      padding: 4px 11px;
+      border-radius: 980px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .loyalty__treat-desc {
+      font-size: 0.84rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.5;
+      margin-bottom: 6px;
+    }
+    .loyalty__treat-value {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #C9A96E;
+      letter-spacing: 0.01em;
+    }
+
+    /* Fine print list */
+    .loyalty__fine-print {
+      list-style: none;
+      padding: 0;
+      margin: 6px 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .loyalty__fine-print li {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 14px;
+      align-items: start;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.55;
+    }
+    .loyalty__fine-print li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #C9A96E;
+      margin-top: 9px;
+      margin-left: 6px;
+    }
+    .loyalty__fine-print strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    /* Inner FAQ list */
+    .loyalty__inner-faqs {
+      display: flex;
+      flex-direction: column;
+      margin: 6px 0 0;
+    }
+    .loyalty__inner-faq {
+      border-top: 1px solid rgba(201,169,110,0.15);
+      padding: 4px 0;
+    }
+    .loyalty__inner-faq:last-child { border-bottom: 1px solid rgba(201,169,110,0.15); }
+    .loyalty__inner-faq > summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 4px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #ffffff;
+      transition: color 0.2s ease;
+    }
+    .loyalty__inner-faq > summary::-webkit-details-marker { display: none; }
+    .loyalty__inner-faq > summary::marker { content: ''; }
+    .loyalty__inner-faq > summary::after {
+      content: '+';
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #C9A96E;
+      transition: transform 0.25s ease;
+      flex-shrink: 0;
+    }
+    .loyalty__inner-faq[open] > summary::after { transform: rotate(45deg); }
+    .loyalty__inner-faq > summary:hover { color: #E8D49A; }
+    .loyalty__inner-faq-body {
+      padding: 0 4px 16px;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .loyalty__learn { margin-top: 40px; }
+      .loyalty__learn-toggle { padding: 18px 20px; grid-template-columns: 36px 1fr 18px; gap: 14px; }
+      .loyalty__learn-body { padding: 0 20px 22px; }
+      .loyalty__steps { grid-template-columns: 1fr; }
+      .loyalty__rules { grid-template-columns: 1fr; }
+      .loyalty__treat-header { flex-wrap: wrap; }
     }
     @media (max-width: 420px) {
       .loyalty__rewards { grid-template-columns: 1fr; }
@@ -3339,7 +3611,7 @@
 <div class="pricing-item">
 <div class="pricing-item__header">
 <span class="pricing-item__name">Regrowth</span>
-<span class="pricing-item__price">from $244</span>
+<span class="pricing-item__price">from $199</span>
 </div>
 <p class="pricing-item__desc">Seamlessly blend new growth with your existing colour for a flawless, natural finish. Ideal for regular maintenance to keep your shade looking fresh. Includes shampoo, professional regrowth colour, toner &amp; a polished blow wave.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-2CYQcH03edgARkSEc1xXo" rel="noopener" target="_blank">Book Now</a>
@@ -3397,7 +3669,7 @@
 <div class="pricing-item">
 <div class="pricing-item__header">
 <span class="pricing-item__name">Balayage Package</span>
-<span class="pricing-item__price">from $440</span>
+<span class="pricing-item__price">from $395</span>
 </div>
 <p class="pricing-item__desc">A tailored balayage colour experience designed for a vibrant, easy-to-maintain look with a gorgeous face-framing glow. Our stylists use strategic placement techniques for maximum visual impact with minimal upkeep between visits.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0b39yNcvZ1XnvdShve23Mg" rel="noopener" target="_blank">Book Now</a>
@@ -3697,7 +3969,7 @@
 <div class="pricing-item pricing-item--pkg">
 <div class="pricing-item__header">
 <span class="pricing-item__name">All Over Colour Package</span>
-<span class="pricing-item__price">from $255</span>
+<span class="pricing-item__price">from $210</span>
 </div>
 <p class="pricing-item__desc">A complete all-over colour refresh using Wella Professional colour &#8212; fresh, vibrant coverage from root to tip with expert application. Includes a consultation, luxurious shampoo, full colour application &amp; a polished blow wave finish.</p>
 <details class="pkg-details">
@@ -3717,7 +3989,7 @@
 <div class="pricing-item pricing-item--pkg">
 <div class="pricing-item__header">
 <span class="pricing-item__name">Full Head Foils Package</span>
-<span class="pricing-item__price">from $375</span>
+<span class="pricing-item__price">from $330</span>
 </div>
 <p class="pricing-item__desc">Bright, bold or beautifully blended &#8212; a complete head of foils from our Master Stylists using Wella Blondor, with Bond Builder Technology for up to 97% less breakage. Fresh colour, expert care and a flawless finish in one appointment.</p>
 <details class="pkg-details">
@@ -3764,7 +4036,7 @@
 <div class="pricing-item pricing-item--pkg">
 <div class="pricing-item__header">
 <span class="pricing-item__name">Balayage Special Deal</span>
-<span class="pricing-item__price">from $440</span>
+<span class="pricing-item__price">from $395</span>
 </div>
 <p class="pricing-item__desc">Our signature all-inclusive Balayage Package performed by our Master Stylist. Stunning, salon-quality colour with a complete treatment and finish &#8212; everything you need in one appointment, at an exceptional value.</p>
 <details class="pkg-details">
@@ -3786,7 +4058,7 @@
 <div class="pricing-item">
 <div class="pricing-item__header">
 <span class="pricing-item__name">Haircuts &amp; Blow Wave</span>
-<span class="pricing-item__price">from $155</span>
+<span class="pricing-item__price">from $110</span>
 </div>
 <p class="pricing-item__desc">A precision haircut with relaxing shampoo, nourishing treatment mask &amp; a beautiful blow wave styling finish, all at a special midweek price. Take advantage of this great deal, available exclusively Tuesday &#8211; Friday.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV35KZ-62IFNvfTXjj-indc4" rel="noopener" target="_blank">Book Now</a>
@@ -3822,46 +4094,7 @@
 <div class="section-header reveal">
 <span class="section-label">Hair Avenue Loyalty Rewards</span>
 <h2 class="section-title">Loyalty, Rewarded.</h2>
-<p class="section-subtitle">Earn points on every appointment and product purchase — then redeem them on treatments, vouchers and salon favourites. Our way of saying thank you for letting us look after your hair.</p>
-</div>
-
-<div class="loyalty__earn reveal">
-<div class="loyalty__earn-card">
-<div class="loyalty__earn-rate">$1 = 1 point</div>
-<div class="loyalty__earn-label">On every service</div>
-</div>
-<div class="loyalty__earn-card">
-<div class="loyalty__earn-rate">$1 = 2 points</div>
-<div class="loyalty__earn-label">On every product</div>
-</div>
-</div>
-
-<div class="loyalty__rewards reveal">
-<div class="loyalty__reward">
-<svg class="loyalty__reward-icon" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 8.5A1.5 1.5 0 014.5 7h15A1.5 1.5 0 0121 8.5V10a2 2 0 100 4v1.5A1.5 1.5 0 0119.5 17h-15A1.5 1.5 0 013 15.5V14a2 2 0 100-4V8.5z"></path><line x1="9" x2="9" y1="9" y2="15" stroke-dasharray="1.4 2"></line></svg>
-<div class="loyalty__reward-name">$10 voucher off your next visit</div>
-<div class="loyalty__reward-points">350 points</div>
-</div>
-<div class="loyalty__reward">
-<svg class="loyalty__reward-icon" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M10 3.5h4a.5.5 0 01.5.5v1.5h-5V4a.5.5 0 01.5-.5z"></path><path d="M9 5.5h6l1.2 2.6a2 2 0 01.3 1V20a1 1 0 01-1 1H8.5a1 1 0 01-1-1V9.1a2 2 0 01.3-1L9 5.5z"></path><line x1="9" x2="15" y1="11.5" y2="11.5"></line></svg>
-<div class="loyalty__reward-name">Free shampoo with your service</div>
-<div class="loyalty__reward-points">350 points</div>
-</div>
-<div class="loyalty__reward">
-<svg class="loyalty__reward-icon" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 3.5c-.7 2-3.5 4.5-3.5 7.5a3.5 3.5 0 007 0c0-3-2.8-5.5-3.5-7.5z"></path><path d="M6.5 16.5c-.6.8-1 1.6-1 2.4 0 1.2.9 2.1 2 2.1s2-1 2-2.1c0-.6-.3-1.2-.7-1.8"></path><path d="M17.5 16.5c-.6.8-1 1.6-1 2.4 0 1.2.9 2.1 2 2.1s2-1 2-2.1c0-.6-.3-1.2-.7-1.8"></path></svg>
-<div class="loyalty__reward-name">Free Intense Mist Hair Treatment</div>
-<div class="loyalty__reward-points">630 points</div>
-</div>
-<div class="loyalty__reward">
-<svg class="loyalty__reward-icon" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 8.5A1.5 1.5 0 014.5 7h15A1.5 1.5 0 0121 8.5V10a2 2 0 100 4v1.5A1.5 1.5 0 0119.5 17h-15A1.5 1.5 0 013 15.5V14a2 2 0 100-4V8.5z"></path><line x1="9" x2="9" y1="9" y2="15" stroke-dasharray="1.4 2"></line></svg>
-<div class="loyalty__reward-name">$20 voucher off your next visit</div>
-<div class="loyalty__reward-points">700 points</div>
-</div>
-<div class="loyalty__reward">
-<svg class="loyalty__reward-icon" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 3l1.4 5.1L18.5 9.5l-5.1 1.4L12 16l-1.4-5.1L5.5 9.5l5.1-1.4L12 3z"></path><path d="M18.5 3.5l.5 1.5 1.5.5-1.5.5-.5 1.5-.5-1.5L16.5 5.5l1.5-.5.5-1.5z"></path><path d="M5.5 16l.5 1.5L7.5 18l-1.5.5-.5 1.5-.5-1.5L3.5 18l1.5-.5.5-1.5z"></path></svg>
-<div class="loyalty__reward-name">Complimentary Hair Tinsel</div>
-<div class="loyalty__reward-points">910 points</div>
-</div>
+<p class="section-subtitle">Earn points on every visit and product — see your rewards inside the app. Our way of saying thank you for letting us look after your hair.</p>
 </div>
 
 <div class="loyalty__app reveal">
@@ -3897,17 +4130,160 @@
 <span class="loyalty__store-badge-line2">Google Play</span>
 </span>
 </a>
+<div class="loyalty__qr" aria-label="Scan to install the Hair Avenue app">
+<img alt="QR code to download the Hair Avenue app" loading="lazy" src="images/App%20QR%20Code.png"/>
+<span class="loyalty__qr-label">Scan to<br/>install</span>
+</div>
 </div>
 </div>
 <div class="loyalty__app-visual">
 <div class="loyalty__phone">
 <img alt="Hair Avenue app showing upcoming appointments" loading="lazy" src="images/Phone_Mockup2.png"/>
 </div>
-<div class="loyalty__qr">
-<img alt="QR code to download the Hair Avenue app" loading="lazy" src="images/App%20QR%20Code.png"/>
-<div class="loyalty__qr-label">Scan to install</div>
 </div>
 </div>
+
+<div class="loyalty__learn reveal">
+<h3 class="loyalty__learn-heading">Learn more about rewards</h3>
+
+<details class="loyalty__learn-item">
+<summary class="loyalty__learn-toggle">
+<span class="loyalty__learn-num">01</span>
+<span class="loyalty__learn-title">How it works</span>
+<svg class="loyalty__learn-chev" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+</summary>
+<div class="loyalty__learn-body">
+<ol class="loyalty__steps">
+<li class="loyalty__step">
+<div class="loyalty__step-num">1</div>
+<div class="loyalty__step-title">Visit Hair Avenue</div>
+<div class="loyalty__step-text">Book any service or pick up a take-home product in the salon or through the app.</div>
+</li>
+<li class="loyalty__step">
+<div class="loyalty__step-num">2</div>
+<div class="loyalty__step-title">Earn points automatically</div>
+<div class="loyalty__step-text">Points appear in the Hair Avenue app the moment your visit is paid.</div>
+</li>
+<li class="loyalty__step">
+<div class="loyalty__step-num">3</div>
+<div class="loyalty__step-title">Redeem a treat</div>
+<div class="loyalty__step-text">Trade points for a treat at your next appointment — show your stylist in the app.</div>
+</li>
+</ol>
+</div>
+</details>
+
+<details class="loyalty__learn-item">
+<summary class="loyalty__learn-toggle">
+<span class="loyalty__learn-num">02</span>
+<span class="loyalty__learn-title">How you earn points</span>
+<svg class="loyalty__learn-chev" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+</summary>
+<div class="loyalty__learn-body">
+<div class="loyalty__rules">
+<div class="loyalty__rule">
+<div class="loyalty__rule-rate">$1 = 1 point</div>
+<div class="loyalty__rule-desc">Every dollar you spend on services earns one point — colour, cuts, treatments, styling.</div>
+</div>
+<div class="loyalty__rule">
+<div class="loyalty__rule-rate">$1 = 2 points</div>
+<div class="loyalty__rule-desc">Take-home products earn double — your Wella shampoo, conditioner and styling buys count twice.</div>
+</div>
+</div>
+</div>
+</details>
+
+<details class="loyalty__learn-item">
+<summary class="loyalty__learn-toggle">
+<span class="loyalty__learn-num">03</span>
+<span class="loyalty__learn-title">The treat menu</span>
+<svg class="loyalty__learn-chev" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+</summary>
+<div class="loyalty__learn-body">
+<div class="loyalty__treats">
+<div class="loyalty__treat">
+<div class="loyalty__treat-header"><span class="loyalty__treat-name">$10 voucher off your next visit</span><span class="loyalty__treat-cost">350 points</span></div>
+<div class="loyalty__treat-desc">A flat $10 off any service or product. No minimum spend required.</div>
+<div class="loyalty__treat-value">You save $10 after just $350 spent.</div>
+</div>
+<div class="loyalty__treat">
+<div class="loyalty__treat-header"><span class="loyalty__treat-name">Free shampoo with your service</span><span class="loyalty__treat-cost">350 points</span></div>
+<div class="loyalty__treat-desc">Add a complimentary salon shampoo when you book any service.</div>
+<div class="loyalty__treat-value">Worth $15 — free at the basin.</div>
+</div>
+<div class="loyalty__treat">
+<div class="loyalty__treat-header"><span class="loyalty__treat-name">Free Intense Mist Hair Treatment</span><span class="loyalty__treat-cost">630 points</span></div>
+<div class="loyalty__treat-desc">Our most-loved deep-conditioning treatment — added on to your next appointment.</div>
+<div class="loyalty__treat-value">Worth $35 — the highest value-per-point treat.</div>
+</div>
+<div class="loyalty__treat">
+<div class="loyalty__treat-header"><span class="loyalty__treat-name">$20 voucher off your next visit</span><span class="loyalty__treat-cost">700 points</span></div>
+<div class="loyalty__treat-desc">A flat $20 off any service or product. Stacks with no minimum spend.</div>
+<div class="loyalty__treat-value">You save $20 after $700 spent.</div>
+</div>
+<div class="loyalty__treat">
+<div class="loyalty__treat-header"><span class="loyalty__treat-name">Complimentary Hair Tinsel</span><span class="loyalty__treat-cost">910 points</span></div>
+<div class="loyalty__treat-desc">A festive shimmer of hair tinsel added in to your style — perfect for the holidays or a celebration.</div>
+<div class="loyalty__treat-value">Worth $60 — our top-tier treat.</div>
+</div>
+</div>
+</div>
+</details>
+
+<details class="loyalty__learn-item">
+<summary class="loyalty__learn-toggle">
+<span class="loyalty__learn-num">04</span>
+<span class="loyalty__learn-title">The fine print</span>
+<svg class="loyalty__learn-chev" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+</summary>
+<div class="loyalty__learn-body">
+<ul class="loyalty__fine-print">
+<li><span><strong>Your points never expire.</strong> Hold onto them as long as you like — there's no inactivity clock.</span></li>
+<li><span><strong>Redeem as often as you can afford.</strong> No once-per-customer caps — every time you have enough points, you can claim a treat.</span></li>
+<li><span><strong>Tell us when you book.</strong> Mention the treat you'd like in your booking note or show your stylist in the Hair Avenue app at your appointment.</span></li>
+</ul>
+</div>
+</details>
+
+<details class="loyalty__learn-item">
+<summary class="loyalty__learn-toggle">
+<span class="loyalty__learn-num">05</span>
+<span class="loyalty__learn-title">Frequently asked questions</span>
+<svg class="loyalty__learn-chev" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+</summary>
+<div class="loyalty__learn-body">
+<div class="loyalty__inner-faqs">
+<details class="loyalty__inner-faq">
+<summary>Do my points ever expire?</summary>
+<div class="loyalty__inner-faq-body">Never. Your points stay in your account for as long as you like — there's no inactivity timer and no resets.</div>
+</details>
+<details class="loyalty__inner-faq">
+<summary>Where do I see my points balance?</summary>
+<div class="loyalty__inner-faq-body">Open the Hair Avenue app and tap <strong>Loyalty</strong>. You'll see your current balance, the treats available to you and your full points history.</div>
+</details>
+<details class="loyalty__inner-faq">
+<summary>Can I redeem more than one treat per visit?</summary>
+<div class="loyalty__inner-faq-body">Yes. As long as you have the points, you can stack multiple treats in a single appointment — for example, a $10 voucher plus a free shampoo.</div>
+</details>
+<details class="loyalty__inner-faq">
+<summary>Do I really earn double points on products?</summary>
+<div class="loyalty__inner-faq-body">Yes — every dollar you spend on take-home Wella products earns 2 points instead of 1. It's the fastest way to climb toward a treat.</div>
+</details>
+<details class="loyalty__inner-faq">
+<summary>What if I forget to mention my treat at the appointment?</summary>
+<div class="loyalty__inner-faq-body">No problem. Just let your stylist know before you pay and we'll apply it on the spot. Your points stay in your account either way.</div>
+</details>
+<details class="loyalty__inner-faq">
+<summary>Do walk-ins earn points too?</summary>
+<div class="loyalty__inner-faq-body">Absolutely. As long as you've signed up in the Hair Avenue app, every visit — booked or walk-in — earns points automatically once you pay.</div>
+</details>
+<details class="loyalty__inner-faq">
+<summary>Can my family share my points?</summary>
+<div class="loyalty__inner-faq-body">Points are tied to each individual account so they can't be transferred — but every family member can sign up in the app and start earning their own balance.</div>
+</details>
+</div>
+</div>
+</details>
 </div>
 </div>
 </section>
@@ -4463,7 +4839,7 @@ window.addEventListener('load', function() {
 <div class="trust-badge"><span class="trust-badge__star">★</span><span>4.9 — 150+ Reviews</span></div>
 <div class="trust-badge"><span class="trust-badge__icon">♀</span><span>Women-Owned</span></div>
 </div>
-<a class="btn btn--primary btn--lg" href="#services">View Our Services</a>
+<a class="btn btn--primary btn--lg" href="#services">Book Now</a>
 <p style="margin-top:14px; font-size:0.85rem; opacity:0.75; font-style:italic;">Any issues with online booking? Call us on <a href="tel:0449801937" style="color:inherit; text-decoration:underline; padding:6px 0; display:inline-block;">0449 801 937</a> — we're happy to help.</p>
 </div>
 <div class="final-cta__info reveal">
