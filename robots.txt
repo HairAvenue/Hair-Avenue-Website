@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /loyalty-flyer.html
+Disallow: /loyalty-dl-flyer.html
+
+Sitemap: https://hairavenue.com.au/sitemap.xml
