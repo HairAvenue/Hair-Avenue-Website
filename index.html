@@ -222,6 +222,18 @@
     .section--light-sage .expect-card__title { color: #ffffff; }
     .section--light-sage .expect-card__text { color: rgba(255,255,255,0.75); }
     .section--light-sage .expect-card__icon { color: #E8D49A; }
+
+    /* Why Choose Us — careers-bg dark theme overrides */
+    #why.careers-bg .why__card { background: rgba(255,255,255,0.06); border: 1px solid rgba(201,169,110,0.25); }
+    #why.careers-bg .why__card:hover { background: rgba(255,255,255,0.1); border-color: rgba(201,169,110,0.5); box-shadow: 0 4px 20px rgba(0,0,0,0.18); }
+    #why.careers-bg .why__card-title { color: #ffffff; }
+    #why.careers-bg .why__card-text { color: rgba(255,255,255,0.72); }
+    #why.careers-bg .why__icon { color: #E8D49A; }
+    #why.careers-bg .why__icon svg { stroke: #E8D49A !important; }
+    #why.careers-bg .expect-card { background: rgba(255,255,255,0.08); }
+    #why.careers-bg .expect-card__title { color: #ffffff; }
+    #why.careers-bg .expect-card__text { color: rgba(255,255,255,0.75); }
+    #why.careers-bg .expect-card__icon { color: #E8D49A; }
     .section--services-green {
       background: #eef3ee;
       padding-bottom: 60px;
@@ -793,7 +805,7 @@
     .hero__accent {
       display: block;
       font-family: var(--ff-display);
-      font-size: clamp(1.3rem, 2.2vw, 1.65rem);
+      font-size: clamp(1.15rem, 1.9vw, 1.45rem);
       font-weight: 400;
       font-style: italic;
       color: rgba(255,255,255,0.95);
@@ -1306,6 +1318,42 @@
     .social-bg .section-label { color: var(--clr-gold); }
     .social-bg .section-title { color: var(--clr-forest); }
     .social-bg .section-subtitle { color: var(--clr-text); }
+    /* Gallery section — cream bg (like social) + careers-style gold pill eyebrow + bold dark title */
+    #gallery.social-bg .section-label {
+      display: inline-block;
+      color: #1d1d1f;
+      background: linear-gradient(135deg, #C9A96E, #E8D49A);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      padding: 10px 28px;
+      border-radius: 980px;
+      box-shadow: 0 4px 15px rgba(201,169,110,0.4);
+    }
+    #gallery.social-bg .section-title {
+      color: #142a18;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-top: 16px;
+    }
+    #gallery.social-bg .section-subtitle {
+      color: #424245;
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #gallery.social-bg::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 5%;
+      right: 5%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #C9A96E 20%, #E8D49A 50%, #C9A96E 80%, transparent);
+      z-index: 2;
+    }
     .elfsight-app-c7791a1a-5648-4581-9ce0-0ee98b7538d9 {
       max-width: 540px;
       margin-left: auto;
@@ -1703,6 +1751,40 @@
     }
     /* Services section uses careers-bg styling but needs visible overflow so the sticky tabs work */
     #services.careers-bg { overflow: visible; }
+    /* Stronger overlay so the services background reads as dark forest like the careers section */
+    #services.careers-bg::before,
+    #team.careers-bg::before {
+      background: linear-gradient(135deg, rgba(10,31,14,0.92) 0%, rgba(20,42,24,0.88) 50%, rgba(46,83,57,0.9) 100%);
+    }
+    /* Longer tab labels (e.g. "Nanoplasty / Perm") — shrink font so they fit */
+    .service-tab.service-tab--long { font-size: 0.62rem; letter-spacing: -0.02em; }
+    .services-card .service-tab.service-tab--long { font-size: 0.62rem; }
+    @media (max-width: 768px) {
+      .services-card .service-tab.service-tab--long { font-size: 0.6rem !important; padding: 8px 2px; }
+    }
+    /* Helper text under the services card */
+    .services-help {
+      text-align: center;
+      margin: 28px auto 0;
+      max-width: 600px;
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.78);
+      font-style: italic;
+      line-height: 1.6;
+    }
+    .services-help a {
+      color: #E8D49A;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 600;
+      font-style: normal;
+      letter-spacing: 0.01em;
+      padding: 4px 0;
+      display: inline-block;
+    }
+    .services-help a:hover { color: #ffffff; }
+    /* Team cards remain white tiles — they pop beautifully on the dark forest backdrop */
+    #team.careers-bg .team-card { box-shadow: 0 10px 28px rgba(0,0,0,0.28); }
     .careers-bg::before {
       content: '';
       position: absolute;
@@ -3306,7 +3388,7 @@
       .hero__bg-left, .hero__bg-right { object-fit: cover; object-position: center top; }
       .hero [style*="margin-bottom:16px"] img { height: 64px !important; max-width: 200px !important; }
       .hero [style*="margin-bottom:16px"] { margin-bottom: 12px !important; }
-      .hero__accent { font-size: 1.35rem !important; }
+      .hero__accent { font-size: 1.2rem !important; }
       .hero__tagline { font-size: 0.82rem; margin: 14px auto 28px; }
       .hero__badge { font-size: 0.7rem; padding: 0; margin: 18px 0 0; }
       .hero__ctas { flex-direction: column; align-items: center; gap: 12px; }
@@ -3328,7 +3410,7 @@
       .services-card .service-tabs::before { font-size: 0.52rem; padding: 0 0 2px; }
       .services-card .service-tab[for="svc-tab-offers"] { grid-column: span 1; }
       .services-card .service-tabs::-webkit-scrollbar { display: none; }
-      .services-card .service-tab { font-size: clamp(0.48rem, 1.8vw, 0.78rem); font-weight: 600; padding: 6px 2px; white-space: nowrap; overflow: visible; border: 1.5px solid rgba(201,169,110,0.35); margin-bottom: 0; border-radius: 7px; letter-spacing: -0.02em; text-align: center; background: #ffffff; transition: all 0.3s ease; box-sizing: border-box; min-width: 0; box-shadow: 0 1px 2px rgba(201,169,110,0.1); }
+      .services-card .service-tab { font-size: 0.72rem; font-weight: 600; padding: 8px 4px; white-space: nowrap; overflow: visible; border: 1.5px solid rgba(201,169,110,0.35); margin-bottom: 0; border-radius: 7px; letter-spacing: -0.01em; text-align: center; background: #ffffff; transition: all 0.3s ease; box-sizing: border-box; min-width: 0; box-shadow: 0 1px 2px rgba(201,169,110,0.1); }
       .services-card .service-tab::after { display: none; }
       .tab-full { display: none; }
       .tab-short { display: inline; }
@@ -3476,7 +3558,7 @@
     @media (max-width: 420px) {
       .section { padding: 36px 0; }
       .hero [style*="margin-bottom:16px"] img { height: 52px !important; max-width: 170px !important; }
-      .hero__accent { font-size: 1.25rem !important; }
+      .hero__accent { font-size: 1.1rem !important; }
       .hero__content { padding: 0 16px; }
 
       /* Services single column on very small screens */
@@ -3589,7 +3671,7 @@
 </div>
 </header>
 <!-- ===== WHY CHOOSE US ===== -->
-<section class="section section--light-sage" id="why">
+<section class="section careers-bg" id="why" style="background-image: url('images/salon/09-colour-consult.jpg');">
 <div class="container">
 <div class="section-header reveal">
 <span class="section-label">Why Choose Us</span>
@@ -3721,7 +3803,6 @@
 <div class="section-header reveal">
 <span class="section-label">What We Offer</span>
 <h2 class="section-title">Services &amp; Pricing</h2>
-<p class="section-subtitle">Click a category to explore our full range of services. Every price includes a consultation to ensure you get exactly the look you want.</p>
 </div>
 <!-- Unified Services Card -->
 <div class="services-card reveal">
@@ -3743,7 +3824,7 @@
 <label class="service-tab" for="svc-tab-blowwave"><span class="tab-full">Blowwave</span><span class="tab-short">Blowwave</span><span class="tab-mob-active">Blowwaving</span></label>
 <label class="service-tab" for="svc-tab-cutting"><span class="tab-full">Cutting</span><span class="tab-short">Cuts</span></label>
 <label class="service-tab" for="svc-tab-botox"><span class="tab-full">SmoothFiller</span><span class="tab-short">SmoothFiller</span></label>
-<label class="service-tab" for="svc-tab-nanoplasty"><span class="tab-full">Nanoplasty</span><span class="tab-short">Nanoplasty</span></label>
+<label class="service-tab service-tab--long" for="svc-tab-nanoplasty"><span class="tab-full">Nanoplasty / Perm</span><span class="tab-short">Nanoplasty/Perm</span></label>
 <label class="service-tab" for="svc-tab-tinsel"><span class="tab-full">Upstyling</span><span class="tab-short">Upstyle</span><span class="tab-mob-active">Upstyling</span></label>
 </div>
 <div class="service-category-indicator" aria-live="polite">
@@ -3782,6 +3863,14 @@
 </div>
 <p class="pricing-item__desc">Freshly toned, salon-perfect colour — using Wella Color Touch for demi-permanent vibrancy between full colour appointments. Adds brilliant shine, beautiful depth and expert tone correction to keep your shade looking salon-fresh and vibrant for longer.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV6wcEr-BYEhezWV3JShetyw" rel="noopener" target="_blank">Book Now</a>
+</div>
+<div class="pricing-item">
+<div class="pricing-item__header">
+<span class="pricing-item__name">Blonde Maintenance Refresh</span>
+<span class="pricing-item__price">from $299</span>
+</div>
+<p class="pricing-item__desc">Keep your blonde looking stunning between full colour appointments. Strategic placement of 20&#8211;25 foils refreshes colour, blends regrowth and adds dimension &#8212; paired with a professional toner, a deep conditioning treatment and a polished blow wave to finish. Only suitable for clients who had their hair done less than 12 weeks ago.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0XSrbYs4yC5dP63MH3845A" rel="noopener" target="_blank">Book Now</a>
 </div>
 </div>
 </div>
@@ -4090,10 +4179,17 @@
 </div>
 <div class="pricing-item">
 <div class="pricing-item__header">
+<span class="pricing-item__name">Permanent Hair Straightening &#8211; Shiseido</span>
+<span class="pricing-item__price">from $380</span>
+</div>
+<p class="pricing-item__desc">A professional Shiseido Japanese hair straightening treatment that permanently restructures the hair&#8217;s internal bonds — transforming wavy, curly or coarse hair into sleek, frizz-free, low-maintenance strands. Long-lasting results up to 6 months. Formaldehyde-free and gentler than many keratin treatments.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-zzElVzy_MmGWgG3taNIog" rel="noopener" target="_blank">Book Now</a>
+</div>
+<div class="pricing-item">
+<div class="pricing-item__header">
 <span class="pricing-item__name">Perm (Tues to Fri Only)</span>
 <span class="pricing-item__price">from $120</span>
 </div>
-<span class="pkg-availability"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>Available Tuesday &#8211; Friday</span>
 <p class="pricing-item__desc">A classic perm service to create beautiful, long-lasting curls or soft, natural-looking waves tailored to your desired style. Includes a thorough consultation to ensure the perfect curl pattern, size and overall look for your hair.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVyGSbrG-wdK4u6EJFpFnDe8" rel="noopener" target="_blank">Book Now</a>
 </div>
@@ -4214,7 +4310,7 @@
 </div>
 </div>
 </details>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0XSrbYs4yC5dP63MH3845A" rel="noopener" target="_blank" aria-label="Book the Blonde Maintenance Refresh Package online">Book Now</a>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV4oVL4kiEqjOOptmA8R9Fso" rel="noopener" target="_blank" aria-label="Book the Blonde Maintenance Refresh Package online">Book Now</a>
 </div>
 
 <!-- ===== Balayage Special Deal ===== -->
@@ -4267,6 +4363,7 @@
 </div>
 </div>
 </div><!-- /.services-card -->
+<p class="services-help reveal">Any issues with online booking? Call us on <a href="tel:0449801937">0449 801 937</a> &mdash; we&#8217;re happy to help.</p>
 </div>
 </section>
 <!-- ===== HAIR AVENUE LOYALTY REWARDS ===== -->
@@ -4413,7 +4510,7 @@
 <!-- ===== THE HAIR AVENUE EXPERIENCE ===== -->
 <!-- ===== HAIR GALLERY ===== -->
 <!-- ===== MEET THE TEAM ===== -->
-<section class="section section--cream" id="team">
+<section class="section careers-bg" id="team" style="background-image: url('images/salon/13-foils-action.jpg');">
 <div class="container">
 <div class="section-header reveal">
 <span class="section-label">Our Team</span>
@@ -4775,7 +4872,7 @@ window.addEventListener('load', function() {
 </div>
 </section>
 <!-- ===== HAIR GALLERY ===== -->
-<section class="section section--cream" id="gallery" style="padding-top:60px; padding-bottom:60px;">
+<section class="section social-bg" id="gallery" style="padding-top:60px; padding-bottom:60px; background: url('images/text-center-reveal.jpg') center center / cover no-repeat;">
 <div class="container" id="products">
 <div class="section-header reveal">
 <span class="section-label">Beautiful Hair</span>
