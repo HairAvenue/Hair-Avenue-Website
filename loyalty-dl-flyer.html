@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hair Avenue — Download Our App (DL Flyer)</title>
+<style>
+  /* ===== Print page sizing — DL portrait (99mm × 210mm) ===== */
+  @page {
+    size: 99mm 210mm portrait;
+    margin: 0;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #e6ebe6;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #ffffff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    letter-spacing: -0.005em;
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  /* ===== DL flyer (99 × 210 mm) ===== */
+  .flyer {
+    width: 99mm;
+    height: 210mm;
+    background: #142a18;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    padding: 12mm 9mm 8mm;
+    display: flex;
+    flex-direction: column;
+    border: 0.4mm solid rgba(201,169,110,0.4);
+  }
+
+  /* Top gold accent line — like the website's loyalty card */
+  .flyer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 30%;
+    right: 30%;
+    height: 0.6mm;
+    background: linear-gradient(90deg, transparent 0%, #C9A96E 25%, #E8D49A 50%, #C9A96E 75%, transparent 100%);
+    border-radius: 0 0 1mm 1mm;
+  }
+
+  /* Faint gold corner glow */
+  .flyer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(201,169,110,0.18), transparent 50%),
+      radial-gradient(circle at 50% 100%, rgba(201,169,110,0.06), transparent 60%);
+    pointer-events: none;
+  }
+
+  .flyer__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  /* Top — logo + eyebrow + headline */
+  .flyer__logo {
+    height: 11mm;
+    width: auto;
+    display: block;
+    margin: 0 auto 4mm;
+    filter: brightness(0) invert(1) opacity(0.95);
+  }
+  .flyer__eyebrow {
+    font-size: 6.5pt;
+    font-weight: 700;
+    color: #E8D49A;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 2.5mm;
+  }
+  .flyer__headline {
+    font-size: 14pt;
+    font-weight: 600;
+    color: #E8D49A;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    text-align: center;
+    margin-bottom: 2mm;
+    position: relative;
+    padding-bottom: 3.5mm;
+  }
+  .flyer__headline::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 10mm;
+    height: 0.5mm;
+    background: linear-gradient(90deg, #C9A96E, #E8D49A);
+    border-radius: 1mm;
+  }
+  .flyer__sub {
+    font-size: 8pt;
+    color: rgba(255,255,255,0.72);
+    text-align: center;
+    line-height: 1.4;
+    margin-bottom: 6mm;
+    padding: 0 2mm;
+  }
+
+  /* Earn rate cards */
+  .flyer__earn {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3mm;
+    margin-bottom: 5mm;
+  }
+  .flyer__earn-card {
+    background: rgba(255,255,255,0.04);
+    border: 0.3mm solid rgba(201,169,110,0.35);
+    border-radius: 2mm;
+    padding: 3mm 2mm;
+    text-align: center;
+  }
+  .flyer__earn-rate {
+    font-size: 10pt;
+    font-weight: 700;
+    color: #E8D49A;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    margin-bottom: 1mm;
+  }
+  .flyer__earn-label {
+    font-size: 6pt;
+    color: rgba(255,255,255,0.65);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* Feature checklist */
+  .flyer__features {
+    margin-bottom: 6mm;
+  }
+  .flyer__feature {
+    display: flex;
+    align-items: center;
+    gap: 2.5mm;
+    padding: 1.8mm 0;
+    border-bottom: 0.2mm solid rgba(201,169,110,0.18);
+    font-size: 8.5pt;
+    color: rgba(255,255,255,0.92);
+  }
+  .flyer__feature:last-child { border-bottom: none; }
+  .flyer__feature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 5mm;
+    height: 5mm;
+    background: linear-gradient(135deg, #E8D49A, #C9A96E);
+    color: #142a18;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .flyer__feature-icon svg {
+    width: 3mm;
+    height: 3mm;
+  }
+
+  /* Install block — QR with badges */
+  .flyer__install {
+    margin-top: auto;
+    text-align: center;
+  }
+  .flyer__install-title {
+    font-size: 8.5pt;
+    font-weight: 600;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 3mm;
+  }
+  .flyer__qr-wrap {
+    display: inline-block;
+    background: #ffffff;
+    padding: 3mm;
+    border-radius: 2mm;
+    margin-bottom: 4mm;
+    box-shadow: 0 4mm 8mm rgba(0,0,0,0.25);
+  }
+  .flyer__qr {
+    display: block;
+    width: 32mm;
+    height: 32mm;
+  }
+  .flyer__qr-label {
+    font-size: 5.5pt;
+    font-weight: 700;
+    color: #142a18;
+    text-align: center;
+    margin-top: 1.5mm;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .flyer__badges {
+    display: flex;
+    justify-content: center;
+    gap: 1.5mm;
+    margin-bottom: 4mm;
+  }
+  .flyer__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 1mm;
+    background: #ffffff;
+    color: #142a18;
+    padding: 1.2mm 2mm;
+    border-radius: 1.2mm;
+    text-decoration: none;
+  }
+  .flyer__badge svg {
+    width: 3mm;
+    height: 3mm;
+    fill: #142a18;
+  }
+  .flyer__badge-text { display: flex; flex-direction: column; line-height: 1; }
+  .flyer__badge-line1 {
+    font-size: 4.2pt;
+    font-weight: 500;
+    color: #6e7e6f;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.2mm;
+  }
+  .flyer__badge-line2 {
+    font-size: 6pt;
+    font-weight: 700;
+    color: #142a18;
+  }
+
+  /* Footer */
+  .flyer__foot {
+    text-align: center;
+    padding-top: 3mm;
+    border-top: 0.2mm solid rgba(201,169,110,0.3);
+    font-size: 5.5pt;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.45;
+    letter-spacing: 0.02em;
+  }
+  .flyer__foot strong { color: #E8D49A; font-weight: 600; }
+
+  /* Print rules */
+  @media print {
+    body { background: #ffffff; padding: 0; display: block; }
+    .flyer { box-shadow: none; width: 99mm; height: 210mm; }
+    .no-print { display: none !important; }
+  }
+
+  /* Help banner */
+  .help {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    background: #142a18;
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 14px 20px;
+    font-size: 13px;
+    line-height: 1.5;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    max-width: 540px;
+    margin: 0 auto;
+    z-index: 10;
+  }
+  .help kbd {
+    background: rgba(255,255,255,0.12);
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 12px;
+  }
+  .help b { color: #E8D49A; }
+  .help-close {
+    float: right;
+    background: rgba(255,255,255,0.12);
+    border: none;
+    color: #fff;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    cursor: pointer;
+    line-height: 1;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+
+<div class="help no-print" id="helpBanner">
+  <button class="help-close" onclick="document.getElementById('helpBanner').remove()" aria-label="Close help">×</button>
+  <b>Print this DL flyer.</b> Press <kbd>⌘ P</kbd> (or <kbd>Ctrl P</kbd>) to print, or pick <b>"Save as PDF"</b>. The flyer is sized for DL (99 × 210 mm) — the same size as a standard envelope. Prints clean as standalone DL or 3-up on A4 (use the print dialog's <i>Pages per sheet</i> option). This banner won't appear on the printed page.
+</div>
+
+<div class="flyer">
+  <div class="flyer__content">
+    <img class="flyer__logo" src="images/hair-avenue-braddon-3.png" alt="Hair Avenue Braddon"/>
+    <div class="flyer__eyebrow">Hair Avenue Loyalty Rewards</div>
+    <h1 class="flyer__headline">Download the Hair Avenue app</h1>
+    <p class="flyer__sub">Earn points on every visit and product. Redeem treats right inside the app.</p>
+
+    <div class="flyer__earn">
+      <div class="flyer__earn-card">
+        <div class="flyer__earn-rate">$1 = 1 pt</div>
+        <div class="flyer__earn-label">On services</div>
+      </div>
+      <div class="flyer__earn-card">
+        <div class="flyer__earn-rate">$1 = 2 pts</div>
+        <div class="flyer__earn-label">On products</div>
+      </div>
+    </div>
+
+    <div class="flyer__features">
+      <div class="flyer__feature">
+        <span class="flyer__feature-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+        Earn &amp; track points with every visit
+      </div>
+      <div class="flyer__feature">
+        <span class="flyer__feature-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+        Redeem for vouchers, treatments &amp; services
+      </div>
+      <div class="flyer__feature">
+        <span class="flyer__feature-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+        Book &amp; manage appointments on the go
+      </div>
+    </div>
+
+    <div class="flyer__install">
+      <div class="flyer__install-title">Scan to install — free on iOS &amp; Android</div>
+      <div class="flyer__qr-wrap">
+        <img class="flyer__qr" src="images/App QR Code.png" alt="QR code"/>
+        <div class="flyer__qr-label">Scan to install</div>
+      </div>
+      <div class="flyer__badges">
+        <span class="flyer__badge">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M17.05 12.04c-.03-2.95 2.41-4.37 2.52-4.44-1.37-2.01-3.51-2.28-4.27-2.31-1.82-.18-3.55 1.07-4.48 1.07-.93 0-2.36-1.05-3.88-1.02-2 .03-3.84 1.16-4.86 2.94-2.07 3.59-.53 8.91 1.49 11.83.99 1.43 2.16 3.04 3.69 2.98 1.48-.06 2.04-.96 3.83-.96s2.29.96 3.86.93c1.59-.03 2.6-1.46 3.57-2.9 1.12-1.66 1.58-3.27 1.61-3.36-.04-.02-3.08-1.18-3.11-4.69M14.34 3.36c.81-.99 1.36-2.36 1.21-3.74-1.17.05-2.6.78-3.44 1.76-.75.86-1.41 2.26-1.24 3.6 1.31.1 2.66-.66 3.47-1.62"></path></svg>
+          <span class="flyer__badge-text">
+            <span class="flyer__badge-line1">Download on the</span>
+            <span class="flyer__badge-line2">App Store</span>
+          </span>
+        </span>
+        <span class="flyer__badge">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3.6 1.85c-.36.4-.56.92-.56 1.6v17.1c0 .68.2 1.2.56 1.6l.07.06L13.24 12 3.67 2.43l-.07-.07a.756.756 0 00-.07.04-.001.001 0 010 0M16.81 8.59L13.24 12l3.57 3.41 4.34-2.47c1.24-.7 1.24-1.86 0-2.56l-4.34-2.79M3.67 2.43L13.24 12 3.67 21.57c.13.04.28.04.43-.04L17.66 14l-1.04-.94L13.24 12l3.57-1.41 1.04-.94L4.1 2.47c-.15-.08-.3-.08-.43-.04"></path></svg>
+          <span class="flyer__badge-text">
+            <span class="flyer__badge-line1">Get it on</span>
+            <span class="flyer__badge-line2">Google Play</span>
+          </span>
+        </span>
+      </div>
+    </div>
+
+    <div class="flyer__foot">
+      <strong>Hair Avenue Braddon</strong><br/>
+      Unit 102 / 16 Lonsdale Street, Braddon ACT 2612<br/>
+      0449 801 937 · hairavenue.com.au
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

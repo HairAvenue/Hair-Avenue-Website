@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /loyalty-flyer.html
 Disallow: /loyalty-dl-flyer.html
+Disallow: /staff-price-list.html
 
 Sitemap: https://hairavenue.com.au/sitemap.xml
