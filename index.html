@@ -3689,14 +3689,6 @@
     }
 
     /* Quiet social proof */
-    .services-proof {
-      text-align: center;
-      margin: 18px auto 0;
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.75);
-      letter-spacing: 0.04em;
-    }
-    .services-proof .star { color: #E8D49A; }
     .panel-review {
       text-align: center;
       font-size: 0.82rem;
@@ -3746,7 +3738,7 @@
 <li><a class="nav__link" href="#loyalty">Rewards</a></li>
 <li><a class="nav__link" href="#team">Our Team</a></li>
 <li><a class="nav__link" href="#reviews">Reviews</a></li>
-<li><a class="nav__book" href="https://www.phorest.com/salon/hairavenue/book/service-selection?showSpecialOffers=false" rel="noopener" target="_blank">Book Now</a></li>
+<li><a class="nav__book" href="#services">Book Now</a></li>
 </ul>
 <a class="nav__book nav__book--persistent" href="#services">View Services</a>
 <label aria-label="Toggle navigation menu" class="nav__toggle" for="navToggleChk" id="navToggle">
@@ -4473,7 +4465,6 @@
 </div>
 </div>
 </div><!-- /.services-card -->
-<p class="services-proof reveal"><span class="star">★</span> Rated 4.9 on Google by 160+ clients</p>
 </div>
 </section>
 <!-- ===== HAIR AVENUE LOYALTY REWARDS ===== -->
@@ -5071,6 +5062,44 @@ window.addEventListener('load', function() {
 </div>
 </div>
 </section>
+<!-- ===== FINAL CTA ===== -->
+<section class="final-cta" id="book" style="background-image: url('images/salon/03-reception.webp');">
+<div class="container">
+<div class="reveal">
+<h2 class="final-cta__title">Your Best Hair Day Starts Here</h2>
+<p class="final-cta__subtitle">Book your appointment today or simply walk in — discover why 160+ clients have rated us 4.9 stars. Walk-ins welcome.</p>
+<div class="trust-badges">
+<div class="trust-badge"><img alt="Wella Professionals" class="trust-badge__logo" src="images/wella/wella-professionals-logo.webp" width="860" height="608"/><span>Wella Professional Salon</span></div>
+<div class="trust-badge"><span class="trust-badge__star">★</span><span>4.9 — 160+ Reviews</span></div>
+<div class="trust-badge"><span class="trust-badge__icon">♀</span><span>Women-Owned</span></div>
+</div>
+<a class="btn btn--primary btn--lg" href="#services">Book Now</a>
+<p style="margin-top:18px; font-size:0.95rem; color:rgba(255,255,255,0.85); font-style:italic;">Any issues with online booking? Call us on <a href="tel:0449801937" style="color:#E8D49A; font-style:normal; font-weight:700; letter-spacing:0.03em; text-decoration:underline; text-underline-offset:3px; text-shadow:0 0 14px rgba(232,212,154,0.5); padding:6px 4px; display:inline-block;">0449 801 937</a> — we're happy to help.</p>
+</div>
+<div class="final-cta__info reveal">
+<div class="final-cta__info-item">
+<div class="final-cta__info-label">Phone</div>
+<div class="final-cta__info-value"><a href="tel:0449801937">0449 801 937</a></div>
+</div>
+<div class="final-cta__info-item">
+<div class="final-cta__info-label">Address</div>
+<div class="final-cta__info-value">Unit 102/16 Lonsdale St, Braddon ACT 2612</div>
+</div>
+<div class="final-cta__info-item">
+<div class="final-cta__info-label">Email</div>
+<div class="final-cta__info-value"><a href="mailto:hairavenueatbraddon@gmail.com">hairavenueatbraddon@gmail.com</a></div>
+</div>
+</div>
+<div class="final-cta__map reveal">
+<iframe allowfullscreen="" id="mapFrame" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3257.5!2d149.1329501!3d-35.2739114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b164d1c0eda10e9%3A0x204bdcc270aa086!2sHair+Avenue+Braddon!5e0!3m2!1sen!2sau!4v1700000000000!5m2!1sen!2sau" title="Hair Avenue location on Google Maps"></iframe>
+<a href="https://maps.google.com/maps?q=Hair+Avenue+Braddon+Unit+102/16+Lonsdale+St+Braddon+ACT+2612" id="mapFallback" rel="noopener" style="display:none; text-align:center; padding:40px 20px; background:rgba(255,255,255,0.1); border-radius:12px; border:1px solid rgba(201,169,110,0.3); color:var(--clr-gold-light); text-decoration:none; font-size:1rem;" target="_blank">
+<span style="display:block; font-size:1.5rem; margin-bottom:8px;">📍</span>
+<span style="display:block; font-weight:600; margin-bottom:4px;">View on Google Maps</span>
+<span style="display:block; font-size:0.85rem; opacity:0.75;">Unit 102/16 Lonsdale St, Braddon ACT 2612</span>
+</a>
+</div>
+</div>
+</section>
 <!-- ===== FAQ ===== -->
 <section class="section faq-bg" id="faq" style="background: url('images/careers-role-card.webp') center center / cover no-repeat;">
 <div class="container">
@@ -5156,44 +5185,6 @@ window.addEventListener('load', function() {
 </div>
 </div>
 </details>
-</div>
-</section>
-<!-- ===== FINAL CTA ===== -->
-<section class="final-cta" id="book" style="background-image: url('images/salon/03-reception.webp');">
-<div class="container">
-<div class="reveal">
-<h2 class="final-cta__title">Your Best Hair Day Starts Here</h2>
-<p class="final-cta__subtitle">Book your appointment today or simply walk in — discover why 160+ clients have rated us 4.9 stars. Walk-ins welcome.</p>
-<div class="trust-badges">
-<div class="trust-badge"><img alt="Wella Professionals" class="trust-badge__logo" src="images/wella/wella-professionals-logo.webp" width="860" height="608"/><span>Wella Professional Salon</span></div>
-<div class="trust-badge"><span class="trust-badge__star">★</span><span>4.9 — 160+ Reviews</span></div>
-<div class="trust-badge"><span class="trust-badge__icon">♀</span><span>Women-Owned</span></div>
-</div>
-<a class="btn btn--primary btn--lg" href="#services">Book Now</a>
-<p style="margin-top:18px; font-size:0.95rem; color:rgba(255,255,255,0.85); font-style:italic;">Any issues with online booking? Call us on <a href="tel:0449801937" style="color:#E8D49A; font-style:normal; font-weight:700; letter-spacing:0.03em; text-decoration:underline; text-underline-offset:3px; text-shadow:0 0 14px rgba(232,212,154,0.5); padding:6px 4px; display:inline-block;">0449 801 937</a> — we're happy to help.</p>
-</div>
-<div class="final-cta__info reveal">
-<div class="final-cta__info-item">
-<div class="final-cta__info-label">Phone</div>
-<div class="final-cta__info-value"><a href="tel:0449801937">0449 801 937</a></div>
-</div>
-<div class="final-cta__info-item">
-<div class="final-cta__info-label">Address</div>
-<div class="final-cta__info-value">Unit 102/16 Lonsdale St, Braddon ACT 2612</div>
-</div>
-<div class="final-cta__info-item">
-<div class="final-cta__info-label">Email</div>
-<div class="final-cta__info-value"><a href="mailto:hairavenueatbraddon@gmail.com">hairavenueatbraddon@gmail.com</a></div>
-</div>
-</div>
-<div class="final-cta__map reveal">
-<iframe allowfullscreen="" id="mapFrame" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3257.5!2d149.1329501!3d-35.2739114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b164d1c0eda10e9%3A0x204bdcc270aa086!2sHair+Avenue+Braddon!5e0!3m2!1sen!2sau!4v1700000000000!5m2!1sen!2sau" title="Hair Avenue location on Google Maps"></iframe>
-<a href="https://maps.google.com/maps?q=Hair+Avenue+Braddon+Unit+102/16+Lonsdale+St+Braddon+ACT+2612" id="mapFallback" rel="noopener" style="display:none; text-align:center; padding:40px 20px; background:rgba(255,255,255,0.1); border-radius:12px; border:1px solid rgba(201,169,110,0.3); color:var(--clr-gold-light); text-decoration:none; font-size:1rem;" target="_blank">
-<span style="display:block; font-size:1.5rem; margin-bottom:8px;">📍</span>
-<span style="display:block; font-weight:600; margin-bottom:4px;">View on Google Maps</span>
-<span style="display:block; font-size:0.85rem; opacity:0.75;">Unit 102/16 Lonsdale St, Braddon ACT 2612</span>
-</a>
-</div>
 </div>
 </section>
 <!-- ===== CAREERS ===== -->
