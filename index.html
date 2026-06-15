@@ -2102,7 +2102,7 @@
     #svc-tab-highlights:checked ~ .service-tabs label[for="svc-tab-highlights"],
     #svc-tab-cutting:checked ~ .service-tabs label[for="svc-tab-cutting"],
     #svc-tab-blowwave:checked ~ .service-tabs label[for="svc-tab-blowwave"],
-    #svc-tab-botox:checked ~ .service-tabs label[for="svc-tab-botox"],
+    #svc-tab-smoothfiller:checked ~ .service-tabs label[for="svc-tab-smoothfiller"],
     #svc-tab-nanoplasty:checked ~ .service-tabs label[for="svc-tab-nanoplasty"],
     #svc-tab-tinsel:checked ~ .service-tabs label[for="svc-tab-tinsel"],
     #svc-tab-offers:checked ~ .service-tabs label[for="svc-tab-offers"],
@@ -2119,7 +2119,7 @@
     #svc-tab-highlights:checked ~ #panel-highlights,
     #svc-tab-cutting:checked ~ #panel-cutting,
     #svc-tab-blowwave:checked ~ #panel-blowwave,
-    #svc-tab-botox:checked ~ #panel-botox,
+    #svc-tab-smoothfiller:checked ~ #panel-smoothfiller,
     #svc-tab-nanoplasty:checked ~ #panel-nanoplasty,
     #svc-tab-tinsel:checked ~ #panel-tinsel,
     #svc-tab-offers:checked ~ #panel-offers {
@@ -2132,7 +2132,7 @@
     #svc-tab-highlights:checked ~ .service-category-indicator #ind-highlights,
     #svc-tab-cutting:checked ~ .service-category-indicator #ind-cutting,
     #svc-tab-blowwave:checked ~ .service-category-indicator #ind-blowwave,
-    #svc-tab-botox:checked ~ .service-category-indicator #ind-botox,
+    #svc-tab-smoothfiller:checked ~ .service-category-indicator #ind-smoothfiller,
     #svc-tab-nanoplasty:checked ~ .service-category-indicator #ind-nanoplasty,
     #svc-tab-tinsel:checked ~ .service-category-indicator #ind-tinsel,
     #svc-tab-offers:checked ~ .service-category-indicator #ind-offers { display: inline; }
@@ -3445,7 +3445,7 @@
       #svc-tab-highlights:checked ~ .service-tabs label[for="svc-tab-highlights"],
       #svc-tab-cutting:checked ~ .service-tabs label[for="svc-tab-cutting"],
       #svc-tab-blowwave:checked ~ .service-tabs label[for="svc-tab-blowwave"],
-      #svc-tab-botox:checked ~ .service-tabs label[for="svc-tab-botox"],
+      #svc-tab-smoothfiller:checked ~ .service-tabs label[for="svc-tab-smoothfiller"],
       #svc-tab-nanoplasty:checked ~ .service-tabs label[for="svc-tab-nanoplasty"],
       #svc-tab-tinsel:checked ~ .service-tabs label[for="svc-tab-tinsel"],
       #svc-tab-offers:checked ~ .service-tabs label[for="svc-tab-offers"] {
@@ -3463,7 +3463,7 @@
       #svc-tab-highlights:checked ~ .service-tabs label[for="svc-tab-highlights"]::after,
       #svc-tab-cutting:checked ~ .service-tabs label[for="svc-tab-cutting"]::after,
       #svc-tab-blowwave:checked ~ .service-tabs label[for="svc-tab-blowwave"]::after,
-      #svc-tab-botox:checked ~ .service-tabs label[for="svc-tab-botox"]::after,
+      #svc-tab-smoothfiller:checked ~ .service-tabs label[for="svc-tab-smoothfiller"]::after,
       #svc-tab-nanoplasty:checked ~ .service-tabs label[for="svc-tab-nanoplasty"]::after,
       #svc-tab-tinsel:checked ~ .service-tabs label[for="svc-tab-tinsel"]::after,
       #svc-tab-offers:checked ~ .service-tabs label[for="svc-tab-offers"]::after {
@@ -3472,11 +3472,11 @@
       /* Show full name on active tab, hide short */
       #svc-tab-colouring:checked ~ .service-tabs label[for="svc-tab-colouring"] .tab-full,
       #svc-tab-regrowth:checked ~ .service-tabs label[for="svc-tab-regrowth"] .tab-full,
-      #svc-tab-botox:checked ~ .service-tabs label[for="svc-tab-botox"] .tab-full,
+      #svc-tab-smoothfiller:checked ~ .service-tabs label[for="svc-tab-smoothfiller"] .tab-full,
       #svc-tab-nanoplasty:checked ~ .service-tabs label[for="svc-tab-nanoplasty"] .tab-full { display: inline !important; }
       #svc-tab-colouring:checked ~ .service-tabs label[for="svc-tab-colouring"] .tab-short,
       #svc-tab-regrowth:checked ~ .service-tabs label[for="svc-tab-regrowth"] .tab-short,
-      #svc-tab-botox:checked ~ .service-tabs label[for="svc-tab-botox"] .tab-short,
+      #svc-tab-smoothfiller:checked ~ .service-tabs label[for="svc-tab-smoothfiller"] .tab-short,
       #svc-tab-nanoplasty:checked ~ .service-tabs label[for="svc-tab-nanoplasty"] .tab-short { display: none !important; }
       .btn--sm { padding: 8px 16px; font-size: 0.78rem; }
 
@@ -3909,7 +3909,7 @@
 <input class="svc-tab-radio" id="svc-tab-highlights" name="svc-tab" type="radio"/>
 <input class="svc-tab-radio" id="svc-tab-cutting" name="svc-tab" type="radio"/>
 <input class="svc-tab-radio" id="svc-tab-blowwave" name="svc-tab" type="radio"/>
-<input class="svc-tab-radio" id="svc-tab-botox" name="svc-tab" type="radio"/>
+<input class="svc-tab-radio" id="svc-tab-smoothfiller" name="svc-tab" type="radio"/>
 <input class="svc-tab-radio" id="svc-tab-nanoplasty" name="svc-tab" type="radio"/>
 <input class="svc-tab-radio" id="svc-tab-tinsel" name="svc-tab" type="radio"/>
 <div class="service-tabs">
@@ -3919,7 +3919,7 @@
 <label class="service-tab" for="svc-tab-highlights"><span class="tab-full">Highlight / Balayage</span><span class="tab-short">Highlight</span><span class="tab-mob-active">Highlighting</span></label>
 <label class="service-tab" for="svc-tab-blowwave"><span class="tab-full">Blow Wave</span><span class="tab-short">Blow Wave</span></label>
 <label class="service-tab" for="svc-tab-cutting"><span class="tab-full">Cutting — Women &amp; Men</span><span class="tab-short">Cutting —<br/>Women&nbsp;&amp;&nbsp;Men</span></label>
-<label class="service-tab" for="svc-tab-botox"><span class="tab-full">SmoothFiller</span><span class="tab-short">SmoothFiller</span></label>
+<label class="service-tab" for="svc-tab-smoothfiller"><span class="tab-full">SmoothFiller</span><span class="tab-short">SmoothFiller</span></label>
 <label class="service-tab service-tab--long" for="svc-tab-nanoplasty"><span class="tab-full">Nanoplasty / Perm</span><span class="tab-short">Nanoplasty/Perm</span></label>
 <label class="service-tab" for="svc-tab-tinsel"><span class="tab-full">Upstyling</span><span class="tab-short">Upstyle</span><span class="tab-mob-active">Upstyling</span></label>
 </div>
@@ -3929,7 +3929,7 @@
 <span class="indicator-text" id="ind-highlights">Highlights and Foils</span>
 <span class="indicator-text" id="ind-blowwave">Blow Wave</span>
 <span class="indicator-text" id="ind-cutting">Cutting — Women &amp; Men</span>
-<span class="indicator-text" id="ind-botox">SmoothFiller and Mist Hair Treatment</span>
+<span class="indicator-text" id="ind-smoothfiller">SmoothFiller and Mist Hair Treatment</span>
 <span class="indicator-text" id="ind-nanoplasty">Nanoplasty &amp; Perm</span>
 <span class="indicator-text" id="ind-tinsel">Upstyle &amp; Hair Tinsels</span>
 <span class="indicator-text" id="ind-offers">Midweek Offers · Tuesday to Friday</span>
@@ -4005,6 +4005,7 @@
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVwvCD5fUIGpAR13s5zzX528" rel="noopener" target="_blank">Book Now</a>
 </div>
 </div>
+<a href="/regrowth-canberra/" style="display:inline-block;margin:14px 20px 18px;font-weight:600;font-size:0.88rem;color:#2E7D42;text-decoration:underline;text-underline-offset:3px;">Learn more about regrowth colour in Canberra &rarr;</a>
 </div>
 
 <div class="service-panel" id="panel-highlights">
@@ -4221,7 +4222,7 @@
 </div>
 </div>
 
-<div class="service-panel" id="panel-botox">
+<div class="service-panel" id="panel-smoothfiller">
 <button class="section-photo section-photo--wide panel-photo" type="button" aria-label="View photo: Treatment shampoo and scalp massage">
 <img alt="Hair Avenue stylist giving a relaxing shampoo and scalp massage at a basin" loading="lazy" src="images/salon/10-wash-basin-action.webp" width="1066" height="1600"/>
 <span class="section-photo__zoom" aria-hidden="true"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><line x1="21" x2="16.65" y1="21" y2="16.65"></line><line x1="11" x2="11" y1="8" y2="14"></line><line x1="8" x2="14" y1="11" y2="11"></line></svg></span>
@@ -4338,6 +4339,7 @@
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFVz-2pXcr8IDfzE8eD9186PU" rel="noopener" target="_blank">Book Now</a>
 </div>
 </div>
+<a href="/wedding-hair-canberra/" style="display:inline-block;margin:14px 20px 18px;font-weight:600;font-size:0.88rem;color:#2E7D42;text-decoration:underline;text-underline-offset:3px;">Learn more about wedding &amp; formal hair in Canberra &rarr;</a>
 </div>
 
 <div class="service-panel" id="panel-offers">
@@ -4631,7 +4633,7 @@
 <div class="team-card__body">
 <h3 class="team-card__name">Kelly</h3>
 <p class="team-card__role">Owner &amp; Creative Director</p>
-<p class="team-card__bio">Kelly&#8217;s passion lies in colour transformation &#8212; from stunning balayage blends to beautiful, head-turning blondes. She&#8217;s equally at home behind the chair with a precision cut, whether it&#8217;s a women&#8217;s restyle or a sharp men&#8217;s cut. Kelly is also Hair Avenue&#8217;s go-to for SmoothFiller (hair Botox) and Nanoplasty treatments, helping clients achieve smooth, frizz-free hair that lasts for months.</p>
+<p class="team-card__bio">Kelly&#8217;s passion lies in colour transformation &#8212; from stunning balayage blends to beautiful, head-turning blondes. She&#8217;s equally at home behind the chair with a precision cut, whether it&#8217;s a women&#8217;s restyle or a sharp men&#8217;s cut. Kelly is also Hair Avenue&#8217;s go-to for SmoothFiller and Nanoplasty treatments, helping clients achieve smooth, frizz-free hair that lasts for months.</p>
 <p class="team-card__quote"><span class="star">★</span> “Kelly was fabulous. She knows her stuff and took the time to walk me through new style options.” <span>— Google review</span></p>
 <p class="team-card__quote"><span class="star">★</span> “… a great master of colour and cut.” <span>— Google review</span></p>
 </div>
@@ -4643,7 +4645,7 @@
 <div class="team-card__body">
 <h3 class="team-card__name">Krystle</h3>
 <p class="team-card__role">Manager &amp; Master Stylist</p>
-<p class="team-card__bio">If it&#8217;s blonde, Krystle is your girl. A true blonde specialist, she lives for creating that perfect blonde &#8212; from icy platinum to warm honey tones. Krystle also loves working with all-over colour transformations and creating gorgeous upstyling for special occasions. She&#8217;s also skilled in SmoothFiller (hair Botox) treatments to give your hair that silky, salon-fresh finish.</p>
+<p class="team-card__bio">If it&#8217;s blonde, Krystle is your girl. A true blonde specialist, she lives for creating that perfect blonde &#8212; from icy platinum to warm honey tones. Krystle also loves working with all-over colour transformations and creating gorgeous upstyling for special occasions. She&#8217;s also skilled in SmoothFiller treatments to give your hair that silky, salon-fresh finish.</p>
 <p class="team-card__quote"><span class="star">★</span> “Without a doubt the best hairdresser in Canberra… Krystle is incredible!” <span>— Google review</span></p>
 <p class="team-card__quote"><span class="star">★</span> “Krystle did an absolutely amazing job on my hair! She transformed it to the perfect blonde.” <span>— Google review</span></p>
 </div>
@@ -4655,7 +4657,7 @@
 <div class="team-card__body">
 <h3 class="team-card__name">Trin</h3>
 <p class="team-card__role">Master Stylist</p>
-<p class="team-card__bio">Trin is our curly hair specialist, with a real love for working with curls &#8212; her curly cuts are designed to embrace and enhance your natural texture. She&#8217;s also a talented blonde specialist and is highly skilled in both Nanoplasty and SmoothFiller (hair Botox) treatments, making her the perfect choice if you want beautiful colour and smooth, healthy hair in one visit.</p>
+<p class="team-card__bio">Trin is our curly hair specialist, with a real love for working with curls &#8212; her curly cuts are designed to embrace and enhance your natural texture. She&#8217;s also a talented blonde specialist and is highly skilled in both Nanoplasty and SmoothFiller treatments, making her the perfect choice if you want beautiful colour and smooth, healthy hair in one visit.</p>
 <p class="team-card__quote"><span class="star">★</span> “Trin was amazing — she knows how to take care of hair and is super sweet.” <span>— Google review</span></p>
 <p class="team-card__quote"><span class="star">★</span> “Trin not only maintained the integrity of my hair but also did wonderful grey blending work.” <span>— Google review</span></p>
 </div>
@@ -5232,9 +5234,11 @@ window.addEventListener('load', function() {
 <ul class="footer__links">
 <li><a class="footer__link" href="#services">Services</a></li>
 <li><a class="footer__link" href="/hair-colour-canberra/">Hair Colour</a></li>
+<li><a class="footer__link" href="/regrowth-canberra/">Regrowth</a></li>
 <li><a class="footer__link" href="/balayage-canberra/">Balayage</a></li>
 <li><a class="footer__link" href="/hair-smoothfiller-canberra/">SmoothFiller</a></li>
 <li><a class="footer__link" href="/nanoplasty-canberra/">Nanoplasty</a></li>
+<li><a class="footer__link" href="/wedding-hair-canberra/">Wedding Hair</a></li>
 <li><a class="footer__link" href="/mens-haircuts-braddon/">Men&#8217;s Cuts</a></li>
 <li><a class="footer__link" href="#loyalty">Rewards</a></li>
 <li><a class="footer__link" href="#team">Our Team</a></li>
