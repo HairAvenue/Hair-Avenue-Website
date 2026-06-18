@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hair Avenue Braddon — Staff Price List</title>
+<meta name="robots" content="noindex"/>
+<style>
+  @page { size: A4 portrait; margin: 0; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #e6ebe6;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #1d1d1f;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-size: 9pt;
+    line-height: 1.4;
+  }
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .sheet {
+    width: 210mm;
+    min-height: 297mm;
+    background: #ffffff;
+    padding: 12mm 12mm 10mm;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Header */
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 0.4mm solid #C9A96E;
+    padding-bottom: 5mm;
+    margin-bottom: 6mm;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 4mm;
+  }
+  .brand__logo {
+    height: 14mm;
+    width: auto;
+  }
+  .brand__text {
+    line-height: 1.2;
+  }
+  .brand__title {
+    font-size: 16pt;
+    font-weight: 700;
+    color: #142a18;
+    letter-spacing: -0.01em;
+  }
+  .brand__sub {
+    font-size: 8pt;
+    font-weight: 600;
+    color: #C9A96E;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 1mm;
+  }
+  .contact {
+    text-align: right;
+    font-size: 7.5pt;
+    line-height: 1.5;
+    color: #424245;
+  }
+  .contact strong {
+    color: #142a18;
+    font-weight: 600;
+    font-size: 9pt;
+  }
+
+  /* Grid layout — 3 columns */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 5mm;
+    row-gap: 5mm;
+    flex: 1;
+  }
+
+  .cat {
+    border: 0.3mm solid rgba(201,169,110,0.4);
+    border-radius: 2mm;
+    overflow: hidden;
+    break-inside: avoid;
+  }
+  .cat__head {
+    background: linear-gradient(135deg, #142a18, #1d3527);
+    color: #ffffff;
+    padding: 2.5mm 3mm;
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .cat__head .accent { color: #E8D49A; font-weight: 600; font-size: 7pt; letter-spacing: 0.16em; display: block; margin-bottom: 0.5mm; }
+  .cat__body {
+    padding: 2.5mm 3mm;
+  }
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 2mm;
+    padding: 1.2mm 0;
+    border-bottom: 0.2mm dotted rgba(0,0,0,0.08);
+    font-size: 8.5pt;
+  }
+  .row:last-child { border-bottom: none; }
+  .row__name {
+    color: #1d1d1f;
+    line-height: 1.25;
+  }
+  .row__price {
+    color: #C9A96E;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .row--featured {
+    background: rgba(201,169,110,0.08);
+    margin: 0.5mm -3mm;
+    padding-left: 3mm;
+    padding-right: 3mm;
+    border-bottom: none;
+  }
+  .row--featured .row__name { font-weight: 600; color: #142a18; }
+  .row--featured .row__price { color: #2E5339; }
+
+  /* Cell that spans full width for any extra-long category */
+  .cat--wide { grid-column: span 1; }
+
+  /* Footer */
+  .foot {
+    margin-top: 5mm;
+    padding-top: 4mm;
+    border-top: 0.3mm solid rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 7pt;
+    color: #6e7e6f;
+  }
+  .foot__legend {
+    display: flex;
+    gap: 5mm;
+    align-items: center;
+  }
+  .foot__legend span { display: inline-flex; align-items: center; gap: 1.5mm; }
+  .foot__legend .dot { display: inline-block; width: 2mm; height: 2mm; background: rgba(201,169,110,0.4); border-radius: 0.5mm; }
+  .foot__rev { font-style: italic; }
+
+  /* Print */
+  @media print {
+    body { background: #ffffff; padding: 0; display: block; }
+    .sheet { box-shadow: none; }
+    .no-print { display: none !important; }
+  }
+
+  .help {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    background: #142a18;
+    color: #fff;
+    border-radius: 12px;
+    padding: 14px 20px;
+    font-size: 13px;
+    line-height: 1.5;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    max-width: 540px;
+    margin: 0 auto;
+    z-index: 10;
+  }
+  .help kbd { background: rgba(255,255,255,0.12); border-radius: 4px; padding: 2px 6px; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12px; }
+  .help b { color: #E8D49A; }
+  .help-close { float: right; background: rgba(255,255,255,0.12); border: none; color: #fff; width: 22px; height: 22px; border-radius: 50%; cursor: pointer; line-height: 1; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<div class="help no-print" id="helpBanner">
+  <button class="help-close" onclick="document.getElementById('helpBanner').remove()" aria-label="Close">×</button>
+  <b>Print this price list.</b> Press <kbd>⌘ P</kbd> (or <kbd>Ctrl P</kbd>) to print on A4 — or "Save as PDF". For laminated front-desk reference, print, trim margins, and laminate. This banner won't appear on the printed page.
+</div>
+
+<div class="sheet">
+
+  <!-- Header -->
+  <header class="head">
+    <div class="brand">
+      <img class="brand__logo" src="images/hair-avenue-braddon-3.png" alt="Hair Avenue Braddon"/>
+      <div class="brand__text">
+        <div class="brand__sub">Staff Reference</div>
+        <div class="brand__title">Quick Price List</div>
+      </div>
+    </div>
+    <div class="contact">
+      <strong>0449 801 937</strong><br/>
+      Unit 102 / 16 Lonsdale St, Braddon ACT 2612<br/>
+      Tue 10:30–17:30 · Wed 9:30–17:30<br/>
+      Thu &amp; Fri 9:30–20:00 · Sat 9:30–17:00
+    </div>
+  </header>
+
+  <!-- 3-column grid -->
+  <main class="grid">
+
+    <!-- 1. Special Offers & Packages -->
+    <section class="cat">
+      <div class="cat__head"><span class="accent">Tue–Fri</span>Special Offers &amp; Packages</div>
+      <div class="cat__body">
+        <div class="row"><span class="row__name">All Over Colour Pkg</span><span class="row__price">from $210</span></div>
+        <div class="row"><span class="row__name">Full Head Foils Pkg</span><span class="row__price">from $345</span></div>
+        <div class="row"><span class="row__name">Blonde Maintenance Refresh Pkg</span><span class="row__price">from $299</span></div>
+        <div class="row"><span class="row__name">Balayage Special Deal</span><span class="row__price">from $395</span></div>
+        <div class="row"><span class="row__name">Haircuts &amp; Blow Wave</span><span class="row__price">from $110</span></div>
+        <div class="row"><span class="row__name">Blow Wave Special</span><span class="row__price">from $75</span></div>
+        <div class="row"><span class="row__name">Complimentary Consultation</span><span class="row__price">Free</span></div>
+      </div>
+    </section>
+
+    <!-- 2. Colouring -->
+    <section class="cat">
+      <div class="cat__head">Colouring</div>
+      <div class="cat__body">
+        <div class="row"><span class="row__name">All Over Colour Pkg</span><span class="row__price">from $235</span></div>
+        <div class="row"><span class="row__name">Toner Maintenance Pkg</span><span class="row__price">from $135</span></div>
+        <div class="row"><span class="row__name">Blonde Maintenance Refresh</span><span class="row__price">from $299</span></div>
+      </div>
+    </section>
+
+    <!-- 3. Regrowth -->
+    <section class="cat">
+      <div class="cat__head">Regrowth</div>
+      <div class="cat__body">
+        <div class="row"><span class="row__name">Regrowth</span><span class="row__price">from $199</span></div>
+        <div class="row"><span class="row__name">Regrowth + All Over Toner Pkg</span><span class="row__price">from $230</span></div>
+        <div class="row"><span class="row__name">Scalp Bleach Regrowth</span><span class="row__price">from $295</span></div>
+      </div>
+    </section>
+
+    <!-- 4. Highlight / Balayage -->
+    <section class="cat">
+      <div class="cat__head">Highlight / Balayage</div>
+      <div class="cat__body">
+        <div class="row"><span class="row__name">Full-Head Foils / Blonde Pkg</span><span class="row__price">from $350</span></div>
+        <div class="row"><span class="row__name">Half-Head Foils Pkg</span><span class="row__price">from $265</span></div>
+        <div class="row"><span class="row__name">Balayage Pkg</span><span class="row__price">from $395</span></div>
+        <div class="row"><span class="row__name">Grey Blending</span><span class="row__price">from $390</span></div>
+      </div>
+    </section>
+
+    <!-- 5. Cutting -->
+    <section class="cat">
+      <div class="cat__head">Cutting</div>
+      <div class="cat__body">
+        <div class="row"><span class="row__name">Cut, Blow &amp; Hydrate Pkg</span><span class="row__price">from $145</span></div>
+        <div class="row"><span class="row__name">Cut &amp; Blow Wave — Short</span><span class="row__price">$110</span></div>
+        <div class="row"><span class="row__name">Cut &amp; Blow Wave — Medium</span><span class="row__price">$129</span></div>
+        <div class="row"><span class="row__name">Cut &amp; Blow Wave — Long</span><span class="row__price">$139</span></div>
+        <div class="row"><span class="row__name">Cut &amp; Blow Wave — XL / Thick</span><span class="row__price">$149</span></div>
+        <div class="row"><span class="row__name">Restyle Cut &amp; Blow Wave</span><span class="row__price">$149</span></div>
+        <div class="row"><span class="row__name">Clipper Cut / Men's</span><span class="row__price">$55</span></div>
+        <div class="row"><span class="row__name">Dry Cuts</span><span class="row__price">from $75</span></div>
+        <div class="row"><span class="row__name">Buzz Cuts</span><span class="row__price">$40</span></div>
+        <div class="row"><span class="row__name">Skin Fade</span><span class="row__price">$65</span></div>
+        <div class="row"><span class="row__name">Just Fringe Trim</span><span class="row__price">$25</span></div>
+      </div>
+    </section>
+
+    <!-- 6. Blow Wave -->
+    <section class="cat">
+      <div class="cat__head">Blow Wave</div>
+      <div class="cat__body">
+        <div class="row"><span class="row__name">Short</span><span class="row__price">$79</span></div>
+        <div class="row"><span class="row__name">Medium</span><span class="row__price">$95</span></div>
+        <div class="row"><span class="row__name">Long</span><span class="row__price">$105</span></div>
+        <div class="row"><span class="row__name">Bouncy Blow Wave — Medium</span><span class="row__price">$109</span></div>
+        <div class="row"><span class="row__name">Bouncy Blow Wave — Long</span><span class="row__price">$120</span></div>
+      </div>
+    </section>
+
+    <!-- 7. SmoothFiller & Mist -->
+    <section class="cat">
+      <div class="cat__head">SmoothFiller &amp; Mist</div>
+      <div class="cat__body">
+        <div class="row"><span class="row__name">Hair SmoothFiller</span><span class="row__price">from $314</span></div>
+        <div class="row"><span class="row__name">Intense Mist Hair Treatment</span><span class="row__price">from $120</span></div>
+      </div>
+    </section>
+
+    <!-- 8. Nanoplasty / Perm -->
+    <section class="cat">
+      <div class="cat__head">Nanoplasty / Perm</div>
+      <div class="cat__body">
+        <div class="row"><span class="row__name">Nanoplasty Treatment</span><span class="row__price">from $384</span></div>
+        <div class="row"><span class="row__name">Permanent Straightening — Shiseido</span><span class="row__price">from $380</span></div>
+        <div class="row"><span class="row__name">Perm (Tue–Fri only)</span><span class="row__price">from $120</span></div>
+      </div>
+    </section>
+
+    <!-- 9. Upstyling & Tinsel -->
+    <section class="cat">
+      <div class="cat__head">Upstyling &amp; Tinsel</div>
+      <div class="cat__body">
+        <div class="row"><span class="row__name">Up Style (no shampoo)</span><span class="row__price">from $150</span></div>
+        <div class="row"><span class="row__name">Up Style (with shampoo &amp; blow wave)</span><span class="row__price">from $200</span></div>
+        <div class="row"><span class="row__name">Hair Tinsels — Adult</span><span class="row__price">$60</span></div>
+        <div class="row"><span class="row__name">Hair Tinsels — Kid</span><span class="row__price">$45</span></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="foot">
+    <div class="foot__legend">
+      <span><span class="dot"></span>Special Offers (Tue–Fri) save up to $120</span>
+      <span>Pkg = Package · Prices "from" vary by hair length / complexity</span>
+    </div>
+    <div class="foot__rev">v1 · review monthly</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
