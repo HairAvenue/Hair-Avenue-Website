@@ -2592,15 +2592,9 @@
     }
 
     /* === Package Cards (Special Offers with tiered pricing & bonuses) === */
+    /* Offer items match every other category — plain rows, no side accent */
     .pricing-item--pkg {
-      background: linear-gradient(180deg, #ffffff 0%, rgba(201,169,110,0.04) 100%);
-      border-left: 3px solid var(--clr-gold);
       padding: 20px 28px 22px;
-    }
-    /* Apply the same gold accent border to every item in the Offers panel */
-    #panel-offers .pricing-item:not(.pricing-item--pkg) {
-      border-left: 3px solid var(--clr-gold);
-      background: linear-gradient(180deg, #ffffff 0%, rgba(201,169,110,0.04) 100%);
     }
     .pricing-item--pkg .pricing-item__name {
       font-size: 1.02rem;
@@ -2614,19 +2608,35 @@
     .pkg-availability {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      font-size: 0.68rem;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #ffffff;
+      background: #2E5339;
+      border: none;
+      padding: 5px 13px;
+      border-radius: 980px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin: 2px 0 12px;
+      box-shadow: 0 2px 6px rgba(46,83,57,0.22);
+    }
+    .pkg-availability svg { width: 12px; height: 12px; flex-shrink: 0; }
+    .offers-note {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 0.84rem;
       font-weight: 600;
       color: #2E5339;
-      background: rgba(46,83,57,0.08);
-      border: 1px solid rgba(46,83,57,0.2);
-      padding: 3px 10px;
-      border-radius: 980px;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      margin: 4px 0 8px;
+      background: rgba(46,83,57,0.07);
+      border: 1px solid rgba(46,83,57,0.22);
+      border-radius: 10px;
+      padding: 11px 16px;
+      margin: 0 0 4px;
     }
-    .pkg-availability svg { width: 10px; height: 10px; flex-shrink: 0; }
+    .offers-note svg { width: 17px; height: 17px; flex-shrink: 0; }
+    .offers-note strong { font-weight: 700; }
     .pkg-bonuses {
       display: flex;
       flex-wrap: wrap;
@@ -4350,6 +4360,7 @@
 </button>
 <div class="pricing-subcat__list pricing-subcat__list--open">
 
+<p class="offers-note"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>Packages marked <strong>Tuesday&#8211;Friday</strong> are available midweek only.</p>
 <!-- ===== All Over Colour Package ===== -->
 <div class="pricing-item pricing-item--pkg">
 <div class="pricing-item__header">
@@ -4357,10 +4368,10 @@
 <span class="pricing-item__price">from $210</span>
 </div>
 <p class="pricing-item__desc">A complete all-over colour refresh using Wella Professional colour &#8212; fresh, vibrant coverage from root to tip with expert application. Includes a consultation, luxurious shampoo, full colour application &amp; a polished blow wave finish.</p>
+<span class="pkg-availability"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>Available Tuesday &#8211; Friday</span>
 <details class="pkg-details">
 <summary class="pkg-details__toggle">What&#8217;s included<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
 <div class="pkg-details__body">
-<span class="pkg-availability"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>Available Tuesday &#8211; Friday</span>
 <div class="pkg-bonuses">
 <span class="pkg-bonus pkg-bonus--free"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect height="5" width="20" x="2" y="7"></rect><line x1="12" x2="12" y1="22" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"></path></svg><strong>FREE</strong> Intense Mist Hair Treatment <small>(Normally $35)</small></span>
 <span class="pkg-bonus pkg-bonus--discount"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" x2="8.12" y1="4" y2="15.88"></line><line x1="14.47" x2="20" y1="14.48" y2="20"></line><line x1="8.12" x2="12" y1="8.12" y2="12"></line></svg><strong>50% Off</strong> Hair Cut Add-On <small>(Normally $70 &#8594; $35)</small></span>
@@ -4377,10 +4388,10 @@
 <span class="pricing-item__price">from $330</span>
 </div>
 <p class="pricing-item__desc">Bright, bold or beautifully blended &#8212; a complete head of foils from our Master Stylists using Wella Blondor, with Bond Builder Technology for up to 97% less breakage. Fresh colour, expert care and a flawless finish in one appointment.</p>
+<span class="pkg-availability"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>Available Tuesday &#8211; Friday</span>
 <details class="pkg-details">
 <summary class="pkg-details__toggle">What&#8217;s included<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
 <div class="pkg-details__body">
-<span class="pkg-availability"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>Available Tuesday &#8211; Friday</span>
 <div class="pkg-bonuses">
 <span class="pkg-bonus pkg-bonus--free"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect height="5" width="20" x="2" y="7"></rect><line x1="12" x2="12" y1="22" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"></path></svg><strong>FREE</strong> Intense Mist Hair Treatment <small>(Normally $35)</small></span>
 <span class="pkg-bonus pkg-bonus--discount"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" x2="8.12" y1="4" y2="15.88"></line><line x1="14.47" x2="20" y1="14.48" y2="20"></line><line x1="8.12" x2="12" y1="8.12" y2="12"></line></svg><strong>50% Off</strong> Hair Cut Add-On <small>(Normally $70 &#8594; $35)</small></span>
@@ -4398,10 +4409,10 @@
 <span class="pricing-item__price">from $299</span>
 </div>
 <p class="pricing-item__desc">Keep your blonde looking stunning between full colour appointments. Strategic placement of 20&#8211;25 foils refreshes colour, blends regrowth and adds dimension &#8212; paired with a professional toner to neutralise unwanted tones, a deep conditioning treatment to restore moisture and a polished blow wave to finish.</p>
+<span class="pkg-availability"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>Available Tuesday &#8211; Friday</span>
 <details class="pkg-details">
 <summary class="pkg-details__toggle">What&#8217;s included<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
 <div class="pkg-details__body">
-<span class="pkg-availability"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>Available Tuesday &#8211; Friday</span>
 <div class="pkg-bonuses">
 <span class="pkg-bonus pkg-bonus--free"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="9 12 11 14 15 10"></polyline></svg>20&#8211;25 strategic foils</span>
 <span class="pkg-bonus pkg-bonus--free"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="9 12 11 14 15 10"></polyline></svg>Professional toner</span>
@@ -4424,10 +4435,10 @@
 <span class="pricing-item__price">from $395</span>
 </div>
 <p class="pricing-item__desc">Our signature all-inclusive Balayage Package performed by our Master Stylist. Stunning, salon-quality colour with a complete treatment and finish &#8212; everything you need in one appointment, at an exceptional value.</p>
+<span class="pkg-availability"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>Available Tuesday &#8211; Friday</span>
 <details class="pkg-details">
 <summary class="pkg-details__toggle">What&#8217;s included<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
 <div class="pkg-details__body">
-<span class="pkg-availability"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>Available Tuesday &#8211; Friday</span>
 <div class="pkg-bonuses">
 <span class="pkg-bonus pkg-bonus--free"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="9 12 11 14 15 10"></polyline></svg>Foils with balayage technique</span>
 <span class="pkg-bonus pkg-bonus--free"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="9 12 11 14 15 10"></polyline></svg>Professional toner</span>
