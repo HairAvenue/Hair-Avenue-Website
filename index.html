@@ -1786,7 +1786,7 @@
     .service-tab.service-tab--long { font-size: 0.62rem; letter-spacing: -0.02em; }
     .services-card .service-tab.service-tab--long { font-size: 0.62rem; }
     @media (max-width: 768px) {
-      .services-card .service-tab.service-tab--long { font-size: 0.6rem !important; padding: 8px 2px; }
+      .services-card .service-tab.service-tab--long { font-size: 0.7rem !important; padding: 6px 4px; white-space: normal; line-height: 1.15; }
     }
     /* Helper text under the services card */
     .services-help {
@@ -3439,7 +3439,7 @@
       /* Service tabs — horizontal scroll on mobile, left-aligned so first tabs are fully visible */
       .services-card .service-tabs { display: grid !important; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 5px 6px 6px; background: rgba(255,255,255,0.96); border-radius: 12px; border-bottom: none; top: 56px; box-shadow: 0 2px 12px rgba(0,0,0,0.06), 0 0 0 1px rgba(201,169,110,0.2); }
       .services-card .service-tabs::before { font-size: 0.52rem; padding: 0 0 2px; }
-      .services-card .service-tab[for="svc-tab-offers"] { grid-column: span 1; }
+      .services-card .service-tab[for="svc-tab-offers"] { grid-column: auto; }
       .services-card .service-tabs::-webkit-scrollbar { display: none; }
       .services-card .service-tab { font-size: 0.72rem; font-weight: 600; padding: 8px 4px; white-space: nowrap; overflow: visible; border: 1.5px solid rgba(201,169,110,0.35); margin-bottom: 0; border-radius: 7px; letter-spacing: -0.01em; text-align: center; background: #ffffff; transition: all 0.3s ease; box-sizing: border-box; min-width: 0; box-shadow: 0 1px 2px rgba(201,169,110,0.1); }
       .services-card .service-tab::after { display: none; }
@@ -3592,7 +3592,7 @@
 
       /* Services single column on very small screens */
       .services__grid { grid-template-columns: 1fr; gap: 10px; }
-      .services-card .service-tab { font-size: 0.78rem; font-weight: 600; padding: 11px 8px; border-radius: 50px; border: 1.5px solid rgba(201,169,110,0.2); margin-bottom: 0; }
+      .services-card .service-tab { font-size: 0.78rem; font-weight: 600; padding: 6px 8px; border-radius: 50px; border: 1.5px solid rgba(201,169,110,0.2); margin-bottom: 0; }
 
       /* Before/After stack */
       .ba__grid { grid-template-columns: 1fr; gap: 10px; }
@@ -3625,7 +3625,7 @@
       .services-card .service-tabs {
         display: grid !important;
         grid-template-columns: repeat(3, 1fr) !important;
-        gap: 8px !important;
+        gap: 5px !important;
       }
       /* Always show short names on mobile */
       .service-tab .tab-full { display: none !important; }
@@ -3636,23 +3636,19 @@
       /* Hide tab-mob-active by default on mobile */
       .tab-mob-active { display: none !important; }
       /* When highlights/cutting/upstyle selected on mobile: hide short, show mob-active */
-      #svc-tab-highlights:checked ~ .service-tabs label[for="svc-tab-highlights"] .tab-short,
-      #svc-tab-tinsel:checked ~ .service-tabs label[for="svc-tab-tinsel"] .tab-short { display: none !important; }
-      #svc-tab-highlights:checked ~ .service-tabs label[for="svc-tab-highlights"] .tab-full,
-      #svc-tab-tinsel:checked ~ .service-tabs label[for="svc-tab-tinsel"] .tab-full { display: none !important; }
-      #svc-tab-highlights:checked ~ .service-tabs label[for="svc-tab-highlights"] .tab-mob-active,
-      #svc-tab-tinsel:checked ~ .service-tabs label[for="svc-tab-tinsel"] .tab-mob-active { display: inline !important; }
+      #svc-tab-highlights:checked ~ .service-tabs label[for="svc-tab-highlights"] .tab-short { display: none !important; }
+      #svc-tab-highlights:checked ~ .service-tabs label[for="svc-tab-highlights"] .tab-full { display: none !important; }
+      #svc-tab-highlights:checked ~ .service-tabs label[for="svc-tab-highlights"] .tab-mob-active { display: inline !important; }
     }
     @media (max-width: 768px) {
       .services-card .service-tab[for="svc-tab-offers"],
-      .services-card .service-tab[for="svc-tab-cutting"] {
+      .services-card .service-tab[for="svc-tab-cutting"],
+      .services-card .service-tab[for="svc-tab-tinsel"] {
         white-space: normal;
         line-height: 1.15;
+        font-size: 0.7rem;
       }
-      .services-card .service-tab[for="svc-tab-offers"] .tab-short,
-      .services-card .service-tab[for="svc-tab-cutting"] .tab-short {
-        font-size: 0.6rem;
-      }
+
     }
 
     /* ===== PREMIUM REFINEMENTS ===== */
@@ -3938,8 +3934,8 @@
 <label class="service-tab" for="svc-tab-blowwave"><span class="tab-full">Blow Wave</span><span class="tab-short">Blow Wave</span></label>
 <label class="service-tab" for="svc-tab-cutting"><span class="tab-full">Cutting — Women &amp; Men</span><span class="tab-short">Cutting —<br/>Women&nbsp;&amp;&nbsp;Men</span></label>
 <label class="service-tab" for="svc-tab-smoothfiller"><span class="tab-full">SmoothFiller</span><span class="tab-short">SmoothFiller</span></label>
-<label class="service-tab service-tab--long" for="svc-tab-nanoplasty"><span class="tab-full">Nanoplasty / Perm</span><span class="tab-short">Nanoplasty/Perm</span></label>
-<label class="service-tab" for="svc-tab-tinsel"><span class="tab-full">Upstyling</span><span class="tab-short">Upstyle</span><span class="tab-mob-active">Upstyling</span></label>
+<label class="service-tab service-tab--long" for="svc-tab-nanoplasty"><span class="tab-full">Nanoplasty / Perm</span><span class="tab-short">Nanoplasty / Perm</span></label>
+<label class="service-tab" for="svc-tab-tinsel"><span class="tab-full">Upstyle / Hair Tinsel</span><span class="tab-short">Upstyle / Hair Tinsel</span></label>
 </div>
 <div class="service-category-indicator" aria-live="polite">
 <span class="indicator-text" id="ind-colouring">Colouring</span>
