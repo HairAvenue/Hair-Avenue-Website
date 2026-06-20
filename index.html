@@ -1780,11 +1780,14 @@
     #team.careers-bg::before {
       background: linear-gradient(135deg, rgba(10,31,14,0.92) 0%, rgba(20,42,24,0.88) 50%, rgba(46,83,57,0.9) 100%);
     }
-    /* Cutting tab — longer "Women & Men" label, shrink to one line */
-    label[for="svc-tab-cutting"] .tab-full { font-size: 0.66rem; letter-spacing: -0.01em; white-space: nowrap; }
-    /* Longer tab labels (e.g. "Nanoplasty / Perm") — shrink font so they fit */
-    .service-tab.service-tab--long { font-size: 0.62rem; letter-spacing: -0.02em; }
-    .services-card .service-tab.service-tab--long { font-size: 0.62rem; }
+    /* Cutting tab — longer "Women & Men" label; match other tabs' size on desktop, tighten to keep one line */
+    @media (min-width: 769px) {
+      label[for="svc-tab-cutting"] .tab-full { font-size: 0.78rem; letter-spacing: -0.02em; white-space: nowrap; }
+      .services-card .service-tab[for="svc-tab-cutting"] { padding-left: 6px; padding-right: 6px; }
+    }
+    /* Longer tab labels (e.g. "Nanoplasty / Perm") — match other tabs' size on desktop */
+    .service-tab.service-tab--long { font-size: 0.78rem; letter-spacing: -0.02em; }
+    .services-card .service-tab.service-tab--long { font-size: 0.78rem; }
     @media (max-width: 768px) {
       .services-card .service-tab.service-tab--long { font-size: 0.7rem !important; padding: 6px 4px; white-space: normal; line-height: 1.15; }
     }
