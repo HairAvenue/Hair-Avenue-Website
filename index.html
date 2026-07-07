@@ -3730,25 +3730,25 @@
       border-bottom: 1.5px solid rgba(201,169,110,0.45);
     }
     .cut-group:first-child { margin-top: 0; }
-    /* ===== 1ST BIRTHDAY PROMO (limited offer · 8–31 July) ===== */
-    .bday-bar{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:1200;width:calc(100% - 32px);max-width:660px;display:flex;align-items:center;gap:14px;padding:12px 14px 12px 18px;background:linear-gradient(135deg,#1d4427 0%,#2E5339 55%,#3a6d48 100%);color:#fff;border:1.5px solid rgba(201,169,110,0.55);border-radius:16px;box-shadow:0 14px 36px rgba(10,31,14,0.34),0 2px 8px rgba(0,0,0,0.2);opacity:0;animation:bdaySlideUp .6s cubic-bezier(.22,.61,.36,1) .7s forwards}
+    /* ===== SALON BIRTHDAY PROMO (limited offer · 8–31 July) ===== */
+    .bday-bar{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:1200;width:calc(100% - 32px);max-width:720px;display:flex;align-items:center;gap:15px;padding:15px 16px 15px 20px;background:linear-gradient(135deg,#E9D59B 0%,#F3E7BC 45%,#DCC084 100%);color:#1d3a24;border:1.5px solid rgba(46,83,57,0.4);border-radius:18px;box-shadow:0 18px 46px rgba(10,31,14,0.5),0 3px 10px rgba(0,0,0,0.24);opacity:0;animation:bdaySlideUp .6s cubic-bezier(.22,.61,.36,1) .7s forwards}
     @keyframes bdaySlideUp{from{opacity:0;transform:translateX(-50%) translateY(26px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
     .bday-bar.is-hidden{display:none}
-    .bday-bar__icon{flex:0 0 auto;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:rgba(201,169,110,0.18);border:1px solid rgba(201,169,110,0.45)}
-    .bday-bar__icon svg{width:20px;height:20px;color:#E8D49A}
-    .bday-bar__text{flex:1 1 auto;font-size:.85rem;line-height:1.34;letter-spacing:-.01em}
-    .bday-bar__text strong{color:#E8D49A;font-weight:700}
-    .bday-bar__cta{flex:0 0 auto;background:#E8D49A;color:#1d3a24;font-weight:700;font-size:.82rem;text-decoration:none;padding:9px 18px;border-radius:980px;white-space:nowrap;border:1.5px solid transparent;transition:all .25s ease}
-    .bday-bar__cta:hover{background:#f0e2b4;transform:translateY(-1px)}
-    .bday-bar__close{flex:0 0 auto;background:transparent;border:none;color:rgba(255,255,255,.7);cursor:pointer;width:26px;height:26px;display:grid;place-items:center;border-radius:50%;font-size:1rem;line-height:1;transition:all .2s ease}
-    .bday-bar__close:hover{background:rgba(255,255,255,.14);color:#fff}
+    .bday-bar__icon{flex:0 0 auto;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:rgba(46,83,57,0.12);border:1px solid rgba(46,83,57,0.38)}
+    .bday-bar__icon svg{width:23px;height:23px;color:#2E5339}
+    .bday-bar__text{flex:1 1 auto;font-size:.93rem;line-height:1.38;letter-spacing:-.01em}
+    .bday-bar__text strong{color:#1d4427;font-weight:800}
+    .bday-bar__cta{flex:0 0 auto;background:#2E5339;color:#ffffff;font-weight:700;font-size:.9rem;text-decoration:none;padding:11px 22px;border-radius:980px;white-space:nowrap;border:1.5px solid rgba(201,169,110,0.65);transition:all .25s ease}
+    .bday-bar__cta:hover{background:#3a6d48;transform:translateY(-1px)}
+    .bday-bar__close{flex:0 0 auto;background:transparent;border:none;color:rgba(29,58,36,0.6);cursor:pointer;width:28px;height:28px;display:grid;place-items:center;border-radius:50%;font-size:1.05rem;line-height:1;transition:all .2s ease}
+    .bday-bar__close:hover{background:rgba(46,83,57,0.14);color:#1d3a24}
     @media (max-width:600px){
-      .bday-bar{bottom:0;width:100%;max-width:none;border-radius:14px 14px 0 0;padding:10px 10px 11px 13px;gap:9px}
-      .bday-bar__icon{width:32px;height:32px}
-      .bday-bar__icon svg{width:17px;height:17px}
-      .bday-bar__text{font-size:.74rem;line-height:1.3}
-      .bday-bar__cta{padding:8px 13px;font-size:.74rem}
-      .bday-bar__close{width:24px;height:24px}
+      .bday-bar{bottom:0;width:100%;max-width:none;border-radius:16px 16px 0 0;padding:13px 12px 14px 15px;gap:11px}
+      .bday-bar__icon{width:38px;height:38px}
+      .bday-bar__icon svg{width:20px;height:20px}
+      .bday-bar__text{font-size:.82rem;line-height:1.34}
+      .bday-bar__cta{padding:10px 16px;font-size:.8rem}
+      .bday-bar__close{width:26px;height:26px}
     }
     /* Featured birthday offer card */
     .pricing-item--bday{position:relative;scroll-margin-top:150px;border:1.5px solid rgba(201,169,110,0.6)!important;background:linear-gradient(135deg,#16351d 0%,#24512f 55%,#2E5339 100%)!important;box-shadow:0 10px 28px rgba(10,31,14,0.3);margin-bottom:26px}
@@ -3793,10 +3793,10 @@
 </script>
 </head>
 <body>
-<!-- ===== 1st Birthday floating announcement ===== -->
-<div class="bday-bar is-hidden" id="bdayBar" role="region" aria-label="1st birthday offer">
+<!-- ===== Salon Birthday floating announcement ===== -->
+<div class="bday-bar is-hidden" id="bdayBar" role="region" aria-label="Salon birthday offer">
 <span class="bday-bar__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" x2="12" y1="22" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg></span>
-<span class="bday-bar__text"><strong>We&#8217;re turning 1!</strong> Add <strong>any Haircut</strong> or a Mist Hair Treatment to any colour service for just <strong>$20</strong>. Limited time &#8212; 8&#8211;31 July only.</span>
+<span class="bday-bar__text"><strong>It&#8217;s our salon birthday!</strong> Add <strong>any Haircut</strong> or a Mist Hair Treatment to any colour service for just <strong>$20</strong>. Limited time &#8212; 8&#8211;31 July only.</span>
 <a class="bday-bar__cta" href="#birthday-offer" id="bdayBarCta">View offer</a>
 <button class="bday-bar__close" id="bdayBarClose" type="button" aria-label="Dismiss birthday offer">&#10005;</button>
 </div>
@@ -4410,14 +4410,14 @@
 <div class="pricing-subcat__list pricing-subcat__list--open">
 
 <p class="offers-note"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>Packages marked <strong>Tuesday&#8211;Friday</strong> are available midweek only.</p>
-<!-- ===== 1st Birthday $20 Upgrade (limited offer · 8–31 July) ===== -->
+<!-- ===== Salon Birthday $20 Upgrade (limited offer · 8–31 July) ===== -->
 <div class="pricing-item pricing-item--pkg pricing-item--bday" id="birthday-offer">
-<span class="bday-badge"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" x2="12" y1="22" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>Celebrating 1 Year &#183; 8&#8211;31 July</span>
+<span class="bday-badge"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" x2="12" y1="22" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>Salon Birthday &#183; 8&#8211;31 July</span>
 <div class="pricing-item__header">
 <span class="pricing-item__name">Birthday Upgrade</span>
 <span class="pricing-item__price">$20</span>
 </div>
-<p class="pricing-item__desc">It&#8217;s our 1st birthday &#8212; and we&#8217;re celebrating with you! This July, add <strong>any Haircut</strong> or a <strong>Mist Hair Treatment</strong> to any colour service for just $20. Our little thank-you for an incredible first year.</p>
+<p class="pricing-item__desc">It&#8217;s our salon birthday &#8212; and we&#8217;re celebrating with you! This July, add <strong>any Haircut</strong> or a <strong>Mist Hair Treatment</strong> to any colour service for just $20. Our little thank-you for an incredible year.</p>
 <span class="pkg-availability"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>Available Tuesday &#8211; Saturday &#183; 8&#8211;31 July only</span>
 <div class="bday-how">
 <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="11"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
@@ -5611,7 +5611,7 @@ window.addEventListener('load', function() {
     if(close){ close.addEventListener('click',function(){ bar.classList.add('is-hidden'); try{sessionStorage.setItem('bdayBarDismissed','1');}catch(e){} }); }
     var cta=document.getElementById('bdayBarCta');
     if(cta){ cta.addEventListener('click',function(e){
-      if(typeof gtag==='function'){ gtag('event','select_promotion',{promotion_name:'1st Birthday $20 Upgrade',page_path:location.pathname}); }
+      if(typeof gtag==='function'){ gtag('event','select_promotion',{promotion_name:'Salon Birthday $20 Upgrade',page_path:location.pathname}); }
       var card=document.getElementById('birthday-offer');
       if(card){
         e.preventDefault();
