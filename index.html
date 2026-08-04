@@ -3798,15 +3798,6 @@
     .search-flash{animation:searchFlash 2.2s ease}
     @keyframes searchFlash{0%,55%{background:rgba(232,212,154,0.4);box-shadow:0 0 0 2px rgba(201,169,110,0.6);border-radius:12px}100%{background:transparent;box-shadow:none}}
     /* ===== Midweek banner in specials + tab offer dot ===== */
-    .specials-mid{margin-top:22px;display:flex;align-items:center;gap:22px;background:linear-gradient(135deg,#16351d 0%,#24512f 55%,#2E5339 100%);border:1.5px solid rgba(201,169,110,0.6);border-radius:18px;padding:24px 26px;box-shadow:0 10px 28px rgba(10,31,14,0.22)}
-    @media (max-width:860px){.specials-mid{flex-direction:column;align-items:flex-start;gap:14px;padding:22px 20px}}
-    .specials-mid__text{flex:1 1 auto}
-    .specials-mid__badge{display:inline-flex;align-items:center;gap:6px;background:rgba(232,212,154,0.15);color:#E8D49A;font-size:.64rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;padding:5px 11px;border-radius:980px;border:1px solid rgba(201,169,110,0.55)}
-    .specials-mid__title{color:#ffffff;font-size:1.18rem;font-weight:700;letter-spacing:-.01em;margin:11px 0 8px}
-    .specials-mid__sub{color:rgba(255,255,255,0.84);font-size:.85rem;line-height:1.6;margin:0}
-    .specials-mid__sub strong{color:#E8D49A;font-weight:700}
-    .specials-mid__cta{flex:0 0 auto;display:inline-block;background:#E8D49A;color:#1d3a24;font-weight:700;font-size:.9rem;padding:12px 24px;border-radius:980px;cursor:pointer;transition:all .25s ease;white-space:nowrap;-webkit-tap-highlight-color:transparent;border:none;font-family:inherit}
-    .specials-mid__cta:hover{background:#f0e2b4;transform:translateY(-1px)}
     .service-tab{position:relative}
     .tab-deal-dot{position:absolute;top:5px;right:7px;width:8px;height:8px;border-radius:50%;background:#C9A96E;animation:dealDot 2.6s ease-out infinite}
     @keyframes dealDot{0%{box-shadow:0 0 0 0 rgba(201,169,110,0.45)}70%{box-shadow:0 0 0 7px rgba(201,169,110,0)}100%{box-shadow:0 0 0 0 rgba(201,169,110,0)}}
@@ -3853,7 +3844,7 @@
 <!-- ===== August Specials floating teaser bar ===== -->
 <div class="promo-bar is-hidden" id="promoBar" role="region" aria-label="Special offer highlights">
 <span class="promo-bar__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg></span>
-<span class="promo-bar__text" id="promoBarText"><strong>Special offers on now</strong> &#8212; 4 limited-time July&#8211;August deals plus 8 Tuesday&#8211;Friday midweek specials.</span>
+<span class="promo-bar__text" id="promoBarText"><strong>August Specials on now</strong> &#8212; 4 limited-time deals on haircuts &amp; treatments.</span>
 <a class="promo-bar__cta" href="#specials" id="promoBarCta">View specials</a>
 <button class="promo-bar__close" id="promoBarClose" type="button" aria-label="Dismiss special offers">&#10005;</button>
 </div>
@@ -4025,13 +4016,13 @@
 </section>
 <!-- ===== OUR PRODUCTS — WELLA PROFESSIONALS ===== -->
 <!-- ===== SERVICES & PRICING ===== -->
-<!-- ===== JULY-AUGUST SPECIALS ===== -->
+<!-- ===== AUGUST SPECIALS ===== -->
 <section class="specials-section" id="specials">
 <div class="container">
 <div class="specials-head">
 <div class="specials-eyebrow">Limited Time</div>
-<h2 class="specials-title">July&#8211;August Specials</h2>
-<p class="specials-sub">Limited time &#8212; July through August only.</p>
+<h2 class="specials-title">August Specials</h2>
+<p class="specials-sub">Limited time &#8212; August only.</p>
 </div>
 <div class="specials-tiles">
 <div class="sp-tile">
@@ -4054,14 +4045,6 @@
 <p class="sp-tile__sub">When you book <strong>Scalp Bleach Regrowth</strong>. The haircut is normally $55, the Mist Treatment $40.</p>
 <div class="sp-tile__links"><button type="button" class="sp-link" data-tab="svc-tab-regrowth" data-svc="Scalp Bleach Regrowth">Scalp Bleach Regrowth</button></div>
 </div>
-</div>
-<div class="specials-mid">
-<div class="specials-mid__text">
-<span class="specials-mid__badge">Tuesday &#8211; Friday &#183; All Year</span>
-<h3 class="specials-mid__title">Plus: 8 Midweek Offers every week</h3>
-<p class="specials-mid__sub">Beat the weekend rush and save midweek &#8212; All Over Colour <strong>from $160</strong>, Full Head Foils <strong>$345</strong>, Half-Head Foils <strong>$265</strong>, Balayage <strong>$375</strong>, SmoothFiller <strong>$279</strong>, Nanoplasty <strong>$399</strong>, Cut &amp; Blow Wave <strong>from $110</strong> &#8212; plus a free colour consultation.</p>
-</div>
-<button type="button" class="specials-mid__cta" id="midweekOffersCta">View Midweek Offers</button>
 </div>
 </div>
 </section>
@@ -5858,22 +5841,6 @@ window.addEventListener('load', function() {
         if(typeof gtag==='function'){ gtag('event','select_promotion',{promotion_name:'August Deal chip: '+frag,page_path:location.pathname}); }
       });
     });
-    var mw=document.getElementById('midweekOffersCta');
-    if(mw){
-      mw.addEventListener('click',function(){
-        var radio=document.getElementById('svc-tab-offers');
-        if(radio){ radio.checked=true; }
-        requestAnimationFrame(function(){
-          var card=document.querySelector('.services-card');
-          if(!card) return;
-          var nav=document.querySelector('.nav');
-          var off=(nav?nav.offsetHeight:70)+12;
-          var top=card.getBoundingClientRect().top+window.pageYOffset-off;
-          window.scrollTo({top:top,behavior:'smooth'});
-        });
-        if(typeof gtag==='function'){ gtag('event','select_promotion',{promotion_name:'Midweek Offers banner',page_path:location.pathname}); }
-      });
-    }
   })();
 </script>
 </body>
