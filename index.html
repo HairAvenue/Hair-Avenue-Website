@@ -3770,12 +3770,11 @@
     .sp-cta:hover{background:rgba(232,212,154,0.24);border-color:rgba(201,169,110,0.75)}
     .sp-cta::after{content:"\2197";font-size:.76rem;opacity:.6}
     /* ===== SERVICE SEARCH ===== */
-    .svc-search{display:none;position:absolute;top:4px;left:50%;transform:translateX(-50%);width:min(480px,calc(100% - 16px));z-index:130;margin:0}
-    .svc-search.is-open{display:block}
-    .svc-search-toggle{position:absolute;top:3px;right:8px;z-index:96;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:rgba(46,83,57,0.07);border:1px solid rgba(201,169,110,0.5);color:#2E5339;cursor:pointer;transition:all .2s ease;padding:0}
-    .svc-search-toggle svg{width:13px;height:13px}
-    .svc-search-toggle:hover{background:rgba(46,83,57,0.15)}
-    @media (max-width:768px){.svc-search-toggle{top:2px;right:6px;width:22px;height:22px}.svc-search-toggle svg{width:12px;height:12px}}
+    .svc-search{position:relative;grid-column:1 / -1;margin:6px 2px 1px;z-index:80}
+    @media (max-width:768px){.svc-search{margin:3px 1px 0}
+      .svc-search__box{padding:6px 13px}
+      .svc-search__input{font-size:.82rem}
+      .svc-search__box svg{width:14px;height:14px}}
     .svc-search__box{display:flex;align-items:center;gap:9px;background:#ffffff;border:1.5px solid rgba(201,169,110,0.45);border-radius:980px;padding:10px 16px;transition:border-color .2s ease, box-shadow .2s ease}
     .svc-search__box:focus-within{border-color:#2E5339;box-shadow:0 0 0 3px rgba(46,83,57,0.12)}
     .svc-search__box svg{width:16px;height:16px;color:#a8894f;flex:0 0 auto}
@@ -3799,7 +3798,16 @@
     @keyframes searchFlash{0%,55%{background:rgba(232,212,154,0.4);box-shadow:0 0 0 2px rgba(201,169,110,0.6);border-radius:12px}100%{background:transparent;box-shadow:none}}
     /* ===== Midweek banner in specials + tab offer dot ===== */
     .service-tab{position:relative}
-    .tab-deal-dot{position:absolute;top:5px;right:7px;width:8px;height:8px;border-radius:50%;background:#C9A96E;animation:dealDot 2.6s ease-out infinite}
+    .tab-deal-dot{display:none;position:absolute;top:5px;right:7px;width:8px;height:8px;border-radius:50%;background:#E8D49A;animation:dealDot 2.6s ease-out infinite}
+    #svc-tab-offers:checked ~ .service-tabs label[for="svc-tab-offers"] .tab-deal-dot,
+    #svc-tab-colouring:checked ~ .service-tabs label[for="svc-tab-colouring"] .tab-deal-dot,
+    #svc-tab-regrowth:checked ~ .service-tabs label[for="svc-tab-regrowth"] .tab-deal-dot,
+    #svc-tab-highlights:checked ~ .service-tabs label[for="svc-tab-highlights"] .tab-deal-dot,
+    #svc-tab-cutting:checked ~ .service-tabs label[for="svc-tab-cutting"] .tab-deal-dot,
+    #svc-tab-blowwave:checked ~ .service-tabs label[for="svc-tab-blowwave"] .tab-deal-dot,
+    #svc-tab-smoothfiller:checked ~ .service-tabs label[for="svc-tab-smoothfiller"] .tab-deal-dot,
+    #svc-tab-nanoplasty:checked ~ .service-tabs label[for="svc-tab-nanoplasty"] .tab-deal-dot,
+    #svc-tab-tinsel:checked ~ .service-tabs label[for="svc-tab-tinsel"] .tab-deal-dot{display:block}
     @keyframes dealDot{0%{box-shadow:0 0 0 0 rgba(201,169,110,0.45)}70%{box-shadow:0 0 0 7px rgba(201,169,110,0)}100%{box-shadow:0 0 0 0 rgba(201,169,110,0)}}
     .sp-links{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
     .sp-link{display:inline-flex;align-items:center;gap:5px;font-size:.78rem;font-weight:600;color:#E8D49A;background:rgba(232,212,154,0.13);border:1px solid rgba(201,169,110,0.55);padding:7px 13px;border-radius:980px;cursor:pointer;transition:all .2s ease;font-family:inherit;-webkit-tap-highlight-color:transparent}
@@ -4067,7 +4075,16 @@
 <input class="svc-tab-radio" id="svc-tab-nanoplasty" name="svc-tab" type="radio"/>
 <input class="svc-tab-radio" id="svc-tab-tinsel" name="svc-tab" type="radio"/>
 <div class="service-tabs">
-<button type="button" class="svc-search-toggle" id="svcSearchToggle" aria-label="Search services"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+
+<label class="service-tab" for="svc-tab-offers"><span class="tab-full">Midweek Offers</span><span class="tab-short">Midweek Offers</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
+<label class="service-tab" for="svc-tab-colouring"><span class="tab-full">Colouring</span><span class="tab-short">Colour</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
+<label class="service-tab" for="svc-tab-regrowth"><span class="tab-full">Regrowth</span><span class="tab-short">Regrowth</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
+<label class="service-tab" for="svc-tab-highlights"><span class="tab-full">Highlight / Balayage</span><span class="tab-short">Highlight</span><span class="tab-mob-active">Highlighting</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
+<label class="service-tab" for="svc-tab-blowwave"><span class="tab-full">Blow Wave</span><span class="tab-short">Blow Wave</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
+<label class="service-tab" for="svc-tab-cutting"><span class="tab-full">Cutting — Women &amp; Men</span><span class="tab-short">Cutting —<br/>Women&nbsp;&amp;&nbsp;Men</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
+<label class="service-tab" for="svc-tab-smoothfiller"><span class="tab-full">SmoothFiller</span><span class="tab-short">SmoothFiller</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
+<label class="service-tab service-tab--long" for="svc-tab-nanoplasty"><span class="tab-full">Nanoplasty / Perm</span><span class="tab-short">Nanoplasty / Perm</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
+<label class="service-tab" for="svc-tab-tinsel"><span class="tab-full">Upstyle / Hair Tinsel</span><span class="tab-short">Upstyle / Hair Tinsel</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
 <div class="svc-search" id="svcSearch">
 <div class="svc-search__box">
 <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
@@ -4075,16 +4092,6 @@
 </div>
 <div class="svc-search__results" id="svcSearchResults" role="listbox" aria-label="Matching services"></div>
 </div>
-
-<label class="service-tab" for="svc-tab-offers"><span class="tab-full">Midweek Offers</span><span class="tab-short">Midweek Offers</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
-<label class="service-tab" for="svc-tab-colouring"><span class="tab-full">Colouring</span><span class="tab-short">Colour</span></label>
-<label class="service-tab" for="svc-tab-regrowth"><span class="tab-full">Regrowth</span><span class="tab-short">Regrowth</span></label>
-<label class="service-tab" for="svc-tab-highlights"><span class="tab-full">Highlight / Balayage</span><span class="tab-short">Highlight</span><span class="tab-mob-active">Highlighting</span></label>
-<label class="service-tab" for="svc-tab-blowwave"><span class="tab-full">Blow Wave</span><span class="tab-short">Blow Wave</span></label>
-<label class="service-tab" for="svc-tab-cutting"><span class="tab-full">Cutting — Women &amp; Men</span><span class="tab-short">Cutting —<br/>Women&nbsp;&amp;&nbsp;Men</span></label>
-<label class="service-tab" for="svc-tab-smoothfiller"><span class="tab-full">SmoothFiller</span><span class="tab-short">SmoothFiller</span></label>
-<label class="service-tab service-tab--long" for="svc-tab-nanoplasty"><span class="tab-full">Nanoplasty / Perm</span><span class="tab-short">Nanoplasty / Perm</span></label>
-<label class="service-tab" for="svc-tab-tinsel"><span class="tab-full">Upstyle / Hair Tinsel</span><span class="tab-short">Upstyle / Hair Tinsel</span></label>
 </div>
 <div class="service-category-indicator" aria-live="polite">
 <span class="indicator-text" id="ind-colouring">Colouring</span>
@@ -4097,6 +4104,7 @@
 <span class="indicator-text" id="ind-tinsel">Upstyle &amp; Hair Tinsels</span>
 <span class="indicator-text" id="ind-offers">Midweek Offers · Tuesday to Friday</span>
 </div>
+
 <!-- All Service Panels -->
 <div class="service-panel" id="panel-colouring">
 <button class="section-photo section-photo--banner panel-photo" type="button" aria-label="View photo: Choosing your colour with our team">
@@ -5729,15 +5737,7 @@ window.addEventListener('load', function() {
     var input=document.getElementById('svcSearchInput');
     var resultsEl=document.getElementById('svcSearchResults');
     var wrap=document.getElementById('svcSearch');
-    var toggleBtn=document.getElementById('svcSearchToggle');
     if(!input||!resultsEl||!wrap) return;
-    if(toggleBtn){
-      toggleBtn.addEventListener('click',function(ev){
-        ev.stopPropagation();
-        if(wrap.classList.contains('is-open')){ wrap.classList.remove('is-open'); resultsEl.classList.remove('is-open'); resultsEl.innerHTML=''; }
-        else { wrap.classList.add('is-open'); input.focus(); }
-      });
-    }
     var index=[];
     function tabLabel(tabId){
       var lab=document.querySelector('.service-tabs label[for="'+tabId+'"]');
@@ -5811,7 +5811,7 @@ window.addEventListener('load', function() {
       else if(ev.key==='Escape'){ close(); wrap.classList.remove('is-open'); input.blur(); }
     });
     document.addEventListener('click',function(ev){
-      if(ev.target.closest && (ev.target.closest('#svcSearch')||ev.target.closest('#svcSearchToggle'))) return;
+      if(ev.target.closest && ev.target.closest('#svcSearch')) return;
       close(); wrap.classList.remove('is-open');
     });
   })();
