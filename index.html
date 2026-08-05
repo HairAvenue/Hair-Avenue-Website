@@ -3814,7 +3814,7 @@
     .sp-link:hover{background:rgba(232,212,154,0.24);border-color:rgba(201,169,110,0.75)}
     .sp-link::after{content:"\2197";font-size:.72rem;opacity:.6}
     /* ===== Apple-style deal tiles ===== */
-    .specials-tiles{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .specials-tiles{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     @media (max-width:768px){
       .specials-section{padding:54px 0 60px}
       .specials-tiles{display:flex;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:24px -16px 0;padding:4px 16px 10px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
@@ -3852,7 +3852,7 @@
 <!-- ===== August Specials floating teaser bar ===== -->
 <div class="promo-bar is-hidden" id="promoBar" role="region" aria-label="Special offer highlights">
 <span class="promo-bar__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg></span>
-<span class="promo-bar__text" id="promoBarText"><strong>August Specials on now</strong> &#8212; 4 limited-time deals on haircuts &amp; treatments.</span>
+<span class="promo-bar__text" id="promoBarText"><strong>August Specials on now</strong> &#8212; 3 limited-time deals on haircuts &amp; treatments.</span>
 <a class="promo-bar__cta" href="#specials" id="promoBarCta">View specials</a>
 <button class="promo-bar__close" id="promoBarClose" type="button" aria-label="Dismiss special offers">&#10005;</button>
 </div>
@@ -4039,19 +4039,14 @@
 <div class="sp-tile__links"><button type="button" class="sp-link" data-tab="svc-tab-highlights" data-svc="Balayage Package">Balayage</button><button type="button" class="sp-link" data-tab="svc-tab-highlights" data-svc="Full-Head Foils / Blonde Package">Full-Head Foils</button></div>
 </div>
 <div class="sp-tile">
-<h3 class="sp-tile__title"><span class="tint">$20</span> Mist Hair Treatment. Half price.</h3>
-<p class="sp-tile__sub">When you book any of the <strong>colour services</strong> below. Normally $40.</p>
+<h3 class="sp-tile__title"><span class="tint">50% off</span> Mist Hair Treatment.</h3>
+<p class="sp-tile__sub">When you book any of the <strong>colour services</strong> below. Just $20 &#8212; normally $40.</p>
 <div class="sp-tile__links"><button type="button" class="sp-link" data-tab="svc-tab-colouring" data-svc="All Over Colour Package">All Over Colour</button><button type="button" class="sp-link" data-tab="svc-tab-colouring" data-svc="Toner Maintenance Package">Toner Maintenance</button><button type="button" class="sp-link" data-tab="svc-tab-highlights" data-svc="Blonde Maintenance Refresh">Blonde Refresh</button><button type="button" class="sp-link" data-tab="svc-tab-highlights" data-svc="Half-Head Foils Package">Half-Head Foils</button><button type="button" class="sp-link" data-tab="svc-tab-highlights" data-svc="Grey Blending">Grey Blending</button><button type="button" class="sp-link" data-tab="svc-tab-regrowth" data-svc="Regrowth">Regrowth</button></div>
 </div>
 <div class="sp-tile">
 <h3 class="sp-tile__title"><span class="tint">50% off</span> Haircut. Normally $55.</h3>
-<p class="sp-tile__sub">When you book a <strong>SmoothFiller</strong>, <strong>Blow Wave with Intense Mist</strong> or <strong>Nanoplasty</strong> service.</p>
-<div class="sp-tile__links"><button type="button" class="sp-link" data-tab="svc-tab-smoothfiller" data-svc="Hair SmoothFiller">SmoothFiller</button><button type="button" class="sp-link" data-tab="svc-tab-blowwave" data-svc="Blow Wave with Intense Mist">Blow Wave + Intense Mist</button><button type="button" class="sp-link" data-tab="svc-tab-nanoplasty" data-svc="Nanoplasty Treatment">Nanoplasty</button></div>
-</div>
-<div class="sp-tile">
-<h3 class="sp-tile__title">Your pick &#8212; <span class="tint">50% off</span> Haircut or <span class="tint">$20</span> Mist.</h3>
-<p class="sp-tile__sub">When you book <strong>Scalp Bleach Regrowth</strong>. The haircut is normally $55, the Mist Treatment $40.</p>
-<div class="sp-tile__links"><button type="button" class="sp-link" data-tab="svc-tab-regrowth" data-svc="Scalp Bleach Regrowth">Scalp Bleach Regrowth</button></div>
+<p class="sp-tile__sub">When you book a <strong>SmoothFiller</strong> or <strong>Nanoplasty</strong> service.</p>
+<div class="sp-tile__links"><button type="button" class="sp-link" data-tab="svc-tab-smoothfiller" data-svc="Hair SmoothFiller">SmoothFiller</button><button type="button" class="sp-link" data-tab="svc-tab-nanoplasty" data-svc="Nanoplasty Treatment">Nanoplasty</button></div>
 </div>
 </div>
 </div>
