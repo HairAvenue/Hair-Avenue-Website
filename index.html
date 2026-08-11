@@ -1787,8 +1787,10 @@
     }
     /* Cutting tab — longer "Women & Men" label; match other tabs' size on desktop, tighten to keep one line */
     @media (min-width: 769px) {
-      label[for="svc-tab-cutting"] .tab-full { font-size: 0.78rem; letter-spacing: -0.02em; white-space: nowrap; }
-      .services-card .service-tab[for="svc-tab-cutting"] { padding-left: 6px; padding-right: 6px; }
+      label[for="svc-tab-cutting"] .tab-full,
+      label[for="svc-tab-regrowth"] .tab-full { font-size: 0.78rem; letter-spacing: -0.02em; white-space: nowrap; }
+      .services-card .service-tab[for="svc-tab-cutting"],
+      .services-card .service-tab[for="svc-tab-regrowth"] { padding-left: 6px; padding-right: 6px; }
     }
     /* Longer tab labels (e.g. "Nanoplasty / Perm") — match other tabs' size on desktop */
     .service-tab.service-tab--long { font-size: 0.78rem; letter-spacing: -0.02em; }
@@ -3643,6 +3645,7 @@
     @media (max-width: 768px) {
       .services-card .service-tab[for="svc-tab-offers"],
       .services-card .service-tab[for="svc-tab-cutting"],
+      .services-card .service-tab[for="svc-tab-regrowth"],
       .services-card .service-tab[for="svc-tab-tinsel"] {
         white-space: normal;
         line-height: 1.15;
@@ -3913,7 +3916,7 @@
 <div aria-hidden="true" class="why__icon"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg></div>
 <div class="why__card-info">
 <h3 class="why__card-title">Hair Health Experts</h3>
-<p class="why__card-text">Advanced SmoothFiller &amp; nanoplasty — care few salons offer</p>
+<p class="why__card-text">SmoothFiller, nanoplasty &amp; grey blending — care few salons offer</p>
 </div>
 </div>
 <div class="why__card reveal">
@@ -4044,7 +4047,7 @@
 <div class="sp-tile">
 <h3 class="sp-tile__title"><span class="tint">50% off</span> Mist Hair Treatment.</h3>
 <p class="sp-tile__sub">When you book any of the <strong>colour services</strong> below. Just $20 &#8212; normally $40.</p>
-<div class="sp-tile__links"><button type="button" class="sp-link" data-tab="svc-tab-colouring" data-svc="All Over Colour Package">All Over Colour</button><button type="button" class="sp-link" data-tab="svc-tab-colouring" data-svc="Toner Maintenance Package">Toner Maintenance</button><button type="button" class="sp-link" data-tab="svc-tab-highlights" data-svc="Blonde Maintenance Refresh">Blonde Refresh</button><button type="button" class="sp-link" data-tab="svc-tab-highlights" data-svc="Half-Head Foils Package">Half-Head Foils</button><button type="button" class="sp-link" data-tab="svc-tab-highlights" data-svc="Grey Blending">Grey Blending</button><button type="button" class="sp-link" data-tab="svc-tab-regrowth" data-svc="Regrowth">Regrowth</button></div>
+<div class="sp-tile__links"><button type="button" class="sp-link" data-tab="svc-tab-colouring" data-svc="All Over Colour Package">All Over Colour</button><button type="button" class="sp-link" data-tab="svc-tab-colouring" data-svc="Toner Maintenance Package">Toner Maintenance</button><button type="button" class="sp-link" data-tab="svc-tab-highlights" data-svc="Blonde Maintenance Refresh">Blonde Refresh</button><button type="button" class="sp-link" data-tab="svc-tab-highlights" data-svc="Half-Head Foils Package">Half-Head Foils</button><button type="button" class="sp-link" data-tab="svc-tab-regrowth" data-svc="Grey Blending">Grey Blending</button><button type="button" class="sp-link" data-tab="svc-tab-regrowth" data-svc="Regrowth">Regrowth</button></div>
 </div>
 <div class="sp-tile">
 <h3 class="sp-tile__title"><span class="tint">50% off</span> Haircut. Normally $55.</h3>
@@ -4076,7 +4079,7 @@
 
 <label class="service-tab" for="svc-tab-offers"><span class="tab-full">Midweek Offers</span><span class="tab-short">Midweek Offers</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
 <label class="service-tab" for="svc-tab-colouring"><span class="tab-full">Colouring</span><span class="tab-short">Colour</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
-<label class="service-tab" for="svc-tab-regrowth"><span class="tab-full">Regrowth</span><span class="tab-short">Regrowth</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
+<label class="service-tab" for="svc-tab-regrowth"><span class="tab-full">Grey Blending / Regrowth</span><span class="tab-short">Grey Blending /<br/>Regrowth</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
 <label class="service-tab" for="svc-tab-highlights"><span class="tab-full">Highlight / Balayage</span><span class="tab-short">Highlight</span><span class="tab-mob-active">Highlighting</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
 <label class="service-tab" for="svc-tab-blowwave"><span class="tab-full">Blow Wave</span><span class="tab-short">Blow Wave</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
 <label class="service-tab" for="svc-tab-smoothfiller"><span class="tab-full">SmoothFiller</span><span class="tab-short">SmoothFiller</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
@@ -4093,7 +4096,7 @@
 </div>
 <div class="service-category-indicator" aria-live="polite">
 <span class="indicator-text" id="ind-colouring">Colouring</span>
-<span class="indicator-text" id="ind-regrowth">Regrowth</span>
+<span class="indicator-text" id="ind-regrowth">Grey Blending &amp; Regrowth</span>
 <span class="indicator-text" id="ind-highlights">Highlights and Foils</span>
 <span class="indicator-text" id="ind-blowwave">Blow Wave</span>
 <span class="indicator-text" id="ind-cutting">Cutting — Women &amp; Men</span>
@@ -4138,10 +4141,19 @@
 <button class="section-photo section-photo--wide panel-photo" type="button" aria-label="View photo: Regrowth colour being applied">
 <img alt="Hair Avenue stylist applying regrowth colour to a client's roots with a tint brush" loading="lazy" src="images/salon/22-regrowth-action.webp" width="1600" height="1040"/>
 <span class="section-photo__zoom" aria-hidden="true"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><line x1="21" x2="16.65" y1="21" y2="16.65"></line><line x1="11" x2="11" y1="8" y2="14"></line><line x1="8" x2="14" y1="11" y2="11"></line></svg></span>
-<span class="section-photo__caption">Precise root-by-root regrowth colour for a seamless blend</span>
+<span class="section-photo__caption">Regrowth colour &amp; grey blending — seamless from root to tip</span>
 </button>
 <p class="panel-review"><span class="star">★</span> &#8220;I walked out with soft, coloured hair with full coverage &#8212; the treatment is really beautiful!&#8221; <span>&#8212; Google review</span></p>
 <div class="pricing-subcat__list pricing-subcat__list--open">
+<div class="pricing-item">
+<div class="pricing-item__header">
+<span class="pricing-item__name">Grey Blending</span>
+<span class="pricing-item__price">from $399</span>
+</div>
+<p class="pricing-item__desc">Embrace your grey and make it truly gorgeous. We use gentle highlights or demi-permanent colour to soften and blend silver tones seamlessly, giving you a natural, sophisticated and beautifully low-maintenance result every time.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV6mGnLVeD6QbatjKTtZVU30" rel="noopener" target="_blank">Book Now</a>
+</div>
+
 <div class="pricing-item">
 <div class="pricing-item__header">
 <span class="pricing-item__name">Regrowth</span>
@@ -4168,13 +4180,14 @@
 </div>
 </div>
 <a href="/regrowth-canberra/" style="display:inline-block;margin:14px 20px 18px;font-weight:600;font-size:0.88rem;color:#2E7D42;text-decoration:underline;text-underline-offset:3px;">Learn more about regrowth colour in Canberra &rarr;</a>
+<a href="/grey-blending-canberra/" style="display:inline-block;margin:0 20px 18px;font-weight:600;font-size:0.88rem;color:#2E7D42;text-decoration:underline;text-underline-offset:3px;">Grey blending specialists &#8212; embrace your silver &rarr;</a>
 </div>
 
 <div class="service-panel" id="panel-highlights">
 <button class="section-photo section-photo--banner panel-photo" type="button" aria-label="View photo: Foils being woven through hair">
 <img alt="Hand-woven foils being placed through a blonde client's hair with Wella foil paper" loading="lazy" src="images/salon/13-foils-action.webp" width="1600" height="1066"/>
 <span class="section-photo__zoom" aria-hidden="true"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><line x1="21" x2="16.65" y1="21" y2="16.65"></line><line x1="11" x2="11" y1="8" y2="14"></line><line x1="8" x2="14" y1="11" y2="11"></line></svg></span>
-<span class="section-photo__caption">Hand-woven foils for seamless, dimensional highlights</span>
+<span class="section-photo__caption">Hand-woven foils &amp; balayage — beautifully dimensional colour</span>
 </button>
 <p class="panel-review"><span class="star">★</span> “I have stubborn dark roots and the blonde they are able to achieve is amazing.” <span>— Google review</span></p>
 <div class="pricing-subcat__list pricing-subcat__list--open">
@@ -4225,14 +4238,6 @@
 </div>
 <p class="pricing-item__desc">Keep your blonde looking stunning between full colour appointments. Strategic placement of 20&#8211;25 foils refreshes colour, blends regrowth and adds dimension &#8212; paired with a professional toner, a deep conditioning treatment and a polished blow wave to finish. Only suitable for clients who had their hair done less than 12 weeks ago.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0XSrbYs4yC5dP63MH3845A" rel="noopener" target="_blank">Book Now</a>
-</div>
-<div class="pricing-item">
-<div class="pricing-item__header">
-<span class="pricing-item__name">Grey Blending</span>
-<span class="pricing-item__price">from $399</span>
-</div>
-<p class="pricing-item__desc">Embrace your grey and make it truly gorgeous. We use gentle highlights or demi-permanent colour to soften and blend silver tones seamlessly, giving you a natural, sophisticated and beautifully low-maintenance result every time.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV6mGnLVeD6QbatjKTtZVU30" rel="noopener" target="_blank">Book Now</a>
 </div>
 </div>
 <a href="/balayage-canberra/" style="display:inline-block;margin:14px 20px 18px;font-weight:600;font-size:0.88rem;color:#2E7D42;text-decoration:underline;text-underline-offset:3px;">Learn more about balayage in Canberra &rarr;</a>
