@@ -6,7 +6,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="upgrade-insecure-requests" http-equiv="Content-Security-Policy"/>
 <title>Hair Salon Braddon, Canberra | Hair Avenue — Colour &amp; Cuts</title>
-<meta content="Hair Avenue Braddon — top-rated salon for colour, balayage, hair smoothfiller &amp; nanoplasty. 4.9★ from 170+ Google reviews. Book online now." name="description"/>
+<meta content="Hair Avenue Braddon — top-rated salon for colour, balayage, hair smoothfiller &amp; nanoplasty. 4.9★ from 180+ Google reviews. Book online now." name="description"/>
 <meta content="index, follow" name="robots"/>
 <meta content="Hair Avenue Braddon" name="author"/>
 <link href="https://hairavenue.com.au/" rel="canonical"/>
@@ -22,13 +22,13 @@
 <meta content="Hair Avenue Braddon — signature arched styling stations" property="og:image:alt"/>
 <meta content="Hair Avenue Braddon" property="og:site_name"/>
 <meta content="Hair Avenue Braddon — Colour, Cuts &amp; Hair Health Specialists" property="og:title"/>
-<meta content="Braddon's top-rated salon. 4.9★ from 170+ reviews. Colour, balayage, hair smoothfiller, nanoplasty &amp; advanced treatments. Women-owned, LGBTQ+ friendly." property="og:description"/>
+<meta content="Braddon's top-rated salon. 4.9★ from 180+ reviews. Colour, balayage, hair smoothfiller, nanoplasty &amp; advanced treatments. Women-owned, LGBTQ+ friendly." property="og:description"/>
 <meta content="website" property="og:type"/>
 <meta content="https://hairavenue.com.au/" property="og:url"/>
 <meta content="en_AU" property="og:locale"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="Hair Avenue Braddon — Come for the services. Stay for the experience." name="twitter:title"/>
-<meta content="Braddon's top-rated salon. Colour, balayage, hair smoothfiller, nanoplasty &amp; advanced treatments. 4.9★ from 170+ Google reviews." name="twitter:description"/>
+<meta content="Braddon's top-rated salon. Colour, balayage, hair smoothfiller, nanoplasty &amp; advanced treatments. 4.9★ from 180+ Google reviews." name="twitter:description"/>
 <meta content="https://hairavenue.com.au/images/og-image.jpg" name="twitter:image"/>
 <!-- Apple-inspired system fonts — no external font loading needed -->
 <!-- Schema Markup -->
@@ -60,7 +60,7 @@
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
-      "reviewCount": "170",
+      "reviewCount": "180",
       "bestRating": "5"
     },
     "review": [
@@ -813,14 +813,14 @@
     }
     .hero__accent {
       display: block;
-      font-family: var(--ff-display);
-      font-size: clamp(1.15rem, 1.9vw, 1.45rem);
+      font-family: 'New York', ui-serif, Georgia, 'Times New Roman', serif;
+      font-size: clamp(1.55rem, 2.6vw, 2.1rem);
       font-weight: 400;
       font-style: italic;
-      color: rgba(255,255,255,0.95);
-      letter-spacing: 0;
-      line-height: 1.4;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.45);
+      color: #f4ecdc;
+      letter-spacing: 0.012em;
+      line-height: 1.38;
+      text-shadow: 0 2px 14px rgba(0,0,0,0.4);
     }
     .hero__tagline {
       font-size: clamp(0.92rem, 1.6vw, 1.05rem);
@@ -2010,6 +2010,17 @@
     .careers__cta-secondary:hover {
       border-color: #C9A96E !important;
       background: rgba(201,169,110,0.1) !important;
+    }
+    .careers-motto {
+      font-family: 'New York', ui-serif, Georgia, 'Times New Roman', serif;
+      font-style: italic;
+      font-size: clamp(1.3rem, 2.1vw, 1.7rem);
+      font-weight: 400;
+      color: #E8D49A;
+      margin: -6px auto 14px;
+      letter-spacing: 0.012em;
+      line-height: 1.35;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.4);
     }
 
     /* ===== PRICING ACCORDIONS ===== */
@@ -3421,7 +3432,7 @@
       .hero__bg-left, .hero__bg-right { object-fit: cover; object-position: center top; }
       .hero [style*="margin-bottom:16px"] img { height: 64px !important; max-width: 200px !important; }
       .hero [style*="margin-bottom:16px"] { margin-bottom: 12px !important; }
-      .hero__accent { font-size: 1.2rem !important; }
+      .hero__accent { font-size: 1.6rem !important; }
       .hero__tagline { font-size: 0.82rem; margin: 14px auto 28px; }
       .hero__badge { font-size: 0.7rem; padding: 0; margin: 18px 0 0; }
       .hero__ctas { flex-direction: column; align-items: center; gap: 12px; }
@@ -3457,12 +3468,11 @@
       #svc-tab-nanoplasty:checked ~ .service-tabs label[for="svc-tab-nanoplasty"],
       #svc-tab-tinsel:checked ~ .service-tabs label[for="svc-tab-tinsel"],
       #svc-tab-offers:checked ~ .service-tabs label[for="svc-tab-offers"] {
-        transform: scale(1.04);
+        transform: none;
         color: #ffffff;
         font-weight: 700;
         background: linear-gradient(135deg, #2E5339, #3a6d48);
         border: 1.5px solid rgba(201,169,110,0.35);
-        border-radius: 8px;
         box-shadow: 0 3px 10px rgba(46,83,57,0.25), inset 0 -2px 0 0 rgba(0,0,0,0.1);
         position: relative;
       }
@@ -3589,7 +3599,7 @@
     @media (max-width: 420px) {
       .section { padding: 36px 0; }
       .hero [style*="margin-bottom:16px"] img { height: 52px !important; max-width: 170px !important; }
-      .hero__accent { font-size: 1.1rem !important; }
+      .hero__accent { font-size: 1.5rem !important; }
       .hero__content { padding: 0 16px; }
 
       /* Services single column on very small screens */
@@ -3898,7 +3908,7 @@
 <a class="btn btn--primary btn--lg" href="#services">View Our Services</a>
 </div>
 <div class="hero__badge">
-<span>★</span> 4.9 Stars · 170+ Reviews —&nbsp;and&nbsp;Counting
+<span>★</span> 4.9 Stars · 180+ Reviews —&nbsp;and&nbsp;Counting
 </div>
 </div>
 </div>
@@ -3938,7 +3948,7 @@
 <div aria-hidden="true" class="why__icon"><svg fill="var(--clr-gold)" height="20" stroke="var(--clr-gold)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div>
 <div class="why__card-info">
 <h3 class="why__card-title">4.9★ Google Rating</h3>
-<p class="why__card-text">170+ five-star reviews from real clients</p>
+<p class="why__card-text">180+ five-star reviews from real clients</p>
 </div>
 </div>
 </div>
@@ -4881,14 +4891,14 @@
 <div class="container">
 <div class="section-header reveal">
 <span class="section-label">Client Love</span>
-<h2 class="section-title">170+ Five-Star Reviews</h2>
+<h2 class="section-title">180+ Five-Star Reviews</h2>
 <p class="section-subtitle">Don't just take our word for it. Here's what real clients have to say.</p>
 </div>
 <div class="reviews__header-stats reveal">
 <div class="reviews__big-rating">4.9</div>
 <div class="reviews__stars-block">
 <div class="reviews__stars">★★★★★</div>
-<div class="reviews__count">Based on 170+ Google Reviews</div>
+<div class="reviews__count">Based on 180+ Google Reviews</div>
 </div>
 </div>
 <div class="reviews__track-wrapper">
@@ -4896,112 +4906,200 @@
 <!-- Reviews will be duplicated by JS for infinite scroll -->
 <div class="review-card">
 <div class="review-card__header">
-<div class="review-card__avatar">V</div>
+<div class="review-card__avatar">M</div>
 <div>
-<div class="review-card__name">Victoria R.</div>
+<div class="review-card__name">Michael W.</div>
 </div>
 </div>
 <div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">"What a 10/10 experience it was having my hair done at Hair Avenue! Definitely will be the place I go back to moving forward to have my hair done."</p>
+<p class="review-card__text">“Been searching for a decent men’s haircut in Braddon for ages and finally found Hair Avenue. The quality fade was spot on and the whole experience beat any barbershop I’ve been to — massage chair at the basin, great chat.”</p>
+<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
+</div>
+<div class="review-card">
+<div class="review-card__header">
+<div class="review-card__avatar">A</div>
+<div>
+<div class="review-card__name">Amy W.</div>
+</div>
+</div>
+<div class="review-card__stars">★★★★★</div>
+<p class="review-card__text">“Thank you for making my first visit at Hair Avenue an amazing one. All the staff are so professional, lovely and accommodating, especially when I’m 35 weeks pregnant. :) The salon is beautifully set up, with great music and uplifting vibes.”</p>
+<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
+</div>
+<div class="review-card">
+<div class="review-card__header">
+<div class="review-card__avatar">C</div>
+<div>
+<div class="review-card__name">Catherine M.</div>
+</div>
+</div>
+<div class="review-card__stars">★★★★★</div>
+<p class="review-card__text">“Hair Avenue is just so good. Kelly does my hair and she is such a talent — she cuts my hair (short) beautifully, is helping me grow it out and absolutely nails the colour every time. It’s clean, friendly and I couldn’t recommend it enough.”</p>
 <div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 <div class="review-card">
 <div class="review-card__header">
 <div class="review-card__avatar">K</div>
 <div>
-<div class="review-card__name">Karen G.</div>
+<div class="review-card__name">Karmin C.</div>
 </div>
 </div>
 <div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">"I absolutely love this business and the hair stylists who work there. I have stubborn dark roots and the blonde they are able to achieve is amazing. Thank you Kelly — your persistence for perfection is incredible."</p>
+<p class="review-card__text">“Second time coming to Hair Avenue and just as happy as the first time. Krystle is amazing — not only talented but also provides frank advice to make sure I leave with hair that I am able to style / just wash and wear, not just what looks nice in a photo on Pinterest.”</p>
 <div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 <div class="review-card">
 <div class="review-card__header">
-<div class="review-card__avatar">D</div>
+<div class="review-card__avatar">S</div>
 <div>
-<div class="review-card__name">Darth M.</div>
+<div class="review-card__name">Susan P.</div>
 </div>
 </div>
 <div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">"I found Hair Avenue while on holiday in Canberra and booked with Kelly — she cut my hair perfectly, really listened to what I wanted, and took the time to show me what would suit me. Lovely salon, all staff so friendly and welcoming. Truly a wealth of knowledge and one of the best haircuts I've ever had!"</p>
+<p class="review-card__text">“Thanks Hair Avenue. Another fabulous afternoon in your capable hands.”</p>
 <div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 <div class="review-card">
 <div class="review-card__header">
-<div class="review-card__avatar">M</div>
+<div class="review-card__avatar">L</div>
 <div>
-<div class="review-card__name">Mami I.</div>
+<div class="review-card__name">Lahmia P.</div>
 </div>
 </div>
 <div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">"Kayla took time to cut my hair with care. It looks great now — she even showed me how to dry and style it! Thank you! 🤩"</p>
+<p class="review-card__text">“Very professional, relaxing and comfortable experience — thank you!”</p>
 <div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 <div class="review-card">
 <div class="review-card__header">
-<div class="review-card__avatar">B</div>
+<div class="review-card__avatar">K</div>
 <div>
-<div class="review-card__name">Bella T.</div>
+<div class="review-card__name">Kristin K.</div>
 </div>
 </div>
 <div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">"Had such a great experience today! Krystle was so lovely and did an amazing job. Will definitely be back if I'm ever visiting Canberra again. Highly recommend!"</p>
+<p class="review-card__text">“Krystle is absolutely amazing! She’s incredibly professional, knowledgeable, and always makes me feel welcome. I leave every appointment with a huge smile on my face — not only because my hair looks beautiful, but also because of the friendly chats and the wonderful experience.”</p>
 <div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 <div class="review-card">
 <div class="review-card__header">
-<div class="review-card__avatar">M</div>
+<div class="review-card__avatar">I</div>
 <div>
-<div class="review-card__name">Maurine M.</div>
+<div class="review-card__name">Irene S.</div>
 </div>
 </div>
 <div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">"Without a doubt the best hairdresser in Canberra. Everyone is so friendly and my hair always turns out amazing. Krystle is incredible!"</p>
+<p class="review-card__text">“Kelly is a beautiful lady that always listens to what you want. Been a few times now and always happy. Myself and my 2 daughters attend now.”</p>
+<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
+</div>
+<div class="review-card">
+<div class="review-card__header">
+<div class="review-card__avatar">A</div>
+<div>
+<div class="review-card__name">Abigail H.</div>
+</div>
+</div>
+<div class="review-card__stars">★★★★★</div>
+<p class="review-card__text">“Hair Avenue always know exactly what to do. This place is curly girl approved ✅ Would highly recommend Trina for face framing and layering of curly hair. All hairdressers are also super friendly.”</p>
+<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
+</div>
+<div class="review-card">
+<div class="review-card__header">
+<div class="review-card__avatar">Y</div>
+<div>
+<div class="review-card__name">Yonnie F.</div>
+</div>
+</div>
+<div class="review-card__stars">★★★★★</div>
+<p class="review-card__text">“Kayla was observant, unobtrusive, skilled with her scissors and focused on what she was doing. Really appreciated her quiet presence. Perfect.”</p>
+<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
+</div>
+<div class="review-card">
+<div class="review-card__header">
+<div class="review-card__avatar">T</div>
+<div>
+<div class="review-card__name">Tiana P.</div>
+</div>
+</div>
+<div class="review-card__stars">★★★★★</div>
+<p class="review-card__text">“I really enjoyed my time with Trin. We had great conversations whilst she made me feel incredible and confident again. She transformed my hair from a brassy yellow blonde to a stunning lighter toned blonde. A wonderful and experienced hairdresser. Thank you Trin!”</p>
+<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
+</div>
+<div class="review-card">
+<div class="review-card__header">
+<div class="review-card__avatar">F</div>
+<div>
+<div class="review-card__name">Finch</div>
+</div>
+</div>
+<div class="review-card__stars">★★★★★</div>
+<p class="review-card__text">“I couldn’t be happier with the results! With naturally thick, wavy and very unruly hair, I am so so happy with my sleek new look. Trin knows her stuff and is a beautiful person as well. You won’t regret the nanoplasty treatment 😉”</p>
+<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
+</div>
+<div class="review-card">
+<div class="review-card__header">
+<div class="review-card__avatar">N</div>
+<div>
+<div class="review-card__name">Natalia M.</div>
+</div>
+</div>
+<div class="review-card__stars">★★★★★</div>
+<p class="review-card__text">“So happy with my hair!! Krystle did a full head of blonde for me and I’m obsessed with how it turned out. She knew exactly what I wanted and exceeded my expectations. She is also so lovely and easy to talk to. I’ve found my go-to salon and I’m so excited to come back!”</p>
+<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
+</div>
+<div class="review-card">
+<div class="review-card__header">
+<div class="review-card__avatar">N</div>
+<div>
+<div class="review-card__name">Nerida S.</div>
+</div>
+</div>
+<div class="review-card__stars">★★★★★</div>
+<p class="review-card__text">“Incredibly engaging and professional. I feel like a new woman!”</p>
+<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
+</div>
+<div class="review-card">
+<div class="review-card__header">
+<div class="review-card__avatar">J</div>
+<div>
+<div class="review-card__name">Jessica G.</div>
+</div>
+</div>
+<div class="review-card__stars">★★★★★</div>
+<p class="review-card__text">“I had a full head of foils and a bob cut and they did such an amazing job!! I was unsure about going to a new salon, however this one is so so good and I would highly recommend for blondes. I loved that I had a few different hairdressers working on my hair and seeing them all collaborate. Will definitely return 😊”</p>
 <div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 <div class="review-card">
 <div class="review-card__header">
 <div class="review-card__avatar">E</div>
 <div>
-<div class="review-card__name">Emily P.</div>
+<div class="review-card__name">Evangeline B.</div>
 </div>
 </div>
 <div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">"Great experience with Krystle! She did a great cut — exactly what I was after — and was incredibly friendly and chatty. I'll definitely be back!"</p>
+<p class="review-card__text">“Krystle was a hair wizard! She transformed my bleached home-job hair into a beautiful vanilla creamy blonde ♥️ You are amazing.”</p>
 <div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 <div class="review-card">
 <div class="review-card__header">
-<div class="review-card__avatar">K</div>
+<div class="review-card__avatar">J</div>
 <div>
-<div class="review-card__name">Kylie V.</div>
+<div class="review-card__name">Jasmyn D.</div>
 </div>
 </div>
 <div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">"What a wonderful experience. Krystle is a great master of colour and cut. Love my new hair and the pampering I received."</p>
+<p class="review-card__text">“Absolutely love my new hair — it feels so much better and healthier and it is exactly what I wanted. Thank you so much, the staff were so lovely 😊”</p>
 <div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 <div class="review-card">
 <div class="review-card__header">
-<div class="review-card__avatar">T</div>
+<div class="review-card__avatar">V</div>
 <div>
-<div class="review-card__name">T BH</div>
+<div class="review-card__name">Vrinda D.</div>
 </div>
 </div>
 <div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">"Kayla was wonderful, friendly and did a great job. Will definitely be a return customer."</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">T</div>
-<div>
-<div class="review-card__name">Talia B.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">"Trin was amazing — she knows how to take care of hair and is super sweet. I have recommended this salon to friends and family (who are fussy) and they love it."</p>
+<p class="review-card__text">“Thank you, Trin, for giving me such a beautiful new look! You were so kind and professional, and you made me feel comfortable throughout the appointment. I absolutely love my hair and can’t thank you enough.”</p>
 <div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 <div class="review-card">
@@ -5012,139 +5110,18 @@
 </div>
 </div>
 <div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">"As always, I am very satisfied with the haircut Trinisha gave me today. I love the way she cuts my short hair. Very stylish!"</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">L</div>
-<div>
-<div class="review-card__name">Lynda B.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">"My first visit to Hair Avenue and it was a great experience. I felt pampered sitting on the massage chair while Kayla washed and massaged my hair. Highly recommend!"</p>
+<p class="review-card__text">“As always, Trin has cut my hair in a style that suits my lifestyle perfectly. Very happy, thank you.”</p>
 <div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 <div class="review-card">
 <div class="review-card__header">
 <div class="review-card__avatar">P</div>
 <div>
-<div class="review-card__name">Philippa M.</div>
+<div class="review-card__name">Poly M.</div>
 </div>
 </div>
 <div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">"Was the best haircut experience I have had! From good chats to actually teaching me tips and tricks for my hair — will definitely be back!"</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">K</div>
-<div>
-<div class="review-card__name">Kahlia J.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">"I booked in at the last minute for an upstyle for an event. Kayla was lovely and did a great job on my hair."</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">D</div>
-<div>
-<div class="review-card__name">Dorelle H.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">"20 out of 10! After leaving the salon, I caught a glimpse of myself in a window as I passed by. I thought that person is wearing same clothes as me. And then I realised it was me!"</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">F</div>
-<div>
-<div class="review-card__name">Francesca H.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">"I've been trying to find a new hairdresser that does what I want and also that I like — I found that in Kayla. Love my hair and felt relaxed, heard and very welcome."</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">J</div>
-<div>
-<div class="review-card__name">Jamii-Lee E.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">"I desperately wanted my hair cut and thought I'd give Hair Avenue a go. My haircut was awesome, the consultation was in-depth, and the mist treatment was incredible!"</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">T</div>
-<div>
-<div class="review-card__name">Thea R.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">"Amazing service by Trin! She gave me exactly the colour and haircut I asked for. The salon was very welcoming. Highly recommend."</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">P</div>
-<div>
-<div class="review-card__name">Polly</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">"Love this place! Super affordable and they really listen to what you want. I had Kayla and she was fantastic."</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">K</div>
-<div>
-<div class="review-card__name">Kristie B.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">"Kayla was amazing. Really listened to exactly what I wanted and gave me some great advice. Very happy!"</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">V</div>
-<div>
-<div class="review-card__name">Valeria S.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">"Had a wonderful time getting to know Krystle and have her do my hair. She was very open, confident, and honest. I loved that she kept me in the loop every step of the way."</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">S</div>
-<div>
-<div class="review-card__name">Savannah</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">"Trin was so lovely! She did an amazing job on my hair, gave me exactly what I wanted!"</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">A</div>
-<div>
-<div class="review-card__name">Anna M.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">"Trin is amazing! Love love love the haircut she gave me, just what I needed. Lovely atmosphere and people with the professional quality to boot!"</p>
+<p class="review-card__text">“I’ve had 5-star consulting and service from Kayla! She listens with care and understands with her amazing thoughtful mind. Sincerely appreciate her service today and looking forward to my next session.”</p>
 <div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
 </div>
 </div>
@@ -5251,10 +5228,10 @@ window.addEventListener('load', function() {
 <div class="container">
 <div class="reveal">
 <h2 class="final-cta__title">Your Best Hair Day Starts Here</h2>
-<p class="final-cta__subtitle">Book your appointment today or simply walk in — discover why 170+ clients have rated us 4.9 stars. Walk-ins welcome.</p>
+<p class="final-cta__subtitle">Book your appointment today or simply walk in — discover why 180+ clients have rated us 4.9 stars. Walk-ins welcome.</p>
 <div class="trust-badges">
 <div class="trust-badge"><img alt="Wella Professionals" class="trust-badge__logo" src="images/wella/wella-professionals-logo.webp" width="860" height="608"/><span>Wella Professional Salon</span></div>
-<div class="trust-badge"><span class="trust-badge__star">★</span><span>4.9 — 170+ Reviews</span></div>
+<div class="trust-badge"><span class="trust-badge__star">★</span><span>4.9 — 180+ Reviews</span></div>
 <div class="trust-badge"><span class="trust-badge__icon">♀</span><span>Women-Owned</span></div>
 </div>
 <a class="btn btn--primary btn--lg" href="#services">Book Now</a>
@@ -5377,6 +5354,7 @@ window.addEventListener('load', function() {
 <div class="section-header reveal">
 <span class="section-label">Careers</span>
 <h2 class="section-title">Join Our Team</h2>
+<p class="careers-motto">Do what we love, love what we do!</p>
 <p class="section-subtitle">We're always looking for talented, passionate people to grow with us at Hair Avenue Braddon.</p>
 </div>
 <div class="careers__content reveal">
@@ -5392,7 +5370,7 @@ window.addEventListener('load', function() {
 </ul>
 <div class="careers__contact">
 <a class="btn careers__cta-primary" href="mailto:hairavenueatbraddon@gmail.com">Email Your Resume</a>
-<a class="btn careers__cta-secondary" href="tel:0449801937">Call 0449 801 937</a>
+<a class="btn careers__cta-secondary" href="tel:0401864086">0401 864 086</a>
 </div>
 </div>
 <div class="careers__roles">
@@ -5430,7 +5408,7 @@ window.addEventListener('load', function() {
 <li><a class="footer__link" href="/guides/">Hair Guides</a></li>
 <li><a class="footer__link" href="hair-avenue-policy.html" rel="noopener" target="_blank">Terms &amp; Conditions</a></li>
 </ul>
-<p style="font-size:0.78rem; color:#C9A96E; margin-bottom:8px;">★ 4.9 from 170+ Google reviews — and counting.</p>
+<p style="font-size:0.78rem; color:#C9A96E; margin-bottom:8px;">★ 4.9 from 180+ Google reviews — and counting.</p>
 <p class="footer__copy">© 2026 Hair Avenue Braddon. All rights reserved.</p>
 </div>
 </div>
