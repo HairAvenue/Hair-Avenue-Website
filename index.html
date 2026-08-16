@@ -785,10 +785,14 @@
       margin: 24px 0 0;
       box-shadow: none;
     }
-    .hero__badge span {
+    .hero__badge .star {
       color: #C9A96E;
       font-size: 0.85rem;
     }
+    a.hero__badge { cursor: pointer; transition: color 0.25s ease; }
+    a.hero__badge .badge-count { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; text-decoration-color: rgba(232,212,154,0.55); transition: text-decoration-color 0.25s ease; }
+    a.hero__badge:hover { color: rgba(255,255,255,0.95); }
+    a.hero__badge:hover .badge-count { text-decoration-color: #E8D49A; }
     .hero__eyebrow {
       display: inline-block;
       color: #1d1d1f;
@@ -3907,9 +3911,7 @@
 <div class="hero__ctas">
 <a class="btn btn--primary btn--lg" href="#services">View Our Services</a>
 </div>
-<div class="hero__badge">
-<span>★</span> 4.9 Stars · 180+ Reviews —&nbsp;and&nbsp;Counting
-</div>
+<a class="hero__badge" href="#reviews" aria-label="Read our Google reviews"><span class="star">★</span><span class="badge-text">4.9 Stars · <span class="badge-count">180+ Reviews</span> —&nbsp;and&nbsp;Counting</span></a>
 </div>
 </div>
 </header>
