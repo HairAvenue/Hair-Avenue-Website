@@ -3668,6 +3668,23 @@
 
     }
 
+    /* ===== WELLAPLEX SPOTLIGHT ===== */
+    .wellaplex-card { position: relative; background: linear-gradient(135deg, #16351d 0%, #24512f 55%, #2E5339 100%); border: 1.5px solid rgba(201,169,110,0.55); border-radius: 20px; padding: 40px 44px 36px; box-shadow: 0 14px 38px rgba(10,31,14,0.28); overflow: clip; }
+    .wellaplex-card::before { content: ''; position: absolute; top: 0; left: 10%; right: 10%; height: 2px; background: linear-gradient(90deg, transparent, #C9A96E 20%, #E8D49A 50%, #C9A96E 80%, transparent); }
+    .wellaplex-card__badge { display: inline-block; background: linear-gradient(135deg, #C9A96E, #E8D49A); color: #1d1d1f; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 6px 16px; border-radius: 980px; margin-bottom: 16px; }
+    .wellaplex-card__title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; letter-spacing: -0.02em; color: #ffffff; margin: 0 0 6px; }
+    .wellaplex-card__tag { font-family: 'New York', ui-serif, Georgia, serif; font-style: italic; font-size: 1.05rem; color: #E8D49A; margin: 0 0 18px; }
+    .wellaplex-card__text { font-size: 0.95rem; line-height: 1.65; color: rgba(255,255,255,0.85); max-width: 68ch; margin: 0 0 18px; }
+    .wellaplex-card__steps { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 0 0 20px; }
+    @media (max-width: 700px) { .wellaplex-card__steps { grid-template-columns: 1fr; } .wellaplex-card { padding: 30px 24px 28px; } }
+    .wellaplex-card__step { background: rgba(255,255,255,0.07); border: 1px solid rgba(201,169,110,0.35); border-radius: 12px; padding: 15px 17px; }
+    .wellaplex-card__step strong { display: block; color: #E8D49A; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 5px; }
+    .wellaplex-card__step span { font-size: 0.86rem; line-height: 1.55; color: rgba(255,255,255,0.82); }
+    .wellaplex-card__price { font-size: 0.92rem; font-weight: 600; color: #ffffff; margin: 0 0 22px; }
+    .wellaplex-card__price em { font-style: normal; color: #E8D49A; }
+    .wellaplex-card__cta { display: inline-block; background: rgba(255,255,255,0.08); color: #E8D49A; border: 1px solid rgba(201,169,110,0.9); border-radius: 980px; padding: 12px 30px; font-size: 0.88rem; font-weight: 600; letter-spacing: 0.05em; transition: all 0.25s ease; }
+    .wellaplex-card__cta:hover { background: rgba(201,169,110,0.18); color: #ffffff; }
+
     /* ===== PREMIUM REFINEMENTS ===== */
     /* Calm, still CTA — no pulsing glow */
     .final-cta .btn--primary {
@@ -4145,12 +4162,12 @@
 <span class="pricing-item__name">Half-Head Foils Package</span>
 <span class="pricing-item__price">from $295</span>
 </div>
-<p class="pricing-item__desc">Perfect for maintaining existing highlights, adding dimension or achieving a sun-kissed blonde while preserving your natural base colour. A low-maintenance grow-out with a soft, effortlessly stunning finish. Includes face-framing and crown foils, professional toner, treatment and a polished iron-styled finish. Short $265, Medium $295, Long $310.</p>
+<p class="pricing-item__desc">Perfect for maintaining existing highlights, adding dimension or achieving a sun-kissed blonde while preserving your natural base colour. A low-maintenance grow-out with a soft, effortlessly stunning finish. Includes face-framing and crown foils, professional toner, treatment and a polished iron-styled finish. Short $295, Medium $330, Long $360, Thick or Extra Long $385.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV07vTBIEAvR5cyBbyLpN-Z8" rel="noopener" target="_blank">Book Now</a>
 </div>
 <div class="pricing-item">
 <div class="pricing-item__header">
-<span class="pricing-item__name">Balayage Package</span>
+<span class="pricing-item__name">Balayage &#8212; Full Head Lightening Package</span>
 <span class="pricing-item__price">from $395</span>
 </div>
 <p class="pricing-item__desc">A tailored balayage colour experience designed for a vibrant, easy-to-maintain look with a gorgeous face-framing glow. Our stylists use strategic placement techniques for maximum visual impact with minimal upkeep between visits.</p>
@@ -4162,6 +4179,7 @@
 <span class="pricing-item__price">from $299</span>
 </div>
 <p class="pricing-item__desc">Keep your blonde looking stunning between full colour appointments. Strategic placement of 20&#8211;25 foils refreshes colour, blends regrowth and adds dimension &#8212; paired with a professional toner, a deep conditioning treatment and a polished blow wave to finish. Only suitable for clients who had their hair done less than 12 weeks ago.</p>
+<p class="pricing-item__desc" style="font-weight:500; color:#2E5339;">Short $299 &#183; Medium $325 &#183; Long $340</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0XSrbYs4yC5dP63MH3845A" rel="noopener" target="_blank">Book Now</a>
 </div>
 </div>
@@ -4180,26 +4198,14 @@
 <div class="pricing-item">
 <div class="pricing-item__header">
 <span class="pricing-item__name">Hair Cuts with Blow Wave</span>
-<span class="pricing-item__price">from $119</span>
+<span class="pricing-item__price">from $125</span>
 </div>
 <p class="pricing-item__desc">A fresh, personalised haircut paired with a professional blow wave finish &#8212; includes a relaxing shampoo, nourishing treatment mask, customised cut and polished styling. Simply choose your hair length when booking.</p>
-<p class="pricing-item__desc" style="font-weight:500; color:#2E5339;">Short $119 &#183; Medium $139 &#183; Long $149 &#183; Extra Long or Thick $159</p>
+<p class="pricing-item__desc" style="font-weight:500; color:#2E5339;">Short $125 &#183; Medium $145 &#183; Long $155 &#183; Extra Long or Thick $165 &#183; Restyle $175</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV7XuycL-QI0-lzV0moNr2h4" rel="noopener" target="_blank" aria-label="Book Hair Cuts with Blow Wave online">Book Now</a>
 </div>
-<div class="pricing-item"><div class="pricing-item__header">
-<span class="pricing-item__name">Cut, Blow &amp; Hydrate Package</span>
-<span class="pricing-item__price">from $145</span>
-</div>
-<p class="pricing-item__desc">Treat yourself to the ultimate hair refresh, performed by our Master Hairstylist with 14+ years of experience. Combines a personalised precision haircut, smooth voluminous blow wave and our luxurious Intense Mist Hair Treatment &#8212; deeply hydrating, repairing damage, boosting shine and taming frizz for hair that&#8217;s softer, smoother and easier to manage with a long-lasting healthy glow.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVw5ScUqtz2PItYnapen9YdY" rel="noopener" target="_blank">Book Now</a>
-</div>
-<div class="pricing-item"><div class="pricing-item__header">
-<span class="pricing-item__name">Restyle Cut &amp; Blow Wave</span>
-<span class="pricing-item__price">$149</span>
-</div>
-<p class="pricing-item__desc">Ready for a bold new look? Our restyle service features an in-depth consultation to find your perfect style, followed by precision cutting and reshaping. Includes shampoo, treatment mask, expert restyle cut &amp; blow wave finish.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFVz0wvkdpiZWHaYkOy2GP7BY" rel="noopener" target="_blank">Book Now</a>
-</div>
+
+
 
 <h3 class="cut-group">Express Cuts</h3>
 <div class="pricing-item"><div class="pricing-item__header">
@@ -4251,51 +4257,21 @@
 <div class="pricing-subcat__list pricing-subcat__list--open">
 <div class="pricing-item">
 <div class="pricing-item__header">
-<span class="pricing-item__name">Short</span>
-<span class="pricing-item__price">$79</span>
+<span class="pricing-item__name">Blow Wave Package</span>
+<span class="pricing-item__price">from $79</span>
 </div>
-<p class="pricing-item__desc">A polished blow wave for short hair that adds volume, shape and a salon-quality shine. Includes a relaxing shampoo and nourishing treatment to leave your locks feeling silky, healthy and perfectly styled. Every blowout is set with Wella EIMI professional styling products for hold that lasts. Short hair guide: above chin length.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV9BJFUbjqc2skLHOjo89r84" rel="noopener" target="_blank">Book Now</a>
-</div>
-<div class="pricing-item">
-<div class="pricing-item__header">
-<span class="pricing-item__name">Medium</span>
-<span class="pricing-item__price">$95</span>
-</div>
-<p class="pricing-item__desc">A smooth, gorgeous blow wave for medium-length hair that enhances body and natural movement. Includes a thorough shampoo and hydrating treatment to nourish your hair, finished with expert styling. Medium hair guide: chin to shoulder length.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV8Ny7htuZqI19iEqcNTRe7Q" rel="noopener" target="_blank">Book Now</a>
+<p class="pricing-item__desc">A polished, professional blow wave tailored to your hair &#8212; includes a relaxing shampoo before styling. Simply choose your length when booking.</p>
+<p class="pricing-item__desc" style="font-weight:500; color:#2E5339;">Short $79 &#183; Medium $95 &#183; Long $110 &#183; Extra Long $120 &#183; With Hair Extensions $135</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-KQ8wNrIOec5oeIcIKKXuo" rel="noopener" target="_blank" aria-label="Book Blow Wave online">Book Now</a>
 </div>
 <div class="pricing-item">
 <div class="pricing-item__header">
-<span class="pricing-item__name">Long</span>
-<span class="pricing-item__price">$105</span>
+<span class="pricing-item__name">Bouncy Blow Wave Package</span>
+<span class="pricing-item__price">from $109</span>
 </div>
-<p class="pricing-item__desc">A luxurious blow wave for long hair that delivers stunning volume, bounce and a beautiful flowing finish. Includes a gentle shampoo and deep conditioning treatment to keep your locks nourished and smooth. Long hair guide: shoulder to mid-arm length.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFVzwzPy54qZ8aD5oHg87fRr0" rel="noopener" target="_blank">Book Now</a>
-</div>
-<div class="pricing-item">
-<div class="pricing-item__header">
-<span class="pricing-item__name">Bouncy Blow Wave &#8211; Medium</span>
-<span class="pricing-item__price">$109</span>
-</div>
-<p class="pricing-item__desc">Create head-turning, voluminous bouncy curls with our professional styling service for medium-length hair. Using expert techniques and quality products, we deliver gorgeous, long-lasting curls with incredible body and movement.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV2Wu2wNs-0zIF3RsWnkhW-w" rel="noopener" target="_blank">Book Now</a>
-</div>
-<div class="pricing-item">
-<div class="pricing-item__header">
-<span class="pricing-item__name">Bouncy Blow Wave &#8211; Long</span>
-<span class="pricing-item__price">$120</span>
-</div>
-<p class="pricing-item__desc">Achieve stunning, voluminous bouncy curls on long hair with our expert styling service. We create beautiful, cascading curls full of life and movement using professional techniques and premium products for a glamorous, lasting finish.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV5KyYOhz4YOsdKH3NGRSO54" rel="noopener" target="_blank">Book Now</a>
-</div>
-<div class="pricing-item">
-<div class="pricing-item__header">
-<span class="pricing-item__name">Blow Wave with Intense Mist Hair Treatment</span>
-<span class="pricing-item__price">from $120</span>
-</div>
-<p class="pricing-item__desc">A polished blow wave paired with our intense moisture and repair treatment. Advanced micro-mist technology delivers deep hydration directly into each strand &#8212; restoring brilliant shine, improving elasticity and leaving your hair incredibly soft, healthy and beautifully styled.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-KQ8wNrIOec5oeIcIKKXuo" rel="noopener" target="_blank" aria-label="Book Blow Wave with Intense Mist Hair Treatment online">Book Now</a>
+<p class="pricing-item__desc">Volume that lasts &#8212; a bouncy, brushed-out blow wave with beautiful body and movement, styled to turn heads.</p>
+<p class="pricing-item__desc" style="font-weight:500; color:#2E5339;">Medium $109 &#183; Long $122 &#183; With Hair Rollers or Styling $160</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV4Eh-Pa7VrnPSlj3T4xw6Dg" rel="noopener" target="_blank" aria-label="Book Bouncy Blow Wave online">Book Now</a>
 </div>
 </div>
 </div>
@@ -4513,7 +4489,7 @@
 <div class="pricing-item pricing-item--pkg">
 <div class="pricing-item__header">
 <span class="pricing-item__name">Balayage Special Deal</span>
-<span class="pricing-item__price">from $375</span>
+<span class="pricing-item__price">from $385</span>
 </div>
 <p class="pricing-item__desc">Our signature all-inclusive Balayage Package performed by our Master Stylist. Stunning, salon-quality colour with a complete treatment and finish &#8212; everything you need in one appointment, at an exceptional value.</p>
 <span class="pkg-availability"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>Available Tuesday &#8211; Friday</span>
@@ -4557,7 +4533,7 @@
 <div class="pricing-item">
 <div class="pricing-item__header">
 <span class="pricing-item__name">Cut, Blow Wave &amp; 50% Off Mist Treatment</span>
-<span class="pricing-item__price">from $110</span>
+<span class="pricing-item__price">from $115</span>
 </div>
 <span class="pkg-availability"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>Available Tuesday &#8211; Friday</span>
 <p class="pricing-item__desc">Get a fresh Haircut and Blow Wave combo, and enjoy a beautifully styled finish. Plus, every booking includes 50% off our Mist Hair Treatment (valued at $40) to leave your hair feeling nourished and looking its best. A small extra fee may apply for thick or extra-long hair, or a restyle.</p>
@@ -5085,14 +5061,14 @@ window.addEventListener('load', function() {
 <section class="section social-bg" id="gallery" style="padding-top:60px; padding-bottom:60px; background: url('images/text-center-reveal.webp') center center / cover no-repeat;">
 <div class="container" id="products">
 <div class="section-header reveal">
-<span class="section-label">Before &amp; After</span>
-<h2 class="section-title">Hair Transformations Worth Obsessing Over</h2>
-<p class="section-subtitle">Real before-and-after transformations with Wella Professionals colour and care, in our Braddon salon.</p>
+<span class="section-label">Our Products</span>
+<h2 class="section-title">Only Premium Products Touch Your Hair</h2>
+<p class="section-subtitle">At Hair Avenue, there are no compromises on the shelf. Every colour, treatment and styling product we use is salon-grade Wella Professionals &#8212; including WellaPlex bond protection &#8212; so your hair doesn&#8217;t just look beautiful when you leave. It stays healthy, strong and easy to maintain long after.</p>
 </div>
 <div class="products__grid reveal" style="margin-bottom:48px;">
 <div class="products__copy">
-<p class="products__text">Every service is backed by Wella Professionals — the world's leading salon colour brand. From Koleston Perfect ME+ to SmoothFiller, we choose Wella for results you can feel and trust.</p>
-<p class="products__text">140+ years of colour science. Pure Balance Technology delivers rich, true-to-tone results while protecting your hair. Colour that cares.</p>
+<p class="products__text">We made a simple promise when we opened: <strong>if it isn&#8217;t premium, it doesn&#8217;t touch your hair.</strong> Everything we use is professional, salon-grade Wella Professionals &#8212; the colour brand trusted by the world&#8217;s best salons for over 140 years. No shortcuts, no supermarket formulas.</p>
+<p class="products__text">That&#8217;s why your colour is mixed with WellaPlex bond protection, your treatments come from the SmoothFiller and LuxeOil ranges, and your finish is styled with EIMI &#8212; so your hair stays strong, glossy and beautifully easy to manage between visits.</p>
 </div>
 <div class="products__images">
 <div class="products__image-grid">
@@ -5101,11 +5077,28 @@ window.addEventListener('load', function() {
 </div>
 </div>
 </div>
+<!-- WellaPlex spotlight -->
+<div class="wellaplex-card reveal" style="margin-bottom:48px;">
+<span class="wellaplex-card__badge">New at Hair Avenue</span>
+<h3 class="wellaplex-card__title">WellaPlex Bond Builder</h3>
+<p class="wellaplex-card__tag">Colour without compromise.</p>
+<p class="wellaplex-card__text">Every time hair is coloured or lightened, the bonds inside each strand are put under stress &#8212; that&#8217;s what can leave hair feeling weak or brittle. WellaPlex is Wella Professionals&#8217; in-salon bond-building system: it works <em>inside</em> the hair fibre to reconstruct those inner bonds while your colour develops, so you get the blonde or the shade you want &#8212; and hair that feels stronger, smoother and healthier than when you sat down.</p>
+<div class="wellaplex-card__steps">
+<div class="wellaplex-card__step"><strong>N&#176;1 &#8212; Bond Maker</strong><span>Mixed straight into your colour or lightener, rebuilding the hair&#8217;s inner bonds during the service &#8212; pH-matched to Wella colour so there&#8217;s no compromise on lift or tone.</span></div>
+<div class="wellaplex-card__step"><strong>N&#176;2 &#8212; Bond Stabiliser</strong><span>Applied at the basin afterwards to lock in the newly built bonds and rebalance your hair&#8217;s pH &#8212; leaving it soft, strong and beautifully manageable.</span></div>
+</div>
+<p class="wellaplex-card__price">Add WellaPlex to any colour or lightening service for <em>$35</em> &#8212; or enjoy it <em>included free</em> with our midweek Balayage Special.</p>
+<a class="wellaplex-card__cta" href="#services">Add It to Your Next Colour &rarr;</a>
+</div>
 <!-- Kelly's "Why We Chose Wella" quote -->
 <blockquote class="wella-quote reveal" style="margin-bottom:48px;">
-<p class="wella-quote__text">"When I opened Hair Avenue, I wanted every product on our shelves to reflect the standard I'd want for my own hair. Wella Professionals was the clear choice — over 140 years of colour innovation, the gentlest formulas in the industry, and results that speak for themselves. When clients sit in our chairs, I want them to know their colour isn't just beautiful — it's backed by the best science in the business."</p>
+<p class="wella-quote__text">"I made one rule when I opened Hair Avenue: if it isn't the best, it doesn't touch your hair. Everything we use is premium Wella Professionals — and with WellaPlex, we can now rebuild the bonds inside your hair with every single colour. Because beautiful hair isn't just how you leave the salon — it's how healthy your hair feels every day after."</p>
 <cite class="wella-quote__cite">— Kelly, Founder &amp; Owner, Hair Avenue Braddon</cite>
 </blockquote>
+<div class="section-header reveal" style="margin-bottom:36px;">
+<h3 style="font-size:clamp(1.15rem,2.2vw,1.5rem);font-weight:700;letter-spacing:-0.02em;color:#ffffff;margin:0 0 8px;">The Proof Is in the Hair</h3>
+<p class="section-subtitle" style="margin:0;">Real before-and-after transformations with Wella Professionals colour and care, in our Braddon salon.</p>
+</div>
 <div class="hair-gallery reveal">
 
 <div class="hair-gallery__item--3 gallery-tile gallery-tile--ba">
