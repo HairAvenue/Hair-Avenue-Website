@@ -3676,6 +3676,11 @@
     .award-plaque__title { font-size: 1.18rem; font-weight: 700; letter-spacing: -0.01em; color: #ffffff; margin: 0 0 7px; }
     .award-plaque__text { font-size: 0.86rem; line-height: 1.6; color: rgba(255,255,255,0.75); margin: 0; }
     @media (max-width: 640px) { .award-plaque { flex-direction: column; text-align: center; gap: 16px; padding: 24px 20px; } }
+    .svc-award-note { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 12px 14px 0; font-size: 0.72rem; font-weight: 500; color: #6b7a6f; text-align: center; letter-spacing: 0.01em; }
+    .svc-award-note svg { width: 13px; height: 13px; flex: 0 0 auto; }
+    .svc-award-note a { color: #8a6d3b; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(201,169,110,0.5); transition: color 0.2s ease; }
+    .svc-award-note a:hover { color: #2E5339; }
+    @media (max-width: 768px) { .svc-award-note { font-size: 0.66rem; margin: 10px 12px 0; } }
     .award-plaque__thanks { font-family: 'New York', ui-serif, Georgia, serif; font-style: italic; font-size: 0.98rem; line-height: 1.5; color: #E8D49A; margin: 12px 0 0; }
     .award-plaque__thanks span { font-style: normal; font-size: 0.78rem; color: rgba(255,255,255,0.6); }
     .award-plaque__link { display: inline-block; margin-top: 10px; font-size: 0.78rem; font-weight: 600; color: #C9A96E; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(201,169,110,0.5); transition: color 0.25s ease; }
@@ -4042,6 +4047,7 @@
 <div class="svc-search__results" id="svcSearchResults" role="listbox" aria-label="Matching services"></div>
 </div>
 </div>
+<p class="svc-award-note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.7 3.4 3.8.6-2.7 2.7.6 3.8L12 11.7l-3.4 1.8.6-3.8L6.5 7l3.8-.6L12 3z" fill="#C9A96E"/></svg><span>Proudly a <a href="/news/client-experience-award-2026/">2026 Client Experience Award</a> winner &#8212; thank you, Canberra</span></p>
 <div class="service-category-indicator" aria-live="polite">
 <span class="indicator-text" id="ind-colouring">Colouring</span>
 <span class="indicator-text" id="ind-regrowth">Grey Blending &amp; Regrowth</span>
