@@ -4159,6 +4159,7 @@
 <span class="pricing-item__price">from $350</span>
 </div>
 <p class="pricing-item__desc">Our highlight and balayage services are powered by Wella Blondor — the professional lightening system trusted for controlled, reliable lift across the full blonde spectrum. Blondor delivers up to 9 levels of lift with built-in Bond Builder Technology for up to 97% less breakage. Anti-yellow molecules work during the lifting process to neutralise unwanted warmth, so your blonde comes out clean and exactly where you want it. Paired with Wellaplex bond protection, your hair stays strong and feels as healthy as it looks. Includes toner and blow wave.</p>
+<p class="pricing-item__desc" style="font-weight:500; color:#2E5339;">Short $350 &#183; Medium $395 &#183; Long $425 &#183; Extra Long/Thick $470 &#183; Ultra Blonde or Colour Correction $550</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV_2sKO91oCqwKSEoY0JbueA" rel="noopener" target="_blank">Book Now</a>
 </div>
 <div class="pricing-item">
@@ -4168,14 +4169,6 @@
 </div>
 <p class="pricing-item__desc">The perfect middle ground between a half and full head of foils &#8212; brightness and dimension through the top, sides and crown for a beautifully blended result with an easy grow-out. Hand-woven foils using Wella Blondor with Bond Builder Technology, finished with a professional toner and polished styling.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV7pTbRc3sa9hBRkOUgsrbuo" rel="noopener" target="_blank" aria-label="Book Foils 3/4 Head online">Book Now</a>
-</div>
-<div class="pricing-item">
-<div class="pricing-item__header">
-<span class="pricing-item__name">Colour Correction</span>
-<span class="pricing-item__price">from $550</span>
-</div>
-<p class="pricing-item__desc">Had a colour mishap, or chasing the brightest, cleanest blonde? Our Master Stylist will assess your hair and design a tailored correction plan &#8212; powered by Wella Blondor&#8217;s professional lightening system with anti-yellow molecules and Wellaplex bond protection for up to 97% less breakage, even on previously coloured or resistant hair. Includes expert custom toner and a polished blow wave finish. Please allow approx. 2+ hours.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV18ai86jMnT7BM3JNpsOX-4" rel="noopener" target="_blank" aria-label="Book Colour Correction online">Book Now</a>
 </div>
 <div class="pricing-item">
 <div class="pricing-item__header">
@@ -4191,6 +4184,7 @@
 <span class="pricing-item__price">from $395</span>
 </div>
 <p class="pricing-item__desc">A tailored balayage colour experience designed for a vibrant, easy-to-maintain look with a gorgeous face-framing glow. Our stylists use strategic placement techniques for maximum visual impact with minimal upkeep between visits.</p>
+<p class="pricing-item__desc" style="font-weight:500; color:#2E5339;">Short $395 &#183; Medium $429 &#183; Long $459 &#183; Extra Long/Thick $499 &#183; Ultra Blonde or Colour Correction $599</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0b39yNcvZ1XnvdShve23Mg" rel="noopener" target="_blank">Book Now</a>
 </div>
 <div class="pricing-item">
@@ -5646,8 +5640,9 @@ window.addEventListener('load', function() {
         if(!nameEl) return;
         var name=nameEl.textContent.replace(/\s+/g,' ').trim();
         var priceEl=item.querySelector('.pricing-item__price');
-        var descEl=item.querySelector('.pricing-item__desc');
-        index.push({name:name,lname:name.toLowerCase(),desc:descEl?descEl.textContent.toLowerCase():'',price:priceEl?priceEl.textContent.trim():'',tabId:tabId,tabLabel:tl,el:item});
+        var descEls=item.querySelectorAll('.pricing-item__desc');
+        var descAll=[].map.call(descEls,function(d){return d.textContent;}).join(' ').toLowerCase();
+        index.push({name:name,lname:name.toLowerCase(),desc:descAll,price:priceEl?priceEl.textContent.trim():'',tabId:tabId,tabLabel:tl,el:item});
       });
     });
     function close(){ resultsEl.classList.remove('is-open'); resultsEl.innerHTML=''; }
