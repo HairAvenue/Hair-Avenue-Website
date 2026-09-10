@@ -78,6 +78,7 @@
       }
     ],
     "priceRange": "$$",
+    "award": "2026 Phorest Client Experience Award",
     "paymentAccepted": "Cash, Credit Card, EFTPOS, Apple Pay, Google Pay",
     "currenciesAccepted": "AUD",
     "areaServed": ["Braddon", "Canberra", "Canberra City", "ACT", "Australian Capital Territory"],
@@ -789,7 +790,7 @@
       color: #C9A96E;
       font-size: 0.85rem;
     }
-    a.hero__badge { cursor: pointer; transition: color 0.25s ease; }
+    a.hero__badge { cursor: pointer; transition: color 0.25s ease; justify-content: center; }
     a.hero__badge .badge-count { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; text-decoration-color: rgba(232,212,154,0.55); transition: text-decoration-color 0.25s ease; }
     a.hero__badge:hover { color: rgba(255,255,255,0.95); }
     a.hero__badge:hover .badge-count { text-decoration-color: #E8D49A; }
@@ -3668,6 +3669,18 @@
 
     }
 
+    /* ===== CLIENT EXPERIENCE AWARD ===== */
+    .award-plaque { display: flex; align-items: center; gap: 26px; max-width: 720px; margin: 0 auto 44px; background: rgba(255,255,255,0.06); border: 1.5px solid rgba(201,169,110,0.5); border-radius: 18px; padding: 26px 32px; }
+    .award-plaque__emblem { width: 88px; height: 88px; flex: 0 0 auto; }
+    .award-plaque__kicker { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #C9A96E; margin-bottom: 5px; }
+    .award-plaque__title { font-size: 1.18rem; font-weight: 700; letter-spacing: -0.01em; color: #ffffff; margin: 0 0 7px; }
+    .award-plaque__text { font-size: 0.86rem; line-height: 1.6; color: rgba(255,255,255,0.75); margin: 0; }
+    @media (max-width: 640px) { .award-plaque { flex-direction: column; text-align: center; gap: 16px; padding: 24px 20px; } }
+    .award-plaque__thanks { font-family: 'New York', ui-serif, Georgia, serif; font-style: italic; font-size: 0.98rem; line-height: 1.5; color: #E8D49A; margin: 12px 0 0; }
+    .award-plaque__thanks span { font-style: normal; font-size: 0.78rem; color: rgba(255,255,255,0.6); }
+    .award-plaque__link { display: inline-block; margin-top: 10px; font-size: 0.78rem; font-weight: 600; color: #C9A96E; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(201,169,110,0.5); transition: color 0.25s ease; }
+    .award-plaque__link:hover { color: #E8D49A; }
+    .trust-badge svg { width: 15px; height: 15px; display: block; }
     /* ===== WELLAPLEX SPOTLIGHT ===== */
     .wellaplex-card { position: relative; background: linear-gradient(135deg, #16351d 0%, #24512f 55%, #2E5339 100%); border: 1.5px solid rgba(201,169,110,0.55); border-radius: 20px; padding: 40px 44px 36px; box-shadow: 0 14px 38px rgba(10,31,14,0.28); overflow: clip; }
     .wellaplex-card::before { content: ''; position: absolute; top: 0; left: 10%; right: 10%; height: 2px; background: linear-gradient(90deg, transparent, #C9A96E 20%, #E8D49A 50%, #C9A96E 80%, transparent); }
@@ -3852,6 +3865,7 @@
 </div>
 <div class="hero__panel">
 <div class="hero__content">
+<a class="hero__eyebrow" href="#reviews" aria-label="Read about our 2026 Client Experience Award">2026 Client Experience Award Winner</a>
 <h1 class="hero__title">
 <span class="sr-only">Hair Avenue Braddon — Canberra hair salon for colour, cuts and care. </span>
 <span class="hero__accent">Come for the services.<br/>Stay for the experience.</span>
@@ -3897,8 +3911,8 @@
 <div class="why__card reveal">
 <div aria-hidden="true" class="why__icon"><svg fill="var(--clr-gold)" height="20" stroke="var(--clr-gold)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div>
 <div class="why__card-info">
-<h3 class="why__card-title">4.9★ Google Rating</h3>
-<p class="why__card-text">180+ five-star reviews from real clients</p>
+<h3 class="why__card-title">Award-Winning Experience</h3>
+<p class="why__card-text">2026 Client Experience Award &#183; 4.9&#9733; from 180+ reviews</p>
 </div>
 </div>
 </div>
@@ -4793,6 +4807,22 @@
 <div class="reviews__count">Based on 180+ Google Reviews</div>
 </div>
 </div>
+<div class="award-plaque reveal">
+<svg class="award-plaque__emblem" viewBox="0 0 80 80" aria-hidden="true">
+<circle cx="40" cy="40" r="37" fill="none" stroke="#C9A96E" stroke-width="1.6"/>
+<circle cx="40" cy="40" r="31.5" fill="none" stroke="rgba(232,212,154,0.5)" stroke-width="1"/>
+<path d="M40 16l2 4 4.4.6-3.2 3.1.8 4.4-4-2.1-4 2.1.8-4.4-3.2-3.1 4.4-.6 2-4z" fill="#E8D49A"/>
+<text x="40" y="49" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#E8D49A" letter-spacing="1">2026</text>
+<path d="M27 59c4 3.4 9 4.6 13 4.6M53 59c-4 3.4-9 4.6-13 4.6" stroke="#C9A96E" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+</svg>
+<div class="award-plaque__body">
+<div class="award-plaque__kicker">Phorest Client Experience Award</div>
+<h3 class="award-plaque__title">Our Clients Love Us &#8212; Officially</h3>
+<p class="award-plaque__text">Hair Avenue is a <strong>2026 Client Experience Award winner</strong> &#8212; awarded by Phorest, the salon industry&#8217;s leading booking platform, to salons whose clients rate them outstanding across a full year of verified visits.</p>
+<p class="award-plaque__thanks">&#8220;To every client who trusted us this year &#8212; thank you. This one&#8217;s yours.&#8221; <span>&#8212; Kelly</span></p>
+<a class="award-plaque__link" href="/news/client-experience-award-2026/">Read the announcement &rarr;</a>
+</div>
+</div>
 <div class="reviews__track-wrapper">
 <div class="reviews__track" id="reviewsTrack">
 <!-- Reviews will be duplicated by JS for infinite scroll -->
@@ -5096,8 +5126,8 @@ window.addEventListener('load', function() {
 <cite class="wella-quote__cite">— Kelly, Founder &amp; Owner, Hair Avenue Braddon</cite>
 </blockquote>
 <div class="section-header reveal" style="margin-bottom:36px;">
-<h3 style="font-size:clamp(1.15rem,2.2vw,1.5rem);font-weight:700;letter-spacing:-0.02em;color:#ffffff;margin:0 0 8px;">The Proof Is in the Hair</h3>
-<p class="section-subtitle" style="margin:0;">Real before-and-after transformations with Wella Professionals colour and care, in our Braddon salon.</p>
+<h3 style="font-size:clamp(1.15rem,2.2vw,1.5rem);font-weight:700;letter-spacing:-0.02em;color:#1d1d1f;margin:0 0 8px;">The Proof Is in the Hair</h3>
+<p class="section-subtitle" style="margin:0 auto;">Real before-and-after transformations with Wella Professionals colour and care, in our Braddon salon.</p>
 </div>
 <div class="hair-gallery reveal">
 
@@ -5142,6 +5172,7 @@ window.addEventListener('load', function() {
 <div class="trust-badge"><img alt="Wella Professionals" class="trust-badge__logo" src="images/wella/wella-professionals-logo.webp" width="860" height="608"/><span>Wella Professional Salon</span></div>
 <div class="trust-badge"><span class="trust-badge__star">★</span><span>4.9 — 180+ Reviews</span></div>
 <div class="trust-badge"><span class="trust-badge__icon">♀</span><span>Women-Owned</span></div>
+<div class="trust-badge"><span class="trust-badge__star"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l1.7 3.4 3.8.6-2.7 2.7.6 3.8L12 11.7l-3.4 1.8.6-3.8L6.5 7l3.8-.6L12 3z" fill="#E8D49A"/><path d="M4 13c.5 4 3 6.5 6 7.5M20 13c-.5 4-3 6.5-6 7.5" stroke="#C9A96E" stroke-width="1.4" stroke-linecap="round"/></svg></span><span>2026 Client Experience Award</span></div>
 </div>
 <a class="btn btn--primary btn--lg" href="#services">Book Now</a>
 <p style="margin-top:18px; font-size:0.95rem; color:rgba(255,255,255,0.85); font-style:italic;">Any issues with online booking? Call us on <a href="tel:0449801937" style="color:#E8D49A; font-style:normal; font-weight:700; letter-spacing:0.03em; text-decoration:underline; text-underline-offset:3px; text-shadow:0 0 14px rgba(232,212,154,0.5); padding:6px 4px; display:inline-block;">0449 801 937</a> — we're happy to help.</p>
@@ -5320,6 +5351,7 @@ window.addEventListener('load', function() {
 <li><a class="footer__link" href="hair-avenue-policy.html" rel="noopener" target="_blank">Terms &amp; Conditions</a></li>
 </ul>
 <p style="font-size:0.78rem; color:#C9A96E; margin-bottom:8px;">★ 4.9 from 180+ Google reviews — and counting.</p>
+<p class="footer__copy" style="color:#C9A96E;">2026 Phorest Client Experience Award Winner</p>
 <p class="footer__copy">© 2026 Hair Avenue Braddon. All rights reserved.</p>
 </div>
 </div>
