@@ -127,7 +127,12 @@ h2{font-size:clamp(1.25rem,2.8vw,1.6rem);font-weight:700;letter-spacing:-.02em;m
 .byline{font-size:.8rem;color:var(--mut);margin-bottom:22px}
 .pullquote{background:#fff;border:1.5px solid rgba(201,169,110,.4);border-left:4px solid #C9A96E;border-radius:14px;padding:24px 28px;margin:26px 0;font-family:'New York',ui-serif,Georgia,serif;font-style:italic;font-size:1.08rem;line-height:1.6;color:#2E5339}
 .pullquote cite{display:block;margin-top:10px;font-style:normal;font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:.78rem;color:var(--mut)}
-.facts{background:#eef3ee;border-radius:14px;padding:22px 26px;margin:26px 0}
+.facts{background:#eef3ee;border-radius:14px;padding:22px 26px;margin:26px 0;display:flex;align-items:center;gap:26px}
+.facts__body{flex:1}
+.facts__seal{flex:0 0 auto;margin:0;display:flex;flex-direction:column;align-items:center;gap:8px}
+.facts__seal img{display:block;width:104px;height:104px;border-radius:50%;box-shadow:0 0 0 1px rgba(201,169,110,.55),0 0 0 6px rgba(201,169,110,.14),0 8px 20px rgba(20,42,24,.12)}
+.facts__seal figcaption{font-size:.56rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#a8894f;white-space:nowrap}
+@media (max-width:560px){.facts{flex-direction:column;gap:18px}.facts__seal img{width:92px;height:92px}}
 .facts h3{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#a8894f;margin-bottom:10px}
 .facts li{font-size:.9rem;color:#424245;margin:6px 0 6px 18px}
 details{background:#fff;border:1.5px solid rgba(201,169,110,.25);border-radius:12px;padding:14px 18px;margin-bottom:10px}
@@ -188,12 +193,18 @@ footer a:hover{text-decoration:underline}
 <p>If you&#8217;re searching for an award-winning hair salon in Canberra, this page is the receipt. Some awards are voted on by judges &#8212; this one was decided by the people who matter most: our clients.</p>
 <p>The <strong>Client Experience Award</strong> is presented by Phorest, the booking platform behind tens of thousands of salons worldwide. It can&#8217;t be entered, bought or campaigned for: it goes only to salons whose clients consistently rate their visits as outstanding, measured across an entire year of real, verified appointments.</p>
 <div class="facts">
+<div class="facts__body">
 <h3>What the award recognises</h3>
 <ul>
 <li>An average client rating above 4 out of 5 stars &#8212; sustained across a full year (March 2025 to February 2026)</li>
 <li>A minimum of 60 verified client reviews, each tied to a real appointment</li>
 <li>Ratings collected independently by Phorest after each visit &#8212; not hand-picked testimonials</li>
 </ul>
+</div>
+<figure class="facts__seal">
+<img src="/images/phorest-cea-2026.png" alt="Official Phorest Client Experience Award 2026 badge &#8212; Our Clients Love Us" width="104" height="104" loading="lazy">
+<figcaption>Official award seal</figcaption>
+</figure>
 </div>
 <p>For our team, it&#8217;s the most meaningful kind of recognition there is. Every rating behind this award came from someone who sat in our chairs &#8212; for a colour, a cut, a blow wave, a first-ever grey blend &#8212; and took a moment afterwards to say it was worth it.</p>
 <div class="pullquote">&#8220;To every client who trusted us this year &#8212; thank you. This one&#8217;s yours. We opened Hair Avenue believing that if you treat every person in the chair like the only person in the room, everything else follows. This award says our clients feel it too.&#8221;<cite>&#8212; Kelly, Founder &amp; Owner, Hair Avenue Braddon</cite></div>

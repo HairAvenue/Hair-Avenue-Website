@@ -806,11 +806,12 @@
     .hero__eyebrow-laurel { width: 30px; height: 58px; flex: 0 0 auto; opacity: 0.95; }
     .hero__eyebrow-laurel--r { transform: scaleX(-1); }
     .hero__eyebrow-lockup { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-    .hero__eyebrow-star { color: #E8D49A; font-size: 0.85rem; line-height: 1; text-shadow: 0 0 14px rgba(232,212,154,0.65); }
+    .hero__eyebrow-badge { display: block; width: 42px; height: 42px; border-radius: 50%; margin-bottom: 3px; box-shadow: 0 0 0 1px rgba(201,169,110,0.55), 0 0 0 4px rgba(201,169,110,0.12), 0 6px 16px rgba(0,0,0,0.4); }
     .hero__eyebrow-line1 { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.24em; text-indent: 0.24em; text-transform: uppercase; color: #E8D49A; text-shadow: 0 1px 8px rgba(0,0,0,0.35); }
     .hero__eyebrow-line2 { font-size: 0.56rem; font-weight: 600; letter-spacing: 0.32em; text-indent: 0.32em; text-transform: uppercase; color: rgba(232,212,154,0.72); }
     @media (max-width: 480px) {
       .hero__eyebrow-laurel { width: 24px; height: 48px; }
+      .hero__eyebrow-badge { width: 36px; height: 36px; }
       .hero__eyebrow-line1 { font-size: 0.6rem; letter-spacing: 0.2em; }
       .hero__eyebrow-line2 { font-size: 0.52rem; }
     }
@@ -3692,6 +3693,10 @@
     .award-plaque__thanks span { font-style: normal; font-size: 0.78rem; color: rgba(255,255,255,0.6); }
     .award-plaque__link { display: inline-block; margin-top: 10px; font-size: 0.78rem; font-weight: 600; color: #C9A96E; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(201,169,110,0.5); transition: color 0.25s ease; }
     .award-plaque__link:hover { color: #E8D49A; }
+    .award-plaque__seal { flex: 0 0 auto; margin: 0; display: flex; flex-direction: column; align-items: center; gap: 9px; }
+    .award-plaque__seal img { display: block; width: 92px; height: 92px; border-radius: 50%; box-shadow: 0 0 0 1px rgba(201,169,110,0.55), 0 0 0 6px rgba(201,169,110,0.12), 0 10px 24px rgba(0,0,0,0.35); }
+    .award-plaque__seal figcaption { font-size: 0.56rem; font-weight: 600; letter-spacing: 0.26em; text-transform: uppercase; color: rgba(232,212,154,0.6); white-space: nowrap; }
+    @media (max-width: 640px) { .award-plaque__seal { margin-top: 4px; } .award-plaque__seal img { width: 82px; height: 82px; } }
     .trust-badge svg { width: 15px; height: 15px; display: block; }
     /* ===== WELLAPLEX SPOTLIGHT ===== */
     .wellaplex-card { position: relative; background: linear-gradient(135deg, #16351d 0%, #24512f 55%, #2E5339 100%); border: 1.5px solid rgba(201,169,110,0.55); border-radius: 20px; padding: 40px 44px 36px; box-shadow: 0 14px 38px rgba(10,31,14,0.28); overflow: clip; }
@@ -3877,7 +3882,7 @@
 </div>
 <div class="hero__panel">
 <div class="hero__content">
-<a class="hero__eyebrow" href="#reviews" aria-label="Read about our 2026 Client Experience Award"><svg class="hero__eyebrow-laurel" viewBox="0 0 44 84" aria-hidden="true"><defs><path id="hlvs" d="M0 0 Q4.5 -3.2 9 0 Q4.5 3.2 0 0 Z"/></defs><path d="M36 80 C20 64 14 42 22 10" fill="none" stroke="#C9A96E" stroke-width="1.6" stroke-linecap="round"/><g fill="#C9A96E"><use href="#hlvs" transform="translate(31 68) rotate(-140)"/><use href="#hlvs" transform="translate(25 56) rotate(-122)"/><use href="#hlvs" transform="translate(21 44) rotate(-105)"/><use href="#hlvs" transform="translate(20 32) rotate(-92)"/><use href="#hlvs" transform="translate(21 21) rotate(-78)"/><use href="#hlvs" transform="translate(24 11) rotate(-62)"/></g></svg><span class="hero__eyebrow-lockup"><span class="hero__eyebrow-star">&#9733;</span><span class="hero__eyebrow-line1">Client Experience Award</span><span class="hero__eyebrow-line2">Winner &#183; 2026</span></span><svg class="hero__eyebrow-laurel hero__eyebrow-laurel--r" viewBox="0 0 44 84" aria-hidden="true"><defs><path id="hlvs2" d="M0 0 Q4.5 -3.2 9 0 Q4.5 3.2 0 0 Z"/></defs><path d="M36 80 C20 64 14 42 22 10" fill="none" stroke="#C9A96E" stroke-width="1.6" stroke-linecap="round"/><g fill="#C9A96E"><use href="#hlvs2" transform="translate(31 68) rotate(-140)"/><use href="#hlvs2" transform="translate(25 56) rotate(-122)"/><use href="#hlvs2" transform="translate(21 44) rotate(-105)"/><use href="#hlvs2" transform="translate(20 32) rotate(-92)"/><use href="#hlvs2" transform="translate(21 21) rotate(-78)"/><use href="#hlvs2" transform="translate(24 11) rotate(-62)"/></g></svg></a>
+<a class="hero__eyebrow" href="#reviews" aria-label="Read about our 2026 Client Experience Award"><svg class="hero__eyebrow-laurel" viewBox="0 0 44 84" aria-hidden="true"><defs><path id="hlvs" d="M0 0 Q4.5 -3.2 9 0 Q4.5 3.2 0 0 Z"/></defs><path d="M36 80 C20 64 14 42 22 10" fill="none" stroke="#C9A96E" stroke-width="1.6" stroke-linecap="round"/><g fill="#C9A96E"><use href="#hlvs" transform="translate(31 68) rotate(-140)"/><use href="#hlvs" transform="translate(25 56) rotate(-122)"/><use href="#hlvs" transform="translate(21 44) rotate(-105)"/><use href="#hlvs" transform="translate(20 32) rotate(-92)"/><use href="#hlvs" transform="translate(21 21) rotate(-78)"/><use href="#hlvs" transform="translate(24 11) rotate(-62)"/></g></svg><span class="hero__eyebrow-lockup"><img class="hero__eyebrow-badge" src="images/phorest-cea-2026.png" alt="" width="42" height="42"><span class="hero__eyebrow-line1">Client Experience Award</span><span class="hero__eyebrow-line2">Winner &#183; 2026</span></span><svg class="hero__eyebrow-laurel hero__eyebrow-laurel--r" viewBox="0 0 44 84" aria-hidden="true"><defs><path id="hlvs2" d="M0 0 Q4.5 -3.2 9 0 Q4.5 3.2 0 0 Z"/></defs><path d="M36 80 C20 64 14 42 22 10" fill="none" stroke="#C9A96E" stroke-width="1.6" stroke-linecap="round"/><g fill="#C9A96E"><use href="#hlvs2" transform="translate(31 68) rotate(-140)"/><use href="#hlvs2" transform="translate(25 56) rotate(-122)"/><use href="#hlvs2" transform="translate(21 44) rotate(-105)"/><use href="#hlvs2" transform="translate(20 32) rotate(-92)"/><use href="#hlvs2" transform="translate(21 21) rotate(-78)"/><use href="#hlvs2" transform="translate(24 11) rotate(-62)"/></g></svg></a>
 <h1 class="hero__title">
 <span class="sr-only">Hair Avenue Braddon — Canberra hair salon for colour, cuts and care. </span>
 <span class="hero__accent">Come for the services.<br/>Stay for the experience.</span>
@@ -4833,6 +4838,10 @@
 <p class="award-plaque__thanks">&#8220;To every client who trusted us this year &#8212; thank you. This one&#8217;s yours.&#8221; <span>&#8212; Kelly</span></p>
 <a class="award-plaque__link" href="/news/client-experience-award-2026/">Read the announcement &rarr;</a>
 </div>
+<figure class="award-plaque__seal">
+<img src="images/phorest-cea-2026.png" alt="Official Phorest Client Experience Award 2026 badge &#8212; Our Clients Love Us" width="92" height="92" loading="lazy">
+<figcaption>Official Seal</figcaption>
+</figure>
 </div>
 <div class="reviews__track-wrapper">
 <div class="reviews__track" id="reviewsTrack">
