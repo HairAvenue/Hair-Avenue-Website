@@ -795,17 +795,24 @@
     a.hero__badge:hover { color: rgba(255,255,255,0.95); }
     a.hero__badge:hover .badge-count { text-decoration-color: #E8D49A; }
     .hero__eyebrow {
-      display: inline-block;
-      color: #1d1d1f;
-      background: linear-gradient(135deg, #C9A96E, #E8D49A);
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      padding: 9px 24px;
-      border-radius: 980px;
-      box-shadow: 0 4px 15px rgba(201,169,110,0.4);
-      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 22px;
+      transition: opacity 0.25s ease;
+    }
+    .hero__eyebrow:hover { opacity: 0.85; }
+    .hero__eyebrow-laurel { width: 30px; height: 58px; flex: 0 0 auto; opacity: 0.95; }
+    .hero__eyebrow-laurel--r { transform: scaleX(-1); }
+    .hero__eyebrow-lockup { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .hero__eyebrow-star { color: #E8D49A; font-size: 0.85rem; line-height: 1; text-shadow: 0 0 14px rgba(232,212,154,0.65); }
+    .hero__eyebrow-line1 { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.24em; text-indent: 0.24em; text-transform: uppercase; color: #E8D49A; text-shadow: 0 1px 8px rgba(0,0,0,0.35); }
+    .hero__eyebrow-line2 { font-size: 0.56rem; font-weight: 600; letter-spacing: 0.32em; text-indent: 0.32em; text-transform: uppercase; color: rgba(232,212,154,0.72); }
+    @media (max-width: 480px) {
+      .hero__eyebrow-laurel { width: 24px; height: 48px; }
+      .hero__eyebrow-line1 { font-size: 0.6rem; letter-spacing: 0.2em; }
+      .hero__eyebrow-line2 { font-size: 0.52rem; }
     }
     .hero__title { margin-bottom: 40px; }
     .hero__rule {
@@ -3671,13 +3678,13 @@
 
     /* ===== CLIENT EXPERIENCE AWARD ===== */
     .award-plaque { display: flex; align-items: center; gap: 26px; max-width: 720px; margin: 0 auto 44px; background: rgba(255,255,255,0.06); border: 1.5px solid rgba(201,169,110,0.5); border-radius: 18px; padding: 26px 32px; }
-    .award-plaque__emblem { width: 88px; height: 88px; flex: 0 0 auto; }
+    .award-plaque__emblem { width: 148px; height: 83px; flex: 0 0 auto; }
     .award-plaque__kicker { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #C9A96E; margin-bottom: 5px; }
     .award-plaque__title { font-size: 1.18rem; font-weight: 700; letter-spacing: -0.01em; color: #ffffff; margin: 0 0 7px; }
     .award-plaque__text { font-size: 0.86rem; line-height: 1.6; color: rgba(255,255,255,0.75); margin: 0; }
     @media (max-width: 640px) { .award-plaque { flex-direction: column; text-align: center; gap: 16px; padding: 24px 20px; } }
     .svc-award-note { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 12px 14px 0; font-size: 0.72rem; font-weight: 500; color: #6b7a6f; text-align: center; letter-spacing: 0.01em; }
-    .svc-award-note svg { width: 13px; height: 13px; flex: 0 0 auto; }
+    .svc-award-note .svc-award-laurel { width: 14px; height: 27px; flex: 0 0 auto; opacity: 0.9; }
     .svc-award-note a { color: #8a6d3b; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(201,169,110,0.5); transition: color 0.2s ease; }
     .svc-award-note a:hover { color: #2E5339; }
     @media (max-width: 768px) { .svc-award-note { font-size: 0.66rem; margin: 10px 12px 0; } }
@@ -3870,7 +3877,7 @@
 </div>
 <div class="hero__panel">
 <div class="hero__content">
-<a class="hero__eyebrow" href="#reviews" aria-label="Read about our 2026 Client Experience Award">2026 Client Experience Award Winner</a>
+<a class="hero__eyebrow" href="#reviews" aria-label="Read about our 2026 Client Experience Award"><svg class="hero__eyebrow-laurel" viewBox="0 0 44 84" aria-hidden="true"><defs><path id="hlvs" d="M0 0 Q4.5 -3.2 9 0 Q4.5 3.2 0 0 Z"/></defs><path d="M36 80 C20 64 14 42 22 10" fill="none" stroke="#C9A96E" stroke-width="1.6" stroke-linecap="round"/><g fill="#C9A96E"><use href="#hlvs" transform="translate(31 68) rotate(-140)"/><use href="#hlvs" transform="translate(25 56) rotate(-122)"/><use href="#hlvs" transform="translate(21 44) rotate(-105)"/><use href="#hlvs" transform="translate(20 32) rotate(-92)"/><use href="#hlvs" transform="translate(21 21) rotate(-78)"/><use href="#hlvs" transform="translate(24 11) rotate(-62)"/></g></svg><span class="hero__eyebrow-lockup"><span class="hero__eyebrow-star">&#9733;</span><span class="hero__eyebrow-line1">Client Experience Award</span><span class="hero__eyebrow-line2">Winner &#183; 2026</span></span><svg class="hero__eyebrow-laurel hero__eyebrow-laurel--r" viewBox="0 0 44 84" aria-hidden="true"><defs><path id="hlvs2" d="M0 0 Q4.5 -3.2 9 0 Q4.5 3.2 0 0 Z"/></defs><path d="M36 80 C20 64 14 42 22 10" fill="none" stroke="#C9A96E" stroke-width="1.6" stroke-linecap="round"/><g fill="#C9A96E"><use href="#hlvs2" transform="translate(31 68) rotate(-140)"/><use href="#hlvs2" transform="translate(25 56) rotate(-122)"/><use href="#hlvs2" transform="translate(21 44) rotate(-105)"/><use href="#hlvs2" transform="translate(20 32) rotate(-92)"/><use href="#hlvs2" transform="translate(21 21) rotate(-78)"/><use href="#hlvs2" transform="translate(24 11) rotate(-62)"/></g></svg></a>
 <h1 class="hero__title">
 <span class="sr-only">Hair Avenue Braddon — Canberra hair salon for colour, cuts and care. </span>
 <span class="hero__accent">Come for the services.<br/>Stay for the experience.</span>
@@ -3914,7 +3921,7 @@
 </div>
 </div>
 <div class="why__card reveal">
-<div aria-hidden="true" class="why__icon"><svg fill="var(--clr-gold)" height="20" stroke="var(--clr-gold)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div>
+<div aria-hidden="true" class="why__icon"><svg viewBox="0 0 76 40" width="40" height="21" aria-hidden="true"><g transform="translate(0 -1) scale(0.44)"><path d="M36 80 C20 64 14 42 22 10" fill="none" stroke="#C9A96E" stroke-width="2.2" stroke-linecap="round"/><g fill="#C9A96E"><use href="#hlvs" transform="translate(31 68) rotate(-140) scale(1.25)"/><use href="#hlvs" transform="translate(25 56) rotate(-122) scale(1.25)"/><use href="#hlvs" transform="translate(21 44) rotate(-105) scale(1.25)"/><use href="#hlvs" transform="translate(20 32) rotate(-92) scale(1.25)"/><use href="#hlvs" transform="translate(21 21) rotate(-78) scale(1.25)"/><use href="#hlvs" transform="translate(24 11) rotate(-62) scale(1.25)"/></g></g><g transform="translate(76 -1) scale(-0.44 0.44)"><path d="M36 80 C20 64 14 42 22 10" fill="none" stroke="#C9A96E" stroke-width="2.2" stroke-linecap="round"/><g fill="#C9A96E"><use href="#hlvs" transform="translate(31 68) rotate(-140) scale(1.25)"/><use href="#hlvs" transform="translate(25 56) rotate(-122) scale(1.25)"/><use href="#hlvs" transform="translate(21 44) rotate(-105) scale(1.25)"/><use href="#hlvs" transform="translate(20 32) rotate(-92) scale(1.25)"/><use href="#hlvs" transform="translate(21 21) rotate(-78) scale(1.25)"/><use href="#hlvs" transform="translate(24 11) rotate(-62) scale(1.25)"/></g></g><path d="M38 8l2.4 4.8 5.3.8-3.8 3.7.9 5.3-4.8-2.5-4.8 2.5.9-5.3-3.8-3.7 5.3-.8L38 8z" fill="#E8D49A"/></svg></div>
 <div class="why__card-info">
 <h3 class="why__card-title">Award-Winning Experience</h3>
 <p class="why__card-text">2026 Client Experience Award &#183; 4.9&#9733; from 180+ reviews</p>
@@ -4047,7 +4054,7 @@
 <div class="svc-search__results" id="svcSearchResults" role="listbox" aria-label="Matching services"></div>
 </div>
 </div>
-<p class="svc-award-note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.7 3.4 3.8.6-2.7 2.7.6 3.8L12 11.7l-3.4 1.8.6-3.8L6.5 7l3.8-.6L12 3z" fill="#C9A96E"/></svg><span>Proudly a <a href="/news/client-experience-award-2026/">2026 Client Experience Award</a> winner &#8212; thank you, Canberra</span></p>
+<p class="svc-award-note"><svg class="svc-award-laurel" viewBox="0 0 44 84" aria-hidden="true"><path d="M36 80 C20 64 14 42 22 10" fill="none" stroke="#C9A96E" stroke-width="2.2" stroke-linecap="round"/><g fill="#C9A96E"><use href="#hlvs" transform="translate(31 68) rotate(-140) scale(1.25)"/><use href="#hlvs" transform="translate(25 56) rotate(-122) scale(1.25)"/><use href="#hlvs" transform="translate(21 44) rotate(-105) scale(1.25)"/><use href="#hlvs" transform="translate(20 32) rotate(-92) scale(1.25)"/><use href="#hlvs" transform="translate(21 21) rotate(-78) scale(1.25)"/><use href="#hlvs" transform="translate(24 11) rotate(-62) scale(1.25)"/></g></svg><span>Proudly a <a href="/news/client-experience-award-2026/">2026 Client Experience Award</a> winner &#8212; thank you, Canberra</span><svg class="svc-award-laurel" viewBox="0 0 44 84" aria-hidden="true"><g transform="translate(44 0) scale(-1 1)"><path d="M36 80 C20 64 14 42 22 10" fill="none" stroke="#C9A96E" stroke-width="2.2" stroke-linecap="round"/><g fill="#C9A96E"><use href="#hlvs" transform="translate(31 68) rotate(-140) scale(1.25)"/><use href="#hlvs" transform="translate(25 56) rotate(-122) scale(1.25)"/><use href="#hlvs" transform="translate(21 44) rotate(-105) scale(1.25)"/><use href="#hlvs" transform="translate(20 32) rotate(-92) scale(1.25)"/><use href="#hlvs" transform="translate(21 21) rotate(-78) scale(1.25)"/><use href="#hlvs" transform="translate(24 11) rotate(-62) scale(1.25)"/></g></g></svg></p>
 <div class="service-category-indicator" aria-live="polite">
 <span class="indicator-text" id="ind-colouring">Colouring</span>
 <span class="indicator-text" id="ind-regrowth">Grey Blending &amp; Regrowth</span>
@@ -4808,12 +4815,16 @@
 </div>
 </div>
 <div class="award-plaque reveal">
-<svg class="award-plaque__emblem" viewBox="0 0 80 80" aria-hidden="true">
+<svg class="award-plaque__emblem" viewBox="0 0 150 84" aria-hidden="true">
+<g transform="translate(-2 0)"><path d="M36 80 C20 64 14 42 22 10" fill="none" stroke="#C9A96E" stroke-width="1.8" stroke-linecap="round"/><g fill="#C9A96E"><use href="#hlvs" transform="translate(31 68) rotate(-140)"/><use href="#hlvs" transform="translate(25 56) rotate(-122)"/><use href="#hlvs" transform="translate(21 44) rotate(-105)"/><use href="#hlvs" transform="translate(20 32) rotate(-92)"/><use href="#hlvs" transform="translate(21 21) rotate(-78)"/><use href="#hlvs" transform="translate(24 11) rotate(-62)"/></g></g>
+<g transform="translate(152 0) scale(-1 1)"><path d="M36 80 C20 64 14 42 22 10" fill="none" stroke="#C9A96E" stroke-width="1.8" stroke-linecap="round"/><g fill="#C9A96E"><use href="#hlvs" transform="translate(31 68) rotate(-140)"/><use href="#hlvs" transform="translate(25 56) rotate(-122)"/><use href="#hlvs" transform="translate(21 44) rotate(-105)"/><use href="#hlvs" transform="translate(20 32) rotate(-92)"/><use href="#hlvs" transform="translate(21 21) rotate(-78)"/><use href="#hlvs" transform="translate(24 11) rotate(-62)"/></g></g>
+<g transform="translate(35 2)">
 <circle cx="40" cy="40" r="37" fill="none" stroke="#C9A96E" stroke-width="1.6"/>
 <circle cx="40" cy="40" r="31.5" fill="none" stroke="rgba(232,212,154,0.5)" stroke-width="1"/>
 <path d="M40 16l2 4 4.4.6-3.2 3.1.8 4.4-4-2.1-4 2.1.8-4.4-3.2-3.1 4.4-.6 2-4z" fill="#E8D49A"/>
 <text x="40" y="49" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#E8D49A" letter-spacing="1">2026</text>
 <path d="M27 59c4 3.4 9 4.6 13 4.6M53 59c-4 3.4-9 4.6-13 4.6" stroke="#C9A96E" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+</g>
 </svg>
 <div class="award-plaque__body">
 <div class="award-plaque__kicker">Phorest Client Experience Award</div>
