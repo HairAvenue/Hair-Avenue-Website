@@ -215,6 +215,12 @@
 
     .section { padding: 100px 0; }
     .section--cream { background: #eef3ee; }
+    .length-strip { margin: 38px auto 0; padding: 0 16px; text-align: center; }
+    .length-strip__line { font-size: 0.95rem; color: rgba(255,255,255,0.88); line-height: 1.6; margin: 0 auto; max-width: 680px; text-shadow: 0 1px 6px rgba(0,0,0,0.35); }
+    .length-strip__line a { color: #E8D49A; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(232,212,154,0.5); transition: text-decoration-color 0.25s ease, color 0.25s ease; }
+    .length-strip__line a:hover { color: #ffffff; text-decoration-color: #E8D49A; }
+    .length-strip__line--muted { margin-top: 7px; font-size: 0.84rem; color: rgba(255,255,255,0.6); }
+    @media (max-width: 640px) { .length-strip { margin-top: 28px; } .length-strip__line { font-size: 0.88rem; } }
     .section--light-sage { background: #f2f7f3; }
     .section--light-sage .section-label { color: var(--clr-gold); }
     .section--light-sage .section-title { color: var(--clr-forest); }
@@ -274,6 +280,24 @@
       color: #424245;
       margin-bottom: 20px;
     }
+    .products__ranges { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #a8894f; line-height: 2; margin: 0 0 16px; }
+    .wella-seal { width: 138px; height: 138px; border-radius: 50%; background: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 16px 10px 14px; box-sizing: border-box; margin: 6px 0 0; box-shadow: 0 0 0 1px rgba(201,169,110,0.6), 0 0 0 6px rgba(201,169,110,0.14), 0 10px 24px rgba(20,42,24,0.12); }
+    .wella-seal img { width: 72px; height: auto; display: block; }
+    .wella-seal span { font-size: 0.5rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #a8894f; text-align: center; line-height: 1.4; }
+    @media (max-width: 768px) { .wella-seal { margin: 6px auto 0; } }
+    #gallery.social-bg #products .section-label { color: #8a6a35; background: rgba(255,255,255,0.92); border: 1px solid rgba(201,169,110,0.9); font-weight: 700; }
+    .products-fold { border: none; }
+    .products-fold__summary { list-style: none; cursor: pointer; display: block; }
+    .products-fold__summary::-webkit-details-marker { display: none; }
+    .products-fold__summary .section-header { margin-bottom: 26px; }
+    .products-fold__hint { display: flex; width: fit-content; margin: 0 auto; align-items: center; gap: 9px; border: 1px solid rgba(201,169,110,0.75); border-radius: 980px; padding: 11px 24px; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.06em; color: #2E5339; background: rgba(255,255,255,0.65); transition: background 0.3s ease, color 0.3s ease; }
+    .products-fold__summary:hover .products-fold__hint { background: rgba(201,169,110,0.2); color: #142a18; }
+    .products-fold__hint svg { width: 14px; height: 14px; transition: transform 0.3s ease; }
+    .products-fold__hint-close { display: none; }
+    .products-fold[open] .products-fold__hint-open { display: none; }
+    .products-fold[open] .products-fold__hint-close { display: inline; }
+    .products-fold[open] .products-fold__hint svg { transform: rotate(180deg); }
+    .products-fold__body { padding-top: 44px; }
     .products__wella-logo {
       height: 40px;
       width: auto;
@@ -769,31 +793,13 @@
       max-width: 460px;
       position: relative;
     }
-    .hero__badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 0;
-      background: none;
-      border: none;
-      border-radius: 0;
-      font-size: 0.7rem;
-      font-weight: 500;
-      color: rgba(255,255,255,0.7);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      text-shadow: 0 1px 6px rgba(0,0,0,0.3);
-      margin: 24px 0 0;
-      box-shadow: none;
-    }
-    .hero__badge .star {
-      color: #C9A96E;
-      font-size: 0.85rem;
-    }
-    a.hero__badge { cursor: pointer; transition: color 0.25s ease; justify-content: center; }
-    a.hero__badge .badge-count { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; text-decoration-color: rgba(232,212,154,0.55); transition: text-decoration-color 0.25s ease; }
-    a.hero__badge:hover { color: rgba(255,255,255,0.95); }
-    a.hero__badge:hover .badge-count { text-decoration-color: #E8D49A; }
+    .hero__proof { display: flex; align-items: center; justify-content: center; gap: 9px; margin: 26px 0 0; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.55); text-shadow: 0 1px 6px rgba(0,0,0,0.3); }
+    .hero__proof > a, .hero__proof > span { white-space: nowrap; }
+    .hero__proof .star { color: #C9A96E; font-size: 0.78rem; }
+    .hero__proof a { color: inherit; cursor: pointer; transition: color 0.25s ease; }
+    .hero__proof a:hover { color: rgba(255,255,255,0.92); }
+    .hero__proof .badge-count { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; text-decoration-color: rgba(232,212,154,0.4); transition: text-decoration-color 0.25s ease; }
+    .hero__proof a:hover .badge-count { text-decoration-color: #E8D49A; }
     .hero__eyebrow {
       display: flex;
       align-items: center;
@@ -852,15 +858,15 @@
       gap: 14px;
     }
     .hero__ctas .btn--primary {
-      padding: 18px 52px;
-      font-size: 1rem;
+      padding: 13px 38px;
+      font-size: 0.92rem;
       font-weight: 600;
       letter-spacing: 0.08em;
-      border: 2px solid #C9A96E;
+      border: 1.5px solid #C9A96E;
       background: linear-gradient(135deg, rgba(201,169,110,0.25), rgba(201,169,110,0.15));
       color: #ffffff;
       border-radius: 980px;
-      box-shadow: 0 4px 24px rgba(201,169,110,0.35), 0 8px 32px rgba(0,0,0,0.25);
+      box-shadow: 0 4px 18px rgba(201,169,110,0.28), 0 6px 24px rgba(0,0,0,0.2);
       transition: all 0.3s ease;
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
@@ -2397,9 +2403,6 @@
       margin: 2px 0 10px;
       max-width: 600px;
     }
-    .pricing-item__lengths { font-size: 0.72rem; color: #86868b; margin: 2px 0 0; line-height: 1.5; }
-    .pricing-item__lengths a { color: #2E7D42; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: rgba(46,125,66,0.4); }
-    .pricing-item__lengths a:hover { text-decoration-color: #2E7D42; }
     .pricing-item__book {
       display: inline-flex;
       align-items: center;
@@ -2768,6 +2771,18 @@
 
     /* ===== HAIR AVENUE LOYALTY REWARDS ===== */
     .section--loyalty { background: #142a18; color: #ffffff; }
+    .loyalty-fold { border: none; }
+    .loyalty-fold__summary { list-style: none; cursor: pointer; display: block; }
+    .loyalty-fold__summary::-webkit-details-marker { display: none; }
+    .loyalty-fold__summary .section-header { margin-bottom: 26px; }
+    .loyalty-fold__hint { display: flex; width: fit-content; margin: 0 auto; align-items: center; gap: 9px; border: 1px solid rgba(201,169,110,0.7); border-radius: 980px; padding: 11px 24px; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.06em; color: #E8D49A; transition: background 0.3s ease, color 0.3s ease; }
+    .loyalty-fold__summary:hover .loyalty-fold__hint { background: rgba(201,169,110,0.15); color: #ffffff; }
+    .loyalty-fold__hint svg { width: 14px; height: 14px; transition: transform 0.3s ease; }
+    .loyalty-fold__hint-close { display: none; }
+    .loyalty-fold[open] .loyalty-fold__hint-open { display: none; }
+    .loyalty-fold[open] .loyalty-fold__hint-close { display: inline; }
+    .loyalty-fold[open] .loyalty-fold__hint svg { transform: rotate(180deg); }
+    .loyalty-fold__body { padding-top: 44px; }
     .section--loyalty .section-label { color: #C9A96E; }
     .section--loyalty .section-title { color: #ffffff; }
     .section--loyalty .section-subtitle { color: rgba(255,255,255,0.72); }
@@ -3450,7 +3465,7 @@
       .hero [style*="margin-bottom:16px"] { margin-bottom: 12px !important; }
       .hero__accent { font-size: 1.6rem !important; }
       .hero__tagline { font-size: 0.82rem; margin: 14px auto 28px; }
-      .hero__badge { font-size: 0.7rem; padding: 0; margin: 18px 0 0; }
+      .hero__proof { font-size: 0.5rem; letter-spacing: 0.1em; gap: 6px; margin: 20px 0 0; flex-wrap: wrap; }
       .hero__ctas { flex-direction: column; align-items: center; gap: 12px; }
       .hero__ctas .btn--primary { width: 100%; max-width: 260px; justify-content: center; padding: 16px 28px; font-size: 0.9rem; }
       .hero__ctas .btn--secondary { font-size: 0.78rem; }
@@ -3893,7 +3908,7 @@
 <div class="hero__ctas">
 <a class="btn btn--primary btn--lg" href="#services">View Our Services</a>
 </div>
-<a class="hero__badge" href="#reviews" aria-label="Read our Google reviews"><span class="star">★</span><span class="badge-text">4.9 Stars · <span class="badge-count">180+ Reviews</span> —&nbsp;and&nbsp;Counting</span></a>
+<p class="hero__proof"><a href="#reviews" aria-label="Read our Google reviews"><span class="star">★</span> 4.9 · <span class="badge-count">180+ Reviews</span></a><span aria-hidden="true">·</span><span>Official Wella Partner</span></p>
 </div>
 </div>
 </header>
@@ -4100,8 +4115,6 @@
 <span class="pricing-item__price">from $110</span>
 </div>
 <p class="pricing-item__desc">Freshly toned, salon-perfect colour between lightening appointments &#8212; a root shadow for seamless blending, a Wella Color Touch gloss through the ends for vibrant shine, and a brightening basin finish, completed with a blow wave and professional styling.</p>
-<p class="pricing-item__desc" style="font-weight:500; color:#2E5339;">Short $110 &#183; Medium $130 &#183; Long $145</p>
-<p class="pricing-item__lengths">Short = above chin &#183; Medium = to shoulder &#183; Long = to mid-arm &#183; Extra Long = below &#8212; <a href="/guides/hair-length-guide/">see the length guide</a></p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV6wcEr-BYEhezWV3JShetyw" rel="noopener" target="_blank">Book Now</a>
 </div>
 </div>
@@ -4122,8 +4135,6 @@
 <span class="pricing-item__price">from $420 to $650</span>
 </div>
 <p class="pricing-item__desc">Embrace your grey and make it truly gorgeous &#8212; the full service, start to finish. Grey blending colour tailored to your hair and colour history, a gloss or toner to perfect your tone, a WellaPlex bond treatment and intensive nourishing treatment at the basin, and a polished blow wave or iron-styled finish. It grows out naturally, so you can go longer between visits.</p>
-<p class="pricing-item__desc" style="font-weight:500; color:#2E5339;">Short $420 &#183; Medium $460 &#183; Long $495 &#183; Extra Long $545 &#183; First time $555 (short to medium)</p>
-<p class="pricing-item__lengths">Short = above chin &#183; Medium = to shoulder &#183; Long = to mid-arm &#183; Extra Long = below &#8212; <a href="/guides/hair-length-guide/">see the length guide</a></p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV6mGnLVeD6QbatjKTtZVU30" rel="noopener" target="_blank">Book Now</a>
 </div>
 <div class="pricing-item">
@@ -4177,9 +4188,7 @@
 <span class="pricing-item__name">Full-Head Foils / Blonde Package</span>
 <span class="pricing-item__price">from $350</span>
 </div>
-<p class="pricing-item__desc">Our highlight and balayage services are powered by Wella Blondor — the professional lightening system trusted for controlled, reliable lift across the full blonde spectrum. Blondor delivers up to 9 levels of lift with built-in Bond Builder Technology for up to 97% less breakage. Anti-yellow molecules work during the lifting process to neutralise unwanted warmth, so your blonde comes out clean and exactly where you want it. Paired with Wellaplex bond protection, your hair stays strong and feels as healthy as it looks. Includes toner and blow wave.</p>
-<p class="pricing-item__desc" style="font-weight:500; color:#2E5339;">Short $350 &#183; Medium $395 &#183; Long $425 &#183; Extra Long/Thick $470 &#183; Ultra Blonde or Colour Correction $550</p>
-<p class="pricing-item__lengths">Short = above chin &#183; Medium = to shoulder &#183; Long = to mid-arm &#183; Extra Long = below &#8212; <a href="/guides/hair-length-guide/">see the length guide</a></p>
+<p class="pricing-item__desc">Our highlight and balayage services are powered by Wella Blondor — the professional lightening system trusted for controlled, reliable lift across the full blonde spectrum. Blondor delivers up to 9 levels of lift with built-in Bond Builder Technology for up to 97% less breakage. Anti-yellow molecules work during the lifting process to neutralise unwanted warmth, so your blonde comes out clean and exactly where you want it. Paired with Wellaplex bond protection, your hair stays strong and feels as healthy as it looks. Includes toner and blow wave. Ultra Blonde and Colour Correction options available.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV_2sKO91oCqwKSEoY0JbueA" rel="noopener" target="_blank">Book Now</a>
 </div>
 <div class="pricing-item">
@@ -4195,8 +4204,7 @@
 <span class="pricing-item__name">Half-Head Foils Package</span>
 <span class="pricing-item__price">from $295</span>
 </div>
-<p class="pricing-item__desc">Perfect for maintaining existing highlights, adding dimension or achieving a sun-kissed blonde while preserving your natural base colour. A low-maintenance grow-out with a soft, effortlessly stunning finish. Includes face-framing and crown foils, professional toner, treatment and a polished iron-styled finish. Short $295, Medium $330, Long $360, Thick or Extra Long $385.</p>
-<p class="pricing-item__lengths">Short = above chin &#183; Medium = to shoulder &#183; Long = to mid-arm &#183; Extra Long = below &#8212; <a href="/guides/hair-length-guide/">see the length guide</a></p>
+<p class="pricing-item__desc">Perfect for maintaining existing highlights, adding dimension or achieving a sun-kissed blonde while preserving your natural base colour. A low-maintenance grow-out with a soft, effortlessly stunning finish. Includes face-framing and crown foils, professional toner, treatment and a polished iron-styled finish.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV07vTBIEAvR5cyBbyLpN-Z8" rel="noopener" target="_blank">Book Now</a>
 </div>
 <div class="pricing-item">
@@ -4204,9 +4212,7 @@
 <span class="pricing-item__name">Balayage &#8212; Full Head Lightening Package</span>
 <span class="pricing-item__price">from $395</span>
 </div>
-<p class="pricing-item__desc">A tailored balayage colour experience designed for a vibrant, easy-to-maintain look with a gorgeous face-framing glow. Our stylists use strategic placement techniques for maximum visual impact with minimal upkeep between visits. Includes a gloss/toner, WellaPlex bond protection and a blow wave or iron-styled finish.</p>
-<p class="pricing-item__desc" style="font-weight:500; color:#2E5339;">Short $395 &#183; Medium $429 &#183; Long $459 &#183; Extra Long/Thick $499 &#183; Ultra Blonde or Colour Correction $599</p>
-<p class="pricing-item__lengths">Short = above chin &#183; Medium = to shoulder &#183; Long = to mid-arm &#183; Extra Long = below &#8212; <a href="/guides/hair-length-guide/">see the length guide</a></p>
+<p class="pricing-item__desc">A tailored balayage colour experience designed for a vibrant, easy-to-maintain look with a gorgeous face-framing glow. Our stylists use strategic placement techniques for maximum visual impact with minimal upkeep between visits. Includes a gloss/toner, WellaPlex bond protection and a blow wave or iron-styled finish. Ultra Blonde and Colour Correction options available.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0b39yNcvZ1XnvdShve23Mg" rel="noopener" target="_blank">Book Now</a>
 </div>
 <div class="pricing-item">
@@ -4215,8 +4221,6 @@
 <span class="pricing-item__price">from $299</span>
 </div>
 <p class="pricing-item__desc">Keep your blonde looking stunning between full colour appointments. Strategic placement of 20&#8211;25 foils refreshes colour, blends regrowth and adds dimension &#8212; paired with a professional toner, a deep conditioning treatment and a polished blow wave to finish. Only suitable for clients who had their hair done less than 12 weeks ago.</p>
-<p class="pricing-item__desc" style="font-weight:500; color:#2E5339;">Short $299 &#183; Medium $325 &#183; Long $340</p>
-<p class="pricing-item__lengths">Short = above chin &#183; Medium = to shoulder &#183; Long = to mid-arm &#183; Extra Long = below &#8212; <a href="/guides/hair-length-guide/">see the length guide</a></p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0XSrbYs4yC5dP63MH3845A" rel="noopener" target="_blank">Book Now</a>
 </div>
 </div>
@@ -4238,8 +4242,6 @@
 <span class="pricing-item__price">from $125</span>
 </div>
 <p class="pricing-item__desc">A fresh, personalised haircut paired with a professional blow wave or iron-styled finish. Includes your choice of a shampoo and hair mask at the basin, or our Intense Mist Hair Treatment at half price. Simply choose your hair length when booking &#8212; or select Restyle for a complete change of shape.</p>
-<p class="pricing-item__desc" style="font-weight:500; color:#2E5339;">Short $125 &#183; Medium $145 &#183; Long $155 &#183; Extra Long or Thick $165 &#183; Restyle $175</p>
-<p class="pricing-item__lengths">Short = above chin &#183; Medium = to shoulder &#183; Long = to mid-arm &#183; Extra Long = below &#8212; <a href="/guides/hair-length-guide/">see the length guide</a></p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV7XuycL-QI0-lzV0moNr2h4" rel="noopener" target="_blank" aria-label="Book Hair Cuts with Blow Wave online">Book Now</a>
 </div>
 
@@ -4299,8 +4301,6 @@
 <span class="pricing-item__price">from $79</span>
 </div>
 <p class="pricing-item__desc">A polished, professional blow wave tailored to your hair &#8212; includes a relaxing shampoo with scalp massage and a Wella hair mask or conditioner matched to your hair type. Wearing hair extensions? Choose the extensions option so we can allow the right time and care. A small extra fee applies for very thick hair.</p>
-<p class="pricing-item__desc" style="font-weight:500; color:#2E5339;">Short $79 &#183; Medium $95 &#183; Long $110 &#183; Extra Long $120 &#183; With Hair Extensions $135</p>
-<p class="pricing-item__lengths">Short = above chin &#183; Medium = to shoulder &#183; Long = to mid-arm &#183; Extra Long = below &#8212; <a href="/guides/hair-length-guide/">see the length guide</a></p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-KQ8wNrIOec5oeIcIKKXuo" rel="noopener" target="_blank" aria-label="Book Blow Wave online">Book Now</a>
 </div>
 <div class="pricing-item">
@@ -4309,8 +4309,6 @@
 <span class="pricing-item__price">from $109</span>
 </div>
 <p class="pricing-item__desc">Volume that lasts &#8212; a bouncy, brushed-out blow wave set with a round brush for soft curl and beautiful movement. Going somewhere special? Choose the Hair Rollers or Styling option for fuller volume that holds far longer &#8212; ideal for weddings, formals and race days.</p>
-<p class="pricing-item__desc" style="font-weight:500; color:#2E5339;">Medium $109 &#183; Long $122 &#183; With Hair Rollers or Styling $160</p>
-<p class="pricing-item__lengths">Short = above chin &#183; Medium = to shoulder &#183; Long = to mid-arm &#183; Extra Long = below &#8212; <a href="/guides/hair-length-guide/">see the length guide</a></p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV4Eh-Pa7VrnPSlj3T4xw6Dg" rel="noopener" target="_blank" aria-label="Book Bouncy Blow Wave online">Book Now</a>
 </div>
 </div>
@@ -4363,7 +4361,6 @@
 <span class="pricing-item__price">from $410 to $690</span>
 </div>
 <p class="pricing-item__desc">A premium, formaldehyde-free Brazilian smoothing treatment that rebuilds each strand with amino acids and natural proteins &#8212; beautifully frizz-free, silky-smooth hair with results lasting 6&#8211;12 months. Suitable for most hair types, including colour-treated hair. Allow 3&#8211;4.5 hours in the salon.</p>
-<p class="pricing-item__lengths">Nanoplasty lengths: Short = above shoulders &#183; Medium = to bra strap &#183; Long = to waist &#183; Extra Long/Thick = past waist or very dense &#8212; <a href="/guides/hair-length-guide/">see the length guide</a></p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV3Fnu9iG5ML_9k0LZeKK1tw" rel="noopener" target="_blank">Book Now</a>
 </div>
 <div class="pricing-item">
@@ -4581,149 +4578,13 @@
 </div>
 </div>
 </div><!-- /.services-card -->
-</div>
-</section>
-<!-- ===== HAIR AVENUE LOYALTY REWARDS ===== -->
-<section class="section section--loyalty" id="loyalty">
-<div class="container">
-<div class="section-header reveal">
-<span class="section-label">Hair Avenue Loyalty Rewards</span>
-<h2 class="section-title">Loyalty, Rewarded.</h2>
-<p class="section-subtitle">Earn points every visit — our way of saying thank you for letting us look after your hair.</p>
-</div>
-
-<div class="loyalty__app reveal">
-<div class="loyalty__app-info">
-<h3 class="loyalty__app-headline">Download the Hair Avenue app</h3>
-<p class="loyalty__app-sub">Manage everything from your phone.</p>
-</div>
-<div class="loyalty__app-features">
-<div class="loyalty__app-feature">
-<span class="loyalty__app-feature-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-<span class="loyalty__app-feature-title">Earn &amp; track points with every visit</span>
-</div>
-<div class="loyalty__app-feature">
-<span class="loyalty__app-feature-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-<span class="loyalty__app-feature-title">Redeem for vouchers, treatments &amp; services</span>
-</div>
-<div class="loyalty__app-feature">
-<span class="loyalty__app-feature-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-<span class="loyalty__app-feature-title">Book &amp; manage appointments on the go</span>
-</div>
-</div>
-<div class="loyalty__app-badges">
-<div class="loyalty__install-combo" role="group" aria-label="Install the Hair Avenue app">
-<div class="loyalty__install-item loyalty__install-item--qr">
-<img class="loyalty__install-qr" alt="QR code to download the Hair Avenue app" loading="lazy" src="images/App%20QR%20Code.png" width="150" height="145"/>
-<span class="loyalty__install-label">Scan</span>
-</div>
-<a class="loyalty__install-item" href="https://apps.apple.com/au/app/hair-avenue/id6754959866?uo=4" rel="noopener" target="_blank" aria-label="Download on the App Store">
-<svg class="loyalty__install-icon" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"><path d="M17.05 12.04c-.03-2.95 2.41-4.37 2.52-4.44-1.37-2.01-3.51-2.28-4.27-2.31-1.82-.18-3.55 1.07-4.48 1.07-.93 0-2.36-1.05-3.88-1.02-2 .03-3.84 1.16-4.86 2.94-2.07 3.59-.53 8.91 1.49 11.83.99 1.43 2.16 3.04 3.69 2.98 1.48-.06 2.04-.96 3.83-.96s2.29.96 3.86.93c1.59-.03 2.6-1.46 3.57-2.9 1.12-1.66 1.58-3.27 1.61-3.36-.04-.02-3.08-1.18-3.11-4.69M14.34 3.36c.81-.99 1.36-2.36 1.21-3.74-1.17.05-2.6.78-3.44 1.76-.75.86-1.41 2.26-1.24 3.6 1.31.1 2.66-.66 3.47-1.62"></path></svg>
-<span class="loyalty__install-label">App Store</span>
-</a>
-<a class="loyalty__install-item" href="https://play.google.com/store/apps/details?id=com.phorest.hairavenue&amp;hl=en&amp;gl=us" rel="noopener" target="_blank" aria-label="Get it on Google Play">
-<svg class="loyalty__install-icon" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"><polygon points="6 3 21 12 6 21 6 3"></polygon></svg>
-<span class="loyalty__install-label">Google Play</span>
-</a>
-</div>
-</div>
-<div class="loyalty__app-visual">
-<div class="loyalty__phone">
-<img alt="Hair Avenue app showing upcoming appointments" loading="lazy" src="images/Phone_Mockup2.webp" width="648" height="1016"/>
-</div>
-</div>
-</div>
-
-<div class="loyalty__learn reveal">
-<h3 class="loyalty__learn-heading">Learn more about rewards</h3>
-
-<details class="loyalty__learn-item">
-<summary class="loyalty__learn-toggle">
-<span class="loyalty__learn-num">01</span>
-<span class="loyalty__learn-title">How it works</span>
-<svg class="loyalty__learn-chev" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
-</summary>
-<div class="loyalty__learn-body">
-<ol class="loyalty__steps">
-<li class="loyalty__step">
-<div class="loyalty__step-num">1</div>
-<div class="loyalty__step-title">Visit Hair Avenue</div>
-<div class="loyalty__step-text">Book any service or pick up a take-home product in the salon or through the app.</div>
-</li>
-<li class="loyalty__step">
-<div class="loyalty__step-num">2</div>
-<div class="loyalty__step-title">Earn points automatically</div>
-<div class="loyalty__step-text">Points appear in the Hair Avenue app the moment your visit is paid.</div>
-</li>
-<li class="loyalty__step">
-<div class="loyalty__step-num">3</div>
-<div class="loyalty__step-title">Redeem a treat</div>
-<div class="loyalty__step-text">Trade points for a treat at your next appointment — show your stylist in the app.</div>
-</li>
-</ol>
-</div>
-</details>
-
-<details class="loyalty__learn-item">
-<summary class="loyalty__learn-toggle">
-<span class="loyalty__learn-num">02</span>
-<span class="loyalty__learn-title">How you earn points</span>
-<svg class="loyalty__learn-chev" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
-</summary>
-<div class="loyalty__learn-body">
-<div class="loyalty__rules">
-<div class="loyalty__rule">
-<div class="loyalty__rule-rate">$1 = 1 point</div>
-<div class="loyalty__rule-desc">Every dollar you spend on services earns one point — colour, cuts, treatments, styling.</div>
-</div>
-<div class="loyalty__rule">
-<div class="loyalty__rule-rate">$1 = 2 points</div>
-<div class="loyalty__rule-desc">Take-home products earn double — your Wella shampoo, conditioner and styling buys count twice.</div>
-</div>
-</div>
-</div>
-</details>
-
-<details class="loyalty__learn-item">
-<summary class="loyalty__learn-toggle">
-<span class="loyalty__learn-num">03</span>
-<span class="loyalty__learn-title">The treat menu</span>
-<svg class="loyalty__learn-chev" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
-</summary>
-<div class="loyalty__learn-body">
-<div class="loyalty__treats">
-<div class="loyalty__treat">
-<div class="loyalty__treat-header"><span class="loyalty__treat-name">$10 voucher off your next visit</span><span class="loyalty__treat-cost">350 points</span></div>
-<div class="loyalty__treat-desc">A flat $10 off any service or product. No minimum spend required.</div>
-<div class="loyalty__treat-value">You save $10 after just $350 spent.</div>
-</div>
-<div class="loyalty__treat">
-<div class="loyalty__treat-header"><span class="loyalty__treat-name">Free shampoo with your service</span><span class="loyalty__treat-cost">350 points</span></div>
-<div class="loyalty__treat-desc">Add a complimentary salon shampoo when you book any service.</div>
-<div class="loyalty__treat-value">Worth $15 — free at the basin.</div>
-</div>
-<div class="loyalty__treat">
-<div class="loyalty__treat-header"><span class="loyalty__treat-name">Free Intense Mist Hair Treatment</span><span class="loyalty__treat-cost">630 points</span></div>
-<div class="loyalty__treat-desc">Our most-loved deep-conditioning treatment — added on to your next appointment.</div>
-<div class="loyalty__treat-value">Worth $35 — the highest value-per-point treat.</div>
-</div>
-<div class="loyalty__treat">
-<div class="loyalty__treat-header"><span class="loyalty__treat-name">$20 voucher off your next visit</span><span class="loyalty__treat-cost">700 points</span></div>
-<div class="loyalty__treat-desc">A flat $20 off any service or product. Stacks with no minimum spend.</div>
-<div class="loyalty__treat-value">You save $20 after $700 spent.</div>
-</div>
-<div class="loyalty__treat">
-<div class="loyalty__treat-header"><span class="loyalty__treat-name">Complimentary Hair Tinsel</span><span class="loyalty__treat-cost">910 points</span></div>
-<div class="loyalty__treat-desc">A festive shimmer of hair tinsel added in to your style — perfect for the holidays or a celebration.</div>
-<div class="loyalty__treat-value">Worth $60 — our top-tier treat.</div>
-</div>
-</div>
-</div>
-</details>
-
+<div class="length-strip" id="length-guide">
+<p class="length-strip__line">Not sure if your hair counts as short, medium or long? <a href="/guides/hair-length-guide/">See our hair length guide &rarr;</a></p>
+<p class="length-strip__line length-strip__line--muted">Only premium, professional salon-grade products ever touch your hair &#8212; so it looks beautiful and stays healthy. <a href="#products">See our products &rarr;</a></p>
 </div>
 </div>
 </section>
+
 <!-- ===== THE HAIR AVENUE EXPERIENCE ===== -->
 <!-- ===== HAIR GALLERY ===== -->
 <!-- ===== MEET THE TEAM ===== -->
@@ -5114,15 +4975,24 @@ window.addEventListener('load', function() {
 <!-- ===== HAIR GALLERY ===== -->
 <section class="section social-bg" id="gallery" style="padding-top:60px; padding-bottom:60px; background: url('images/text-center-reveal.webp') center center / cover no-repeat;">
 <div class="container" id="products">
+<details class="products-fold" id="productsFold">
+<summary class="products-fold__summary">
 <div class="section-header reveal">
 <span class="section-label">Our Products</span>
 <h2 class="section-title">Only Premium Products Touch Your Hair</h2>
-<p class="section-subtitle">At Hair Avenue, there are no compromises on the shelf. Every colour, treatment and styling product we use is salon-grade Wella Professionals &#8212; including WellaPlex bond protection &#8212; so your hair doesn&#8217;t just look beautiful when you leave. It stays healthy, strong and easy to maintain long after.</p>
+<p class="section-subtitle">Every colour, treatment and styling product we use is salon-grade Wella Professionals &#8212; so your hair doesn&#8217;t just look beautiful when you leave. It stays healthy long after.</p>
 </div>
+<span class="products-fold__hint"><span class="products-fold__hint-open">Explore our products</span><span class="products-fold__hint-close">Hide products</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+</summary>
+<div class="products-fold__body">
 <div class="products__grid reveal" style="margin-bottom:48px;">
 <div class="products__copy">
-<p class="products__text">We made a simple promise when we opened: <strong>if it isn&#8217;t premium, it doesn&#8217;t touch your hair.</strong> Everything we use is professional, salon-grade Wella Professionals &#8212; the colour brand trusted by the world&#8217;s best salons for over 140 years. No shortcuts, no supermarket formulas.</p>
-<p class="products__text">That&#8217;s why your colour is mixed with WellaPlex bond protection, your treatments come from the SmoothFiller and LuxeOil ranges, and your finish is styled with EIMI &#8212; so your hair stays strong, glossy and beautifully easy to manage between visits.</p>
+<p class="products__text">Everything we use is professional, salon-grade Wella Professionals &#8212; the colour brand trusted by the world&#8217;s best salons for over 140 years. No shortcuts, no supermarket formulas.</p>
+<p class="products__ranges">Koleston Perfect ME+ &#183; Blondor &#183; WellaPlex &#183; SmoothFiller &#183; LuxeOil &#183; EIMI</p>
+<div class="wella-seal" role="img" aria-label="Official Wella Professionals partner salon seal">
+<img src="images/wella/wella-logo-square.jpg" alt="" width="80" height="80" loading="lazy">
+<span>Official Partner Salon</span>
+</div>
 </div>
 <div class="products__images">
 <div class="products__image-grid">
@@ -5136,11 +5006,7 @@ window.addEventListener('load', function() {
 <span class="wellaplex-card__badge">New at Hair Avenue</span>
 <h3 class="wellaplex-card__title">WellaPlex Bond Builder</h3>
 <p class="wellaplex-card__tag">Colour without compromise.</p>
-<p class="wellaplex-card__text">Every time hair is coloured or lightened, the bonds inside each strand are put under stress &#8212; that&#8217;s what can leave hair feeling weak or brittle. WellaPlex is Wella Professionals&#8217; in-salon bond-building system: it works <em>inside</em> the hair fibre to reconstruct those inner bonds while your colour develops, so you get the blonde or the shade you want &#8212; and hair that feels stronger, smoother and healthier than when you sat down.</p>
-<div class="wellaplex-card__steps">
-<div class="wellaplex-card__step"><strong>N&#176;1 &#8212; Bond Maker</strong><span>Mixed straight into your colour or lightener, rebuilding the hair&#8217;s inner bonds during the service &#8212; pH-matched to Wella colour so there&#8217;s no compromise on lift or tone.</span></div>
-<div class="wellaplex-card__step"><strong>N&#176;2 &#8212; Bond Stabiliser</strong><span>Applied at the basin afterwards to lock in the newly built bonds and rebalance your hair&#8217;s pH &#8212; leaving it soft, strong and beautifully manageable.</span></div>
-</div>
+<p class="wellaplex-card__text">Colouring and lightening stress the bonds inside each strand. WellaPlex rebuilds them <em>while your colour develops</em> &#8212; N&#176;1 Bond Maker mixed straight into your colour, N&#176;2 Bond Stabiliser at the basin &#8212; so your hair leaves stronger, smoother and healthier than it sat down.</p>
 <p class="wellaplex-card__price">Add WellaPlex to any colour or lightening service for <em>$35</em> &#8212; or enjoy it <em>included free</em> with our midweek Balayage Special.</p>
 <a class="wellaplex-card__cta" href="#services">Add It to Your Next Colour &rarr;</a>
 </div>
@@ -5185,6 +5051,8 @@ window.addEventListener('load', function() {
 
 </div>
 </div>
+</details>
+</div>
 </section>
 <!-- ===== FINAL CTA ===== -->
 <section class="final-cta" id="book" style="background-image: url('images/salon/03-reception.webp');">
@@ -5193,9 +5061,9 @@ window.addEventListener('load', function() {
 <h2 class="final-cta__title">Your Best Hair Day Starts Here</h2>
 <p class="final-cta__subtitle">Book your appointment today or simply walk in — discover why 180+ clients have rated us 4.9 stars. Walk-ins welcome.</p>
 <div class="trust-badges">
-<div class="trust-badge"><img alt="Wella Professionals" class="trust-badge__logo" src="images/wella/wella-professionals-logo.webp" width="860" height="608"/><span>Wella Professional Salon</span></div>
+<div class="trust-badge"><img alt="Wella Professionals" class="trust-badge__logo" src="images/wella/wella-professionals-logo.webp" width="860" height="608"/><span>Official Wella Partner Salon</span></div>
 <div class="trust-badge"><span class="trust-badge__star">★</span><span>4.9 — 180+ Reviews</span></div>
-<div class="trust-badge"><span class="trust-badge__icon">♀</span><span>Women-Owned</span></div>
+
 <div class="trust-badge"><span class="trust-badge__star"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l1.7 3.4 3.8.6-2.7 2.7.6 3.8L12 11.7l-3.4 1.8.6-3.8L6.5 7l3.8-.6L12 3z" fill="#E8D49A"/><path d="M4 13c.5 4 3 6.5 6 7.5M20 13c-.5 4-3 6.5-6 7.5" stroke="#C9A96E" stroke-width="1.4" stroke-linecap="round"/></svg></span><span>2026 Client Experience Award</span></div>
 </div>
 <a class="btn btn--primary btn--lg" href="#services">Book Now</a>
@@ -5223,6 +5091,154 @@ window.addEventListener('load', function() {
 <span style="display:block; font-size:0.85rem; opacity:0.75;">Unit 102/16 Lonsdale St, Braddon ACT 2612</span>
 </a>
 </div>
+</div>
+</section>
+<!-- ===== HAIR AVENUE LOYALTY REWARDS ===== -->
+<section class="section section--loyalty" id="loyalty">
+<div class="container">
+<details class="loyalty-fold" id="loyaltyFold">
+<summary class="loyalty-fold__summary">
+<div class="section-header reveal">
+<span class="section-label">Hair Avenue Loyalty Rewards</span>
+<h2 class="section-title">Loyalty, Rewarded.</h2>
+<p class="section-subtitle">Earn points every visit — our way of saying thank you for letting us look after your hair.</p>
+</div>
+<span class="loyalty-fold__hint"><span class="loyalty-fold__hint-open">View the rewards program</span><span class="loyalty-fold__hint-close">Hide the rewards program</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+</summary>
+<div class="loyalty-fold__body">
+
+<div class="loyalty__app reveal">
+<div class="loyalty__app-info">
+<h3 class="loyalty__app-headline">Download the Hair Avenue app</h3>
+<p class="loyalty__app-sub">Manage everything from your phone.</p>
+</div>
+<div class="loyalty__app-features">
+<div class="loyalty__app-feature">
+<span class="loyalty__app-feature-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+<span class="loyalty__app-feature-title">Earn &amp; track points with every visit</span>
+</div>
+<div class="loyalty__app-feature">
+<span class="loyalty__app-feature-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+<span class="loyalty__app-feature-title">Redeem for vouchers, treatments &amp; services</span>
+</div>
+<div class="loyalty__app-feature">
+<span class="loyalty__app-feature-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+<span class="loyalty__app-feature-title">Book &amp; manage appointments on the go</span>
+</div>
+</div>
+<div class="loyalty__app-badges">
+<div class="loyalty__install-combo" role="group" aria-label="Install the Hair Avenue app">
+<div class="loyalty__install-item loyalty__install-item--qr">
+<img class="loyalty__install-qr" alt="QR code to download the Hair Avenue app" loading="lazy" src="images/App%20QR%20Code.png" width="150" height="145"/>
+<span class="loyalty__install-label">Scan</span>
+</div>
+<a class="loyalty__install-item" href="https://apps.apple.com/au/app/hair-avenue/id6754959866?uo=4" rel="noopener" target="_blank" aria-label="Download on the App Store">
+<svg class="loyalty__install-icon" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"><path d="M17.05 12.04c-.03-2.95 2.41-4.37 2.52-4.44-1.37-2.01-3.51-2.28-4.27-2.31-1.82-.18-3.55 1.07-4.48 1.07-.93 0-2.36-1.05-3.88-1.02-2 .03-3.84 1.16-4.86 2.94-2.07 3.59-.53 8.91 1.49 11.83.99 1.43 2.16 3.04 3.69 2.98 1.48-.06 2.04-.96 3.83-.96s2.29.96 3.86.93c1.59-.03 2.6-1.46 3.57-2.9 1.12-1.66 1.58-3.27 1.61-3.36-.04-.02-3.08-1.18-3.11-4.69M14.34 3.36c.81-.99 1.36-2.36 1.21-3.74-1.17.05-2.6.78-3.44 1.76-.75.86-1.41 2.26-1.24 3.6 1.31.1 2.66-.66 3.47-1.62"></path></svg>
+<span class="loyalty__install-label">App Store</span>
+</a>
+<a class="loyalty__install-item" href="https://play.google.com/store/apps/details?id=com.phorest.hairavenue&amp;hl=en&amp;gl=us" rel="noopener" target="_blank" aria-label="Get it on Google Play">
+<svg class="loyalty__install-icon" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"><polygon points="6 3 21 12 6 21 6 3"></polygon></svg>
+<span class="loyalty__install-label">Google Play</span>
+</a>
+</div>
+</div>
+<div class="loyalty__app-visual">
+<div class="loyalty__phone">
+<img alt="Hair Avenue app showing upcoming appointments" loading="lazy" src="images/Phone_Mockup2.webp" width="648" height="1016"/>
+</div>
+</div>
+</div>
+
+<div class="loyalty__learn reveal">
+<h3 class="loyalty__learn-heading">Learn more about rewards</h3>
+
+<details class="loyalty__learn-item">
+<summary class="loyalty__learn-toggle">
+<span class="loyalty__learn-num">01</span>
+<span class="loyalty__learn-title">How it works</span>
+<svg class="loyalty__learn-chev" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+</summary>
+<div class="loyalty__learn-body">
+<ol class="loyalty__steps">
+<li class="loyalty__step">
+<div class="loyalty__step-num">1</div>
+<div class="loyalty__step-title">Visit Hair Avenue</div>
+<div class="loyalty__step-text">Book any service or pick up a take-home product in the salon or through the app.</div>
+</li>
+<li class="loyalty__step">
+<div class="loyalty__step-num">2</div>
+<div class="loyalty__step-title">Earn points automatically</div>
+<div class="loyalty__step-text">Points appear in the Hair Avenue app the moment your visit is paid.</div>
+</li>
+<li class="loyalty__step">
+<div class="loyalty__step-num">3</div>
+<div class="loyalty__step-title">Redeem a treat</div>
+<div class="loyalty__step-text">Trade points for a treat at your next appointment — show your stylist in the app.</div>
+</li>
+</ol>
+</div>
+</details>
+
+<details class="loyalty__learn-item">
+<summary class="loyalty__learn-toggle">
+<span class="loyalty__learn-num">02</span>
+<span class="loyalty__learn-title">How you earn points</span>
+<svg class="loyalty__learn-chev" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+</summary>
+<div class="loyalty__learn-body">
+<div class="loyalty__rules">
+<div class="loyalty__rule">
+<div class="loyalty__rule-rate">$1 = 1 point</div>
+<div class="loyalty__rule-desc">Every dollar you spend on services earns one point — colour, cuts, treatments, styling.</div>
+</div>
+<div class="loyalty__rule">
+<div class="loyalty__rule-rate">$1 = 2 points</div>
+<div class="loyalty__rule-desc">Take-home products earn double — your Wella shampoo, conditioner and styling buys count twice.</div>
+</div>
+</div>
+</div>
+</details>
+
+<details class="loyalty__learn-item">
+<summary class="loyalty__learn-toggle">
+<span class="loyalty__learn-num">03</span>
+<span class="loyalty__learn-title">The treat menu</span>
+<svg class="loyalty__learn-chev" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+</summary>
+<div class="loyalty__learn-body">
+<div class="loyalty__treats">
+<div class="loyalty__treat">
+<div class="loyalty__treat-header"><span class="loyalty__treat-name">$10 voucher off your next visit</span><span class="loyalty__treat-cost">350 points</span></div>
+<div class="loyalty__treat-desc">A flat $10 off any service or product. No minimum spend required.</div>
+<div class="loyalty__treat-value">You save $10 after just $350 spent.</div>
+</div>
+<div class="loyalty__treat">
+<div class="loyalty__treat-header"><span class="loyalty__treat-name">Free shampoo with your service</span><span class="loyalty__treat-cost">350 points</span></div>
+<div class="loyalty__treat-desc">Add a complimentary salon shampoo when you book any service.</div>
+<div class="loyalty__treat-value">Worth $15 — free at the basin.</div>
+</div>
+<div class="loyalty__treat">
+<div class="loyalty__treat-header"><span class="loyalty__treat-name">Free Intense Mist Hair Treatment</span><span class="loyalty__treat-cost">630 points</span></div>
+<div class="loyalty__treat-desc">Our most-loved deep-conditioning treatment — added on to your next appointment.</div>
+<div class="loyalty__treat-value">Worth $35 — the highest value-per-point treat.</div>
+</div>
+<div class="loyalty__treat">
+<div class="loyalty__treat-header"><span class="loyalty__treat-name">$20 voucher off your next visit</span><span class="loyalty__treat-cost">700 points</span></div>
+<div class="loyalty__treat-desc">A flat $20 off any service or product. Stacks with no minimum spend.</div>
+<div class="loyalty__treat-value">You save $20 after $700 spent.</div>
+</div>
+<div class="loyalty__treat">
+<div class="loyalty__treat-header"><span class="loyalty__treat-name">Complimentary Hair Tinsel</span><span class="loyalty__treat-cost">910 points</span></div>
+<div class="loyalty__treat-desc">A festive shimmer of hair tinsel added in to your style — perfect for the holidays or a celebration.</div>
+<div class="loyalty__treat-value">Worth $60 — our top-tier treat.</div>
+</div>
+</div>
+</div>
+</details>
+
+</div>
+</div>
+</details>
 </div>
 </section>
 <!-- ===== FAQ ===== -->
@@ -5375,7 +5391,7 @@ window.addEventListener('load', function() {
 <li><a class="footer__link" href="hair-avenue-policy.html" rel="noopener" target="_blank">Terms &amp; Conditions</a></li>
 </ul>
 <p style="font-size:0.78rem; color:#C9A96E; margin-bottom:8px;">★ 4.9 from 180+ Google reviews — and counting.</p>
-<p class="footer__copy"><a href="/news/client-experience-award-2026/" style="color:#C9A96E;text-decoration:underline;text-underline-offset:3px;">2026 Phorest Client Experience Award Winner</a></p>
+<p class="footer__copy"><a href="/news/client-experience-award-2026/" style="color:#C9A96E;text-decoration:underline;text-underline-offset:3px;">2026 Phorest Client Experience Award Winner</a> &#183; Official Wella Professionals Partner Salon</p>
 <p class="footer__copy">© 2026 Hair Avenue Braddon. All rights reserved.</p>
 </div>
 </div>
@@ -5634,6 +5650,22 @@ window.addEventListener('load', function() {
     })();
   </script>
 <script>
+  (function(){
+    var d = document.getElementById('productsFold');
+    if (!d) return;
+    function openIfTargeted(){ if (location.hash === '#products') d.open = true; }
+    window.addEventListener('hashchange', openIfTargeted);
+    openIfTargeted();
+    document.querySelectorAll('a[href=\"#products\"]').forEach(function(a){ a.addEventListener('click', function(){ d.open = true; }); });
+  })();
+  (function(){
+    var d = document.getElementById('loyaltyFold');
+    if (!d) return;
+    function openIfTargeted(){ if (location.hash === '#loyalty') d.open = true; }
+    window.addEventListener('hashchange', openIfTargeted);
+    openIfTargeted();
+    document.querySelectorAll('a[href=\"#loyalty\"]').forEach(function(a){ a.addEventListener('click', function(){ d.open = true; }); });
+  })();
   document.addEventListener('click', function(e){
     var a = e.target.closest && e.target.closest('a[href*="phorest.com"]');
     if (a && typeof gtag === 'function') {
