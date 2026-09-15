@@ -616,9 +616,9 @@
       z-index: 1000;
       padding: 14px 0;
       transition: var(--transition);
-      background: transparent;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
+      background: rgba(12,28,15,0.42);
+      backdrop-filter: saturate(160%) blur(16px);
+      -webkit-backdrop-filter: saturate(160%) blur(16px);
     }
     .nav.scrolled {
       background: rgba(255,255,255,0.72);
@@ -743,6 +743,7 @@
       min-height: 100vh;
       min-height: 100dvh;
       margin-top: 0;
+      padding-top: 70px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       background: linear-gradient(135deg, #0a1f0e 0%, #142a18 60%, #1a3520 100%);
@@ -793,53 +794,39 @@
       max-width: 460px;
       position: relative;
     }
-    .hero__proof { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 26px 0 0; font-size: 0.74rem; font-weight: 600; letter-spacing: 0.11em; text-transform: uppercase; color: rgba(255,255,255,0.72); text-shadow: 0 1px 6px rgba(0,0,0,0.3); }
+    .hero__proof { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 34px 0 0; font-size: 0.74rem; font-weight: 600; letter-spacing: 0.11em; text-transform: uppercase; color: rgba(255,255,255,0.72); }
     .hero__proof > a, .hero__proof > span { white-space: nowrap; }
     .hero__proof .star { color: #C9A96E; font-size: 0.9rem; }
     .hero__proof a { color: inherit; cursor: pointer; transition: color 0.25s ease; }
     .hero__proof a:hover { color: rgba(255,255,255,0.92); }
     .hero__proof .badge-count { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; text-decoration-color: rgba(232,212,154,0.4); transition: text-decoration-color 0.25s ease; }
     .hero__proof a:hover .badge-count { text-decoration-color: #E8D49A; }
-    .hero__eyebrow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 22px;
-      transition: opacity 0.25s ease;
-    }
-    .hero__eyebrow:hover { opacity: 0.85; }
-    .hero__eyebrow-laurel { width: 30px; height: 58px; flex: 0 0 auto; opacity: 0.95; }
-    .hero__eyebrow-laurel--r { transform: scaleX(-1); }
-    .hero__eyebrow-lockup { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-    .hero__eyebrow-badge { display: block; width: 42px; height: 42px; border-radius: 50%; margin-bottom: 3px; box-shadow: 0 0 0 1px rgba(201,169,110,0.55), 0 0 0 4px rgba(201,169,110,0.12), 0 6px 16px rgba(0,0,0,0.4); }
-    .hero__eyebrow-line1 { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.24em; text-indent: 0.24em; text-transform: uppercase; color: #E8D49A; text-shadow: 0 1px 8px rgba(0,0,0,0.35); }
-    .hero__eyebrow-line2 { font-size: 0.56rem; font-weight: 600; letter-spacing: 0.32em; text-indent: 0.32em; text-transform: uppercase; color: rgba(232,212,154,0.72); }
+    .hero__eyebrow { display: inline-flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 30px; transition: opacity 0.25s ease; }
+    .hero__eyebrow:hover { opacity: 0.8; }
+    .hero__eyebrow-badge { display: block; width: 26px; height: 26px; border-radius: 50%; flex: 0 0 auto; box-shadow: 0 0 0 1px rgba(201,169,110,0.55), 0 4px 12px rgba(0,0,0,0.35); }
+    .hero__eyebrow span { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #E8D49A; white-space: nowrap; }
     @media (max-width: 480px) {
-      .hero__eyebrow-laurel { width: 24px; height: 48px; }
-      .hero__eyebrow-badge { width: 36px; height: 36px; }
-      .hero__eyebrow-line1 { font-size: 0.6rem; letter-spacing: 0.2em; }
-      .hero__eyebrow-line2 { font-size: 0.52rem; }
+      .hero__eyebrow-badge { width: 22px; height: 22px; }
+      .hero__eyebrow span { font-size: 0.58rem; letter-spacing: 0.16em; }
     }
-    .hero__title { margin-bottom: 40px; }
+    .hero__title { margin-bottom: 48px; }
     .hero__rule {
       display: none;
     }
     .hero__title {
       font-family: var(--ff-display);
       font-size: 0;
-      margin-bottom: 40px;
+      margin-bottom: 48px;
     }
     .hero__accent {
       display: block;
       font-family: 'New York', ui-serif, Georgia, 'Times New Roman', serif;
-      font-size: clamp(1.55rem, 2.6vw, 2.1rem);
+      font-size: clamp(2.05rem, 3.4vw, 2.9rem);
       font-weight: 400;
       font-style: italic;
       color: #f4ecdc;
-      letter-spacing: 0.012em;
-      line-height: 1.38;
-      text-shadow: 0 2px 14px rgba(0,0,0,0.4);
+      letter-spacing: 0.004em;
+      line-height: 1.24;
     }
     .hero__tagline {
       font-size: clamp(0.92rem, 1.6vw, 1.05rem);
@@ -851,50 +838,9 @@
       font-weight: 400;
       letter-spacing: 0.01em;
     }
-    .hero__ctas {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 14px;
-    }
-    .hero__ctas .btn--primary {
-      padding: 11px 30px;
-      font-size: 0.86rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      border: 1.5px solid #C9A96E;
-      background: linear-gradient(135deg, rgba(201,169,110,0.25), rgba(201,169,110,0.15));
-      color: #ffffff;
-      border-radius: 980px;
-      box-shadow: 0 4px 18px rgba(201,169,110,0.28), 0 6px 24px rgba(0,0,0,0.2);
-      transition: all 0.3s ease;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      text-shadow: 0 1px 4px rgba(0,0,0,0.3);
-    }
-    .hero__ctas .btn--primary:hover {
-      border-color: #E8D49A;
-      background: linear-gradient(135deg, rgba(201,169,110,0.4), rgba(201,169,110,0.25));
-      color: #ffffff;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 30px rgba(201,169,110,0.45), 0 12px 40px rgba(0,0,0,0.3);
-    }
-    .hero__ctas .btn--secondary {
-      background: none;
-      border: none;
-      color: rgba(255,255,255,0.45);
-      font-size: 0.82rem;
-      font-weight: 400;
-      letter-spacing: 0.04em;
-      padding: 8px 16px;
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-    .hero__ctas .btn--secondary:hover {
-      color: rgba(255,255,255,0.7);
-      background: none;
-      border: none;
-    }
+    .hero__link { display: inline-flex; align-items: center; gap: 6px; font-size: 1rem; font-weight: 500; letter-spacing: 0.01em; color: #E8D49A; transition: color 0.25s ease, gap 0.25s ease; }
+    .hero__link span { font-size: 1.3rem; line-height: 1; transform: translateY(-1px); }
+    .hero__link:hover { color: #ffffff; gap: 10px; }
     .hero__scroll {
       position: absolute;
       bottom: 32px;
@@ -1290,7 +1236,7 @@
     /* ===== SOCIAL FEED ===== */
     .social__intro {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 48px;
     }
     .social__icons {
       display: flex;
@@ -3432,6 +3378,7 @@
       /* Hero on mobile — photos start below nav, dark green fills gap */
       .hero {
         margin-top: 56px;
+        padding-top: 0;
         min-height: auto;
         grid-template-columns: 1fr;
         grid-template-rows: 48vh auto;
@@ -3449,8 +3396,8 @@
         background: linear-gradient(90deg, transparent, rgba(201,169,110,0.45), transparent);
       }
       .hero__content { max-width: 100%; }
-      .hero__eyebrow { margin-bottom: 14px; }
-      .hero__title { margin-bottom: 36px; }
+      .hero__eyebrow { margin-bottom: 20px; }
+      .hero__title { margin-bottom: 40px; }
       body::before {
         content: '';
         position: fixed;
@@ -3463,12 +3410,12 @@
       .hero__bg-left, .hero__bg-right { object-fit: cover; object-position: center top; }
       .hero [style*="margin-bottom:16px"] img { height: 64px !important; max-width: 200px !important; }
       .hero [style*="margin-bottom:16px"] { margin-bottom: 12px !important; }
-      .hero__accent { font-size: 1.6rem !important; }
+      .hero__accent { font-size: 1.64rem !important; letter-spacing: 0 !important; }
       .hero__tagline { font-size: 0.82rem; margin: 14px auto 28px; }
       .hero__proof { flex-direction: column; gap: 7px; font-size: 0.68rem; letter-spacing: 0.13em; margin: 20px 0 0; } .hero__proof-sep { display: none; }
-      .hero__ctas { flex-direction: column; align-items: center; gap: 12px; }
-      .hero__ctas .btn--primary { width: 100%; max-width: 230px; justify-content: center; padding: 12px 24px; font-size: 0.86rem; }
-      .hero__ctas .btn--secondary { font-size: 0.78rem; }
+      .hero__link { font-size: 0.95rem; }
+      
+      
       .hero__scroll { display: none; }
 
       /* Why Choose — 2-col grid on mobile */
@@ -3630,7 +3577,7 @@
     @media (max-width: 420px) {
       .section { padding: 36px 0; }
       .hero [style*="margin-bottom:16px"] img { height: 52px !important; max-width: 170px !important; }
-      .hero__accent { font-size: 1.5rem !important; }
+      .hero__accent { font-size: 1.7rem !important; }
       .hero__content { padding: 0 16px; }
 
       /* Services single column on very small screens */
@@ -3857,7 +3804,31 @@
     .services-card .panel-photo .section-photo__caption{opacity:1;transform:none;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:11px;background:none;padding:14px 22px;z-index:2;font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#E8D49A;text-align:center;line-height:1.7}
     .services-card .panel-photo .section-photo__caption::before{content:'';flex:0 0 auto;width:46px;height:2px;background:linear-gradient(90deg,transparent,#C9A96E 20%,#E8D49A 50%,#C9A96E 80%,transparent)}
     .services-card .panel-photo .section-photo__zoom{z-index:3}
-    </style>
+        .nav__search { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border: none; background: none; cursor: pointer; color: #E8D49A; transition: color 0.25s ease; padding: 0; }
+    .nav__search svg { width: 18px; height: 18px; }
+    .nav__search:hover { color: #ffffff; }
+    .nav.scrolled .nav__search { color: #C9A96E; }
+    .nav.scrolled .nav__search:hover { color: #2E5339; }
+    .gsearch { position: fixed; inset: 0; z-index: 2000; display: none; justify-content: center; align-items: flex-start; padding: 90px 20px 20px; background: rgba(10,22,13,0.45); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+    .gsearch.gsearch--open { display: flex; }
+    .gsearch__panel { width: min(620px, 100%); background: #fdfcf9; border: 1px solid rgba(201,169,110,0.5); border-radius: 18px; box-shadow: 0 30px 80px rgba(0,0,0,0.35); overflow: hidden; }
+    .gsearch__inputrow { display: flex; align-items: center; gap: 12px; padding: 16px 20px; border-bottom: 1px solid rgba(201,169,110,0.3); }
+    .gsearch__inputrow svg { width: 18px; height: 18px; color: #a8894f; flex: 0 0 auto; }
+    .gsearch__inputrow input { flex: 1; border: none; background: none; outline: none; font-size: 1.05rem; color: #1d1d1f; font-family: inherit; }
+    .gsearch__inputrow input::placeholder { color: #a9a9ad; }
+    .gsearch__close { border: none; background: none; cursor: pointer; color: #a9a9ad; font-size: 0.95rem; padding: 4px 6px; transition: color 0.2s ease; }
+    .gsearch__close:hover { color: #1d1d1f; }
+    .gsearch__results { max-height: 62vh; overflow-y: auto; padding: 8px; }
+    .gsearch__label { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #a8894f; padding: 10px 14px 6px; }
+    .gsearch__row { display: flex; align-items: center; gap: 14px; padding: 11px 14px; border-radius: 12px; cursor: pointer; text-decoration: none; }
+    .gsearch__row:hover { background: rgba(201,169,110,0.13); }
+    .gsearch__row-main { flex: 1; min-width: 0; }
+    .gsearch__row-title { font-size: 0.93rem; font-weight: 600; color: #1d1d1f; }
+    .gsearch__row-desc { font-size: 0.78rem; color: #6e6e73; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 1px; }
+    .gsearch__chip { flex: 0 0 auto; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #a8894f; border: 1px solid rgba(201,169,110,0.55); border-radius: 980px; padding: 4px 10px; }
+    .gsearch__empty { padding: 22px 14px; font-size: 0.9rem; color: #6e6e73; text-align: center; }
+    @media (max-width: 640px) { .gsearch { padding: 72px 10px 10px; } .gsearch__results { max-height: 70vh; } }
+</style>
   <noscript>
     <style>
       .reveal { opacity: 1 !important; transform: none !important; animation: none !important; }
@@ -3887,12 +3858,20 @@
 <li><a class="nav__link" href="#reviews">Reviews</a></li>
 <li><a class="nav__book" href="#services">Book Now</a></li>
 </ul>
+<button class="nav__search" id="navSearchBtn" aria-label="Search the site"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></button>
 <a class="nav__book nav__book--persistent" href="#services">View Services</a>
 <label aria-label="Toggle navigation menu" class="nav__toggle" for="navToggleChk" id="navToggle">
 <span></span><span></span><span></span>
 </label>
 </div>
 </nav>
+<div class="gsearch" id="gsearch" role="dialog" aria-modal="true" aria-label="Site search">
+<div class="gsearch__panel">
+<div class="gsearch__inputrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg><input id="gsearchInput" type="search" placeholder="Search services, guides, pages&#8230;" autocomplete="off" aria-label="Search the site"/><button class="gsearch__close" id="gsearchClose" aria-label="Close search">&#10005;</button></div>
+<div class="gsearch__results" id="gsearchResults"></div>
+</div>
+</div>
+
 <!-- ===== HERO ===== -->
 <header class="hero" id="home">
 <div class="hero__media">
@@ -3900,14 +3879,13 @@
 </div>
 <div class="hero__panel">
 <div class="hero__content">
-<a class="hero__eyebrow" href="#reviews" aria-label="Read about our 2026 Client Experience Award"><svg class="hero__eyebrow-laurel" viewBox="0 0 44 84" aria-hidden="true"><defs><path id="hlvs" d="M0 0 Q4.5 -3.2 9 0 Q4.5 3.2 0 0 Z"/></defs><path d="M36 80 C20 64 14 42 22 10" fill="none" stroke="#C9A96E" stroke-width="1.6" stroke-linecap="round"/><g fill="#C9A96E"><use href="#hlvs" transform="translate(31 68) rotate(-140)"/><use href="#hlvs" transform="translate(25 56) rotate(-122)"/><use href="#hlvs" transform="translate(21 44) rotate(-105)"/><use href="#hlvs" transform="translate(20 32) rotate(-92)"/><use href="#hlvs" transform="translate(21 21) rotate(-78)"/><use href="#hlvs" transform="translate(24 11) rotate(-62)"/></g></svg><span class="hero__eyebrow-lockup"><img class="hero__eyebrow-badge" src="images/phorest-cea-2026.png" alt="" width="42" height="42"><span class="hero__eyebrow-line1">Client Experience Award</span><span class="hero__eyebrow-line2">Winner &#183; 2026</span></span><svg class="hero__eyebrow-laurel hero__eyebrow-laurel--r" viewBox="0 0 44 84" aria-hidden="true"><defs><path id="hlvs2" d="M0 0 Q4.5 -3.2 9 0 Q4.5 3.2 0 0 Z"/></defs><path d="M36 80 C20 64 14 42 22 10" fill="none" stroke="#C9A96E" stroke-width="1.6" stroke-linecap="round"/><g fill="#C9A96E"><use href="#hlvs2" transform="translate(31 68) rotate(-140)"/><use href="#hlvs2" transform="translate(25 56) rotate(-122)"/><use href="#hlvs2" transform="translate(21 44) rotate(-105)"/><use href="#hlvs2" transform="translate(20 32) rotate(-92)"/><use href="#hlvs2" transform="translate(21 21) rotate(-78)"/><use href="#hlvs2" transform="translate(24 11) rotate(-62)"/></g></svg></a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><path id="hlvs" d="M0 0 Q4.5 -3.2 9 0 Q4.5 3.2 0 0 Z"/></defs></svg>
+<a class="hero__eyebrow" href="#reviews" aria-label="Read about our 2026 Client Experience Award"><img class="hero__eyebrow-badge" src="images/phorest-cea-2026.png" alt="" width="26" height="26"><span>2026 Client Experience Award Winner</span></a>
 <h1 class="hero__title">
 <span class="sr-only">Hair Avenue Braddon — Canberra hair salon for colour, cuts and care. </span>
 <span class="hero__accent">Come for the services.<br/>Stay for the experience.</span>
 </h1>
-<div class="hero__ctas">
-<a class="btn btn--primary btn--lg" href="#services">View Our Services</a>
-</div>
+<a class="hero__link" href="#services">View our services <span aria-hidden="true">&rsaquo;</span></a>
 <p class="hero__proof"><a href="#reviews" aria-label="Read our Google reviews"><span class="star">★</span> 4.9 · <span class="badge-count">180+ Reviews</span></a><span class="hero__proof-sep" aria-hidden="true">·</span><span>Official Wella Partner</span></p>
 </div>
 </div>
@@ -5775,6 +5753,62 @@ window.addEventListener('load', function() {
     window.addEventListener('resize',upd);
     upd();
   })();
+</script>
+<script>
+(function(){
+  var IDX = 
+[{"t":"All Over Colour Package","d":"Your colour, perfected. Every Hair Avenue colour service uses Wella's Koleston Perfect ME+ — the world's most ","k":"Colouring","u":"#services","c":"Service","sv":"All Over Colour Package"},{"t":"Toner Maintenance Package","d":"Freshly toned, salon-perfect colour between lightening appointments — a root shadow for seamless blending, a W","k":"Colouring","u":"#services","c":"Service","sv":"Toner Maintenance Package"},{"t":"Grey Blending","d":"Embrace your grey and make it truly gorgeous — the full service, start to finish. Grey blending colour tailore","k":"Grey Blending / Regrowth","u":"#services","c":"Service","sv":"Grey Blending"},{"t":"Grey Blending — First Time (long or thick hair)","d":"Your very first grey blend on long or thick hair — a dedicated session with the extra time and product it dese","k":"Grey Blending / Regrowth","u":"#services","c":"Service","sv":"Grey Blending — First Time (long or thick hair)"},{"t":"Regrowth","d":"Seamlessly blend new growth with your existing colour for a flawless, natural finish. Ideal for regular mainte","k":"Grey Blending / Regrowth","u":"#services","c":"Service","sv":"Regrowth"},{"t":"Regrowth + All Over Toner Package","d":"Revitalise your look with expert regrowth colour paired with a complete toner refresh. This package delivers s","k":"Grey Blending / Regrowth","u":"#services","c":"Service","sv":"Regrowth + All Over Toner Package"},{"t":"Scalp Bleach Regrowth + Toner","d":"Lift your roots to a flawless, even blonde with our expert scalp bleach regrowth service. Carefully applied to","k":"Grey Blending / Regrowth","u":"#services","c":"Service","sv":"Scalp Bleach Regrowth + Toner"},{"t":"Full-Head Foils / Blonde Package","d":"Our highlight and balayage services are powered by Wella Blondor — the professional lightening system trusted ","k":"Highlight / Balayage","u":"#services","c":"Service","sv":"Full-Head Foils / Blonde Package"},{"t":"Foils – 3/4 Head","d":"The perfect middle ground between a half and full head of foils — brightness and dimension through the top, si","k":"Highlight / Balayage","u":"#services","c":"Service","sv":"Foils – 3/4 Head"},{"t":"Half-Head Foils Package","d":"Perfect for maintaining existing highlights, adding dimension or achieving a sun-kissed blonde while preservin","k":"Highlight / Balayage","u":"#services","c":"Service","sv":"Half-Head Foils Package"},{"t":"Balayage — Full Head Lightening Package","d":"A tailored balayage colour experience designed for a vibrant, easy-to-maintain look with a gorgeous face-frami","k":"Highlight / Balayage","u":"#services","c":"Service","sv":"Balayage — Full Head Lightening Package"},{"t":"Blonde Maintenance Refresh","d":"Keep your blonde looking stunning between full colour appointments. Strategic placement of 20–25 foils refresh","k":"Highlight / Balayage","u":"#services","c":"Service","sv":"Blonde Maintenance Refresh"},{"t":"Hair Cuts with Blow Wave","d":"A fresh, personalised haircut paired with a professional blow wave or iron-styled finish. Includes your choice","k":"Cutting","u":"#services","c":"Service","sv":"Hair Cuts with Blow Wave"},{"t":"Dry Cuts","d":"A quick, expertly executed trim to keep your current style looking sharp and fresh — no wash, no blow-dry incl","k":"Cutting","u":"#services","c":"Service","sv":"Dry Cuts"},{"t":"Just Fringe Trim","d":"A quick, precise fringe trim to keep your bangs looking neat and perfectly shaped between full haircut appoint","k":"Cutting","u":"#services","c":"Service","sv":"Just Fringe Trim"},{"t":"Men's Haircuts","d":"Every haircut is performed by our master stylist, who brings over 15 years of experience specialising in men's","k":"Cutting","u":"#services","c":"Service","sv":"Men's Haircuts"},{"t":"Kids' Dry Cut (Kindy – Year 6 only)","d":"A friendly, stress-free dry cut for kids from kindergarten through to Year 6. Our team keeps things fun and re","k":"Cutting","u":"#services","c":"Service","sv":"Kids' Dry Cut (Kindy – Year 6 only)"},{"t":"Blow Wave Package","d":"A polished, professional blow wave tailored to your hair — includes a relaxing shampoo with scalp massage and ","k":"Blow Wave","u":"#services","c":"Service","sv":"Blow Wave Package"},{"t":"Bouncy Blow Wave Package","d":"Volume that lasts — a bouncy, brushed-out blow wave set with a round brush for soft curl and beautiful movemen","k":"Blow Wave","u":"#services","c":"Service","sv":"Bouncy Blow Wave Package"},{"t":"Hair SmoothFiller","d":"Hair SmoothFiller (Floractive BTX Smooth) is a luxurious, formaldehyde-free smoothing treatment that works lik","k":"SmoothFiller","u":"#services","c":"Service","sv":"Hair SmoothFiller"},{"t":"Nanoplasty Treatment","d":"A premium, formaldehyde-free Brazilian smoothing treatment that rebuilds each strand with amino acids and natu","k":"Nanoplasty / Perm","u":"#services","c":"Service","sv":"Nanoplasty Treatment"},{"t":"Permanent Hair Straightening – Shiseido","d":"A professional Shiseido Japanese hair straightening treatment that permanently restructures the hair's interna","k":"Nanoplasty / Perm","u":"#services","c":"Service","sv":"Permanent Hair Straightening – Shiseido"},{"t":"Perm (Tues–Fri only)","d":"A classic perm service to create beautiful, long-lasting curls or soft, natural-looking waves tailored to your","k":"Nanoplasty / Perm","u":"#services","c":"Service","sv":"Perm (Tues–Fri only)"},{"t":"Root Perm","d":"Lift and volume right where it matters — a targeted perm at the roots to revive flat, limp hair without alteri","k":"Nanoplasty / Perm","u":"#services","c":"Service","sv":"Root Perm"},{"t":"Perm – Short (Women)","d":"Transform short hair with soft, modern curls or waves that last. A professional perm tailored to your length a","k":"Nanoplasty / Perm","u":"#services","c":"Service","sv":"Perm – Short (Women)"},{"t":"Perm – Extra Long","d":"Long-lasting curls, waves or volume for extra-long hair. Our stylists use modern perm techniques and premium p","k":"Nanoplasty / Perm","u":"#services","c":"Service","sv":"Perm – Extra Long"},{"t":"Fringe Perm (no blow wave)","d":"A fringe that styles itself — a quick, targeted perm for your fringe only, adding shape and effortless movemen","k":"Nanoplasty / Perm","u":"#services","c":"Service","sv":"Fringe Perm (no blow wave)"},{"t":"Upstyle (no Shampoo)","d":"An elegant, beautifully crafted updo perfect for wedding hair, bridal parties, formals and special occasions. ","k":"Upstyle / Hair Tinsel","u":"#services","c":"Service","sv":"Upstyle (no Shampoo)"},{"t":"Upstyle (with Shampoo & Blow Wave)","d":"A complete wedding and formal hair experience, including a relaxing shampoo, professional blow wave and elegan","k":"Upstyle / Hair Tinsel","u":"#services","c":"Service","sv":"Upstyle (with Shampoo & Blow Wave)"},{"t":"Hair Tinsels","d":"Add a touch of sparkle and eye-catching shine to your hair with beautiful, lightweight tinsel strands. Availab","k":"Upstyle / Hair Tinsel","u":"#services","c":"Service","sv":"Hair Tinsels"},{"t":"Hair Tinsel - for kid","d":"Fun, sparkly tinsel strands designed especially for kids who love a bit of extra shimmer and pizzazz. Our safe","k":"Upstyle / Hair Tinsel","u":"#services","c":"Service","sv":"Hair Tinsel - for kid"},{"t":"All Over Colour Package","d":"A complete all-over colour refresh using Wella Professional colour — fresh, vibrant coverage from root to tip ","k":"Midweek Offers","u":"#services","c":"Service","sv":"All Over Colour Package"},{"t":"Full Head Foils Package","d":"Bright, bold or beautifully blended — a complete head of foils from our Master Stylists using Wella Blondor, w","k":"Midweek Offers","u":"#services","c":"Service","sv":"Full Head Foils Package"},{"t":"Half-Head Foils Special Deal (Save up to $50)","d":"Refresh your colour with a half head of hand-woven foils at a special midweek price — brightness and dimension","k":"Midweek Offers","u":"#services","c":"Service","sv":"Half-Head Foils Special Deal (Save up to $50)"},{"t":"Balayage Special Deal","d":"Our signature all-inclusive Balayage Package performed by our Master Stylist. Stunning, salon-quality colour w","k":"Midweek Offers","u":"#services","c":"Service","sv":"Balayage Special Deal"},{"t":"Nanoplasty Smoothing Treatment (Save up to $91)","d":"Say goodbye to frizz with our premium Nanoplasty smoothing treatment at a special midweek price — deeply nouri","k":"Midweek Offers","u":"#services","c":"Service","sv":"Nanoplasty Smoothing Treatment (Save up to $91)"},{"t":"Cut, Blow Wave & 50% Off Mist Treatment","d":"Get a fresh Haircut and Blow Wave combo, and enjoy a beautifully styled finish. Plus, every booking includes 5","k":"Midweek Offers","u":"#services","c":"Service","sv":"Cut, Blow Wave & 50% Off Mist Treatment"},{"t":"Complimentary Consultation","d":"Not sure which service is right for you? Book a complimentary consultation and let our experienced stylists as","k":"Midweek Offers","u":"#services","c":"Service","sv":"Complimentary Consultation"},{"t":"Grey Blending Canberra","d":"Grey blending in Canberra — silver softened with gentle highlights and gloss, from $420 at Hair Avenue Braddon","k":"Grey Blending Canberra | From $420 | Hair Avenue Braddon","u":"/grey-blending-canberra/","c":"Page"},{"t":"Perms Canberra","d":"Perms in Canberra — soft waves, classic curls and root perms from $169 at Hair Avenue Braddon. Consultation in","k":"Perms Canberra | From $169 | Hair Avenue Braddon","u":"/perms-canberra/","c":"Page"},{"t":"Hair Colour Canberra","d":"Expert hair colour in Canberra using Wella Koleston Perfect ME+ — richer tone, less damage, up to 100% grey co","k":"Hair Colour Canberra | Wella Salon in Braddon | Hair Avenue","u":"/hair-colour-canberra/","c":"Page"},{"t":"Hair SmoothFiller Canberra","d":"Wella SmoothFiller in Canberra — frizz-free, smoother hair for up to 3 months without losing your natural text","k":"Hair SmoothFiller Canberra | Hair Avenue Braddon","u":"/hair-smoothfiller-canberra/","c":"Page"},{"t":"Nanoplasty Hair Smoothing Canberra","d":"Nanoplasty hair smoothing in Canberra — months of silky, frizz-free hair using advanced nano-technology. From ","k":"Nanoplasty Hair Smoothing Canberra | Hair Avenue","u":"/nanoplasty-canberra/","c":"Page"},{"t":"Award-Winning Hair Salon Canberra","d":"Looking for an award-winning hair salon in Canberra? Hair Avenue Braddon won the 2026 Phorest Client Experienc","k":"Award-Winning Hair Salon Canberra | Hair Avenue Braddon","u":"/news/client-experience-award-2026/","c":"News"},{"t":"Hair Guides & Advice from Canberra Stylists","d":"Honest hair advice from the stylists at Hair Avenue Braddon — balayage maintenance, brass control, smoothing t","k":"Hair Guides & Advice from Canberra Stylists | Hair Avenue Braddon","u":"/guides/","c":"Guide"},{"t":"How Long Does Balayage Last? Maintenance, Toning & Refresh Guide","d":"How long balayage lasts, how often to refresh it, and how to keep it bright between visits — from the balayage","k":"How Long Does Balayage Last? Maintenance, Toning & Refresh Guide","u":"/guides/how-long-does-balayage-last/","c":"Guide"},{"t":"How to Stop Blonde Hair Going Brassy: A Colourist's Guide","d":"Why blonde turns yellow or orange — and how to fix it. Toners, purple shampoo, water quality and salon tricks ","k":"How to Stop Blonde Hair Going Brassy: A Colourist's Guide","u":"/guides/stop-blonde-going-brassy/","c":"Guide"},{"t":"Salon Hair Length Guide: Short, Medium or Long?","d":"What counts as short, medium, long or extra long hair at the salon? Our illustrated length guide shows exactly","k":"Salon Hair Length Guide: Short, Medium or Long? | Hair Avenue","u":"/guides/hair-length-guide/","c":"Guide"},{"t":"Nanoplasty vs Keratin Treatment: Which Hair Smoothing Is Better?","d":"Nanoplasty vs keratin straightening compared — how they work, how long they last, damage, cost and which to ch","k":"Nanoplasty vs Keratin Treatment: Which Hair Smoothing Is Better?","u":"/guides/nanoplasty-vs-keratin/","c":"Guide"},{"t":"Grey Blending vs Full Coverage: Which Is Right for You?","d":"Grey blending vs full grey coverage compared — maintenance, regrowth lines, cost over time and which suits you","k":"Grey Blending vs Full Coverage: Which Is Right for You?","u":"/guides/grey-blending-vs-full-coverage/","c":"Guide"},{"t":"Men's Haircuts Braddon, Canberra","d":"Men's haircuts in Braddon — skin fades, clipper cuts and buzz cuts from $40. Walk-ins welcome at Hair Avenue, ","k":"Men's Haircuts Braddon, Canberra | Hair Avenue","u":"/mens-haircuts-braddon/","c":"Page"},{"t":"Wedding & Bridal Hair Canberra","d":"Wedding, bridal and formal hair in Canberra — elegant upstyles and updos from $175 at Hair Avenue Braddon. Boo","k":"Wedding & Bridal Hair Canberra | Hair Avenue Braddon","u":"/wedding-hair-canberra/","c":"Page"},{"t":"Balayage Canberra","d":"Balayage in Canberra by Wella-trained colourists. Hand-painted, low-maintenance colour from $395 at Hair Avenu","k":"Balayage Canberra | Hand-Painted Colour | Hair Avenue","u":"/balayage-canberra/","c":"Page"},{"t":"Hair Tinsel Canberra","d":"Hair tinsel in Canberra — sparkly, lightweight strands in lots of colours. $60, kids $45, at Hair Avenue Bradd","k":"Hair Tinsel Canberra | $60 · Kids $45 | Hair Avenue Braddon","u":"/hair-tinsel-canberra/","c":"Page"},{"t":"Regrowth Colour Canberra","d":"Root regrowth colour in Canberra — seamless touch-ups, toner refreshes and scalp bleach regrowth from $199 at ","k":"Regrowth Colour Canberra | Root Touch-Ups from $199 | Hair Avenue","u":"/regrowth-canberra/","c":"Page"},{"t":"Terms & Conditions","d":"Hair Avenue Braddon salon policies including booking fees, cancellation policy, late policy, colour adjustment","k":"Terms & Conditions | Hair Avenue Braddon","u":"/hair-avenue-policy.html","c":"Page"},{"t":"Services & Pricing","d":"Browse every service, price and midweek offer, and book online","k":"menu booking price list book","u":"#services","c":"Section","q":1},{"t":"Book an Appointment","d":"Book online or walk in — Unit 102/16 Lonsdale St, Braddon","k":"booking contact phone address walk-in 0449 801 937 parking hours","u":"#book","c":"Section","q":1},{"t":"Reviews & Award","d":"4.9 stars from 180+ Google reviews · 2026 Client Experience Award","k":"google rating testimonials client experience award winner","u":"#reviews","c":"Section","q":1},{"t":"Our Products — Wella","d":"Only premium, salon-grade Wella Professionals — official partner salon","k":"wellaplex koleston blondor luxeoil eimi smoothfiller bond builder premium products","u":"#products","c":"Section","q":1},{"t":"Rewards & App","d":"Earn points every visit with the Hair Avenue app","k":"loyalty points app download treats vouchers","u":"#loyalty","c":"Section"},{"t":"Meet Our Team","d":"The stylists behind the chair at Hair Avenue Braddon","k":"kelly krystle trin kayla stylists hairdressers","u":"#team","c":"Section"},{"t":"FAQs","d":"Everything you need to know before your visit","k":"questions parking cancellation policy","u":"#faq","c":"Section"},{"t":"Careers — Join Our Team","d":"Do what we love, love what we do — hairdressing careers in Braddon","k":"jobs hiring hairdresser stylist apprentice 0401 864 086","u":"#careers","c":"Section"}];
+  var ov = document.getElementById('gsearch'), inp = document.getElementById('gsearchInput'), res = document.getElementById('gsearchResults');
+  function open(){ ov.classList.add('gsearch--open'); document.body.style.overflow='hidden'; render(''); setTimeout(function(){ inp.focus(); }, 30); }
+  function close(){ ov.classList.remove('gsearch--open'); document.body.style.overflow=''; inp.value=''; }
+  function row(e){
+    var a = document.createElement('a');
+    a.className = 'gsearch__row'; a.href = e.u;
+    var m = document.createElement('div'); m.className = 'gsearch__row-main';
+    var t = document.createElement('div'); t.className = 'gsearch__row-title'; t.textContent = e.t;
+    m.appendChild(t);
+    if (e.d) { var d = document.createElement('div'); d.className = 'gsearch__row-desc'; d.textContent = e.d; m.appendChild(d); }
+    var c = document.createElement('span'); c.className = 'gsearch__chip'; c.textContent = e.c;
+    a.appendChild(m); a.appendChild(c);
+    a.addEventListener('click', function(ev){
+      if (e.u.charAt(0) === '#') {
+        ev.preventDefault(); close();
+        if (e.u === '#products') { var f = document.getElementById('productsFold'); if (f) f.open = true; }
+        if (e.u === '#loyalty') { var f2 = document.getElementById('loyaltyFold'); if (f2) f2.open = true; }
+        if (e.sv) { var s = document.getElementById('svcSearchInput'); if (s) { s.value = e.sv; s.dispatchEvent(new Event('input', {bubbles:true})); } }
+        var tgt = document.querySelector(e.u); if (tgt) tgt.scrollIntoView({behavior:'smooth'});
+      } else { close(); }
+    });
+    return a;
+  }
+  function render(q){
+    res.innerHTML = '';
+    q = q.trim().toLowerCase();
+    if (!q) {
+      var lbl = document.createElement('div'); lbl.className='gsearch__label'; lbl.textContent='Quick links'; res.appendChild(lbl);
+      IDX.filter(function(e){ return e.q; }).forEach(function(e){ res.appendChild(row(e)); });
+      return;
+    }
+    var toks = q.split(/\s+/);
+    var hits = IDX.map(function(e){
+      var hay = (e.t+' '+(e.k||'')+' '+(e.d||'')).toLowerCase();
+      var ok = toks.every(function(t){ return hay.indexOf(t) !== -1; });
+      if (!ok) return null;
+      var score = (e.t.toLowerCase().indexOf(q) !== -1 ? 4 : 0) + toks.filter(function(t){ return e.t.toLowerCase().indexOf(t) !== -1; }).length;
+      return { e: e, s: score };
+    }).filter(function(x){ return x; }).sort(function(a,b){ return b.s - a.s; }).slice(0, 8);
+    if (!hits.length) { var em = document.createElement('div'); em.className='gsearch__empty'; em.textContent='No matches — try "balayage", "length guide" or "award".'; res.appendChild(em); return; }
+    hits.forEach(function(x){ res.appendChild(row(x.e)); });
+  }
+  document.getElementById('navSearchBtn').addEventListener('click', open);
+  document.getElementById('gsearchClose').addEventListener('click', close);
+  ov.addEventListener('click', function(e){ if (e.target === ov) close(); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && ov.classList.contains('gsearch--open')) close();
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); open(); }
+  });
+  inp.addEventListener('input', function(){ render(inp.value); });
+})();
 </script>
 </body>
 </html>
