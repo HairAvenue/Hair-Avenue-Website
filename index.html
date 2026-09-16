@@ -3820,6 +3820,58 @@
       .svc-dd__row.is-active svg { opacity: 1; }
     }
     @keyframes svcddin { from { opacity: 0; transform: translateY(-6px) scale(0.98); } to { opacity: 1; transform: none; } }
+
+    /* ===== mobile: iOS segmented-control treatment for the category grid ===== */
+    @media (max-width: 768px) {
+      .services-card .service-tabs .tab-bar { background: rgba(20,42,24,0.07); border-radius: 14px; padding: 4px !important; column-gap: 3px; row-gap: 3px; }
+      .tab-bar .service-tab { padding: 9px 3px !important; border-radius: 10px !important; }
+      .tab-bar__ink { display: none; }
+      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"],
+      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"],
+      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"],
+      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"],
+      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"],
+      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"],
+      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"],
+      #svc-tab-nanoplasty:checked ~ .service-tabs .tab-bar label[for="svc-tab-nanoplasty"],
+      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] { background: linear-gradient(135deg, #C9A96E, #E8D49A) !important; box-shadow: 0 2px 8px rgba(201,169,110,0.45) !important; color: #142a18 !important; }
+      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"] .tab-deal-dot,
+      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"] .tab-deal-dot,
+      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"] .tab-deal-dot,
+      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"] .tab-deal-dot,
+      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"] .tab-deal-dot,
+      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"] .tab-deal-dot,
+      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"] .tab-deal-dot,
+      #svc-tab-nanoplasty:checked ~ .service-tabs .tab-bar label[for="svc-tab-nanoplasty"] .tab-deal-dot,
+      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] .tab-deal-dot { background: #142a18; }
+      .tab-bar .service-tab .tab-deal-dot { top: 4px; right: 4px; }
+    }
+
+    /* ===== desktop: gold segmented treatment ===== */
+    @media (min-width: 769px) {
+      .tab-bar { background: rgba(20,42,24,0.07); border-radius: 16px; padding: 5px; column-gap: 4px; row-gap: 4px; width: fit-content; max-width: 100%; margin: 0 auto; }
+      .tab-bar .service-tab { border-radius: 10px !important; padding: 8px 16px !important; }
+      .tab-bar .service-tab:hover { background: rgba(201,169,110,0.16); text-decoration: none; }
+      .tab-bar__ink { display: none; }
+      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"],
+      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"],
+      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"],
+      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"],
+      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"],
+      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"],
+      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"],
+      #svc-tab-nanoplasty:checked ~ .service-tabs .tab-bar label[for="svc-tab-nanoplasty"],
+      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] { background: linear-gradient(135deg, #C9A96E, #E8D49A) !important; box-shadow: 0 2px 8px rgba(201,169,110,0.45) !important; color: #142a18 !important; }
+      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"] .tab-deal-dot,
+      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"] .tab-deal-dot,
+      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"] .tab-deal-dot,
+      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"] .tab-deal-dot,
+      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"] .tab-deal-dot,
+      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"] .tab-deal-dot,
+      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"] .tab-deal-dot,
+      #svc-tab-nanoplasty:checked ~ .service-tabs .tab-bar label[for="svc-tab-nanoplasty"] .tab-deal-dot,
+      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] .tab-deal-dot { background: #142a18; }
+    }
 </style>
   <noscript>
     <style>
