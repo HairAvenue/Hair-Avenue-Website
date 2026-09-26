@@ -3900,12 +3900,19 @@
       #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"] .tab-new,
       #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] .tab-new { background: #E8D49A; color: #142a18; }
     }
+    .tabs-sentinel { height: 1px; margin-bottom: -1px; pointer-events: none; }
     /* mobile: same photo chips, photo above the label, three-column grid unchanged */
     @media (max-width: 768px) {
-      .services-card .service-tabs .tab-bar { background: none; border-radius: 0; padding: 0 !important; column-gap: 5px; row-gap: 5px; }
-      .tab-bar .service-tab { flex-direction: column; gap: 3px; padding: 6px 2px 7px !important; border-radius: 12px !important; background: #ffffff !important; border: 1px solid rgba(201,169,110,0.38) !important; box-shadow: 0 1px 2px rgba(20,42,24,0.06) !important; }
+      .services-card .service-tabs .tab-bar { background: none; border-radius: 0; padding: 0 !important; column-gap: 5px; row-gap: 4px; transition: row-gap 0.22s ease; }
+      .tab-bar .service-tab { flex-direction: column; gap: 2px; padding: 5px 2px 6px !important; transition: padding 0.22s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; border-radius: 12px !important; background: #ffffff !important; border: 1px solid rgba(201,169,110,0.38) !important; box-shadow: 0 1px 2px rgba(20,42,24,0.06) !important; }
       .tab-bar .service-tab:hover { text-decoration: none; }
-      .tab-bar .service-tab .tab-pic { display: block; width: 24px; height: 24px; border-radius: 50%; object-fit: cover; flex: 0 0 auto; box-shadow: 0 0 0 1.5px #ffffff, 0 0 0 2.5px rgba(201,169,110,0.55); }
+      .tab-bar .service-tab .tab-pic { display: block; width: 22px; height: 22px; border-radius: 50%; object-fit: cover; flex: 0 0 auto; box-shadow: 0 0 0 1.5px #ffffff, 0 0 0 2.5px rgba(201,169,110,0.55); transition: width 0.22s ease, height 0.22s ease, margin 0.22s ease, opacity 0.16s ease; }
+      /* once the panel sticks under the header, the photos fold away so the sticky block stays short */
+      .services-card .service-tabs.is-stuck { padding: 5px 10px 6px !important; }
+      .services-card .service-tabs.is-stuck .tab-bar { row-gap: 3px; }
+      .services-card .service-tabs.is-stuck .tab-bar .service-tab { padding: 4px 2px 5px !important; }
+      .services-card .service-tabs.is-stuck .tab-bar .service-tab .tab-pic { width: 0; height: 0; margin-top: -2px; opacity: 0; box-shadow: none; }
+      .services-card .service-tabs.is-stuck .tab-bar label[for="svc-tab-extensions"] .tab-new { top: 2px; }
       #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"],
       #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"],
       #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"],
@@ -5991,6 +5998,20 @@ window.addEventListener('load', function() {
     if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); open(); }
   });
   inp.addEventListener('input', function(){ render(inp.value); });
+})();
+</script>
+<script>
+(function(){
+  var tabs = document.querySelector('.services-card .service-tabs');
+  if (!tabs || !('IntersectionObserver' in window)) return;
+  var s = document.createElement('div'); s.className = 'tabs-sentinel'; s.setAttribute('aria-hidden', 'true');
+  tabs.parentNode.insertBefore(s, tabs);
+  var top = parseFloat(getComputedStyle(tabs).top) || 66;
+  var io = new IntersectionObserver(function(entries){
+    var e = entries[0];
+    tabs.classList.toggle('is-stuck', !e.isIntersecting && e.boundingClientRect.top < top + 1);
+  }, { rootMargin: '-' + Math.ceil(top + 1) + 'px 0px 0px 0px', threshold: 0 });
+  io.observe(s);
 })();
 </script>
 <script>
