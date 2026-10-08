@@ -4287,6 +4287,41 @@
       .services-card.rail-seen #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"]::before { animation: none; }
     }
 
+    /* ===== services heading: sticky band on desktop too (phones already have one) ===== */
+    @media (min-width: 769px) {
+      .section--services-green .section-label { margin-bottom: 16px; }
+      .section--services-green .services-title { position: sticky; top: 62px; z-index: 120; box-sizing: border-box; height: 58px; margin: 0 calc(50% - 50vw) 26px; padding: 0 24px 2px; display: flex; align-items: center; justify-content: center; font-size: 2rem; line-height: 1; white-space: nowrap; background: rgba(10,31,14,0.94); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); box-shadow: 0 1px 0 rgba(201,169,110,0.35); }
+    }
+    @media (min-width: 900px) {
+      /* the category sidebar now pins under the band */
+      .services-card .service-tabs .tab-bar { top: 128px; }
+    }
+
+    /* ===== desktop sidebar chevron: slides into place on selection (once the card is in view) ===== */
+    @keyframes svcChevIn { from { opacity: 0; transform: translate(-6px, -50%) rotate(-45deg); } to { opacity: 1; transform: translate(0, -50%) rotate(-45deg); } }
+    @media (min-width: 900px) {
+      .services-card.rail-seen #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"] .tab-deal-dot,
+      .services-card.rail-seen #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"] .tab-deal-dot,
+      .services-card.rail-seen #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"] .tab-deal-dot,
+      .services-card.rail-seen #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"] .tab-deal-dot,
+      .services-card.rail-seen #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"] .tab-deal-dot,
+      .services-card.rail-seen #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"] .tab-deal-dot,
+      .services-card.rail-seen #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"] .tab-deal-dot,
+      .services-card.rail-seen #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"] .tab-deal-dot,
+      .services-card.rail-seen #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] .tab-deal-dot { animation: svcChevIn 0.35s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .services-card.rail-seen #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"] .tab-deal-dot,
+      .services-card.rail-seen #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"] .tab-deal-dot,
+      .services-card.rail-seen #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"] .tab-deal-dot,
+      .services-card.rail-seen #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"] .tab-deal-dot,
+      .services-card.rail-seen #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"] .tab-deal-dot,
+      .services-card.rail-seen #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"] .tab-deal-dot,
+      .services-card.rail-seen #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"] .tab-deal-dot,
+      .services-card.rail-seen #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"] .tab-deal-dot,
+      .services-card.rail-seen #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] .tab-deal-dot { animation: none; }
+    }
+
 </style>
   <noscript>
     <style>
