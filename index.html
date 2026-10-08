@@ -4108,7 +4108,7 @@
     }
     @media (max-width: 768px) {
       .section--services-green .services-card { background: linear-gradient(90deg, #f1f4f1 0, #f1f4f1 71px, rgba(201,169,110,0.35) 71px, rgba(201,169,110,0.35) 72px, #ffffff 72px); }
-      .services-card { display: grid !important; grid-template-columns: 72px minmax(0, 1fr); align-items: start; }
+      .services-card { display: grid !important; grid-template-columns: 76px minmax(0, 1fr); align-items: start; }
       .services-card .service-tabs { display: contents !important; }
       .services-card .service-tabs .tab-bar { grid-column: 1; grid-row: 1 / span 3; align-self: start; position: sticky; top: 72px; max-height: calc(100vh - 72px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; display: flex !important; flex-direction: column; justify-content: flex-start !important; gap: 2px !important; row-gap: 2px !important; column-gap: 0 !important; max-width: none; min-height: 0 !important; height: auto !important; margin: 0; padding: 8px 4px 10px !important; background: transparent !important; border-radius: 0; }
       .services-card .service-tabs .tab-bar::-webkit-scrollbar { display: none; }
@@ -4138,7 +4138,7 @@
     }
     @media (max-width: 359px) {
       .section--services-green .services-card { background: linear-gradient(90deg, #f1f4f1 0, #f1f4f1 63px, rgba(201,169,110,0.35) 63px, rgba(201,169,110,0.35) 64px, #ffffff 64px); }
-      .services-card { grid-template-columns: 64px minmax(0, 1fr); }
+      .services-card { grid-template-columns: 68px minmax(0, 1fr); }
       .tab-bar .service-tab .tab-pic { width: 26px; height: 26px; }
       .tab-bar .service-tab { font-size: 0.53rem !important; }
     }
@@ -4189,7 +4189,7 @@
       .tab-bar .service-tab .tab-deal-dot { right: 16px; width: 10px; height: 10px; border-right-width: 1.6px; border-bottom-width: 1.6px; }
     }
     @media (max-width: 768px) {
-      .section--services-green .services-card { background: linear-gradient(90deg, #f6f4ee 0, #f6f4ee 71px, rgba(201,169,110,0.45) 71px, rgba(201,169,110,0.45) 72px, #ffffff 72px); }
+      .section--services-green .services-card { background: linear-gradient(90deg, #f6f4ee 0, #f6f4ee 75px, rgba(201,169,110,0.45) 75px, rgba(201,169,110,0.45) 76px, #ffffff 76px); }
       .services-card .service-tabs .tab-bar { gap: 5px !important; row-gap: 5px !important; padding: 8px 5px 12px !important; }
       /* a small cue so the tiles read as tappable */
       .services-card .service-tabs .tab-bar::before { content: 'Tap a\A category'; white-space: pre; display: block; text-align: center; margin: 0 0 6px; font-size: 0.5rem; font-weight: 700; letter-spacing: 0.14em; line-height: 1.5; text-transform: uppercase; color: #a8894f; }
@@ -4215,7 +4215,50 @@
       #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] .tab-pic { box-shadow: 0 0 0 1.5px #E8D49A, 0 0 0 4px rgba(232,212,154,0.18); }
     }
     @media (max-width: 359px) {
-      .section--services-green .services-card { background: linear-gradient(90deg, #f6f4ee 0, #f6f4ee 63px, rgba(201,169,110,0.45) 63px, rgba(201,169,110,0.45) 64px, #ffffff 64px); }
+      .section--services-green .services-card { background: linear-gradient(90deg, #f6f4ee 0, #f6f4ee 67px, rgba(201,169,110,0.45) 67px, rgba(201,169,110,0.45) 68px, #ffffff 68px); }
+    }
+
+    /* ===== phone rail: fit on one screen, scroll shadows, pointer on the selected tile ===== */
+    @media (max-width: 768px) {
+      /* real-phone height (Safari's toolbar) + a shadow at the bottom whenever more tiles are hidden */
+      .services-card .service-tabs .tab-bar { max-height: calc(100vh - 110px); max-height: calc(100dvh - 110px); padding: 8px 10px 12px 5px !important; gap: 4px !important; row-gap: 4px !important;
+        background: linear-gradient(#f6f4ee 30%, rgba(246,244,238,0)) center top / 100% 22px no-repeat local,
+                    linear-gradient(rgba(246,244,238,0), #f6f4ee 70%) center bottom / 100% 22px no-repeat local,
+                    radial-gradient(farthest-side at 50% 0, rgba(20,42,24,0.22), rgba(20,42,24,0)) center top / 100% 10px no-repeat scroll,
+                    radial-gradient(farthest-side at 50% 100%, rgba(20,42,24,0.32), rgba(20,42,24,0)) center bottom / 100% 12px no-repeat scroll !important; }
+      /* tighter tiles and short names so all nine fit on common phones */
+      .tab-bar .service-tab { padding: 5px 2px 4px !important; gap: 3px !important; overflow: visible !important; }
+      .tab-bar .service-tab .tab-pic { width: 28px; height: 28px; }
+      .services-card .service-tabs .tab-bar .service-tab[for] .tab-full { display: none !important; }
+      .services-card .service-tabs .tab-bar .service-tab[for] .tab-short { display: inline !important; }
+      .services-card .service-tabs .tab-bar .service-tab[for="svc-tab-extensions"] .tab-full,
+      .services-card .service-tabs .tab-bar .service-tab[for="svc-tab-offers"] .tab-full { display: inline !important; }
+      .services-card .service-tabs .tab-bar .service-tab[for="svc-tab-extensions"] .tab-short,
+      .services-card .service-tabs .tab-bar .service-tab[for="svc-tab-offers"] .tab-short { display: none !important; }
+      /* selected tile: a small pointer on its right edge aimed at the services */
+      /* selected tile: gold chevron badge on its right edge, pointing at the services */
+      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"]::before,
+      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"]::before,
+      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"]::before,
+      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"]::before,
+      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"]::before,
+      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"]::before,
+      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"]::before,
+      #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"]::before,
+      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"]::before { content: ''; position: absolute; top: 50%; right: -10px; width: 20px; height: 20px; border-radius: 50%; background: #E8D49A url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23142a18' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 6 15 12 9 18'/%3E%3C/svg%3E") center / 12px 12px no-repeat; border: 1px solid #142a18; box-shadow: 0 2px 6px rgba(10,31,14,0.35); transform: translateY(-50%); z-index: 2; }
+      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"]::after,
+      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"]::after,
+      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"]::after,
+      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"]::after,
+      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"]::after,
+      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"]::after,
+      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"]::after,
+      #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"]::after,
+      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"]::after { content: none; }
+      /* short phones: the rail scrolls, so a down-chevron sticks to its bottom edge as a cue */
+      @media (max-height: 724px) {
+        .services-card .service-tabs .tab-bar::after { content: ''; display: block; position: sticky; bottom: 2px; flex: 0 0 auto; align-self: center; width: 18px; height: 18px; margin-top: -6px; border-radius: 50%; background: #E8D49A url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23142a18' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") center / 11px 11px no-repeat; border: 1px solid #142a18; box-shadow: 0 2px 6px rgba(10,31,14,0.35); z-index: 3; }
+      }
     }
 
 </style>
