@@ -3997,6 +3997,153 @@
       .gl-feats { grid-template-columns: 1fr; margin: 6px 12px 4px; }
     }
     @media (prefers-reduced-motion: reduce) { .gl-video__el { display: none; } }
+    /* ===== team: horizontal swipe strip ===== */
+    .team__grid.team__grid--scroll { display: flex; flex-wrap: nowrap; justify-content: flex-start; gap: 24px; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 8px 4px 16px; scrollbar-width: none; outline: none; }
+    .team__grid.team__grid--scroll::-webkit-scrollbar { display: none; }
+    .team__grid.team__grid--scroll:focus-visible { box-shadow: 0 0 0 2px rgba(201,169,110,0.6); border-radius: 20px; }
+    .team__grid--scroll .team-card { flex: 0 0 340px; max-width: 340px; scroll-snap-align: start; }
+    .team__grid--scroll .team-card__photo { height: 300px; }
+    .team__nav { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 18px; }
+    .team__arrow { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid rgba(201,169,110,0.7); background: rgba(255,255,255,0.06); color: #E8D49A; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease; }
+    .team__arrow svg { width: 20px; height: 20px; }
+    .team__arrow:hover:not(:disabled) { background: rgba(201,169,110,0.18); border-color: #E8D49A; }
+    .team__arrow:disabled { opacity: 0.35; cursor: default; }
+    .team__hint { font-size: 0.74rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.65); text-align: center; }
+    @media (max-width: 768px) {
+      .team__grid.team__grid--scroll { gap: 14px; padding: 6px 2px 12px; }
+      .team__grid--scroll .team-card { flex: 0 0 80vw; max-width: 80vw; }
+      .team__grid--scroll .team-card__photo { height: 240px; }
+      .team__hint { font-size: 0.62rem; letter-spacing: 0.08em; max-width: 160px; }
+    }
+    /* ===== team: premium polish ===== */
+    .team__grid--scroll .team-card { border-radius: 22px; border: 1px solid rgba(201,169,110,0.38); background: linear-gradient(180deg, #ffffff 0%, #fbfaf6 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), 0 26px 50px -30px rgba(0,0,0,0.6), 0 8px 22px -12px rgba(0,0,0,0.35); overflow: hidden; }
+    .team__grid--scroll .team-card:hover { transform: translateY(-6px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), 0 34px 64px -30px rgba(0,0,0,0.65), 0 0 0 1px rgba(201,169,110,0.6); }
+    .team__grid--scroll .team-card__photo { height: 340px; position: relative; }
+    .team__grid--scroll .team-card__photo::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 36%; background: linear-gradient(180deg, rgba(20,42,24,0) 0%, rgba(20,42,24,0.3) 100%); pointer-events: none; }
+    .team__grid--scroll .team-card__body { padding: 26px 26px 28px; }
+    .team__grid--scroll .team-card__name { font-family: 'New York', ui-serif, Georgia, 'Times New Roman', serif; font-style: italic; font-weight: 400; font-size: 1.65rem; letter-spacing: -0.01em; color: #142a18; margin-bottom: 6px; }
+    .team__grid--scroll .team-card__role { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.22em; color: #B8955A; margin-bottom: 16px; padding-bottom: 14px; position: relative; }
+    .team__grid--scroll .team-card__role::after { content: ''; position: absolute; left: 50%; bottom: 0; width: 36px; height: 1px; transform: translateX(-50%); background: linear-gradient(90deg, transparent, #C9A96E, transparent); }
+    .team__grid--scroll .team-card__bio { font-size: 0.9rem; line-height: 1.7; color: #4a4f4b; }
+    .team__grid--scroll .team-card__quote { font-family: 'New York', ui-serif, Georgia, 'Times New Roman', serif; font-size: 0.88rem; line-height: 1.55; color: #5b6b5e; border-top: 1px solid rgba(201,169,110,0.3); padding-top: 12px; margin-top: 14px; }
+    .team__grid--scroll .team-card__quote .star { color: #C9A96E; }
+    .team__grid--scroll .team-card__quote span:last-child { font-family: var(--ff-body); font-style: normal; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: #8a9a8d; }
+    .team__progress { position: relative; height: 2px; max-width: 220px; margin: 22px auto 0; background: rgba(255,255,255,0.14); border-radius: 2px; overflow: hidden; }
+    .team__progress span { position: absolute; top: 0; bottom: 0; left: 0; width: 20%; background: linear-gradient(90deg, #C9A96E, #E8D49A); border-radius: 2px; transition: left 0.25s ease, width 0.25s ease; }
+    .team__nav { margin-top: 18px; }
+    .team__arrow { width: 48px; height: 48px; border-color: rgba(201,169,110,0.8); background: rgba(10,31,14,0.35); backdrop-filter: blur(6px); }
+    @media (max-width: 768px) {
+      .team__grid--scroll .team-card__photo { height: 280px; }
+      .team__grid--scroll .team-card__body { padding: 22px 20px 24px; }
+      .team__grid--scroll .team-card__name { font-size: 1.45rem; }
+    }
+    /* team section: let the salon photo show through more */
+    #team.careers-bg::before { background: linear-gradient(180deg, rgba(10,31,14,0.78) 0%, rgba(20,42,24,0.52) 38%, rgba(20,42,24,0.6) 70%, rgba(10,31,14,0.82) 100%); }
+    #team .section-title, #team .section-subtitle, #team .team__hint { text-shadow: 0 2px 18px rgba(0,0,0,0.5); }
+    /* team: arrows inside the strip on desktop, edge fades */
+    .team__strip { position: relative; }
+    .team__strip::before, .team__strip::after { content: ''; position: absolute; top: 0; bottom: 16px; width: 72px; pointer-events: none; z-index: 2; opacity: 1; transition: opacity 0.25s ease; }
+    .team__strip::before { left: 0; background: linear-gradient(90deg, rgba(18,40,22,0.55), rgba(18,40,22,0)); }
+    .team__strip::after { right: 0; background: linear-gradient(270deg, rgba(18,40,22,0.55), rgba(18,40,22,0)); }
+    .team__strip.is-start::before, .team__strip.is-end::after { opacity: 0; }
+    .team__edge { display: none; position: absolute; top: 366px; z-index: 3; width: 52px; height: 52px; border-radius: 50%; border: 1.5px solid rgba(201,169,110,0.85); background: rgba(10,31,14,0.62); backdrop-filter: blur(8px); color: #E8D49A; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 10px 24px -10px rgba(0,0,0,0.6); transition: background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease, transform 0.2s ease; }
+    .team__edge svg { width: 22px; height: 22px; }
+    .team__edge--prev { left: -6px; }
+    .team__edge--next { right: -6px; }
+    .team__edge:hover:not(:disabled) { background: rgba(201,169,110,0.25); border-color: #E8D49A; transform: scale(1.06); }
+    .team__edge:disabled { opacity: 0; pointer-events: none; }
+    @media (min-width: 769px) {
+      .team__edge { display: inline-flex; }
+      .team__nav { display: none; }
+      .team__progress { margin-top: 26px; }
+    }
+    @media (max-width: 768px) {
+      .team__strip::before, .team__strip::after { width: 28px; }
+    }
+    /* team strip: drag to scroll with a mouse */
+    @media (hover: hover) and (pointer: fine) { .team__grid--scroll { cursor: grab; } }
+    .team__grid--scroll.is-dragging { cursor: grabbing; scroll-snap-type: none; user-select: none; }
+    .team__grid--scroll img { -webkit-user-drag: none; user-select: none; }
+    .team__grid--scroll.is-dragging .team-card { transform: none; }
+
+    /* ===== services: category sidebar (desktop) + icon rail (phones) =====
+       The nine category tabs move from a bar above the panel to a sticky column
+       on the left; the search box, category heading and panel fill the right column.
+       Tab switching is still the CSS-only radio mechanism. */
+    .services-card .service-tabs .tab-bar { flex-wrap: nowrap !important; }
+    .services-card .service-tabs .tab-bar .tab-bar__ink { display: none !important; }
+    .services-card .service-tabs.tabs-exiting .tab-bar,
+    .services-card .service-tabs.tabs-exiting .svc-search { visibility: visible; pointer-events: auto; }
+    @media (min-width: 900px) {
+      .section--services-green .services-card { max-width: 1120px; background: linear-gradient(90deg, #f1f4f1 0, #f1f4f1 251px, rgba(201,169,110,0.35) 251px, rgba(201,169,110,0.35) 252px, #ffffff 252px); }
+      .services-card { display: grid !important; grid-template-columns: 252px minmax(0, 1fr); align-items: start; }
+      .services-card .service-tabs { display: contents !important; }
+      .services-card .service-tabs .tab-bar { grid-column: 1; grid-row: 1 / span 3; align-self: start; position: sticky; top: 84px; display: flex !important; flex-direction: column; justify-content: flex-start !important; gap: 4px; width: auto; max-width: none; min-height: 0 !important; height: auto !important; margin: 0; padding: 18px 12px 22px !important; background: #f1f4f1; border-radius: 20px 0 0 20px; }
+      .tab-bar .service-tab { display: flex !important; justify-content: flex-start !important; align-items: center; width: 100%; gap: 10px; border-radius: 12px !important; padding: 7px 10px !important; background: transparent !important; border: 1px solid transparent !important; box-shadow: none !important; text-align: left; transform: none !important; }
+      .tab-bar .service-tab:hover { background: rgba(201,169,110,0.14) !important; }
+      .tab-bar .service-tab .tab-pic { width: 34px; height: 34px; box-shadow: 0 0 0 2px #fff, 0 0 0 3px rgba(201,169,110,0.5); }
+      .tab-bar .service-tab .tab-active-stack { align-items: flex-start !important; text-align: left; }
+      .tab-bar .service-tab .tab-active-stack small { white-space: normal; line-height: 1.25; }
+      .tab-bar .service-tab .tab-deal-dot { top: 50%; right: 12px; transform: translateY(-50%); }
+      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"],
+      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"],
+      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"],
+      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"],
+      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"],
+      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"],
+      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"],
+      #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"],
+      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] { background: #142a18 !important; color: #fff !important; border-color: #142a18 !important; box-shadow: inset 3px 0 0 #C9A96E, 0 6px 16px -8px rgba(20,42,24,0.6) !important; }
+      .services-card .svc-search { grid-column: 2; grid-row: 1; margin: 18px 24px 4px !important; }
+      .services-card .service-category-indicator { grid-column: 2; grid-row: 2; }
+      .services-card .service-panel { grid-column: 2; grid-row: 3; }
+    }
+    @media (max-width: 768px) {
+      .section--services-green .services-card { background: linear-gradient(90deg, #f1f4f1 0, #f1f4f1 71px, rgba(201,169,110,0.35) 71px, rgba(201,169,110,0.35) 72px, #ffffff 72px); }
+      .services-card { display: grid !important; grid-template-columns: 72px minmax(0, 1fr); align-items: start; }
+      .services-card .service-tabs { display: contents !important; }
+      .services-card .service-tabs .tab-bar { grid-column: 1; grid-row: 1 / span 3; align-self: start; position: sticky; top: 72px; max-height: calc(100vh - 72px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; display: flex !important; flex-direction: column; justify-content: flex-start !important; gap: 2px !important; row-gap: 2px !important; column-gap: 0 !important; max-width: none; min-height: 0 !important; height: auto !important; margin: 0; padding: 8px 4px 10px !important; background: transparent !important; border-radius: 0; }
+      .services-card .service-tabs .tab-bar::-webkit-scrollbar { display: none; }
+      .tab-bar .service-tab { display: flex !important; flex-direction: column !important; align-items: center; justify-content: center; gap: 4px !important; width: 100%; padding: 6px 2px 5px !important; border-radius: 10px !important; margin: 0 !important; background: transparent !important; border: 1px solid transparent !important; box-shadow: none !important; transform: none !important; font-size: 0.57rem !important; font-weight: 600 !important; line-height: 1.15 !important; letter-spacing: 0 !important; text-align: center; white-space: normal !important; color: #2E5339 !important; }
+      .tab-bar .service-tab .tab-pic { width: 30px; height: 30px; margin: 0; }
+      .services-card .service-tabs .tab-bar .service-tab[for] .tab-full { display: inline !important; }
+      .services-card .service-tabs .tab-bar .service-tab .tab-short,
+      .services-card .service-tabs .tab-bar .service-tab .tab-active-stack,
+      .services-card .service-tabs .tab-bar .service-tab small,
+      .services-card .service-tabs .tab-bar .service-tab .tab-mob-active,
+      .services-card .service-tabs .tab-bar .service-tab .tab-deal-dot,
+      .services-card .service-tabs .tab-bar .service-tab .tab-new { display: none !important; }
+      .tab-bar label[for="svc-tab-extensions"]::after { content: ""; position: absolute; top: 5px; right: 7px; width: 7px; height: 7px; border-radius: 50%; background: #C9A96E; }
+      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"],
+      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"],
+      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"],
+      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"],
+      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"],
+      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"],
+      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"],
+      #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"],
+      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] { background: #142a18 !important; color: #ffffff !important; border-color: #142a18 !important; box-shadow: inset 3px 0 0 #C9A96E !important; }
+      .services-card .svc-search { grid-column: 2; grid-row: 1; margin: 8px 8px 2px !important; }
+      .services-card .service-category-indicator { grid-column: 2; grid-row: 2; }
+      .services-card .service-panel { grid-column: 2; grid-row: 3; }
+      .services-card .service-panel .pricing-item { padding-left: 12px; padding-right: 12px; }
+    }
+    @media (max-width: 359px) {
+      .section--services-green .services-card { background: linear-gradient(90deg, #f1f4f1 0, #f1f4f1 63px, rgba(201,169,110,0.35) 63px, rgba(201,169,110,0.35) 64px, #ffffff 64px); }
+      .services-card { grid-template-columns: 64px minmax(0, 1fr); }
+      .tab-bar .service-tab .tab-pic { width: 26px; height: 26px; }
+      .tab-bar .service-tab { font-size: 0.53rem !important; }
+    }
+    /* ===== services heading: lives outside .section-header; sticky band on phones ===== */
+    .section--services-green .section-header { margin-bottom: 0; }
+    .section--services-green .services-title { text-align: center; margin-top: 4px; margin-bottom: 26px; }
+    @media (max-width: 768px) {
+      .section--services-green .services-title { position: sticky; top: 64px; z-index: 120; box-sizing: border-box; height: 46px; margin: 0 -16px 14px; padding: 0 16px 2px; display: flex; align-items: center; justify-content: center; font-size: clamp(1.05rem, 5.4vw, 1.5rem); line-height: 1; white-space: nowrap; background: rgba(10,31,14,0.94); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); box-shadow: 0 1px 0 rgba(201,169,110,0.35); }
+      /* the icon rail now sits under the sticky title */
+      .services-card .service-tabs .tab-bar { top: 110px; max-height: calc(100vh - 110px); }
+      #services .section-label { margin-bottom: 14px; }
+    }
+
 </style>
   <noscript>
     <style>
@@ -4191,13 +4338,13 @@
 <div class="container">
 <div class="section-header reveal">
 <span class="section-label">What We Offer</span>
-<h2 class="section-title">Hair Salon Services &amp; Pricing</h2>
 </div>
+<h2 class="section-title services-title reveal">Hair Salon Services &amp; Pricing</h2>
 <!-- Unified Services Card -->
 <div class="services-card reveal">
 <!-- Service Category Cards -->
-<input checked="" class="svc-tab-radio" id="svc-tab-offers" name="svc-tab" type="radio"/>
-<input class="svc-tab-radio" id="svc-tab-colouring" name="svc-tab" type="radio"/>
+<input class="svc-tab-radio" id="svc-tab-offers" name="svc-tab" type="radio"/>
+<input checked="" class="svc-tab-radio" id="svc-tab-colouring" name="svc-tab" type="radio"/>
 <input class="svc-tab-radio" id="svc-tab-regrowth" name="svc-tab" type="radio"/>
 <input class="svc-tab-radio" id="svc-tab-highlights" name="svc-tab" type="radio"/>
 <input class="svc-tab-radio" id="svc-tab-cutting" name="svc-tab" type="radio"/>
@@ -4208,7 +4355,6 @@
 <div class="service-tabs">
 
 <div class="tab-bar"><span class="tab-bar__ink" aria-hidden="true"></span>
-<label class="service-tab" for="svc-tab-offers"><img class="tab-pic" src="images/tabs/tab-offers.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Midweek Offers</span><span class="tab-short">Offers</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
 <label class="service-tab" for="svc-tab-colouring"><img class="tab-pic" src="images/tabs/tab-colouring.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Colour &amp; Toner</span><span class="tab-short">Colour &amp; Toner</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
 <label class="service-tab" for="svc-tab-regrowth"><img class="tab-pic" src="images/tabs/tab-regrowth.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Grey Blending &amp; Regrowth</span><span class="tab-short">Grey Blending</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
 <label class="service-tab" for="svc-tab-highlights"><img class="tab-pic" src="images/tabs/tab-highlights.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Highlights &amp; Balayage</span><span class="tab-short">Highlights</span><span class="tab-mob-active">Highlighting</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
@@ -4217,6 +4363,7 @@
 <label class="service-tab" for="svc-tab-cutting"><img class="tab-pic" src="images/tabs/tab-cutting.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Haircuts</span><span class="tab-active-stack">Haircuts<small>Women, Men &amp; Kids</small></span><span class="tab-short">Haircuts</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
 <label class="service-tab" for="svc-tab-tinsel"><img class="tab-pic" src="images/tabs/tab-tinsel.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Upstyle &amp; Hair Tinsel</span><span class="tab-short">Upstyle</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
 <label class="service-tab" for="svc-tab-extensions"><img class="tab-pic" src="images/tabs/tab-extensions.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Hair Extensions<span class="tab-new">New</span></span><span class="tab-short">Extensions</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
+<label class="service-tab" for="svc-tab-offers"><img class="tab-pic" src="images/tabs/tab-offers.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Midweek Offers</span><span class="tab-short">Offers</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
 </div>
 <div class="svc-search" id="svcSearch">
 <div class="svc-search__box">
@@ -4751,19 +4898,17 @@
 <!-- ===== THE HAIR AVENUE EXPERIENCE ===== -->
 <!-- ===== HAIR GALLERY ===== -->
 <!-- ===== MEET THE TEAM ===== -->
-<section class="section careers-bg" id="team" style="background-image: url('images/salon/13-foils-action.webp');">
+<section class="section careers-bg" id="team" style="background-image: url('images/salon/01-stations.webp');">
 <div class="container">
 <div class="section-header reveal">
 <span class="section-label">Our Team</span>
 <h2 class="section-title">Meet the People Behind the Chair</h2>
 <p class="section-subtitle">Our talented team of Braddon hairdressers is passionate about making you look and feel your absolute best. Get to know the stylists who'll be working their magic.</p>
 </div>
-<button class="section-photo section-photo--wide team-intro-photo reveal" type="button" aria-label="View photo: our signature arched styling stations">
-<img alt="Hair Avenue Braddon — signature arched styling stations with olive leather chairs" loading="lazy" src="images/salon/01-stations.webp" width="1600" height="1066"/>
-<span class="section-photo__zoom" aria-hidden="true"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><line x1="21" x2="16.65" y1="21" y2="16.65"></line><line x1="11" x2="11" y1="8" y2="14"></line><line x1="8" x2="14" y1="11" y2="11"></line></svg></span>
-<span class="section-photo__caption">The space they call home — signature arched styling stations</span>
-</button>
-<div class="team__grid">
+<div class="team__strip">
+<button class="team__edge team__edge--prev" type="button" data-dir="-1" aria-label="Previous stylist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+<button class="team__edge team__edge--next" type="button" data-dir="1" aria-label="Next stylist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+<div class="team__grid team__grid--scroll" role="region" aria-label="Meet the team — scroll sideways for more stylists" tabindex="0">
 <div class="team-card reveal">
 <div class="team-card__photo">
 <img alt="Kelly — Owner and Creative Director at Hair Avenue Braddon" class="team-card__photo-inner" loading="lazy" src="images/team-card__photo-inner-4.webp" style="object-position: center 40%;" width="800" height="1200"/>
@@ -4831,6 +4976,30 @@
 </div>
 </div>
 </div>
+</div>
+<div class="team__progress" aria-hidden="true"><span></span></div>
+<div class="team__nav" aria-hidden="false">
+<button class="team__arrow" type="button" data-dir="-1" aria-label="Previous stylist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+<span class="team__hint">Swipe or use the arrows to meet the whole team</span>
+<button class="team__arrow" type="button" data-dir="1" aria-label="Next stylist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+</div>
+<script>
+(function(){
+  var track = document.querySelector('.team__grid--scroll'); if (!track) return;
+  function step(){ var c = track.querySelector('.team-card'); return c ? c.getBoundingClientRect().width + 24 : 360; }
+  document.querySelectorAll('.team__arrow, .team__edge').forEach(function(b){ b.addEventListener('click', function(){ track.scrollBy({ left: step() * parseInt(b.getAttribute('data-dir'), 10), behavior: 'smooth' }); }); });
+  var bar = document.querySelector('.team__progress span');
+  function updateArrows(){ var max = track.scrollWidth - track.clientWidth - 6; if (bar) { var w = Math.max(12, track.clientWidth / track.scrollWidth * 100); bar.style.width = w + '%'; bar.style.left = (track.scrollLeft / track.scrollWidth * 100) + '%'; } document.querySelectorAll('.team__arrow, .team__edge').forEach(function(b){ var d = parseInt(b.getAttribute('data-dir'), 10); b.disabled = d < 0 ? track.scrollLeft <= 6 : track.scrollLeft >= max; }); var strip = track.parentElement; if (strip && strip.classList.contains('team__strip')) { strip.classList.toggle('is-start', track.scrollLeft <= 6); strip.classList.toggle('is-end', track.scrollLeft >= max); } }
+  /* mouse users: click and drag the strip */
+  var dragging = false, dragMoved = false, dragX = 0, dragLeft = 0;
+  track.addEventListener('pointerdown', function(e){ if (e.pointerType !== 'mouse' || e.button !== 0) return; dragging = true; dragMoved = false; dragX = e.clientX; dragLeft = track.scrollLeft; track.classList.add('is-dragging'); });
+  track.addEventListener('pointermove', function(e){ if (!dragging) return; var dx = e.clientX - dragX; if (Math.abs(dx) > 4) dragMoved = true; track.scrollLeft = dragLeft - dx; });
+  function endDrag(){ if (!dragging) return; dragging = false; track.classList.remove('is-dragging'); }
+  track.addEventListener('pointerup', endDrag); track.addEventListener('pointercancel', endDrag); track.addEventListener('pointerleave', endDrag); window.addEventListener('blur', endDrag);
+  track.addEventListener('click', function(e){ if (dragMoved) { e.preventDefault(); e.stopPropagation(); dragMoved = false; } }, true);
+  track.addEventListener('scroll', updateArrows, { passive: true }); window.addEventListener('resize', updateArrows); window.addEventListener('load', updateArrows); updateArrows(); setTimeout(updateArrows, 400);
+})();
+</script>
 </div>
 </section>
 
@@ -5727,6 +5896,9 @@ window.addEventListener('load', function() {
       if (!card) return;
       function navOffset() {
         // Match the .service-tabs sticky `top` value (desktop 62px, mobile 56px).
+        // On phones the section title is sticky too, so land the card just below it.
+        var t = document.querySelector('.services-title');
+        if (t && getComputedStyle(t).position === 'sticky') return parseFloat(getComputedStyle(t).top) + t.offsetHeight + 6;
         return window.matchMedia('(max-width: 768px)').matches ? 56 : 62;
       }
       // Resolve the services-card's natural document Y. We anchor to the card
@@ -5744,7 +5916,7 @@ window.addEventListener('load', function() {
         // Defer two frames so the new panel has laid out & the page height has settled.
         requestAnimationFrame(function() {
           requestAnimationFrame(function() {
-            var targetY = docY(card) - navOffset();
+            var targetY = card.getBoundingClientRect().top + window.scrollY - navOffset();
             window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
             setTimeout(function() { snapping = false; }, 600);
           });
@@ -5837,6 +6009,8 @@ window.addEventListener('load', function() {
       var radios = document.querySelectorAll('.svc-tab-radio');
       function scrollToCard() {
         var offset = (nav ? nav.offsetHeight : 70) + 12;
+        var st = document.querySelector('.services-title');
+        if (st && getComputedStyle(st).position === 'sticky') offset = parseFloat(getComputedStyle(st).top) + st.offsetHeight + 6;
         var top = card.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top: top, behavior: 'smooth' });
       }
@@ -5912,6 +6086,7 @@ window.addEventListener('load', function() {
         var off;
         if(tabs&&getComputedStyle(tabs).position==='sticky'){ off=(parseFloat(getComputedStyle(tabs).top)||0)+tabs.offsetHeight+14; }
         else { var nav=document.querySelector('.nav'); off=(nav?nav.offsetHeight:70)+16; }
+        var st=document.querySelector('.services-title'); if(st&&getComputedStyle(st).position==='sticky'){ off=parseFloat(getComputedStyle(st).top)+st.offsetHeight+16; }
         var top=entry.el.getBoundingClientRect().top+window.pageYOffset-off;
         window.scrollTo({top:top,behavior:'smooth'});
         entry.el.classList.remove('search-flash'); void entry.el.offsetWidth; entry.el.classList.add('search-flash');
@@ -6036,11 +6211,11 @@ window.addEventListener('load', function() {
 </script>
 <script>
 (function(){
-  var keys = ['offers','colouring','regrowth','highlights','blowwave','smoothfiller','cutting','tinsel','extensions'];
+  var keys = ['colouring','regrowth','highlights','blowwave','smoothfiller','cutting','tinsel','extensions','offers'];
   var names = { offers:'Midweek Offers', colouring:'Colour & Toner', regrowth:'Grey Blending & Regrowth', highlights:'Highlights & Balayage', blowwave:'Blow Wave', smoothfiller:'Treatments', cutting:'Haircuts', tinsel:'Upstyle & Hair Tinsel', extensions:'Hair Extensions' };
   var bar = document.querySelector('.tab-bar'), ink = document.querySelector('.tab-bar__ink');
   var dd = document.querySelector('.svc-dd'), btn = document.getElementById('svcDdBtn'), val = document.getElementById('svcDdVal'), menu = document.getElementById('svcDdMenu'), bk = document.getElementById('svcDdBackdrop');
-  function activeKey(){ for (var i=0;i<keys.length;i++){ var r=document.getElementById('svc-tab-'+keys[i]); if (r && r.checked) return keys[i]; } return 'offers'; }
+  function activeKey(){ for (var i=0;i<keys.length;i++){ var r=document.getElementById('svc-tab-'+keys[i]); if (r && r.checked) return keys[i]; } return 'colouring'; }
   function moveInk(){ if (!bar || !ink || !bar.offsetParent) return; var l = bar.querySelector('label[for="svc-tab-'+activeKey()+'"]'); if (!l) return; ink.style.left = l.offsetLeft + 'px'; ink.style.width = l.offsetWidth + 'px'; ink.style.top = (l.offsetTop + l.offsetHeight - 2) + 'px'; }
   function syncDd(){ var k = activeKey(); if (val) val.textContent = names[k]; if (menu) [].forEach.call(menu.children, function(r){ r.classList.toggle('is-active', r.getAttribute('data-tab') === k); }); }
   function closeDd(){ if (dd) { dd.classList.remove('open'); btn.setAttribute('aria-expanded','false'); } }
