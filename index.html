@@ -4059,6 +4059,13 @@
     }
     @media (max-width: 768px) {
       .team__strip::before, .team__strip::after { width: 28px; }
+      /* phones: floating arrows inside the strip too, sitting at name level; the duplicate row arrows go, the hint stays */
+      .team__edge { display: inline-flex; top: 304px; width: 44px; height: 44px; }
+      .team__edge svg { width: 19px; height: 19px; }
+      .team__edge--prev { left: -4px; }
+      .team__edge--next { right: -4px; }
+      .team__nav .team__arrow { display: none; }
+      .team__nav { margin-top: 14px; }
     }
     /* team strip: drag to scroll with a mouse */
     @media (hover: hover) and (pointer: fine) { .team__grid--scroll { cursor: grab; } }
@@ -4084,7 +4091,8 @@
       .tab-bar .service-tab .tab-pic { width: 34px; height: 34px; box-shadow: 0 0 0 2px #fff, 0 0 0 3px rgba(201,169,110,0.5); }
       .tab-bar .service-tab .tab-active-stack { align-items: flex-start !important; text-align: left; }
       .tab-bar .service-tab .tab-active-stack small { white-space: normal; line-height: 1.25; }
-      .tab-bar .service-tab .tab-deal-dot { top: 50%; right: 12px; transform: translateY(-50%); }
+      /* active-tab marker: a gold chevron pointing at the services instead of the pulsing dot */
+      .tab-bar .service-tab .tab-deal-dot { top: 50%; right: 15px; width: 9px; height: 9px; border-radius: 0; background: transparent !important; border-right: 2px solid #E8D49A; border-bottom: 2px solid #E8D49A; transform: translateY(-50%) rotate(-45deg); animation: none; }
       #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"],
       #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"],
       #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"],
@@ -4122,7 +4130,7 @@
       #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"],
       #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"],
       #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"],
-      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] { background: #142a18 !important; color: #ffffff !important; border-color: #142a18 !important; box-shadow: inset 3px 0 0 #C9A96E !important; }
+      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] { background: #142a18 !important; color: #ffffff !important; border-color: #142a18 !important; box-shadow: none !important; }
       .services-card .svc-search { grid-column: 2; grid-row: 1; margin: 8px 8px 2px !important; }
       .services-card .service-category-indicator { grid-column: 2; grid-row: 2; }
       .services-card .service-panel { grid-column: 2; grid-row: 3; }
