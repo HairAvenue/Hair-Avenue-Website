@@ -4152,6 +4152,72 @@
       #services .section-label { margin-bottom: 14px; }
     }
 
+    /* ===== services sidebar + phone rail: premium polish (cream column, button-like rows) ===== */
+    @media (min-width: 900px) {
+      .section--services-green .services-card { background: linear-gradient(90deg, #f6f4ee 0, #f6f4ee 251px, rgba(201,169,110,0.45) 251px, rgba(201,169,110,0.45) 252px, #ffffff 252px); }
+      .services-card .service-tabs .tab-bar { background: #f6f4ee; padding: 22px 14px 26px !important; gap: 6px; }
+      .services-card .service-tabs .tab-bar::before { content: 'Browse by category'; display: block; margin: 0 0 12px 12px; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #a8894f; }
+      .tab-bar .service-tab { padding: 9px 34px 9px 10px !important; gap: 12px; border-radius: 14px !important; font-weight: 500 !important; font-size: 0.9rem !important; letter-spacing: 0.005em !important; line-height: 1.2; white-space: normal !important; color: #1d3a24 !important; border: 1px solid transparent !important; transition: background-color .22s ease, border-color .22s ease, box-shadow .22s ease; }
+      .tab-bar .service-tab:hover { background: rgba(201,169,110,0.12) !important; border-color: rgba(201,169,110,0.35) !important; }
+      .tab-bar .service-tab .tab-pic { width: 40px; height: 40px; box-shadow: 0 0 0 1.5px rgba(201,169,110,0.75), 0 6px 12px -6px rgba(20,42,24,0.45); transition: transform .22s ease; }
+      .tab-bar .service-tab:hover .tab-pic { transform: scale(1.04); }
+      .tab-bar .service-tab .tab-active-stack small { font-size: 0.66rem; font-weight: 500; letter-spacing: 0.01em; color: #7b8a7e; margin-top: 2px; }
+      .tab-bar .service-tab .tab-new { background: rgba(201,169,110,0.18); color: #8a6a35; border: 1px solid rgba(201,169,110,0.5); }
+      /* the old chip grid pinned these two labels to one smaller line; in the sidebar they wrap like the rest */
+      .services-card .service-tabs .tab-bar label[for="svc-tab-regrowth"] .tab-full,
+      .services-card .service-tabs .tab-bar label[for="svc-tab-cutting"] .tab-full { font-size: inherit; letter-spacing: inherit; white-space: normal; }
+      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"],
+      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"],
+      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"],
+      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"],
+      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"],
+      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"],
+      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"],
+      #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"],
+      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] { background: linear-gradient(135deg, #1f4229 0%, #0f2614 100%) !important; color: #ffffff !important; border-color: rgba(201,169,110,0.6) !important; box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 14px 28px -16px rgba(10,31,14,0.75) !important; font-weight: 600 !important; }
+      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"] .tab-pic,
+      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"] .tab-pic,
+      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"] .tab-pic,
+      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"] .tab-pic,
+      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"] .tab-pic,
+      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"] .tab-pic,
+      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"] .tab-pic,
+      #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"] .tab-pic,
+      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] .tab-pic { box-shadow: 0 0 0 1.5px #E8D49A, 0 0 0 5px rgba(232,212,154,0.16); }
+      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"] .tab-active-stack small,
+      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"] .tab-active-stack small { color: rgba(255,255,255,0.72); }
+      .tab-bar .service-tab .tab-deal-dot { right: 16px; width: 10px; height: 10px; border-right-width: 1.6px; border-bottom-width: 1.6px; }
+    }
+    @media (max-width: 768px) {
+      .section--services-green .services-card { background: linear-gradient(90deg, #f6f4ee 0, #f6f4ee 71px, rgba(201,169,110,0.45) 71px, rgba(201,169,110,0.45) 72px, #ffffff 72px); }
+      .services-card .service-tabs .tab-bar { gap: 5px !important; row-gap: 5px !important; padding: 8px 5px 12px !important; }
+      /* a small cue so the tiles read as tappable */
+      .services-card .service-tabs .tab-bar::before { content: 'Tap a\A category'; white-space: pre; display: block; text-align: center; margin: 0 0 6px; font-size: 0.5rem; font-weight: 700; letter-spacing: 0.14em; line-height: 1.5; text-transform: uppercase; color: #a8894f; }
+      .tab-bar .service-tab { background: #ffffff !important; border: 1px solid rgba(201,169,110,0.5) !important; border-radius: 12px !important; box-shadow: 0 1px 2px rgba(20,42,24,0.08), 0 5px 10px -6px rgba(20,42,24,0.3) !important; color: #1d3a24 !important; }
+      .tab-bar .service-tab .tab-pic { box-shadow: 0 0 0 1.5px rgba(201,169,110,0.7); }
+      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"],
+      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"],
+      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"],
+      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"],
+      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"],
+      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"],
+      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"],
+      #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"],
+      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] { background: linear-gradient(160deg, #1f4229 0%, #0f2614 100%) !important; color: #ffffff !important; border-color: rgba(201,169,110,0.7) !important; box-shadow: 0 8px 16px -10px rgba(10,31,14,0.8) !important; }
+      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"] .tab-pic,
+      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"] .tab-pic,
+      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"] .tab-pic,
+      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"] .tab-pic,
+      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"] .tab-pic,
+      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"] .tab-pic,
+      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"] .tab-pic,
+      #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"] .tab-pic,
+      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] .tab-pic { box-shadow: 0 0 0 1.5px #E8D49A, 0 0 0 4px rgba(232,212,154,0.18); }
+    }
+    @media (max-width: 359px) {
+      .section--services-green .services-card { background: linear-gradient(90deg, #f6f4ee 0, #f6f4ee 63px, rgba(201,169,110,0.45) 63px, rgba(201,169,110,0.45) 64px, #ffffff 64px); }
+    }
+
 </style>
   <noscript>
     <style>
