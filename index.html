@@ -3845,7 +3845,7 @@
     }
     @media (max-width: 768px) {
       .section--services-green .services-card { background: linear-gradient(90deg, #f1f4f1 0, #f1f4f1 71px, rgba(201,169,110,0.35) 71px, rgba(201,169,110,0.35) 72px, #ffffff 72px); }
-      .services-card { display: grid !important; grid-template-columns: 76px minmax(0, 1fr); align-items: start; }
+      .services-card { display: grid !important; grid-template-columns: 90px minmax(0, 1fr); align-items: start; }
       .services-card .service-tabs { display: contents !important; }
       .services-card .service-tabs .tab-bar { grid-column: 1; grid-row: 1 / span 3; align-self: start; position: sticky; top: 72px; max-height: calc(100vh - 72px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; display: flex !important; flex-direction: column; justify-content: flex-start !important; gap: 2px !important; row-gap: 2px !important; column-gap: 0 !important; max-width: none; min-height: 0 !important; height: auto !important; margin: 0; padding: 8px 4px 10px !important; background: transparent !important; border-radius: 0; }
       .services-card .service-tabs .tab-bar::-webkit-scrollbar { display: none; }
@@ -3874,9 +3874,11 @@
     }
     @media (max-width: 359px) {
       .section--services-green .services-card { background: linear-gradient(90deg, #f1f4f1 0, #f1f4f1 63px, rgba(201,169,110,0.35) 63px, rgba(201,169,110,0.35) 64px, #ffffff 64px); }
-      .services-card { grid-template-columns: 68px minmax(0, 1fr); }
+      .services-card { grid-template-columns: 72px minmax(0, 1fr); }
       .tab-bar .service-tab .tab-pic { width: 26px; height: 26px; }
       .tab-bar .service-tab { font-size: 0.53rem !important; }
+      .section--services-green .services-card .service-tabs .tab-bar .service-tab[for] .tab-full { display: none !important; }
+      .section--services-green .services-card .service-tabs .tab-bar .service-tab[for] .tab-short { display: inline !important; }
     }
     /* ===== services heading: lives outside .section-header; sticky band on phones ===== */
     .section--services-green .section-header { margin-bottom: 0; }
@@ -3925,7 +3927,7 @@
       .tab-bar .service-tab .tab-deal-dot { right: 16px; width: 10px; height: 10px; border-right-width: 1.6px; border-bottom-width: 1.6px; }
     }
     @media (max-width: 768px) {
-      .section--services-green .services-card { background: linear-gradient(90deg, #f6f4ee 0, #f6f4ee 75px, rgba(201,169,110,0.45) 75px, rgba(201,169,110,0.45) 76px, #ffffff 76px); }
+      .section--services-green .services-card { background: linear-gradient(90deg, #f6f4ee 0, #f6f4ee 89px, rgba(201,169,110,0.45) 89px, rgba(201,169,110,0.45) 90px, #ffffff 90px); }
       .services-card .service-tabs .tab-bar { gap: 5px !important; row-gap: 5px !important; padding: 8px 5px 12px !important; }
       /* a small cue so the tiles read as tappable */
       .services-card .service-tabs .tab-bar::before { content: 'Tap a\A category'; white-space: pre; display: block; text-align: center; margin: 0 0 6px; font-size: 0.5rem; font-weight: 700; letter-spacing: 0.14em; line-height: 1.5; text-transform: uppercase; color: #a8894f; }
@@ -3951,7 +3953,7 @@
       #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] .tab-pic { box-shadow: 0 0 0 1.5px #E8D49A, 0 0 0 4px rgba(232,212,154,0.18); }
     }
     @media (max-width: 359px) {
-      .section--services-green .services-card { background: linear-gradient(90deg, #f6f4ee 0, #f6f4ee 67px, rgba(201,169,110,0.45) 67px, rgba(201,169,110,0.45) 68px, #ffffff 68px); }
+      .section--services-green .services-card { background: linear-gradient(90deg, #f6f4ee 0, #f6f4ee 71px, rgba(201,169,110,0.45) 71px, rgba(201,169,110,0.45) 72px, #ffffff 72px); }
     }
 
     /* ===== phone rail: fit on one screen, scroll shadows, pointer on the selected tile ===== */
@@ -3965,12 +3967,8 @@
       /* tighter tiles and short names so all nine fit on common phones */
       .tab-bar .service-tab { padding: 5px 2px 4px !important; gap: 3px !important; overflow: visible !important; }
       .tab-bar .service-tab .tab-pic { width: 28px; height: 28px; }
-      .services-card .service-tabs .tab-bar .service-tab[for] .tab-full { display: none !important; }
-      .services-card .service-tabs .tab-bar .service-tab[for] .tab-short { display: inline !important; }
-      .services-card .service-tabs .tab-bar .service-tab[for="svc-tab-extensions"] .tab-full,
-      .services-card .service-tabs .tab-bar .service-tab[for="svc-tab-offers"] .tab-full { display: inline !important; }
-      .services-card .service-tabs .tab-bar .service-tab[for="svc-tab-extensions"] .tab-short,
-      .services-card .service-tabs .tab-bar .service-tab[for="svc-tab-offers"] .tab-short { display: none !important; }
+      .services-card .service-tabs .tab-bar .service-tab[for] .tab-full { display: inline !important; }
+      .services-card .service-tabs .tab-bar .service-tab[for] .tab-short { display: none !important; }
       /* selected tile: a small pointer on its right edge aimed at the services */
       /* selected tile: gold chevron badge on its right edge, pointing at the services */
       #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"]::before,
