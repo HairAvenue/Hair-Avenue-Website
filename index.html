@@ -4322,6 +4322,16 @@
       .services-card.rail-seen #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] .tab-deal-dot { animation: none; }
     }
 
+    /* ===== services search box: sticks under the heading band, services scroll beneath it ===== */
+    .services-card .svc-search { position: sticky; z-index: 90; }
+    .services-card .svc-search:focus-within { background: #ffffff; }
+    @media (min-width: 900px) {
+      .services-card .svc-search { top: 120px; margin: 0 !important; padding: 18px 24px 16px; background: linear-gradient(#ffffff 0, #ffffff 70%, rgba(255,255,255,0)); }
+    }
+    @media (max-width: 768px) {
+      .services-card .svc-search { top: 110px; margin: 0 !important; padding: 6px 8px 12px; background: linear-gradient(#ffffff 0, #ffffff 68%, rgba(255,255,255,0)); }
+    }
+
 </style>
   <noscript>
     <style>
@@ -6265,6 +6275,7 @@ window.addEventListener('load', function() {
         if(tabs&&getComputedStyle(tabs).position==='sticky'){ off=(parseFloat(getComputedStyle(tabs).top)||0)+tabs.offsetHeight+14; }
         else { var nav=document.querySelector('.nav'); off=(nav?nav.offsetHeight:70)+16; }
         var st=document.querySelector('.services-title'); if(st&&getComputedStyle(st).position==='sticky'){ off=parseFloat(getComputedStyle(st).top)+st.offsetHeight+16; }
+        var sb=document.querySelector('.services-card .svc-search'); if(sb&&getComputedStyle(sb).position==='sticky'){ off+=sb.offsetHeight; }
         var top=entry.el.getBoundingClientRect().top+window.pageYOffset-off;
         window.scrollTo({top:top,behavior:'smooth'});
         entry.el.classList.remove('search-flash'); void entry.el.offsetWidth; entry.el.classList.add('search-flash');
