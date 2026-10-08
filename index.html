@@ -1772,13 +1772,6 @@
     #team.careers-bg::before {
       background: linear-gradient(135deg, rgba(10,31,14,0.92) 0%, rgba(20,42,24,0.88) 50%, rgba(46,83,57,0.9) 100%);
     }
-    /* Cutting tab — longer "Women & Men" label; match other tabs' size on desktop, tighten to keep one line */
-    @media (min-width: 769px) {
-      label[for="svc-tab-cutting"] .tab-full,
-      label[for="svc-tab-regrowth"] .tab-full { font-size: 0.78rem; letter-spacing: -0.02em; white-space: nowrap; }
-      .services-card .service-tab[for="svc-tab-cutting"],
-      .services-card .service-tab[for="svc-tab-regrowth"] { padding-left: 6px; padding-right: 6px; }
-    }
     /* Helper text under the services card */
     .services-help {
       text-align: center;
@@ -2008,26 +2001,7 @@
         /* Pricing Tabs */
     /* ===== SERVICE TABS (Pure CSS with radio inputs) ===== */
     .svc-tab-radio { display: none !important; }
-    .service-tabs {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 6px;
-      max-width: 860px;
-      margin: 0 auto 0;
-      border-bottom: none;
-      position: sticky;
-      top: 62px;
-      z-index: 90;
-      background: #ffffff;
-      border-radius: 14px;
-      padding: 8px 8px 8px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06), 0 0 0 1px rgba(201,169,110,0.2);
-      transition: box-shadow 0.3s ease;
-    }
     
-    .service-tab[for="svc-tab-offers"] {
-      grid-column: span 2;
-    }
     .service-category-indicator {
       display: flex;
       align-items: center;
@@ -2087,23 +2061,6 @@
     /* Service panel revealed below — CSS-only via radio sibling selectors */
     .service-panel { display: none; max-width: 860px; margin: 0 auto; }
 
-    /* Radio-driven active states — no JS needed */
-    #svc-tab-colouring:checked ~ .service-tabs label[for="svc-tab-colouring"],
-    #svc-tab-highlights:checked ~ .service-tabs label[for="svc-tab-highlights"],
-    #svc-tab-cutting:checked ~ .service-tabs label[for="svc-tab-cutting"],
-    #svc-tab-blowwave:checked ~ .service-tabs label[for="svc-tab-blowwave"],
-    #svc-tab-smoothfiller:checked ~ .service-tabs label[for="svc-tab-smoothfiller"],
-    #svc-tab-extensions:checked ~ .service-tabs label[for="svc-tab-extensions"],
-    #svc-tab-tinsel:checked ~ .service-tabs label[for="svc-tab-tinsel"],
-    #svc-tab-offers:checked ~ .service-tabs label[for="svc-tab-offers"],
-    #svc-tab-regrowth:checked ~ .service-tabs label[for="svc-tab-regrowth"] {
-      color: #ffffff;
-      font-weight: 700;
-      background: linear-gradient(135deg, #2E5339, #3a6d48);
-      border: 1.5px solid rgba(201,169,110,0.35);
-      box-shadow: 0 3px 10px rgba(46,83,57,0.25), inset 0 -2px 0 0 rgba(0,0,0,0.1);
-      transform: none;
-    }
     #svc-tab-colouring:checked ~ #panel-colouring,
     #svc-tab-regrowth:checked ~ #panel-regrowth,
     #svc-tab-highlights:checked ~ #panel-highlights,
@@ -3423,44 +3380,6 @@
 
       /* Services — compact 2-column grid */
       .services__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-      /* Service tabs — horizontal scroll on mobile, left-aligned so first tabs are fully visible */
-      .services-card .service-tabs { display: grid !important; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 5px 6px 6px; background: #ffffff; border-radius: 12px; border-bottom: none; top: 66px; box-shadow: 0 2px 12px rgba(0,0,0,0.06), 0 0 0 1px rgba(201,169,110,0.2); }
-      .services-card .service-tab[for="svc-tab-offers"] { grid-column: auto; }
-      .services-card .service-tabs::-webkit-scrollbar { display: none; }
-      .services-card .service-tab { font-size: 0.72rem; font-weight: 600; padding: 8px 4px; white-space: nowrap; overflow: visible; border: 1.5px solid rgba(201,169,110,0.35); margin-bottom: 0; border-radius: 7px; letter-spacing: -0.01em; text-align: center; background: #ffffff; transition: all 0.3s ease; box-sizing: border-box; min-width: 0; box-shadow: 0 1px 2px rgba(201,169,110,0.1); }
-      .services-card .service-tab::after { display: none; }
-      .tab-full { display: none; }
-      .tab-short { display: inline; }
-      /* Active tab: show full name, expand */
-      #svc-tab-colouring:checked ~ .service-tabs label[for="svc-tab-colouring"],
-      #svc-tab-regrowth:checked ~ .service-tabs label[for="svc-tab-regrowth"],
-      #svc-tab-highlights:checked ~ .service-tabs label[for="svc-tab-highlights"],
-      #svc-tab-cutting:checked ~ .service-tabs label[for="svc-tab-cutting"],
-      #svc-tab-blowwave:checked ~ .service-tabs label[for="svc-tab-blowwave"],
-      #svc-tab-smoothfiller:checked ~ .service-tabs label[for="svc-tab-smoothfiller"],
-      #svc-tab-extensions:checked ~ .service-tabs label[for="svc-tab-extensions"],
-      #svc-tab-tinsel:checked ~ .service-tabs label[for="svc-tab-tinsel"],
-      #svc-tab-offers:checked ~ .service-tabs label[for="svc-tab-offers"] {
-        transform: none;
-        color: #ffffff;
-        font-weight: 700;
-        background: linear-gradient(135deg, #2E5339, #3a6d48);
-        border: 1.5px solid rgba(201,169,110,0.35);
-        box-shadow: 0 3px 10px rgba(46,83,57,0.25), inset 0 -2px 0 0 rgba(0,0,0,0.1);
-        position: relative;
-      }
-      #svc-tab-colouring:checked ~ .service-tabs label[for="svc-tab-colouring"]::after,
-      #svc-tab-regrowth:checked ~ .service-tabs label[for="svc-tab-regrowth"]::after,
-      #svc-tab-highlights:checked ~ .service-tabs label[for="svc-tab-highlights"]::after,
-      #svc-tab-cutting:checked ~ .service-tabs label[for="svc-tab-cutting"]::after,
-      #svc-tab-blowwave:checked ~ .service-tabs label[for="svc-tab-blowwave"]::after,
-      #svc-tab-smoothfiller:checked ~ .service-tabs label[for="svc-tab-smoothfiller"]::after,
-      #svc-tab-extensions:checked ~ .service-tabs label[for="svc-tab-extensions"]::after,
-      #svc-tab-tinsel:checked ~ .service-tabs label[for="svc-tab-tinsel"]::after,
-      #svc-tab-offers:checked ~ .service-tabs label[for="svc-tab-offers"]::after {
-        display: none;
-      }
-      /* Show full name on active tab, hide short */
       .btn--sm { padding: 8px 16px; font-size: 0.78rem; }
 
       /* Reviews — smaller cards */
@@ -3570,7 +3489,6 @@
 
       /* Services single column on very small screens */
       .services__grid { grid-template-columns: 1fr; gap: 10px; }
-      .services-card .service-tab { font-size: 0.78rem; font-weight: 600; padding: 6px 8px; border-radius: 50px; border: 1.5px solid rgba(201,169,110,0.2); margin-bottom: 0; }
 
       /* Before/After stack */
       .ba__grid { grid-template-columns: 1fr; gap: 10px; }
@@ -3590,38 +3508,6 @@
       .pricing-item__desc { font-size: 0.86rem; margin: 2px 0 8px; }
       .pricing-item__book { font-size: 0.72rem; padding: 5px 14px; }
       .pricing-subcat__list--open { padding: 2px 0 0; }
-    }
-    @media (min-width: 769px) and (max-width: 1024px) {
-      .service-tab { font-size: 0.92rem; font-weight: 600; padding: 12px 24px; border-radius: 50px; }
-    }
-    @media (min-width: 769px) {
-      .tab-full { display: inline; }
-      .tab-short { display: none; }
-    }
-    /* Force 3-col grid on mobile tabs */
-    @media (max-width: 768px) {
-      .services-card .service-tabs {
-        display: grid !important;
-        grid-template-columns: repeat(3, 1fr) !important;
-        gap: 3px 5px !important;
-      }
-      /* Always show short names on mobile */
-      .service-tab .tab-full { display: none !important; }
-      .service-tab .tab-short { display: inline !important; }
-      /* Hide tab-mob-active by default on mobile */
-      .tab-mob-active { display: none !important; }
-      /* When highlights/cutting/upstyle selected on mobile: hide short, show mob-active */
-    }
-    @media (max-width: 768px) {
-      .services-card .service-tab[for="svc-tab-offers"],
-      .services-card .service-tab[for="svc-tab-cutting"],
-      .services-card .service-tab[for="svc-tab-regrowth"],
-      .services-card .service-tab[for="svc-tab-tinsel"] {
-        white-space: normal;
-        line-height: 1.15;
-        font-size: 0.7rem;
-      }
-
     }
 
     /* ===== CLIENT EXPERIENCE AWARD ===== */
@@ -3760,8 +3646,7 @@
     .search-flash{animation:searchFlash 2.2s ease}
     @keyframes searchFlash{0%,55%{background:rgba(232,212,154,0.4);box-shadow:0 0 0 2px rgba(201,169,110,0.6);border-radius:12px}100%{background:transparent;box-shadow:none}}
     /* ===== Midweek banner in specials + tab offer dot ===== */
-    .service-tab{position:relative}
-    .tab-deal-dot{display:none;position:absolute;top:5px;right:7px;width:8px;height:8px;border-radius:50%;background:#E8D49A;animation:dealDot 2.6s ease-out infinite}
+    .tab-deal-dot{display:none;position:absolute}
     #svc-tab-offers:checked ~ .service-tabs label[for="svc-tab-offers"] .tab-deal-dot,
     #svc-tab-colouring:checked ~ .service-tabs label[for="svc-tab-colouring"] .tab-deal-dot,
     #svc-tab-regrowth:checked ~ .service-tabs label[for="svc-tab-regrowth"] .tab-deal-dot,
@@ -3771,10 +3656,7 @@
     #svc-tab-smoothfiller:checked ~ .service-tabs label[for="svc-tab-smoothfiller"] .tab-deal-dot,
     #svc-tab-extensions:checked ~ .service-tabs label[for="svc-tab-extensions"] .tab-deal-dot,
     #svc-tab-tinsel:checked ~ .service-tabs label[for="svc-tab-tinsel"] .tab-deal-dot{display:block}
-    @keyframes dealDot{0%{box-shadow:0 0 0 0 rgba(201,169,110,0.45)}70%{box-shadow:0 0 0 7px rgba(201,169,110,0)}100%{box-shadow:0 0 0 0 rgba(201,169,110,0)}}
     .pkg-bookline{margin-top:14px}
-    .service-tabs{transition:opacity .22s ease, visibility .22s ease}
-    .service-tabs.tabs-exiting{opacity:0;visibility:hidden;pointer-events:none}
     /* ===== Silk panel bands (veiled photo + gold crest + motto) ===== */
         .nav__search { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border: none; background: none; cursor: pointer; color: #E8D49A; transition: color 0.25s ease; padding: 0; }
     .nav__search svg { width: 18px; height: 18px; }
@@ -3800,151 +3682,9 @@
     .gsearch__chip { flex: 0 0 auto; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #a8894f; border: 1px solid rgba(201,169,110,0.55); border-radius: 980px; padding: 4px 10px; }
     .gsearch__empty { padding: 22px 14px; font-size: 0.9rem; color: #6e6e73; text-align: center; }
     @media (max-width: 640px) { .gsearch { padding: 72px 10px 10px; } .gsearch__results { max-height: 70vh; } }
-    /* ===== typographic tab bar (desktop) + category dropdown (mobile) ===== */
-    .services-card .service-tabs { display: block !important; padding: 14px 14px 5px !important; }
-    .tab-bar { position: relative; display: flex; flex-wrap: wrap; justify-content: center; column-gap: 24px; row-gap: 3px; max-width: 660px; margin: 0 auto; padding: 2px 0; }
-    .tab-bar .service-tab { flex: 0 0 auto; white-space: nowrap; background: none !important; border: none !important; box-shadow: none !important; border-radius: 0 !important; padding: 7px 2px 11px !important; margin: 0 !important; font-size: 0.86rem !important; font-weight: 500 !important; color: #2E5339 !important; letter-spacing: 0 !important; min-height: 0 !important; position: relative; transition: color 0.2s ease; cursor: pointer; }
-    .tab-bar .service-tab:hover { color: #142a18 !important; text-decoration: underline; text-underline-offset: 5px; text-decoration-color: rgba(201,169,110,0.55); text-decoration-thickness: 1px; }
-    .tab-bar .service-tab .tab-short, .tab-bar .service-tab .tab-mob-active { display: none !important; }
-    .tab-bar .service-tab .tab-full { display: inline !important; }
-    .tab-bar .service-tab .tab-deal-dot { position: absolute; top: 3px; right: -6px; width: 5px; height: 5px; }
-    #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"],
-    #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"],
-    #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"],
-    #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"],
-    #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"],
-    #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"],
-    #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"],
-    #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"],
-    #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] { color: #1d1d1f !important; font-weight: 600 !important; background: none !important; box-shadow: none !important; transform: none !important; }
-    .tab-bar__ink { position: absolute; top: 0; left: 0; width: 0; height: 2px; background: #C9A96E; border-radius: 2px; transition: left 0.28s cubic-bezier(0.4,0,0.2,1), width 0.28s cubic-bezier(0.4,0,0.2,1), top 0.28s cubic-bezier(0.4,0,0.2,1); }
-    .svc-dd { display: none; }
-    @media (max-width: 768px) {
-      .services-card .service-tabs { display: block !important; padding: 4px 6px 4px !important; }
-      .services-card .service-tabs .tab-bar { display: grid !important; grid-template-columns: repeat(3, 1fr); column-gap: 10px; row-gap: 0; max-width: none; padding: 0 2px 2px; }
-      .tab-bar .service-tab { display: flex; align-items: center; justify-content: center; text-align: center; white-space: normal !important; line-height: 1.3; font-size: 0.86rem !important; padding: 6px 2px 12px !important; }
-      .tab-bar .service-tab .tab-full { display: inline !important; }
-      .tab-bar .service-tab .tab-short, .tab-bar .service-tab .tab-mob-active { display: none !important; }
-
-      .svc-dd__btn { width: 100%; display: flex; align-items: center; gap: 10px; background: #ffffff; border: 1px solid rgba(201,169,110,0.65); border-radius: 999px; padding: 12px 18px; font-family: inherit; cursor: pointer; }
-      .svc-dd__prefix { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #a8894f; }
-      .svc-dd__val { flex: 1; text-align: left; font-size: 0.92rem; font-weight: 600; color: #142a18; }
-      .svc-dd__btn svg { width: 16px; height: 16px; color: #a8894f; flex: 0 0 auto; }
-      .svc-dd__backdrop { display: none; position: fixed; inset: 0; background: rgba(10,22,13,0.35); z-index: 1; }
-      .svc-dd__menu { display: none; position: absolute; top: calc(100% + 8px); left: 0; right: 0; z-index: 2; background: #ffffff; border: 1px solid rgba(201,169,110,0.5); border-radius: 16px; box-shadow: 0 18px 50px rgba(0,0,0,0.22); padding: 6px; }
-      .svc-dd.open .svc-dd__menu { display: block; animation: svcddin 0.22s ease; }
-      .svc-dd.open .svc-dd__backdrop { display: block; }
-      .svc-dd__row { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; text-align: left; background: none; border: none; font-family: inherit; font-size: 0.9rem; color: #3c4a3e; padding: 12px 14px; border-radius: 10px; cursor: pointer; }
-      .svc-dd__row svg { width: 15px; height: 15px; color: #C9A96E; opacity: 0; flex: 0 0 auto; }
-      .svc-dd__row.is-active { color: #142a18; font-weight: 700; background: rgba(201,169,110,0.14); }
-      .svc-dd__row.is-active svg { opacity: 1; }
-    }
-    @keyframes svcddin { from { opacity: 0; transform: translateY(-6px) scale(0.98); } to { opacity: 1; transform: none; } }
-
-    /* ===== mobile: iOS segmented-control treatment for the category grid ===== */
-    @media (max-width: 768px) {
-      .services-card .service-tabs .tab-bar { background: rgba(20,42,24,0.07); border-radius: 14px; padding: 3px !important; column-gap: 3px; row-gap: 2px; }
-      .tab-bar .service-tab { padding: 5px 3px !important; border-radius: 9px !important; }
-      .tab-bar__ink { display: none; }
-      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"],
-      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"],
-      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"],
-      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"],
-      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"],
-      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"],
-      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"],
-      #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"],
-      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] { background: linear-gradient(135deg, #C9A96E, #E8D49A) !important; box-shadow: 0 2px 8px rgba(201,169,110,0.45) !important; color: #142a18 !important; }
-      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"] .tab-deal-dot,
-      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"] .tab-deal-dot,
-      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"] .tab-deal-dot,
-      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"] .tab-deal-dot,
-      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"] .tab-deal-dot,
-      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"] .tab-deal-dot,
-      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"] .tab-deal-dot,
-      #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"] .tab-deal-dot,
-      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] .tab-deal-dot { background: #142a18; }
-      .tab-bar .service-tab .tab-deal-dot { top: 4px; right: 4px; }
-    }
-
-    /* ===== desktop: photo-chip treatment ===== */
+    /* ===== category photo chips: shared base (sizes and rings live in the sidebar/rail blocks) ===== */
+    .tab-bar .service-tab .tab-pic { display: block; border-radius: 50%; object-fit: cover; flex: 0 0 auto; }
     @media (min-width: 769px) {
-      .tab-bar { background: none; padding: 2px 0 4px; column-gap: 6px; row-gap: 6px; width: fit-content; max-width: 700px; margin: 0 auto; }
-      .tab-bar .service-tab { gap: 9px; border-radius: 980px !important; padding: 5px 16px 5px 5px !important; background: #ffffff !important; border: 1px solid rgba(201,169,110,0.38) !important; box-shadow: 0 1px 2px rgba(20,42,24,0.06) !important; transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease; }
-      .tab-bar .service-tab:hover { border-color: #C9A96E !important; transform: translateY(-1px); box-shadow: 0 4px 12px -4px rgba(20,42,24,0.25) !important; text-decoration: none; }
-      .tab-bar .service-tab .tab-pic { display: block; width: 30px; height: 30px; border-radius: 50%; object-fit: cover; flex: 0 0 auto; box-shadow: 0 0 0 2px #ffffff, 0 0 0 3px rgba(201,169,110,0.55); transition: box-shadow 0.2s ease; }
-      .tab-bar .service-tab .tab-deal-dot { top: 6px; right: 8px; }
-      .tab-bar__ink { display: none; }
-      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"],
-      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"],
-      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"],
-      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"],
-      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"],
-      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"],
-      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"],
-      #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"],
-      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] { background: #142a18 !important; border-color: #142a18 !important; color: #ffffff !important; box-shadow: 0 6px 16px -6px rgba(20,42,24,0.6) !important; }
-      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"] .tab-pic,
-      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"] .tab-pic,
-      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"] .tab-pic,
-      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"] .tab-pic,
-      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"] .tab-pic,
-      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"] .tab-pic,
-      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"] .tab-pic,
-      #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"] .tab-pic,
-      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] .tab-pic { box-shadow: 0 0 0 2px #142a18, 0 0 0 3.5px #C9A96E; }
-      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"] .tab-deal-dot,
-      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"] .tab-deal-dot,
-      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"] .tab-deal-dot,
-      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"] .tab-deal-dot,
-      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"] .tab-deal-dot,
-      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"] .tab-deal-dot,
-      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"] .tab-deal-dot,
-      #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"] .tab-deal-dot,
-      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] .tab-deal-dot { background: #E8D49A; }
-      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"] .tab-new,
-      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"] .tab-new,
-      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"] .tab-new,
-      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"] .tab-new,
-      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"] .tab-new,
-      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"] .tab-new,
-      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"] .tab-new,
-      #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"] .tab-new,
-      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] .tab-new { background: #E8D49A; color: #142a18; }
-    }
-    /* mobile: same photo chips, photo above the label, three-column grid unchanged */
-    @media (max-width: 768px) {
-      .services-card .service-tabs .tab-bar { background: none; border-radius: 0; padding: 0 !important; column-gap: 4px; row-gap: 2px; }
-      .tab-bar .service-tab { flex-direction: column; gap: 1px; padding: 3px 2px 4px !important; font-size: 0.74rem !important; line-height: 1.2; border-radius: 12px !important; background: #ffffff !important; border: 1px solid rgba(201,169,110,0.38) !important; box-shadow: 0 1px 2px rgba(20,42,24,0.06) !important; }
-      .tab-bar .service-tab:hover { text-decoration: none; }
-      .tab-bar .service-tab .tab-pic { display: block; width: 16px; height: 16px; border-radius: 50%; object-fit: cover; flex: 0 0 auto; box-shadow: 0 0 0 1.5px #ffffff, 0 0 0 2.5px rgba(201,169,110,0.55); }
-      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"],
-      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"],
-      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"],
-      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"],
-      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"],
-      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"],
-      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"],
-      #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"],
-      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] { background: #142a18 !important; border-color: #142a18 !important; color: #ffffff !important; box-shadow: 0 4px 12px -6px rgba(20,42,24,0.6) !important; }
-      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"] .tab-pic,
-      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"] .tab-pic,
-      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"] .tab-pic,
-      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"] .tab-pic,
-      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"] .tab-pic,
-      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"] .tab-pic,
-      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"] .tab-pic,
-      #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"] .tab-pic,
-      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] .tab-pic { box-shadow: 0 0 0 1.5px #142a18, 0 0 0 2.5px #C9A96E; }
-      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"] .tab-deal-dot,
-      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"] .tab-deal-dot,
-      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"] .tab-deal-dot,
-      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"] .tab-deal-dot,
-      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"] .tab-deal-dot,
-      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"] .tab-deal-dot,
-      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"] .tab-deal-dot,
-      #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"] .tab-deal-dot,
-      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] .tab-deal-dot { background: #E8D49A; }
       #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"] .tab-new,
       #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"] .tab-new,
       #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"] .tab-new,
@@ -4078,10 +3818,7 @@
        on the left; the search box, category heading and panel fill the right column.
        Tab switching is still the CSS-only radio mechanism. */
     .services-card .service-tabs .tab-bar { flex-wrap: nowrap !important; }
-    .services-card .service-tabs .tab-bar .tab-bar__ink { display: none !important; }
-    .services-card .service-tabs.tabs-exiting .tab-bar,
-    .services-card .service-tabs.tabs-exiting .svc-search { visibility: visible; pointer-events: auto; }
-    @media (min-width: 900px) {
+    @media (min-width: 769px) {
       .section--services-green .services-card { max-width: 1120px; background: linear-gradient(90deg, #f1f4f1 0, #f1f4f1 251px, rgba(201,169,110,0.35) 251px, rgba(201,169,110,0.35) 252px, #ffffff 252px); }
       .services-card { display: grid !important; grid-template-columns: 252px minmax(0, 1fr); align-items: start; }
       .services-card .service-tabs { display: contents !important; }
@@ -4112,7 +3849,7 @@
       .services-card .service-tabs { display: contents !important; }
       .services-card .service-tabs .tab-bar { grid-column: 1; grid-row: 1 / span 3; align-self: start; position: sticky; top: 72px; max-height: calc(100vh - 72px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; display: flex !important; flex-direction: column; justify-content: flex-start !important; gap: 2px !important; row-gap: 2px !important; column-gap: 0 !important; max-width: none; min-height: 0 !important; height: auto !important; margin: 0; padding: 8px 4px 10px !important; background: transparent !important; border-radius: 0; }
       .services-card .service-tabs .tab-bar::-webkit-scrollbar { display: none; }
-      .tab-bar .service-tab { display: flex !important; flex-direction: column !important; align-items: center; justify-content: center; gap: 4px !important; width: 100%; padding: 6px 2px 5px !important; border-radius: 10px !important; margin: 0 !important; background: transparent !important; border: 1px solid transparent !important; box-shadow: none !important; transform: none !important; font-size: 0.57rem !important; font-weight: 600 !important; line-height: 1.15 !important; letter-spacing: 0 !important; text-align: center; white-space: normal !important; color: #2E5339 !important; }
+      .tab-bar .service-tab { display: flex !important; flex-direction: column !important; align-items: center; justify-content: center; gap: 4px !important; width: 100%; padding: 6px 2px 5px !important; border-radius: 10px !important; margin: 0 !important; background: transparent !important; border: 1px solid transparent !important; box-shadow: none !important; transform: none !important; font-size: 0.57rem !important; font-weight: 600 !important; line-height: 1.15 !important; letter-spacing: 0 !important; text-align: center; white-space: normal !important; color: #2E5339 !important; transition: color 0.2s ease; }
       .tab-bar .service-tab .tab-pic { width: 30px; height: 30px; margin: 0; }
       .services-card .service-tabs .tab-bar .service-tab[for] .tab-full { display: inline !important; }
       .services-card .service-tabs .tab-bar .service-tab .tab-short,
@@ -4121,7 +3858,6 @@
       .services-card .service-tabs .tab-bar .service-tab .tab-mob-active,
       .services-card .service-tabs .tab-bar .service-tab .tab-deal-dot,
       .services-card .service-tabs .tab-bar .service-tab .tab-new { display: none !important; }
-      .tab-bar label[for="svc-tab-extensions"]::after { content: ""; position: absolute; top: 5px; right: 7px; width: 7px; height: 7px; border-radius: 50%; background: #C9A96E; }
       #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"],
       #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"],
       #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"],
@@ -4153,7 +3889,7 @@
     }
 
     /* ===== services sidebar + phone rail: premium polish (cream column, button-like rows) ===== */
-    @media (min-width: 900px) {
+    @media (min-width: 769px) {
       .section--services-green .services-card { background: linear-gradient(90deg, #f6f4ee 0, #f6f4ee 251px, rgba(201,169,110,0.45) 251px, rgba(201,169,110,0.45) 252px, #ffffff 252px); }
       .services-card .service-tabs .tab-bar { background: #f6f4ee; padding: 22px 14px 26px !important; gap: 6px; }
       .services-card .service-tabs .tab-bar::before { content: 'Browse by category'; display: block; margin: 0 0 12px 12px; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #a8894f; }
@@ -4292,14 +4028,14 @@
       .section--services-green .section-label { margin-bottom: 16px; }
       .section--services-green .services-title { position: sticky; top: 62px; z-index: 120; box-sizing: border-box; height: 58px; margin: 0 calc(50% - 50vw) 26px; padding: 0 24px 2px; display: flex; align-items: center; justify-content: center; font-size: 2rem; line-height: 1; white-space: nowrap; background: rgba(10,31,14,0.94); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); box-shadow: 0 1px 0 rgba(201,169,110,0.35); }
     }
-    @media (min-width: 900px) {
+    @media (min-width: 769px) {
       /* the category sidebar now pins under the band */
       .services-card .service-tabs .tab-bar { top: 128px; }
     }
 
     /* ===== desktop sidebar chevron: slides into place on selection (once the card is in view) ===== */
     @keyframes svcChevIn { from { opacity: 0; transform: translate(-6px, -50%) rotate(-45deg); } to { opacity: 1; transform: translate(0, -50%) rotate(-45deg); } }
-    @media (min-width: 900px) {
+    @media (min-width: 769px) {
       .services-card.rail-seen #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"] .tab-deal-dot,
       .services-card.rail-seen #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"] .tab-deal-dot,
       .services-card.rail-seen #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"] .tab-deal-dot,
@@ -4325,7 +4061,7 @@
     /* ===== services search box: sticks under the heading band, services scroll beneath it ===== */
     .services-card .svc-search { position: sticky; z-index: 90; }
     .services-card .svc-search:focus-within { background: #ffffff; }
-    @media (min-width: 900px) {
+    @media (min-width: 769px) {
       .services-card .svc-search { top: 120px; margin: 0 !important; padding: 18px 24px 16px; background: linear-gradient(#ffffff 0, #ffffff 70%, rgba(255,255,255,0)); }
     }
     @media (max-width: 768px) {
@@ -4542,7 +4278,7 @@
 <input class="svc-tab-radio" id="svc-tab-extensions" name="svc-tab" type="radio"/>
 <div class="service-tabs">
 
-<div class="tab-bar"><span class="tab-bar__ink" aria-hidden="true"></span>
+<div class="tab-bar">
 <label class="service-tab" for="svc-tab-colouring"><img class="tab-pic" src="images/tabs/tab-colouring.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Colour &amp; Toner</span><span class="tab-short">Colour &amp; Toner</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
 <label class="service-tab" for="svc-tab-regrowth"><img class="tab-pic" src="images/tabs/tab-regrowth.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Grey Blending &amp; Regrowth</span><span class="tab-short">Grey Blending</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
 <label class="service-tab" for="svc-tab-highlights"><img class="tab-pic" src="images/tabs/tab-highlights.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Highlights &amp; Balayage</span><span class="tab-short">Highlights</span><span class="tab-mob-active">Highlighting</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
@@ -6326,21 +6062,6 @@ window.addEventListener('load', function() {
   })();
 </script>
 
-<script>
-  (function(){
-    var tabs=document.querySelector('.service-tabs');
-    var card=document.querySelector('.services-card');
-    if(!tabs||!card) return;
-    function upd(){
-      var stickyTop=parseFloat(getComputedStyle(tabs).top)||56;
-      var cb=card.getBoundingClientRect().bottom;
-      tabs.classList.toggle('tabs-exiting', cb < (stickyTop + tabs.offsetHeight + 24));
-    }
-    window.addEventListener('scroll',upd,{passive:true});
-    window.addEventListener('resize',upd);
-    upd();
-  })();
-</script>
 <script>
 (function(){
   var IDX = 
