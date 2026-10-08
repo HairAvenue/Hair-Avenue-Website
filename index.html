@@ -4261,6 +4261,32 @@
       }
     }
 
+    /* ===== phone rail badge: arrives on selection, ripples twice, then rests (once the card is in view) ===== */
+    @keyframes svcBadgeIn { from { opacity: 0; transform: translate(-5px, -50%) scale(0.55); } to { opacity: 1; transform: translate(0, -50%) scale(1); } }
+    @keyframes svcBadgeRing { 0% { box-shadow: 0 2px 6px rgba(10,31,14,0.35), 0 0 0 0 rgba(232,212,154,0.8); } 100% { box-shadow: 0 2px 6px rgba(10,31,14,0.35), 0 0 0 15px rgba(232,212,154,0); } }
+    @media (max-width: 768px) {
+      .services-card.rail-seen #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"]::before,
+      .services-card.rail-seen #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"]::before,
+      .services-card.rail-seen #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"]::before,
+      .services-card.rail-seen #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"]::before,
+      .services-card.rail-seen #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"]::before,
+      .services-card.rail-seen #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"]::before,
+      .services-card.rail-seen #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"]::before,
+      .services-card.rail-seen #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"]::before,
+      .services-card.rail-seen #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"]::before { animation: svcBadgeIn 0.38s cubic-bezier(0.22, 0.61, 0.36, 1) both, svcBadgeRing 1.15s ease-out 0.45s 2; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .services-card.rail-seen #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"]::before,
+      .services-card.rail-seen #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"]::before,
+      .services-card.rail-seen #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"]::before,
+      .services-card.rail-seen #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"]::before,
+      .services-card.rail-seen #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"]::before,
+      .services-card.rail-seen #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"]::before,
+      .services-card.rail-seen #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"]::before,
+      .services-card.rail-seen #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"]::before,
+      .services-card.rail-seen #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"]::before { animation: none; }
+    }
+
 </style>
   <noscript>
     <style>
@@ -6363,6 +6389,18 @@ window.addEventListener('load', function() {
   }
   r.addEventListener('change', function(){ if (r.checked) load(); });
   if (r.checked) load();
+})();
+</script>
+<script>
+(function(){
+  /* phone rail: let the selected-tile badge animate only once the services card has scrolled into view */
+  var card = document.querySelector('.services-card');
+  if (!card) return;
+  if (!('IntersectionObserver' in window)) { card.classList.add('rail-seen'); return; }
+  var io = new IntersectionObserver(function(entries){
+    for (var i = 0; i < entries.length; i++) { if (entries[i].isIntersecting) { card.classList.add('rail-seen'); io.disconnect(); break; } }
+  }, { threshold: 0.15 });
+  io.observe(card);
 })();
 </script>
 </body>
