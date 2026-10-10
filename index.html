@@ -4066,6 +4066,26 @@
       .services-card .svc-search { top: 110px; margin: 0 !important; padding: 6px 8px 12px; background: linear-gradient(#ffffff 0, #ffffff 68%, rgba(255,255,255,0)); }
     }
 
+    /* ===== team: salon story (stations photo with context, quote and a short photo tour) ===== */
+    .salon-story { display: grid; grid-template-columns: 1.25fr 1fr; margin: 0 0 32px; border-radius: 22px; overflow: hidden; background: linear-gradient(180deg, #ffffff 0%, #fbfaf6 100%); border: 1px solid rgba(201,169,110,0.38); box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), 0 26px 50px -30px rgba(10,31,14,0.65); }
+    .salon-story .salon-story__photo { display: block; width: 100%; height: 100%; min-height: 380px; aspect-ratio: auto; border-radius: 0; margin: 0; }
+    .salon-story .salon-story__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 55%; display: block; }
+    .salon-story__panel { padding: 34px 36px 32px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; text-align: left; }
+    .salon-story__eyebrow { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #a8894f; margin-bottom: 10px; }
+    .salon-story__title { font-family: 'New York', ui-serif, Georgia, 'Times New Roman', serif; font-style: italic; font-weight: 400; font-size: 1.95rem; letter-spacing: -0.01em; color: #142a18; margin: 0 0 12px; line-height: 1.1; }
+    .salon-story__text { font-size: 0.95rem; line-height: 1.65; color: #424245; margin: 0 0 18px; }
+    .salon-story__quote { margin: 0 0 20px; padding: 12px 16px; border-left: 2px solid #C9A96E; background: rgba(201,169,110,0.1); border-radius: 0 12px 12px 0; font-family: 'New York', ui-serif, Georgia, 'Times New Roman', serif; font-style: italic; font-size: 0.98rem; color: #1d1d1f; line-height: 1.5; }
+    .salon-story__quote cite { display: block; margin-top: 6px; font-family: var(--ff-body); font-style: normal; font-size: 0.66rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #8a9a8d; }
+    .salon-story__cta { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 980px; border: 1.5px solid rgba(201,169,110,0.8); background: #ffffff; color: #142a18; font-family: var(--ff-body); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; line-height: 1; cursor: pointer; transition: background-color .2s ease, border-color .2s ease; }
+    .salon-story__cta:hover { background: rgba(201,169,110,0.16); border-color: #C9A96E; }
+    @media (max-width: 768px) {
+      .salon-story { grid-template-columns: 1fr; margin-bottom: 24px; }
+      .salon-story .salon-story__photo { min-height: 0; aspect-ratio: 16 / 10; }
+      .salon-story__panel { padding: 22px 20px 24px; }
+      .salon-story__title { font-size: 1.6rem; }
+      .salon-story__text { font-size: 0.92rem; }
+    }
+
 </style>
   <noscript>
     <style>
@@ -4826,6 +4846,26 @@
 <span class="section-label">Our Team</span>
 <h2 class="section-title">Meet the People Behind the Chair</h2>
 <p class="section-subtitle">Our talented team of Braddon hairdressers is passionate about making you look and feel your absolute best. Get to know the stylists who'll be working their magic.</p>
+</div>
+<div class="salon-story reveal">
+<button class="section-photo salon-story__photo" type="button" aria-label="Open photos of the salon">
+<img src="images/salon/01-stations.webp" alt="The styling stations on the floor of Hair Avenue's Braddon salon" width="1600" height="1066" loading="lazy" decoding="async">
+<span class="section-photo__caption">Our styling stations on the salon floor</span>
+<span class="section-photo__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></span>
+</button>
+<div class="salon-story__panel">
+<span class="salon-story__eyebrow">Our Braddon salon</span>
+<h3 class="salon-story__title">Pull up a chair</h3>
+<p class="salon-story__text">This is where every appointment begins: a proper consultation about your hair, your routine and the result you&rsquo;re after. And whenever your service takes you to the basin, you&rsquo;ll sink into a massage chair for a relaxing scalp massage while the water runs. Come in for a coffee and a snack and see it for yourself.</p>
+<blockquote class="salon-story__quote">&ldquo;The salon is beautifully set up, with great music and uplifting vibes.&rdquo;<cite>Google review</cite></blockquote>
+<button class="salon-story__cta" type="button" onclick="document.querySelector('.salon-story__photo').click()">Take a look around <span aria-hidden="true">&rarr;</span></button>
+</div>
+<div class="salon-story__more" hidden>
+<button class="section-photo" type="button" tabindex="-1"><img src="images/salon/03-reception.webp" alt="Reception at Hair Avenue Braddon" loading="lazy" decoding="async"><span class="section-photo__caption">Reception</span></button>
+<button class="section-photo" type="button" tabindex="-1"><img src="images/salon/04-wash-basins.jpg" alt="The wash basins with massage chairs at Hair Avenue Braddon" loading="lazy" decoding="async"><span class="section-photo__caption">The basins, with massage chairs and a scalp massage with every wash</span></button>
+<button class="section-photo" type="button" tabindex="-1"><img src="images/salon/06-coffee-bar.jpg" alt="The coffee bar at Hair Avenue Braddon" loading="lazy" decoding="async"><span class="section-photo__caption">Coffee bar</span></button>
+<button class="section-photo" type="button" tabindex="-1"><img src="images/salon/05-products-counter.jpg" alt="Wella products on the counter at Hair Avenue Braddon" loading="lazy" decoding="async"><span class="section-photo__caption">Products counter</span></button>
+</div>
 </div>
 <div class="team__strip">
 <button class="team__edge team__edge--prev" type="button" data-dir="-1" aria-label="Previous stylist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
