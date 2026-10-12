@@ -1225,12 +1225,6 @@
     .team-card__photo--3 { background: linear-gradient(135deg, #B8967A 0%, #D4BFA6 100%); }
     .team-card__photo--4 { background: linear-gradient(135deg, #6B8F7B 0%, #9DC4A8 100%); }
     /* photo placeholder for a new team member (see the TODO comment on the card) */
-    .team-card__photo--soon { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; background: linear-gradient(180deg, rgba(20,42,24,0.28) 0%, rgba(20,42,24,0.52) 100%), url("images/salon/03-reception.webp") center 45% / cover no-repeat; }
-    .team-card__monogram { width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--ff-display); font-size: 3.2rem; font-weight: 600; color: #142a18; background: linear-gradient(135deg, #C9A96E, #E8D49A); box-shadow: 0 10px 24px -10px rgba(20,42,24,0.45), 0 0 0 6px rgba(255,255,255,0.6); }
-    .team-card__soon { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #2E5339; background: rgba(255,255,255,0.85); border: 1px solid rgba(201,169,110,0.5); border-radius: 980px; padding: 6px 14px; }
-    .team-card__soon--date { background: #142a18; color: #E8D49A; border-color: #142a18; }
-    .team-card__soon--date .sd-short { display: none; }
-    @media (max-width: 768px) { .team-card__photo--soon { gap: 10px; } .team-card__monogram { width: 72px; height: 72px; font-size: 2rem; } .team-card__soon { font-size: 0.58rem; padding: 5px 10px; } .team-card__soon--date { letter-spacing: 0.08em; padding: 5px 9px; } .team-card__soon--date .sd-long { display: none; } .team-card__soon--date .sd-short { display: inline; } }
 
     .team-card__body { padding: 24px; }
     .team-card__name {
@@ -4086,9 +4080,6 @@
       .salon-story__text { font-size: 0.92rem; }
     }
 
-    /* Elle: date badge over her real photo until she starts (remove after 15 Oct 2026) */
-    .team-card__photo .team-card__soon--badge { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); z-index: 2; white-space: nowrap; box-shadow: 0 4px 14px rgba(10,31,14,0.35); }
-
 </style>
   <noscript>
     <style>
@@ -4902,9 +4893,8 @@
 <p class="team-card__quote"><span class="star">★</span> “Kayla did a wonderful job, listened to what I want and created an amazing result!!” <span>— Google review</span></p>
 </div>
 </div>
-<!-- TODO (Elle): after 15 Oct 2026 delete the <span class="team-card__soon team-card__soon--date team-card__soon--badge">…</span> badge inside her photo below. -->
 <div class="team-card reveal">
-<div class="team-card__photo"><img alt="Elle — Master Stylist at Hair Avenue Braddon, seated in a styling chair on the salon floor" class="team-card__photo-inner" loading="lazy" src="images/image-5.jpg" width="780" height="1040" style="object-position: center 35%;"/><span class="team-card__soon team-card__soon--date team-card__soon--badge"><span class="sd-long">Taking bookings from 15 October</span><span class="sd-short">Bookings from 15 Oct</span></span></div>
+<div class="team-card__photo"><img alt="Elle — Master Stylist at Hair Avenue Braddon, seated in a styling chair on the salon floor" class="team-card__photo-inner" loading="lazy" src="images/image-5.jpg" width="780" height="1040" style="object-position: center 35%;"/></div>
 <div class="team-card__body">
 <h3 class="team-card__name">Elle</h3>
 <p class="team-card__role">Master Stylist</p>
