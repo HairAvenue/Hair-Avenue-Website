@@ -30,8 +30,6 @@
 <meta content="Hair Avenue Braddon — Come for the services. Stay for the experience." name="twitter:title"/>
 <meta content="Braddon's top-rated salon. Colour, balayage, Great Lengths hair extensions, smoothfiller, nanoplasty &amp; advanced treatments. 4.9★ from 200+ Google reviews." name="twitter:description"/>
 <meta content="https://hairavenue.com.au/images/og-image.jpg" name="twitter:image"/>
-<!-- Apple-inspired system fonts — no external font loading needed -->
-<!-- Schema Markup -->
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -136,13 +134,13 @@
     "mainEntity": [
       { "@type": "Question", "name": "Is Hair Avenue walk-in friendly?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — while we recommend booking to guarantee your preferred time, walk-ins are always welcome when availability allows." }},
       { "@type": "Question", "name": "Where can I park near Hair Avenue in Braddon?", "acceptedAnswer": { "@type": "Answer", "text": "Free street parking is available along Lonsdale Street and surrounding streets in Braddon, a short five-minute walk from Canberra Centre and Civic. There is also paid parking at the Braddon precinct car park nearby." }},
-      { "@type": "Question", "name": "What payment methods does Hair Avenue accept?", "acceptedAnswer": { "@type": "Answer", "text": "We accept cash, all major credit and debit cards, EFTPOS, and contactless payments including Apple Pay and Google Pay." }},
-      { "@type": "Question", "name": "Does Hair Avenue offer a complimentary consultation?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. We offer free consultations for colour services and major changes. Book a Complimentary Consultation through our online booking system." }},
+      { "@type": "Question", "name": "What payment methods do you accept?", "acceptedAnswer": { "@type": "Answer", "text": "We accept cash, all major credit and debit cards (Visa, Mastercard, Amex), EFTPOS, and contactless payments including Apple Pay and Google Pay. We want to make payment as easy as possible." }},
+      { "@type": "Question", "name": "Do you offer a free consultation before colour services?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. We offer complimentary consultations for colour services and major changes. It's the perfect opportunity to discuss your vision, assess your hair's condition, and get an accurate quote. You can book a free consultation directly through our online booking system." }},
       { "@type": "Question", "name": "Is Hair Avenue LGBTQ+ friendly?", "acceptedAnswer": { "@type": "Answer", "text": "100%. Hair Avenue is a proudly inclusive, LGBTQ+ friendly salon. Everyone is welcome and celebrated here." }},
       { "@type": "Question", "name": "What is Hair SmoothFiller and how long does it last?", "acceptedAnswer": { "@type": "Answer", "text": "Hair SmoothFiller is a deep conditioning treatment that repairs damage, eliminates frizz, and restores shine. Formaldehyde-free and safe for colour-treated hair. Results last 8-12 weeks." }},
       { "@type": "Question", "name": "What is nanoplasty?", "acceptedAnswer": { "@type": "Answer", "text": "Nanoplasty is an advanced smoothing treatment using nanotechnology to eliminate frizz and add lasting shine without harsh chemicals. Ideal for curly, wavy, or unruly hair." }},
-      { "@type": "Question", "name": "Do you do mens haircuts?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely - mens haircuts are a core part of what we do. Clipper cuts, skin fades and buzz cuts from $40, plus full restyles. Walk-ins welcome." }},
-      { "@type": "Question", "name": "Do you do kids haircuts?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — we welcome children and families. Our team creates a relaxed, fun environment so kids feel comfortable." }},
+      { "@type": "Question", "name": "Do you do men's haircuts?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely — men's haircuts are a core part of what we do. Clipper cuts ($55), skin fades ($65) and buzz cuts ($40), plus full restyles. Walk-ins are welcome when availability allows, or book online in seconds." }},
+      { "@type": "Question", "name": "Do you do kids' haircuts?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — we welcome children and families. Our team creates a relaxed, fun environment so kids feel comfortable. We understand little ones can be wriggly — no judgement here. We're also a great choice for a family booking so everyone can get their hair done together." }},
       { "@type": "Question", "name": "Do you do hair extensions?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — Hair Avenue Braddon is an official Great Lengths salon offering tape-in hair extensions. Start with a free consultation and colour match, where we check your hair, plan the pieces and give you an exact quote. New installs, move-ups every 6–8 weeks and removals can all be booked online. Every stylist on our team is Great Lengths–trained." }},
       { "@type": "Question", "name": "Do you have blonde specialists in Canberra?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Krystle and Trin are blonde specialists, and every foil, balayage and toner at Hair Avenue Braddon uses Wella Blondor with built-in bond protection for up to 97% less breakage. Half-head foils are from $299, a full head from $350 and balayage from $395, all including a custom toner and blow wave, with midweek packages from $275." }}
     ]
@@ -219,10 +217,9 @@
 
     /* ===== UTILITY CLASSES ===== */
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-    .container-wide { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
 
     .section { padding: 100px 0; }
-    .section--cream { background: #eef3ee; }
+    
     .length-strip { margin: 38px auto 0; padding: 0 16px; text-align: center; }
     .length-strip__line { font-size: 0.95rem; color: rgba(255,255,255,0.88); line-height: 1.6; margin: 0 auto; max-width: 680px; text-shadow: 0 1px 6px rgba(0,0,0,0.35); }
     .length-strip__line--gift { margin-top: 10px; font-size: 0.86rem; color: rgba(255,255,255,0.78); }
@@ -231,19 +228,14 @@
     .length-strip__line a:hover { color: #ffffff; text-decoration-color: #E8D49A; }
     .length-strip__line--muted { margin-top: 7px; font-size: 0.84rem; color: rgba(255,255,255,0.6); }
     @media (max-width: 640px) { .length-strip { margin-top: 28px; } .length-strip__line { font-size: 0.88rem; } }
-    .section--light-sage { background: #f2f7f3; }
-    .section--light-sage .section-label { color: var(--clr-gold); }
-    .section--light-sage .section-title { color: var(--clr-forest); }
-    .section--light-sage .section-subtitle { color: var(--clr-text); }
-    .section--light-sage .why__card { background: rgba(255,255,255,0.5); border-color: rgba(201,169,110,0.15); }
-    .section--light-sage .why__card-title { color: #2E5339; }
-    .section--light-sage .why__card-text { color: #86868b; }
-    .section--light-sage .why__icon { color: #C9A96E; }
-    .section--light-sage .why__icon svg { stroke: #C9A96E; }
-    .section--light-sage .expect-card { background: rgba(255,255,255,0.1); }
-    .section--light-sage .expect-card__title { color: #ffffff; }
-    .section--light-sage .expect-card__text { color: rgba(255,255,255,0.75); }
-    .section--light-sage .expect-card__icon { color: #E8D49A; }
+
+    
+
+    
+
+    
+
+    
 
     /* Why Choose Us — careers-bg dark theme overrides */
     #why.careers-bg .why__card { background: rgba(255,255,255,0.06); border: 1px solid rgba(201,169,110,0.25); }
@@ -268,14 +260,10 @@
     .section--services-green .services-card .service-tabs { margin: 0; border-bottom: none; padding: 6px; max-width: none; background: #f1f4f1; border-radius: 16px; }
     .section--services-green .services-card .service-panel { border-radius: 0; box-shadow: none; border: none; }
     .section--services-green .service-panel { background: #ffffff; border-radius: var(--radius-md); box-shadow: var(--shadow-card); border: 1.5px solid rgba(201,169,110,0.3); }
-    .section--services-green .service-panel__item { border-color: rgba(0,0,0,0.04); }
-    .section--services-green .service-panel__name { color: #1d1d1f; }
-    .section--services-green .service-panel__price { color: #1d1d1f; font-weight: 600; }
-    .section--services-green .service-panel__note { color: #86868b; }
-    .section--services-green .service-panel__cta { color: #2E7D42; }
 
-    .section--forest { background: #142a18; color: #ffffff; }
-    .section--warm { background: var(--clr-cream-warm); }
+    
+
+    
 
     /* Products section */
     .products__grid {
@@ -308,13 +296,7 @@
     .products-fold[open] .products-fold__hint-close { display: inline; }
     .products-fold[open] .products-fold__hint svg { transform: rotate(180deg); }
     .products-fold__body { padding-top: 44px; }
-    .products__wella-logo {
-      height: 40px;
-      width: auto;
-      margin-top: 16px;
-      opacity: 0.8;
-      mix-blend-mode: multiply;
-    }
+    
     .products__image-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -416,23 +398,8 @@
       margin-right: 4px;
     }
     /* Video tile play icon */
-    .gallery-tile--video video { object-position: center top; }
-    .gallery-tile__play {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 38px; height: 38px;
-      background: rgba(255,255,255,0.18);
-      -webkit-backdrop-filter: blur(6px);
-      backdrop-filter: blur(6px);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.85rem;
-      color: #fff;
-      pointer-events: none;
-      transition: opacity 0.3s;
-    }
-    .gallery-tile--video:hover .gallery-tile__play { opacity: 0; }
+
+    
 
     /* Before/After gallery tile */
     .gallery-tile--ba {
@@ -517,7 +484,6 @@
       margin-bottom: 12px;
       display: block;
     }
-    .section--forest .section-label { color: #E8D49A; }
 
     .section-title {
       font-family: var(--ff-display);
@@ -528,7 +494,6 @@
       color: #1d1d1f;
       letter-spacing: -0.03em;
     }
-    .section--forest .section-title { color: #ffffff; }
 
     .section-subtitle {
       font-family: var(--ff-body);
@@ -538,7 +503,6 @@
       line-height: 1.5;
       font-weight: 400;
     }
-    .section--forest .section-subtitle { color: rgba(255,255,255,0.7); }
 
     .section-header { text-align: center; margin-bottom: 60px; }
     .section--services-green .section-header { margin-bottom: 26px; }
@@ -586,38 +550,12 @@
       opacity: 0.9;
     }
 
-    .btn--secondary {
-      background: rgba(255,255,255,0.2);
-      color: #ffffff;
-      -webkit-backdrop-filter: blur(10px);
-      backdrop-filter: blur(10px);
-      border: 1.5px solid rgba(201,169,110,0.5);
-    }
-    .btn--secondary:hover {
-      background: rgba(255,255,255,0.3);
-    }
+    
 
-    .btn--outline {
-      background: transparent;
-      color: #2E7D42;
-      border: 1.5px solid #C9A96E;
-    }
-    .btn--outline:hover {
-      background: #2E7D42;
-      color: #ffffff;
-    }
+    
 
-    .btn--forest {
-      background: #1d1d1f;
-      color: #ffffff;
-      border: 1.5px solid #C9A96E;
-    }
-    .btn--forest:hover {
-      background: #424245;
-      opacity: 0.9;
-    }
+    
 
-    .btn--sm { padding: 10px 24px; font-size: 0.85rem; }
     .btn--lg { padding: 20px 48px; font-size: 1.05rem; }
 
     /* ===== NAVIGATION ===== */
@@ -701,22 +639,8 @@
     .nav__book:hover { background: #388E4C; opacity: 0.9; }
 
     /* Wella Professionals badge in nav */
-    .nav__wella-badge {
-      display: flex;
-      align-items: center;
-      list-style: none;
-    }
-    .nav__wella-logo {
-      height: 22px;
-      width: auto;
-      opacity: 0.85;
-      mix-blend-mode: screen;
-      transition: var(--transition);
-    }
-    .nav.scrolled .nav__wella-logo {
-      mix-blend-mode: multiply;
-      opacity: 0.55;
-    }
+
+    
 
     /* Persistent Book Now button — always visible on all screen sizes */
     .nav__book--persistent {
@@ -822,9 +746,7 @@
       .hero__eyebrow span { font-size: 0.65rem; letter-spacing: 0.14em; }
     }
     .hero__title { margin-bottom: 48px; }
-    .hero__rule {
-      display: none;
-    }
+    
     .hero__title {
       font-family: var(--ff-display);
       font-size: 0;
@@ -840,41 +762,13 @@
       letter-spacing: 0.004em;
       line-height: 1.24;
     }
-    .hero__tagline {
-      font-size: clamp(0.92rem, 1.6vw, 1.05rem);
-      color: rgba(255,255,255,0.7);
-      max-width: 460px;
-      margin: 20px auto 36px;
-      line-height: 1.6;
-      text-shadow: 0 1px 8px rgba(0,0,0,0.3);
-      font-weight: 400;
-      letter-spacing: 0.01em;
-    }
+    
     /* Hero CTA: Apple-style pill in the salon green with a gold border (matches the header View Services button) */
     .hero__link { display: inline-flex; align-items: center; justify-content: center; font-size: 1.0625rem; font-weight: 400; letter-spacing: -0.01em; line-height: 1.2; color: #ffffff; background: #2E7D42; border: 1.5px solid #C9A96E; border-radius: 980px; padding: 11px 22px; text-decoration: none; transition: background-color 0.2s ease, border-color 0.2s ease; -webkit-tap-highlight-color: transparent; }
     .hero__link:hover { background: #388E4C; border-color: #E8D49A; }
     .hero__link:active { background: #2E5339; border-color: #C9A96E; }
     .hero__link:focus-visible { outline: 2px solid #E8D49A; outline-offset: 3px; }
-    .hero__scroll {
-      position: absolute;
-      bottom: 32px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      color: rgba(255,255,255,0.3);
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      animation: float 3s ease-in-out infinite;
-    }
-    .hero__scroll-line {
-      width: 1px; height: 40px;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
-    }
+
     @keyframes float {
       0%, 100% { transform: translateX(-50%) translateY(0); }
       50% { transform: translateX(-50%) translateY(8px); }
@@ -888,7 +782,6 @@
       flex-wrap: wrap;
     }
     /* Expect rows — clean horizontal layout */
-
 
     .expect-bg-wrapper {
       position: relative;
@@ -1024,17 +917,9 @@
     }
 
     /* ===== SERVICES ===== */
-    .services__grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
-
 
     /* Color-coded service card headers */
     /* (service card image styles removed — replaced with tabs) */
-
-    .service-icon { font-size: 3.5rem; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1)); }
 
     /* ===== REVIEWS ===== */
     .reviews__header-stats {
@@ -1132,10 +1017,7 @@
       font-size: 0.95rem;
       color: var(--clr-charcoal);
     }
-    .review-card__date {
-      font-size: 0.8rem;
-      color: var(--clr-text-light);
-    }
+    
     .review-card__stars {
       color: var(--clr-star);
       font-size: 0.9rem;
@@ -1184,8 +1066,7 @@
     .reviews-bg .review-card__stars { color: #C9A96E; }
     .reviews-bg .review-card__text { color: rgba(255,255,255,0.92); }
     .reviews-bg .review-card__name { color: rgba(255,255,255,0.9); }
-    .reviews-bg .review-card__author { color: rgba(255,255,255,0.9); font-weight: 500; }
-    .reviews-bg .review-card__date { color: rgba(255,255,255,0.6); }
+
     .reviews-bg .review-card__avatar { background: rgba(201,169,110,0.2); color: #C9A96E; }
     .reviews-bg .review-card__google { color: rgba(255,255,255,0.65); }
 
@@ -1222,11 +1103,7 @@
     }
     .team-card:hover .team-card__photo-inner { transform: scale(1.05); }
 
-    .team-card__photo--1 { background: linear-gradient(135deg, #C9A96E 0%, #E8D5B0 100%); }
-    .team-card__photo--2 { background: linear-gradient(135deg, #8BAF8E 0%, #C5DBC7 100%); }
-    .team-card__photo--3 { background: linear-gradient(135deg, #B8967A 0%, #D4BFA6 100%); }
-    .team-card__photo--4 { background: linear-gradient(135deg, #6B8F7B 0%, #9DC4A8 100%); }
-    /* photo placeholder for a new team member (see the TODO comment on the card) */
+    
 
     .team-card__body { padding: 24px; }
     .team-card__name {
@@ -1252,10 +1129,7 @@
     .team-card__bio + .team-card__bio { margin-top: 10px; }
 
     /* ===== SOCIAL FEED ===== */
-    .social__intro {
-      text-align: center;
-      margin-bottom: 48px;
-    }
+    
     .social__icons {
       display: flex;
       justify-content: center;
@@ -1280,17 +1154,6 @@
 
     /* Facebook Feed Scroll */
     /* Facebook Page Plugin embed */
-    .social__widget-note {
-      text-align: center;
-      margin-top: 32px;
-      padding: 24px;
-      background: var(--clr-cream);
-      border-radius: var(--radius-md);
-      font-size: 0.9rem;
-      color: var(--clr-text-light);
-      border: 1px dashed var(--clr-border);
-    }
-
 
     /* Social section photo background */
     .social-bg {
@@ -1465,10 +1328,7 @@
       border-color: rgba(201,169,110,0.6);
       color: #2E7D42;
     }
-    .faq__collapse-wrap {
-      display: flex;
-      justify-content: center;
-    }
+    
     .faq__collapse > summary svg {
       width: 14px;
       height: 14px;
@@ -1592,10 +1452,6 @@
       color: #E8D49A;
       font-size: 0.95rem;
       text-shadow: 0 0 10px rgba(232,212,154,0.5);
-    }
-    .trust-badge__icon {
-      font-size: 1rem;
-      color: var(--clr-gold-light);
     }
 
     .final-cta__subtitle {
@@ -1769,26 +1625,8 @@
       background: linear-gradient(135deg, rgba(10,31,14,0.92) 0%, rgba(20,42,24,0.88) 50%, rgba(46,83,57,0.9) 100%);
     }
     /* Helper text under the services card */
-    .services-help {
-      text-align: center;
-      margin: 28px auto 0;
-      max-width: 600px;
-      font-size: 0.92rem;
-      color: rgba(255,255,255,0.78);
-      font-style: italic;
-      line-height: 1.6;
-    }
-    .services-help a {
-      color: #E8D49A;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      font-weight: 600;
-      font-style: normal;
-      letter-spacing: 0.01em;
-      padding: 4px 0;
-      display: inline-block;
-    }
-    .services-help a:hover { color: #ffffff; }
+
+    
     /* Team cards remain white tiles — they pop beautifully on the dark forest backdrop */
     #team.careers-bg .team-card { box-shadow: 0 10px 28px rgba(0,0,0,0.28); }
     .careers-bg::before {
@@ -2081,137 +1919,32 @@
     #svc-tab-perms:checked ~ .service-category-indicator #ind-perms,
     #svc-tab-tinsel:checked ~ .service-category-indicator #ind-tinsel,
     #svc-tab-offers:checked ~ .service-category-indicator #ind-offers { display: inline; }
-    .service-panel__empty { padding: 40px 24px; text-align: center; color: #86868b; font-size: 0.95rem; }
-    .service-panel__inner { padding: 8px 0 16px; }
 
     /* Reuse accordion sub-sections inside panels */
-    .pricing-tabs__group { margin-bottom: 4px; }
+    
     .pricing-tabs__subhead { display: flex; justify-content: space-between; align-items: center; width: 100%; font-family: var(--ff-body); font-size: 0.95rem; font-weight: 600; color: #1d1d1f; padding: 14px 0 10px; margin-top: 4px; border: none; border-bottom: 1px solid rgba(201,169,110,0.25); letter-spacing: 0; background: none; cursor: pointer; transition: color 0.2s ease; text-align: left; }
     .pricing-tabs__subhead:hover { color: #2E7D42; }
-    .pricing-tabs__subicon { font-size: 1.2rem; font-weight: 300; color: #86868b; transition: transform 0.3s ease; }
-    .pricing-tabs__subhead[aria-expanded="true"] .pricing-tabs__subicon { transform: rotate(45deg); }
+
     .pricing-tabs__subbody { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
     .pricing-tabs__subbody--open { max-height: 5000px; }
-    .pricing-tabs__row { display: flex; justify-content: space-between; align-items: baseline; padding: 14px 0; border-bottom: 1px solid rgba(201,169,110,0.15); }
-    .pricing-tabs__service { font-size: 0.95rem; color: #1d1d1f; }
-    .pricing-tabs__price { font-family: var(--ff-body); font-size: 1rem; font-weight: 600; color: #1d1d1f; white-space: nowrap; margin-left: 16px; }
-    .pricing-tabs__desc { font-size: 0.82rem; color: #777; font-style: italic; line-height: 1.5; padding: 4px 0 10px; margin: 0; }
-    .pricing-tabs__row--has-desc { flex-wrap: wrap; }
-    .pricing-tabs__row--has-desc .pricing-tabs__desc { flex-basis: 100%; }
+
+    
+
+    
 
     /* === Special Offers — Elegant Expandable Strip === */
-    .special-offers {
-      max-width: 860px;
-      margin: 24px auto 0;
-      border-radius: 16px;
-      overflow: hidden;
-      background: rgba(255,255,255,0.55);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(201,169,110,0.25);
-      box-shadow: 0 4px 20px rgba(201,169,110,0.08);
-    }
-    .special-offers__bar {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 16px 20px 6px;
-      cursor: pointer;
-      list-style: none;
-    }
-    .special-offers__bar::-webkit-details-marker { display: none; }
-    .special-offers__bar::marker { display: none; content: ''; }
-    .special-offers__badge {
-      font-family: var(--ff-display);
-      font-size: 1rem;
-      font-weight: 600;
-      color: #C9A96E;
-      letter-spacing: 0.04em;
-    }
-    .special-offers__badge::before {
-      content: '';
-      display: inline-block;
-      width: 20px;
-      height: 1.5px;
-      background: linear-gradient(90deg, transparent, #C9A96E);
-      vertical-align: middle;
-      margin-right: 8px;
-    }
-    .special-offers__hint {
-      font-size: 0.78rem;
-      color: #86868b;
-      margin-left: auto;
-      font-style: italic;
-    }
-    .special-offers__chevron {
-      color: #C9A96E;
-      transition: transform 0.3s ease;
-      flex-shrink: 0;
-    }
-    .special-offers[open] .special-offers__chevron {
-      transform: rotate(180deg);
-    }
-    .special-offers[open] .special-offers__hint {
-      display: none;
-    }
-    .special-offers__body {
-      padding: 4px 16px 16px;
-    }
-    .special-offers__grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-    }
-    .special-offers__deal {
-      display: flex;
-      flex-direction: column;
-      padding: 20px 22px;
-      background: linear-gradient(145deg, rgba(201,169,110,0.06), rgba(201,169,110,0.14));
-      border: 1.5px solid rgba(201,169,110,0.3);
-      border-radius: 14px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      position: relative;
-      box-shadow: 0 2px 12px rgba(201,169,110,0.08), inset 0 1px 0 rgba(255,255,255,0.5);
-    }
-    .special-offers__deal:hover {
-      background: linear-gradient(145deg, rgba(201,169,110,0.12), rgba(201,169,110,0.22));
-      border-color: rgba(201,169,110,0.5);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(201,169,110,0.18), 0 2px 8px rgba(201,169,110,0.1);
-    }
-    .special-offers__deal-name {
-      font-family: var(--ff-display);
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: #1d1d1f;
-      line-height: 1.3;
-      margin-bottom: 6px;
-    }
-    .special-offers__deal-price {
-      font-size: 0.88rem;
-      font-weight: 500;
-      color: #9a7b3f;
-    }
-    .special-offers__deal-save {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: #C9A96E;
-      background: linear-gradient(135deg, rgba(201,169,110,0.12), rgba(201,169,110,0.2));
-      border: 1px solid rgba(201,169,110,0.25);
-      padding: 4px 12px;
-      border-radius: 20px;
-      margin-top: 10px;
-      width: fit-content;
-      letter-spacing: 0.02em;
-    }
-    @media (min-width: 769px) {
-      .special-offers__grid { grid-template-columns: repeat(4, 1fr); }
-      .special-offers__bar { padding: 18px 28px 8px; }
-      .special-offers__body { padding: 4px 28px 20px; }
-      .special-offers__badge { font-size: 1.1rem; }
-    }
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 
     /* === Pricing Subcategory Accordion — Bold Green Bar with Gold Border === */
     .pricing-subcat {
@@ -2221,51 +1954,11 @@
       position: relative;
     }
     /* Wrapper span inside <summary> handles all visual styling (Safari ignores border/shadow on <summary>) */
-    .pricing-subcat__toggle {
-      list-style: none;
-      padding: 0;
-      cursor: pointer;
-      border: none;
-      background: none;
-    }
-    .pricing-subcat__toggle::-webkit-details-marker { display: none; }
-    .pricing-subcat__toggle::marker { display: none; content: ''; }
-    .pricing-subcat__toggle-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      padding: 14px 24px;
-      background: rgba(46,83,57,0.06);
-      border: 1.5px solid rgba(46,83,57,0.15);
-      border-radius: 10px;
-      font-family: var(--ff-display);
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: #2E5339;
-      letter-spacing: 0.02em;
-      text-transform: none;
-      transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-    }
-    .pricing-subcat__toggle:hover .pricing-subcat__toggle-inner {
-      background: rgba(46,83,57,0.1);
-      border-color: rgba(201,169,110,0.5);
-      box-shadow: 0 2px 8px rgba(46,83,57,0.08);
-    }
-    .pricing-subcat__toggle-inner svg {
-      transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
-      flex-shrink: 0;
-      color: #C9A96E;
-    }
-    .pricing-subcat[open] > .pricing-subcat__toggle .pricing-subcat__toggle-inner {
-      background: rgba(46,83,57,0.1);
-      border-color: rgba(201,169,110,0.5);
-      border-radius: 10px 10px 0 0;
-      box-shadow: 0 2px 8px rgba(46,83,57,0.08);
-    }
-    .pricing-subcat[open] > .pricing-subcat__toggle .pricing-subcat__toggle-inner svg {
-      transform: rotate(180deg);
-    }
+
+    
+
+    
+
     .pricing-subcat__list--open {
       padding: 4px 0 0;
       background: #ffffff;
@@ -2332,14 +2025,8 @@
       transform: translateY(-1px);
       box-shadow: 0 2px 8px rgba(46,83,57,0.2);
     }
-    .pricing-item--special {
-      background: rgba(201,169,110,0.04);
-    }
-    .pricing-item--special .pricing-item__name {
-      color: var(--clr-gold);
-    }
-    .pricing-tabs__save { color: var(--clr-gold); font-size: 0.8rem; font-weight: 400; margin-left: 6px; }
-    .pricing-acc--special .pricing-acc__btn { color: var(--clr-charcoal); }
+
+    
 
     /* === Contextual salon photo accents === */
     /* A lightweight reusable photo element for embedding a single salon
@@ -2402,21 +2089,12 @@
       transform: translateY(0);
     }
     /* Aspect-ratio variants */
-    .section-photo--landscape { aspect-ratio: 4 / 3; }
-    .section-photo--portrait { aspect-ratio: 3 / 4; }
-    .section-photo--wide { aspect-ratio: 16 / 9; }
-    .section-photo--banner { aspect-ratio: 21 / 8; }
-    .section-photo--square { aspect-ratio: 1 / 1; }
+
+    
+
     /* Slim banner used inside service panels — narrow max-width + subtle spacing */
     /* Team intro photo — wide, sits above team grid */
-    .team-intro-photo {
-      max-width: 900px;
-      margin: 8px auto 36px;
-      border-radius: 16px;
-    }
-    @media (max-width: 768px) {
-      .team-intro-photo { margin-bottom: 24px; }
-    }
+
     /* Zoom hint icon (shared styling with the old gallery zoom) */
     .section-photo__zoom {
       position: absolute;
@@ -2549,7 +2227,7 @@
     .pkg-availability svg { width: 12px; height: 12px; flex-shrink: 0; opacity: 0.65; }
     .offers-note {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 9px;
       font-size: 0.84rem;
       font-weight: 600;
@@ -2560,7 +2238,7 @@
       padding: 11px 16px;
       margin: 0 0 4px;
     }
-    .offers-note svg { width: 17px; height: 17px; flex-shrink: 0; }
+    .offers-note svg { width: 17px; height: 17px; flex-shrink: 0; margin-top: 1px; }
     .offers-note strong { font-weight: 700; }
     .pkg-bonuses {
       display: flex;
@@ -2590,11 +2268,7 @@
       background: linear-gradient(135deg, rgba(201,169,110,0.1), rgba(201,169,110,0.22));
       border: 1px solid rgba(201,169,110,0.35);
     }
-    .pkg-bonus--save {
-      color: #ffffff;
-      background: linear-gradient(135deg, #C9A96E, #b8943e);
-      border: 1px solid #b8943e;
-    }
+    
     .pkg-bonus strong { font-weight: 700; }
     .pkg-bonus small {
       font-size: 0.65rem;
@@ -2602,27 +2276,8 @@
       opacity: 0.85;
       margin-left: 2px;
     }
-    .pkg-restriction {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      background: rgba(255,149,0,0.06);
-      border: 1px solid rgba(255,149,0,0.3);
-      border-radius: 10px;
-      padding: 10px 14px;
-      margin: 10px 0 12px;
-      font-size: 0.78rem;
-      color: #8a5a00;
-      line-height: 1.5;
-    }
-    .pkg-restriction svg {
-      width: 14px;
-      height: 14px;
-      flex-shrink: 0;
-      margin-top: 2px;
-      color: #cc7a00;
-    }
-    .pkg-restriction strong { color: #6f4700; font-weight: 700; }
+
+    
     .pkg-note {
       font-size: 0.74rem;
       color: #86868b;
@@ -2683,81 +2338,13 @@
     .section--loyalty .section-label { color: #C9A96E; }
     .section--loyalty .section-title { color: #ffffff; }
     .section--loyalty .section-subtitle { color: rgba(255,255,255,0.72); }
-    .loyalty__earn {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      max-width: 720px;
-      margin: 0 auto 48px;
-    }
-    .loyalty__earn-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(201,169,110,0.25);
-      border-radius: 18px;
-      padding: 26px 24px;
-      text-align: center;
-    }
-    .loyalty__earn-rate {
-      font-size: 1.45rem;
-      font-weight: 700;
-      color: #E8D49A;
-      letter-spacing: -0.02em;
-      margin-bottom: 6px;
-    }
-    .loyalty__earn-label {
-      font-size: 0.84rem;
-      color: rgba(255,255,255,0.7);
-      letter-spacing: 0.02em;
-    }
-    .loyalty__rewards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 16px;
-      max-width: 1120px;
-      margin: 0 auto 64px;
-    }
-    .loyalty__reward {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(201,169,110,0.2);
-      border-radius: 18px;
-      padding: 28px 22px 24px;
-      text-align: center;
-      transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
-    }
-    .loyalty__reward:hover {
-      transform: translateY(-3px);
-      border-color: rgba(201,169,110,0.5);
-      background: rgba(255,255,255,0.06);
-    }
-    .loyalty__reward-icon {
-      width: 36px;
-      height: 36px;
-      margin: 0 auto 14px;
-      color: #C9A96E;
-      display: block;
-    }
-    .loyalty__reward-name {
-      font-size: 0.94rem;
-      font-weight: 600;
-      color: #ffffff;
-      margin-bottom: 14px;
-      line-height: 1.35;
-      min-height: 2.5em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .loyalty__reward-points {
-      display: inline-block;
-      font-size: 0.74rem;
-      font-weight: 700;
-      color: #142a18;
-      background: linear-gradient(135deg, #E8D49A, #C9A96E);
-      padding: 6px 14px;
-      border-radius: 980px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
+
+    
+
+    
+
+    
+    
     .loyalty__app {
       display: grid;
       grid-template-columns: 1fr 300px;
@@ -2871,7 +2458,7 @@
       line-height: 1.35;
       letter-spacing: -0.005em;
     }
-    .loyalty__app-feature-text { display: none; }
+    
     .loyalty__app-badges {
       display: flex;
       gap: 12px;
@@ -2982,12 +2569,6 @@
           "phone";
       }
       .loyalty__phone { max-width: 180px; }
-    }
-    @media (max-width: 768px) {
-      .loyalty__earn { grid-template-columns: 1fr; max-width: 420px; }
-      .loyalty__rewards { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-      .loyalty__reward { padding: 22px 16px 20px; }
-      .loyalty__reward-name { font-size: 0.86rem; min-height: 2.7em; }
     }
 
     /* Loyalty learn-more collapsible block */
@@ -3171,79 +2752,16 @@
     }
 
     /* Fine print list */
-    .loyalty__fine-print {
-      list-style: none;
-      padding: 0;
-      margin: 6px 0 0;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .loyalty__fine-print li {
-      display: grid;
-      grid-template-columns: 18px 1fr;
-      gap: 14px;
-      align-items: start;
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.78);
-      line-height: 1.55;
-    }
-    .loyalty__fine-print li::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #C9A96E;
-      margin-top: 9px;
-      margin-left: 6px;
-    }
-    .loyalty__fine-print strong {
-      color: #ffffff;
-      font-weight: 600;
-    }
+
+    
 
     /* Inner FAQ list */
-    .loyalty__inner-faqs {
-      display: flex;
-      flex-direction: column;
-      margin: 6px 0 0;
-    }
-    .loyalty__inner-faq {
-      border-top: 1px solid rgba(201,169,110,0.15);
-      padding: 4px 0;
-    }
-    .loyalty__inner-faq:last-child { border-bottom: 1px solid rgba(201,169,110,0.15); }
-    .loyalty__inner-faq > summary {
-      list-style: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 14px 4px;
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: #ffffff;
-      transition: color 0.2s ease;
-    }
-    .loyalty__inner-faq > summary::-webkit-details-marker { display: none; }
-    .loyalty__inner-faq > summary::marker { content: ''; }
-    .loyalty__inner-faq > summary::after {
-      content: '+';
-      font-size: 1.2rem;
-      font-weight: 400;
-      color: #C9A96E;
-      transition: transform 0.25s ease;
-      flex-shrink: 0;
-    }
-    .loyalty__inner-faq[open] > summary::after { transform: rotate(45deg); }
-    .loyalty__inner-faq > summary:hover { color: #E8D49A; }
-    .loyalty__inner-faq-body {
-      padding: 0 4px 16px;
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.6;
-    }
+
+    
+
+    
+
+    
 
     @media (max-width: 768px) {
       .loyalty__learn { margin-top: 40px; }
@@ -3252,9 +2770,6 @@
       .loyalty__steps { grid-template-columns: 1fr; }
       .loyalty__rules { grid-template-columns: 1fr; }
       .loyalty__treat-header { flex-wrap: wrap; }
-    }
-    @media (max-width: 420px) {
-      .loyalty__rewards { grid-template-columns: 1fr; }
     }
 
     /* Mobile responsive overrides for packages */
@@ -3267,7 +2782,7 @@
         /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
       .why__grid { justify-content: center; }
-      .services__grid { grid-template-columns: repeat(2, 1fr); }
+      
       .team-card { flex-basis: calc((100% - 32px) / 2); max-width: calc((100% - 32px) / 2); }
     }
 
@@ -3298,9 +2813,8 @@
       }
       .nav__toggle-chk:checked ~ .nav__inner .nav__links .nav__link { color: #1d1d1f; font-size: 0.95rem; }
       .nav__toggle-chk:checked ~ .nav__inner .nav__links .nav__book { display: none; } /* hide duplicate in dropdown */
-      .nav__wella-badge { display: none; }
-      .nav__toggle-chk:checked ~ .nav__inner .nav__links .nav__wella-badge { display: flex; justify-content: center; padding: 8px 0 4px; }
-      .nav__toggle-chk:checked ~ .nav__inner .nav__links .nav__wella-badge .nav__wella-logo { mix-blend-mode: multiply; opacity: 0.5; height: 18px; }
+
+      
       .nav__toggle { display: flex; }
       .nav__book--persistent {
         display: inline-block !important;
@@ -3313,7 +2827,7 @@
 
       /* Products section mobile */
       .products__grid { grid-template-columns: 1fr; gap: 32px; }
-      .products__wella-logo { height: 32px; }
+      
       .wella-quote { padding: 28px 20px; margin-top: 40px; }
       .wella-quote__text { font-size: 0.95rem; }
       .wella-quote::before { font-size: 3rem; }
@@ -3358,16 +2872,15 @@
         z-index: 999;
         pointer-events: none;
       }
-      .hero__bg-left, .hero__bg-right { object-fit: cover; object-position: center top; }
+      
       .hero [style*="margin-bottom:16px"] img { height: 64px !important; max-width: 200px !important; }
       .hero [style*="margin-bottom:16px"] { margin-bottom: 12px !important; }
       .hero__accent { font-size: 1.52rem !important; letter-spacing: 0 !important; }
-      .hero__tagline { font-size: 0.82rem; margin: 14px auto 28px; }
+      
       .hero__proof { flex-direction: column; gap: 7px; font-size: 0.75rem; letter-spacing: 0.12em; margin: 26px 0 0; } .hero__proof-sep { display: none; }
       .hero__link { font-size: 1.0625rem; }
+
       
-      
-      .hero__scroll { display: none; }
 
       /* Why Choose — 2-col grid on mobile */
       .why__grid { flex-wrap: wrap; overflow-x: visible; justify-content: center; gap: 10px; padding-bottom: 8px; }
@@ -3377,8 +2890,6 @@
       .why__card-text { font-size: 0.75rem; max-width: none; }
 
       /* Services — compact 2-column grid */
-      .services__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-      .btn--sm { padding: 8px 16px; font-size: 0.78rem; }
 
       /* Reviews — smaller cards */
       .reviews__header-stats { flex-direction: row; gap: 14px; margin-bottom: 24px; padding: 18px 24px; border-radius: 16px; max-width: 320px; }
@@ -3389,7 +2900,7 @@
       .review-card__header { margin-bottom: 10px; gap: 10px; }
       .review-card__avatar { width: 34px; height: 34px; font-size: 0.9rem; }
       .review-card__name { font-size: 0.85rem; }
-      .review-card__date { font-size: 0.75rem; }
+      
       .review-card__stars { font-size: 0.8rem; margin-bottom: 8px; }
       .review-card__text { font-size: 0.82rem; line-height: 1.5; }
       .review-card__google { margin-top: 10px; font-size: 0.75rem; }
@@ -3408,7 +2919,6 @@
       .social__icons { gap: 14px; margin-top: 16px; }
       .social__icon-link { width: 40px; height: 40px; font-size: 1rem; }
         /* Before/After — horizontal scroll */
-
 
       /* Careers — responsive */
       .careers__content { grid-template-columns: 1fr; gap: 32px; }
@@ -3486,11 +2996,8 @@
       .hero__content { padding: 0 16px; }
 
       /* Services single column on very small screens */
-      .services__grid { grid-template-columns: 1fr; gap: 10px; }
 
       /* Before/After stack */
-      .ba__grid { grid-template-columns: 1fr; gap: 10px; }
-      .ba-card__slider { height: 180px; }
 
       /* Team stays 2-col but tighter */
       .team-card__photo { height: 170px; }
@@ -3499,7 +3006,7 @@
   
     /* Service cards responsive */
     @media (max-width: 768px) {
-      .pricing-subcat__toggle-inner { font-size: 0.8rem; padding: 12px 16px; letter-spacing: 0.05em; }
+      
       .pricing-item { padding: 14px 20px; }
       .pricing-item__name { font-size: 1rem; }
       .pricing-item__price { font-size: 0.9rem; }
@@ -3531,11 +3038,10 @@
     .wellaplex-card__title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; letter-spacing: -0.02em; color: #ffffff; margin: 0 0 6px; }
     .wellaplex-card__tag { font-family: 'New York', ui-serif, Georgia, serif; font-style: italic; font-size: 1.05rem; color: #E8D49A; margin: 0 0 18px; }
     .wellaplex-card__text { font-size: 0.95rem; line-height: 1.65; color: rgba(255,255,255,0.85); max-width: 68ch; margin: 0 0 18px; }
-    .wellaplex-card__steps { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 0 0 20px; }
-    @media (max-width: 700px) { .wellaplex-card__steps { grid-template-columns: 1fr; } .wellaplex-card { padding: 30px 24px 28px; } }
-    .wellaplex-card__step { background: rgba(255,255,255,0.07); border: 1px solid rgba(201,169,110,0.35); border-radius: 12px; padding: 15px 17px; }
-    .wellaplex-card__step strong { display: block; color: #E8D49A; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 5px; }
-    .wellaplex-card__step span { font-size: 0.86rem; line-height: 1.55; color: rgba(255,255,255,0.82); }
+    
+    @media (max-width: 700px) {  .wellaplex-card { padding: 30px 24px 28px; } }
+
+    
     .wellaplex-card__price { font-size: 0.92rem; font-weight: 600; color: #ffffff; margin: 0 0 22px; }
     .wellaplex-card__price em { font-style: normal; color: #E8D49A; }
     .wellaplex-card__cta { display: inline-block; background: rgba(255,255,255,0.08); color: #E8D49A; border: 1px solid rgba(201,169,110,0.9); border-radius: 980px; padding: 12px 30px; font-size: 0.88rem; font-weight: 600; letter-spacing: 0.05em; transition: all 0.25s ease; }
@@ -3560,7 +3066,6 @@
 
     /* Unified section labels — thin gold-outline pill everywhere */
     .section-label, .careers-bg .section-label, .final-cta .section-label,
-    .section--forest .section-label, .section--light-sage .section-label,
     .section--services-green .section-label {
       display: inline-block;
       color: #C9A96E;
@@ -3575,7 +3080,7 @@
       text-transform: uppercase;
       box-shadow: none;
     }
-    .careers-bg .section-label, .final-cta .section-label, .section--forest .section-label,
+    .careers-bg .section-label, .final-cta .section-label,
     .reviews-bg .section-label, .social-bg .section-label, .faq-bg .section-label,
     .section--loyalty .section-label {
       color: #E8D49A;
@@ -3697,7 +3202,6 @@
     }
 
     /* Haircuts tab expands to full wording when selected */
-    .tab-bar .service-tab .tab-active-full { display: none !important; }
 
     .tab-bar .service-tab .tab-active-stack { display: none !important; }
     .tab-bar label[for="svc-tab-cutting"] .tab-full { display: none !important; }
@@ -3707,6 +3211,7 @@
     /* ===== Great Lengths tape extensions tab ===== */
     .tab-new { display: inline-block; margin-left: 6px; padding: 1px 6px; border-radius: 980px; background: #142a18; color: #E8D49A; font-size: 0.55rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; vertical-align: middle; line-height: 1.5; }
     #panel-smoothfiller > a { display: block; width: fit-content; }
+    #panel-smoothfiller > a.panel-more { display: inline-block; }
     /* Treatments tab: two-line label on every width. "Treatments" over the service names;
        the second line drops "Straightening" on mobile and is sized to fit the cell on one line. */
     .tab-bar label[for="svc-tab-smoothfiller"] .tab-full { display: none !important; }
@@ -3743,17 +3248,17 @@
     .team__grid.team__grid--scroll:focus-visible { box-shadow: 0 0 0 2px rgba(201,169,110,0.6); border-radius: 20px; }
     .team__grid--scroll .team-card { flex: 0 0 340px; max-width: 340px; scroll-snap-align: start; }
     .team__grid--scroll .team-card__photo { height: 300px; }
-    .team__nav { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 18px; }
+    
     .team__arrow { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid rgba(201,169,110,0.7); background: rgba(255,255,255,0.06); color: #E8D49A; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease; }
     .team__arrow svg { width: 20px; height: 20px; }
     .team__arrow:hover:not(:disabled) { background: rgba(201,169,110,0.18); border-color: #E8D49A; }
     .team__arrow:disabled { opacity: 0.35; cursor: default; }
-    .team__hint { font-size: 0.74rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.65); text-align: center; }
+    
     @media (max-width: 768px) {
       .team__grid.team__grid--scroll { gap: 14px; padding: 6px 2px 12px; }
       .team__grid--scroll .team-card { flex: 0 0 80vw; max-width: 80vw; }
       .team__grid--scroll .team-card__photo { height: 240px; }
-      .team__hint { font-size: 0.62rem; letter-spacing: 0.08em; max-width: 160px; }
+      
     }
     /* ===== team: premium polish ===== */
     .team__grid--scroll .team-card { border-radius: 22px; border: 1px solid rgba(201,169,110,0.38); background: linear-gradient(180deg, #ffffff 0%, #fbfaf6 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), 0 26px 50px -30px rgba(0,0,0,0.6), 0 8px 22px -12px rgba(0,0,0,0.35); overflow: hidden; }
@@ -3770,7 +3275,7 @@
     .team__grid--scroll .team-card__quote span:last-child { font-family: var(--ff-body); font-style: normal; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: #8a9a8d; }
     .team__progress { position: relative; height: 2px; max-width: 220px; margin: 22px auto 0; background: rgba(255,255,255,0.14); border-radius: 2px; overflow: hidden; }
     .team__progress span { position: absolute; top: 0; bottom: 0; left: 0; width: 20%; background: linear-gradient(90deg, #C9A96E, #E8D49A); border-radius: 2px; transition: left 0.25s ease, width 0.25s ease; }
-    .team__nav { margin-top: 18px; }
+    
     .team__arrow { width: 48px; height: 48px; border-color: rgba(201,169,110,0.8); background: rgba(10,31,14,0.35); backdrop-filter: blur(6px); }
     @media (max-width: 768px) {
       .team__grid--scroll .team-card__photo { height: 280px; }
@@ -3779,7 +3284,7 @@
     }
     /* team section: let the salon photo show through more */
     #team.careers-bg::before { background: linear-gradient(180deg, rgba(10,31,14,0.78) 0%, rgba(20,42,24,0.52) 38%, rgba(20,42,24,0.6) 70%, rgba(10,31,14,0.82) 100%); }
-    #team .section-title, #team .section-subtitle, #team .team__hint { text-shadow: 0 2px 18px rgba(0,0,0,0.5); }
+    #team .section-title, #team .section-subtitle{ text-shadow: 0 2px 18px rgba(0,0,0,0.5); }
     /* team: arrows inside the strip on desktop, edge fades */
     .team__strip { position: relative; }
     .team__strip::before, .team__strip::after { content: ''; position: absolute; top: 0; bottom: 16px; width: 72px; pointer-events: none; z-index: 2; opacity: 1; transition: opacity 0.25s ease; }
@@ -3794,7 +3299,7 @@
     .team__edge:disabled { opacity: 0; pointer-events: none; }
     @media (min-width: 769px) {
       .team__edge { display: inline-flex; }
-      .team__nav { display: none; }
+      
       .team__progress { margin-top: 26px; }
     }
     @media (max-width: 768px) {
@@ -3804,8 +3309,7 @@
       .team__edge svg { width: 19px; height: 19px; }
       .team__edge--prev { left: -4px; }
       .team__edge--next { right: -4px; }
-      .team__nav .team__arrow { display: none; }
-      .team__nav { margin-top: 14px; }
+
     }
     /* team strip: drag to scroll with a mouse */
     @media (hover: hover) and (pointer: fine) { .team__grid--scroll { cursor: grab; } }
@@ -4100,6 +3604,21 @@
     .final-cta .final-cta__voucher { background: rgba(255,255,255,0.04); color: #E8D49A; border: 1px solid rgba(201,169,110,0.7); box-shadow: none; font-weight: 400; letter-spacing: 0.08em; padding: 16px 40px; font-size: 1.05rem; }
     .final-cta .final-cta__voucher:hover { background: rgba(201,169,110,0.16); border-color: #E8D49A; color: #ffffff; }
 
+    /* ===== shared classes replacing repeated inline styles (20 Oct 2026) ===== */
+    .panel-more { display: inline-block; margin: 14px 20px 18px; font-weight: 600; font-size: 0.88rem; color: #2E7D42; text-decoration: underline; text-underline-offset: 3px; }
+    .panel-more--tight { margin-top: 0; }
+    .name-note { font-weight: 400; color: #86868b; }
+    .link-green { color: #2E7D42; text-decoration: underline; text-underline-offset: 3px; }
+    .mb-48 { margin-bottom: 48px; }
+    .mb-6 { margin-bottom: 6px; }
+    .desc-emphasis { font-weight: 500; color: #2E5339; }
+    .bg-salon-stations { background-image: url('images/salon/01-stations.webp'); }
+    .photo-inner--mid { object-position: center 40%; }
+    .panel-faq__summary { cursor: pointer; font-size: 0.85rem; font-weight: 600; color: #2E7D42; }
+    .panel-faq__body { padding: 8px 0 0; font-size: 0.85rem; color: #86868b; line-height: 1.6; }
+    .ba-item { flex: 1; position: relative; }
+    .ba-item__img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; }
+    .ba-item__tag { position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.55); color: #fff; font-size: 0.6rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 2px 8px; border-radius: 980px; }
 </style>
   <noscript>
     <style>
@@ -4107,7 +3626,6 @@
       .pricing-tabs__subbody { max-height: none !important; overflow: visible !important; }
     </style>
   </noscript>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8BM4ZYQCSS"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -4117,7 +3635,6 @@
 </script>
 </head>
 <body>
-<!-- ===== NAVIGATION ===== -->
 <nav aria-label="Main navigation" class="nav" id="nav" role="navigation">
 <input class="nav__toggle-chk" id="navToggleChk" type="checkbox"/>
 <div class="nav__inner">
@@ -4144,7 +3661,6 @@
 </div>
 </div>
 
-<!-- ===== HERO ===== -->
 <header class="hero" id="home">
 <div class="hero__media">
 <img alt="Editorial portrait of a Hair Avenue client with beautifully styled hair" class="hero__img" fetchpriority="high" src="images/wella/wella-smoothfiller-blonde-hero.webp" width="1281" height="1920"/>
@@ -4162,7 +3678,6 @@
 </div>
 </div>
 </header>
-<!-- ===== WHY CHOOSE US ===== -->
 <section class="section careers-bg" id="why" style="background-image: url('images/salon/09-colour-consult.webp');">
 <div class="container">
 <div class="section-header reveal">
@@ -4170,7 +3685,6 @@
 <h2 class="section-title">More Than Just a Salon</h2>
 <p class="section-subtitle">We believe every person deserves to feel seen, heard, and celebrated. That's why Hair Avenue isn't just a place to get your hair done — it's a place to feel at home. Women, men and kids are all welcome.</p>
 </div>
-<!-- Quick identity pills -->
 <div class="why__grid" style="margin-bottom: 40px;">
 <div class="why__card reveal">
 <div aria-hidden="true" class="why__icon"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg></div>
@@ -4201,8 +3715,6 @@
 </div>
 </div>
 </div>
-<!-- The Hair Avenue Experience -->
-<!-- What You Can Expect -->
 <div class="expect-bg-wrapper reveal">
 <div class="expect-bg-split">
 <img alt="Hair Avenue salon styling stations" loading="lazy" src="images/hair-avenue-salon-styling-stat-1.jpg" width="960" height="640"/>
@@ -4247,7 +3759,6 @@
 <div class="expect-card__body"><h4 class="expect-card__title">Open Saturdays &amp; Late Nights</h4>
 <p class="expect-card__text">Book around your schedule, not the other way around.</p></div>
 </div>
-<!-- Duplicate set for seamless infinite scroll -->
 <div aria-hidden="true" class="expect-card">
 <div class="expect-card__icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="28"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg></div>
 <div class="expect-card__body"><h4 class="expect-card__title">Premium Wella Products</h4>
@@ -4288,17 +3799,13 @@
 </div>
 </div>
 </section>
-<!-- ===== OUR PRODUCTS — WELLA PROFESSIONALS ===== -->
-<!-- ===== SERVICES & PRICING ===== -->
-<section class="section section--services-green careers-bg" id="services" style="background-image: url('images/salon/01-stations.webp');">
+<section class="section section--services-green careers-bg bg-salon-stations" id="services">
 <div class="container">
 <div class="section-header reveal">
 <span class="section-label">What We Offer</span>
 </div>
 <h2 class="section-title services-title reveal">Hair Salon Services &amp; Pricing</h2>
-<!-- Unified Services Card -->
 <div class="services-card reveal">
-<!-- Service Category Cards -->
 <input class="svc-tab-radio" id="svc-tab-offers" name="svc-tab" type="radio"/>
 <input checked="" class="svc-tab-radio" id="svc-tab-colouring" name="svc-tab" type="radio"/>
 <input class="svc-tab-radio" id="svc-tab-regrowth" name="svc-tab" type="radio"/>
@@ -4321,7 +3828,7 @@
 <label class="service-tab" for="svc-tab-tinsel"><img class="tab-pic" src="images/tabs/tab-tinsel.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Upstyle &amp; Hair Tinsel</span><span class="tab-short">Upstyle</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
 <label class="service-tab" for="svc-tab-extensions"><img class="tab-pic" src="images/tabs/tab-extensions.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Hair Extensions</span><span class="tab-short">Extensions</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
 <label class="service-tab" for="svc-tab-perms"><img class="tab-pic" src="images/tabs/tab-perms.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Perms</span><span class="tab-short">Perms</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
-<label class="service-tab" for="svc-tab-offers"><img class="tab-pic" src="images/tabs/tab-offers.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Midweek Offers</span><span class="tab-short">Midweek Offers</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
+<label class="service-tab" for="svc-tab-offers"><img class="tab-pic" src="images/tabs/tab-offers.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Tue&#8211;Fri Specials</span><span class="tab-short">Tue&#8211;Fri Specials</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
 </div>
 <div class="svc-search" id="svcSearch">
 <div class="svc-search__box">
@@ -4342,10 +3849,9 @@
 <span class="indicator-text" id="ind-tinsel">Upstyle &amp; Hair Tinsels</span>
 <span class="indicator-text" id="ind-extensions">Great Lengths Tape Extensions</span>
 <span class="indicator-text" id="ind-perms">Perms &#183; Tuesday to Friday</span>
-<span class="indicator-text" id="ind-offers">Midweek Offers · Tuesday to Friday</span>
+<span class="indicator-text" id="ind-offers">Tue&#8211;Fri Specials · Book Tuesday to Friday</span>
 </div>
 
-<!-- All Service Panels -->
 <div class="service-panel" id="panel-colouring">
 
 <p class="panel-review"><span class="star">★</span> “My hair always turns out amazing.” <span>— Google review</span></p>
@@ -4357,12 +3863,12 @@
 </div>
 <p class="pricing-item__desc">Your colour, perfected. Every Hair Avenue colour service uses Wella's Koleston Perfect ME+ — the world's most advanced professional permanent colour. With Pure Balance Technology, it neutralises free radicals caused by mineral build-up in your hair, delivering richer, truer-to-tone results with significantly less damage, colour after colour.</p>
 <p class="pricing-item__desc">The ME+ molecule is a Wella-exclusive breakthrough — over seven years of research and 3,000+ formulations tested — that reduces the risk of developing a new colour allergy by up to 60 times. Gorgeous colour shouldn't come with compromise, and with Koleston Perfect, it doesn't.</p>
-<p class="pricing-item__desc" style="font-weight:500; color:#2E5339;">Up to 100% grey coverage, up to 5 levels of lift, and natural depth and shine that lasts.</p>
+<p class="pricing-item__desc desc-emphasis">Up to 100% grey coverage, up to 5 levels of lift, and natural depth and shine that lasts.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVxF_C_4mQMY3w_h9tMAd_0s" rel="noopener" target="_blank">Book Now</a>
 </div>
 <div class="pricing-item">
 <div class="pricing-item__header">
-<span class="pricing-item__name">Toner / Gloss Maintenance <small style="font-weight:400; color:#86868b;">(with blow wave)</small></span>
+<span class="pricing-item__name">Toner / Gloss Maintenance <small class="name-note">(with blow wave)</small></span>
 <span class="pricing-item__price">from $165</span>
 </div>
 <p class="pricing-item__desc">Bring your colour back to life between appointments. A gloss (or toner) is a gentle, bleach-free colour that sits over your existing shade &#8212; taking out brassy yellow or orange tones, evening out patchy or dull colour, and adding depth, richness and shine. Think of it as a top coat for your colour, lasting around 4&#8211;6 weeks.</p>
@@ -4370,7 +3876,7 @@
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0qDbPSFl2GQFmyEixso_5Q" rel="noopener" target="_blank">Book Now</a>
 </div>
 </div>
-<a href="/hair-colour-canberra/" style="display:inline-block;margin:14px 20px 18px;font-weight:600;font-size:0.88rem;color:#2E7D42;text-decoration:underline;text-underline-offset:3px;">Learn more about hair colour in Canberra &rarr;</a>
+<a href="/hair-colour-canberra/" class="panel-more">Learn more about hair colour in Canberra &rarr;</a>
 </div>
 
 <div class="service-panel" id="panel-regrowth">
@@ -4419,8 +3925,8 @@
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVwvCD5fUIGpAR13s5zzX528" rel="noopener" target="_blank">Book Now</a>
 </div>
 </div>
-<a href="/regrowth-canberra/" style="display:inline-block;margin:14px 20px 18px;font-weight:600;font-size:0.88rem;color:#2E7D42;text-decoration:underline;text-underline-offset:3px;">Learn more about regrowth colour in Canberra &rarr;</a>
-<a href="/grey-blending-canberra/" style="display:inline-block;margin:0 20px 18px;font-weight:600;font-size:0.88rem;color:#2E7D42;text-decoration:underline;text-underline-offset:3px;">Canberra&#8217;s grey blending specialists &#8212; embrace your silver &rarr;</a>
+<a href="/regrowth-canberra/" class="panel-more">Learn more about regrowth colour in Canberra &rarr;</a>
+<a href="/grey-blending-canberra/" class="panel-more panel-more--tight">Canberra&#8217;s grey blending specialists &#8212; embrace your silver &rarr;</a>
 </div>
 
 <div class="service-panel" id="panel-highlights">
@@ -4454,15 +3960,15 @@
 </div>
 <div class="pricing-item">
 <div class="pricing-item__header">
-<span class="pricing-item__name">Blonde Refresh <small style="font-weight:400; color:#86868b;">(20 foils &#183; medium hair)</small></span>
+<span class="pricing-item__name">Blonde Refresh <small class="name-note">(20 foils &#183; medium hair)</small></span>
 <span class="pricing-item__price">$325</span>
 </div>
 <p class="pricing-item__desc">Keep your blonde looking stunning between full colour appointments. Strategic placement of 20 foils refreshes colour, blends regrowth and adds dimension &#8212; paired with a professional toner and a polished blow wave to finish. Only suitable for clients who had their hair done less than 12 weeks ago.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/cQTDDb115STEPWwcv_CUndH3GM74cz19TEBkxK_nFfc" rel="noopener" target="_blank">Book Now</a>
 </div>
 </div>
-<a href="/balayage-canberra/" style="display:inline-block;margin:14px 20px 18px;font-weight:600;font-size:0.88rem;color:#2E7D42;text-decoration:underline;text-underline-offset:3px;">Learn more about balayage in Canberra &rarr;</a>
-<a href="/blonde-specialist-canberra/" style="display:inline-block;margin:0 20px 18px;font-weight:600;font-size:0.88rem;color:#2E7D42;text-decoration:underline;text-underline-offset:3px;">Meet our blonde specialists &rarr;</a>
+<a href="/balayage-canberra/" class="panel-more">Learn more about balayage in Canberra &rarr;</a>
+<a href="/blonde-specialist-canberra/" class="panel-more panel-more--tight">Meet our blonde specialists &rarr;</a>
 </div>
 
 <div class="service-panel" id="panel-cutting">
@@ -4507,14 +4013,14 @@
 </div>
 <h3 class="cut-group">Kids&#8217; Cuts</h3>
 <div class="pricing-item"><div class="pricing-item__header">
-<span class="pricing-item__name">Kids&#8217; Dry Cut <small style="font-weight:400; color:#86868b;">(Kindy &#8211; Year 6 only)</small></span>
+<span class="pricing-item__name">Kids&#8217; Dry Cut <small class="name-note">(Kindy &#8211; Year 6 only)</small></span>
 <span class="pricing-item__price">$45</span>
 </div>
 <p class="pricing-item__desc">A friendly, stress-free dry cut for kids from kindergarten through to Year 6. Our team keeps things fun and relaxed so little ones feel comfortable in the chair. Please arrive with freshly washed, dry hair &#8212; no shampoo or blow-dry is included in this service.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV957xVnKDYdJEXj4PgW1XiM" rel="noopener" target="_blank">Book Now</a>
 </div>
 </div>
-<a href="/mens-haircuts-braddon/" style="display:inline-block;margin:14px 20px 18px;font-weight:600;font-size:0.88rem;color:#2E7D42;text-decoration:underline;text-underline-offset:3px;">Learn more about men&#8217;s haircuts in Braddon &rarr;</a>
+<a href="/mens-haircuts-braddon/" class="panel-more">Learn more about men&#8217;s haircuts in Braddon &rarr;</a>
 </div>
 
 <div class="service-panel" id="panel-blowwave">
@@ -4527,7 +4033,7 @@
 <span class="pricing-item__price">from $85</span>
 </div>
 <p class="pricing-item__desc">A polished, professional blow wave tailored to your hair &#8212; includes a relaxing shampoo with scalp massage and a Wella hair mask or conditioner matched to your hair type. Wearing hair extensions? Choose the extensions option so we can allow the right time and care. A small extra fee applies for very thick hair.</p>
-<p class="pricing-item__desc" style="font-weight:500; color:#2E5339;">Booking Tuesday&#8211;Friday? Our Midweek Special gets you a lower price plus a free Intense Treatment Mask at the basin &#8212; see Midweek Offers.</p>
+<p class="pricing-item__desc desc-emphasis">Booking Tuesday&#8211;Friday? Our Midweek Special gets you a lower price plus a free Intense Treatment Mask at the basin &#8212; see Tue&#8211;Fri Specials.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-KQ8wNrIOec5oeIcIKKXuo" rel="noopener" target="_blank" aria-label="Book Blow Wave online">Book Now</a>
 </div>
 <div class="pricing-item">
@@ -4556,15 +4062,15 @@
 <a class="pricing-item__book" style="margin:4px 0 12px;" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVxYFTEV4nabNlcEqjEKQA1U" rel="noopener" target="_blank">Book Now</a>
 <p class="pricing-item__desc" style="color:#2E5339; font-weight:500;"><strong>Who it's for:</strong> Anyone dealing with frizz and hard-to-manage hair — especially if you find yourself reaching for the straightener or blow-dryer daily. Results are cumulative, so the more you do it, the smoother it gets.</p>
 <details class="smoothfiller-faq" style="margin-top:8px;">
-<summary style="cursor:pointer; font-size:0.85rem; font-weight:600; color:#2E7D42;">Common Questions ▾</summary>
-<div style="padding:8px 0 0; font-size:0.85rem; color:#86868b; line-height:1.6;">
-<p style="margin-bottom:6px;"><strong>How long does it last?</strong> Up to 3 months.</p>
+<summary class="panel-faq__summary">Common Questions ▾</summary>
+<div class="panel-faq__body">
+<p class="mb-6"><strong>How long does it last?</strong> Up to 3 months.</p>
 <p><strong>Will it straighten my curls?</strong> No — it smooths and reduces frizz while keeping your natural pattern.</p>
 </div>
 </details>
 <div class="smoothfiller-ba" style="display:flex; gap:8px; margin-top:12px; border-radius:12px; overflow:hidden;">
-<div style="flex:1; position:relative;"><img alt="Before SmoothFiller" loading="lazy" src="images/wella/wella-smoothfiller-before.webp" style="width:100%; aspect-ratio:1; object-fit:cover; border-radius:8px;" width="480" height="480"/><span style="position:absolute; bottom:6px; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.55); color:#fff; font-size:0.6rem; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; padding:2px 8px; border-radius:980px;">Before</span></div>
-<div style="flex:1; position:relative;"><img alt="After SmoothFiller" loading="lazy" src="images/wella/wella-smoothfiller-after.webp" style="width:100%; aspect-ratio:1; object-fit:cover; border-radius:8px;" width="480" height="480"/><span style="position:absolute; bottom:6px; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.55); color:#fff; font-size:0.6rem; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; padding:2px 8px; border-radius:980px;">After</span></div>
+<div class="ba-item"><img alt="Before SmoothFiller" loading="lazy" src="images/wella/wella-smoothfiller-before.webp" width="480" height="480"/ class="ba-item__img"><span class="ba-item__tag">Before</span></div>
+<div class="ba-item"><img alt="After SmoothFiller" loading="lazy" src="images/wella/wella-smoothfiller-after.webp" width="480" height="480"/ class="ba-item__img"><span class="ba-item__tag">After</span></div>
 </div>
 </div>
 <div class="pricing-item">
@@ -4586,9 +4092,9 @@
 </div>
 <p class="pricing-item__desc" style="margin:6px 20px 0; font-weight:500; color:#2E5339;">Looking for a perm? Fringe, root and full perms from $99, Tuesday to Friday &#8212; see the Perms tab.</p>
 </div>
-<a href="/hair-smoothfiller-canberra/" style="display:inline-block;margin:14px 20px 18px;font-weight:600;font-size:0.88rem;color:#2E7D42;text-decoration:underline;text-underline-offset:3px;">Learn more about Hair SmoothFiller &rarr;</a>
-<a href="/nanoplasty-canberra/" style="display:inline-block;margin:0 20px 18px;font-weight:600;font-size:0.88rem;color:#2E7D42;text-decoration:underline;text-underline-offset:3px;">Learn more about nanoplasty in Canberra &rarr;</a>
-<a href="/perms-canberra/" style="display:inline-block;margin:0 20px 18px;font-weight:600;font-size:0.88rem;color:#2E7D42;text-decoration:underline;text-underline-offset:3px;">Perms &amp; curls in Canberra (Tues&#8211;Fri special) — details &amp; pricing &rarr;</a>
+<a href="/hair-smoothfiller-canberra/" class="panel-more">Learn more about Hair SmoothFiller &rarr;</a>
+<a href="/nanoplasty-canberra/" class="panel-more panel-more--tight">Learn more about nanoplasty in Canberra &rarr;</a>
+<a href="/perms-canberra/" class="panel-more panel-more--tight">Perms &amp; curls in Canberra (Tues&#8211;Fri special) — details &amp; pricing &rarr;</a>
 </div>
 
 <div class="service-panel" id="panel-tinsel">
@@ -4621,15 +4127,15 @@
 </div>
 <div class="pricing-item">
 <div class="pricing-item__header">
-<span class="pricing-item__name">Hair Tinsel - for kid</span>
+<span class="pricing-item__name">Hair Tinsel for Kids</span>
 <span class="pricing-item__price">$45</span>
 </div>
 <p class="pricing-item__desc">Fun, sparkly tinsel strands designed especially for kids who love a bit of extra shimmer and pizzazz. Our safe, gentle application ensures no damage to young hair. Available in a variety of bright, exciting colours. Exclusively for primary and high school students.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFVz-2pXcr8IDfzE8eD9186PU" rel="noopener" target="_blank">Book Now</a>
 </div>
 </div>
-<a href="/wedding-hair-canberra/" style="display:inline-block;margin:14px 20px 18px;font-weight:600;font-size:0.88rem;color:#2E7D42;text-decoration:underline;text-underline-offset:3px;">Learn more about wedding &amp; formal hair in Canberra &rarr;</a>
-<a href="/hair-tinsel-canberra/" style="display:inline-block;margin:0 20px 18px;font-weight:600;font-size:0.88rem;color:#2E7D42;text-decoration:underline;text-underline-offset:3px;">Hair tinsel — sparkle for kids &amp; adults &rarr;</a>
+<a href="/wedding-hair-canberra/" class="panel-more">Learn more about wedding &amp; formal hair in Canberra &rarr;</a>
+<a href="/hair-tinsel-canberra/" class="panel-more panel-more--tight">Hair tinsel — sparkle for kids &amp; adults &rarr;</a>
 </div>
 
 <div class="service-panel" id="panel-extensions">
@@ -4700,14 +4206,14 @@
 <div class="gl-feat"><p class="gl-feat__title">Clean, residue-free removal</p><p class="gl-feat__text">A specialised remover dissolves the adhesive so the tapes release without pulling &#8212; no residue, no damage.</p></div>
 </div>
 <details class="smoothfiller-faq" style="margin:14px 20px 0;">
-<summary style="cursor:pointer; font-size:0.85rem; font-weight:600; color:#2E7D42;">Common Questions ▾</summary>
-<div style="padding:8px 0 0; font-size:0.85rem; color:#86868b; line-height:1.6;">
-<p style="margin-bottom:6px;"><strong>Will they damage my hair?</strong> Not when applied and removed correctly &#8212; the tapes are light and flat, and removal is residue-free.</p>
-<p style="margin-bottom:6px;"><strong>Do they suit fine hair?</strong> Often, yes. The smaller tapes lie flat and hide well; we check density at your consultation.</p>
+<summary class="panel-faq__summary">Common Questions ▾</summary>
+<div class="panel-faq__body">
+<p class="mb-6"><strong>Will they damage my hair?</strong> Not when applied and removed correctly &#8212; the tapes are light and flat, and removal is residue-free.</p>
+<p class="mb-6"><strong>Do they suit fine hair?</strong> Often, yes. The smaller tapes lie flat and hide well; we check density at your consultation.</p>
 <p><strong>Can I wear my hair up?</strong> Low ponytails and soft styles are ideal. Tell us if you love high styles and we&#8217;ll plan placement for it.</p>
 </div>
 </details>
-<a href="/hair-extensions-canberra/" style="display:inline-block;margin:14px 20px 18px;font-weight:600;font-size:0.88rem;color:#2E7D42;text-decoration:underline;text-underline-offset:3px;">Learn more about Great Lengths tape extensions in Canberra &rarr;</a>
+<a href="/hair-extensions-canberra/" class="panel-more">Learn more about Great Lengths tape extensions in Canberra &rarr;</a>
 </div>
 
 
@@ -4727,18 +4233,17 @@
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV4D4Wv0tvnnaakLnEH0gJ3A" rel="noopener" target="_blank" aria-label="Book Perm and Style online">Book Now</a>
 </div>
 </div>
-<a href="/perms-canberra/" style="display:inline-block;margin:14px 20px 18px;font-weight:600;font-size:0.88rem;color:#2E7D42;text-decoration:underline;text-underline-offset:3px;">Learn more about perms in Canberra &rarr;</a>
+<a href="/perms-canberra/" class="panel-more">Learn more about perms in Canberra &rarr;</a>
 </div>
 <div class="service-panel" id="panel-offers">
 
 <p class="panel-review"><span class="star">★</span> &#8220;The salon is beautiful and quite reasonably priced compared to other salons I&#8217;ve been to.&#8221; <span>&#8212; Google review</span></p>
 <div class="pricing-subcat__list pricing-subcat__list--open">
 
-<p class="offers-note"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>Packages marked <strong>Tuesday&#8211;Friday</strong> are available midweek only.</p>
-<!-- ===== All Over Colour Package ===== -->
+<p class="offers-note"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg><span>Packages marked <strong>Tuesday&#8211;Friday</strong> are available on those days only.</span></p>
 <div class="pricing-item pricing-item--pkg">
 <div class="pricing-item__header">
-<span class="pricing-item__name">All Over Colour Package + 50% Off Haircut <small style="font-weight:400; color:#86868b;">(Save up to $50)</small></span>
+<span class="pricing-item__name">All Over Colour Package + 50% Off Haircut <small class="name-note">(Save up to $50)</small></span>
 <span class="pricing-item__price">from $199</span>
 </div>
 <p class="pricing-item__desc">A complete all-over colour refresh using Wella Professional colour &#8212; fresh, vibrant coverage from root to tip with expert application. Includes a consultation, luxurious shampoo, full colour application &amp; a polished blow wave finish. Book midweek and add a haircut at half price.</p>
@@ -4755,10 +4260,9 @@
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV3YuKrD_7sTrdGKw9pkhjg8" rel="noopener" target="_blank" aria-label="Book the All Over Colour Package online">Book Now</a>
 </div>
 
-<!-- ===== Full Head Foils Package ===== -->
 <div class="pricing-item pricing-item--pkg">
 <div class="pricing-item__header">
-<span class="pricing-item__name">Full Head Foils Package + 50% Off Haircut <small style="font-weight:400; color:#86868b;">(Save up to $50)</small></span>
+<span class="pricing-item__name">Full Head Foils Package + 50% Off Haircut <small class="name-note">(Save up to $50)</small></span>
 <span class="pricing-item__price">from $345</span>
 </div>
 <p class="pricing-item__desc">Bright, bold or beautifully blended &#8212; a complete head of foils from our Master Stylists using Wella Blondor, with Bond Builder Technology for up to 97% less breakage. Fresh colour, expert care and a flawless finish in one appointment.</p>
@@ -4777,10 +4281,9 @@
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV2QQHpJ6hAgpy5YaNvslGa0" rel="noopener" target="_blank" aria-label="Book the Full Head Foils Package online">Book Now</a>
 </div>
 
-<!-- ===== Half-Head Foils Special Deal ===== -->
 <div class="pricing-item pricing-item--pkg">
 <div class="pricing-item__header">
-<span class="pricing-item__name">Half-Head Foils Special Deal + 50% Off Haircut <small style="font-weight:400; color:#86868b;">(Save up to $50)</small></span>
+<span class="pricing-item__name">Half-Head Foils Special Deal + 50% Off Haircut <small class="name-note">(Save up to $50)</small></span>
 <span class="pricing-item__price">from $275</span>
 </div>
 <p class="pricing-item__desc">Refresh your colour with a half head of hand-woven foils at a special midweek price &#8212; brightness and dimension through the top and face-framing sections, finished with a professional toner and polished styling.</p>
@@ -4788,7 +4291,6 @@
 <div class="pkg-bookline"><a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV4b5ngtlA2aIcoz-AGTU3Vo" rel="noopener" target="_blank" aria-label="Book the Half-Head Foils Special Deal online">Book Now</a></div>
 </div>
 
-<!-- ===== Balayage Special Deal ===== -->
 <div class="pricing-item pricing-item--pkg">
 <div class="pricing-item__header">
 <span class="pricing-item__name">Balayage Special Deal + 50% Off Haircut</span>
@@ -4811,10 +4313,9 @@
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVzO1Js8jlGXGQs07gAe5Sko" rel="noopener" target="_blank" aria-label="Book the Balayage Special Deal online">Book Now</a>
 </div>
 
-<!-- ===== Nanoplasty Smoothing Special ===== -->
 <div class="pricing-item pricing-item--pkg">
 <div class="pricing-item__header">
-<span class="pricing-item__name">Nanoplasty Smoothing Treatment + 50% Off Haircut <small style="font-weight:400; color:#86868b;">(Save up to $91)</small></span>
+<span class="pricing-item__name">Nanoplasty Smoothing Treatment + 50% Off Haircut <small class="name-note">(Save up to $91)</small></span>
 <span class="pricing-item__price">from $410</span>
 </div>
 <p class="pricing-item__desc">Say goodbye to frizz with our premium Nanoplasty smoothing treatment at a special midweek price &#8212; deeply nourishing ingredients leave hair straighter, silkier and easier to manage for months. Book midweek and add a haircut at half price.</p>
@@ -4822,7 +4323,6 @@
 <div class="pkg-bookline"><a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV5nIgzydhxXWsBD0jQxgjD0" rel="noopener" target="_blank" aria-label="Book the Nanoplasty Smoothing Treatment special online">Book Now</a></div>
 </div>
 
-<!-- ===== Standalone specials (Haircuts & Blow Wave) ===== -->
 <div class="pricing-item">
 <div class="pricing-item__header">
 <span class="pricing-item__name">Cut, Blow Wave &amp; 50% Off Mist Treatment</span>
@@ -4832,7 +4332,6 @@
 <p class="pricing-item__desc">Get a fresh Haircut and Blow Wave combo, and enjoy a beautifully styled finish. Plus, every booking includes 50% off our Mist Hair Treatment (valued at $40) to leave your hair feeling nourished and looking its best. A small extra fee may apply for thick or extra-long hair, or a restyle.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV35KZ-62IFNvfTXjj-indc4" rel="noopener" target="_blank">Book Now</a>
 </div>
-<!-- ===== Blow Wave Midweek Special ===== -->
 <div class="pricing-item">
 <div class="pricing-item__header">
 <span class="pricing-item__name">Blow Wave Midweek Special + Free Treatment Mask</span>
@@ -4853,7 +4352,7 @@
 </div>
 </div>
 </div>
-</div><!-- /.services-card -->
+</div>
 <div class="length-strip" id="length-guide">
 <p class="length-strip__line">Not sure if your hair counts as short, medium or long? <a href="/guides/hair-length-guide/">See our hair length guide &rarr;</a></p>
 <p class="length-strip__line length-strip__line--gift">Looking for a gift? <a href="/gift-vouchers/">Hair Avenue gift vouchers, emailed straight away &rarr;</a></p>
@@ -4862,10 +4361,7 @@
 </div>
 </section>
 
-<!-- ===== THE HAIR AVENUE EXPERIENCE ===== -->
-<!-- ===== HAIR GALLERY ===== -->
-<!-- ===== MEET THE TEAM ===== -->
-<section class="section careers-bg" id="team" style="background-image: url('images/salon/01-stations.webp');">
+<section class="section careers-bg bg-salon-stations" id="team">
 <div class="container">
 <div class="section-header reveal">
 <span class="section-label">Our Team</span>
@@ -4878,7 +4374,7 @@
 <div class="team__grid team__grid--scroll" role="region" aria-label="Meet the team — scroll sideways for more stylists" tabindex="0">
 <div class="team-card reveal">
 <div class="team-card__photo">
-<img alt="Kelly — Owner and Creative Director at Hair Avenue Braddon" class="team-card__photo-inner" loading="lazy" src="images/team-card__photo-inner-4.webp" style="object-position: center 40%;" width="800" height="1200"/>
+<img alt="Kelly — Owner and Creative Director at Hair Avenue Braddon" class="team-card__photo-inner photo-inner--mid" loading="lazy" src="images/team-card__photo-inner-4.webp" width="800" height="1200"/>
 </div>
 <div class="team-card__body">
 <h3 class="team-card__name">Kelly</h3>
@@ -4890,12 +4386,12 @@
 </div>
 <div class="team-card reveal">
 <div class="team-card__photo">
-<img alt="Krystle — Manager and Master Stylist at Hair Avenue Braddon" class="team-card__photo-inner" loading="lazy" src="images/image-2.jpg" style="object-position: center 40%;" width="600" height="900"/>
+<img alt="Krystle — Manager and Master Stylist at Hair Avenue Braddon" class="team-card__photo-inner photo-inner--mid" loading="lazy" src="images/image-2.jpg" width="600" height="900"/>
 </div>
 <div class="team-card__body">
 <h3 class="team-card__name">Krystle</h3>
 <p class="team-card__role">Manager &amp; Master Stylist</p>
-<p class="team-card__bio">If it&#8217;s blonde, Krystle is your girl. A true <a href="/blonde-specialist-canberra/" style="color:#2E7D42;text-decoration:underline;text-underline-offset:3px">blonde specialist</a>, she lives for creating that perfect blonde &#8212; from icy platinum to warm honey tones. Krystle also loves working with all-over colour transformations and creating gorgeous upstyling for special occasions. She&#8217;s also skilled in SmoothFiller treatments to give your hair that silky, salon-fresh finish. Krystle is Great Lengths&#8211;trained as well, colour-matching tape-in extensions seamlessly into blonde and all-over colour.</p>
+<p class="team-card__bio">If it&#8217;s blonde, Krystle is your girl. A true <a href="/blonde-specialist-canberra/" class="link-green">blonde specialist</a>, she lives for creating that perfect blonde &#8212; from icy platinum to warm honey tones. Krystle also loves working with all-over colour transformations and creating gorgeous upstyling for special occasions. She&#8217;s also skilled in SmoothFiller treatments to give your hair that silky, salon-fresh finish. Krystle is Great Lengths&#8211;trained as well, colour-matching tape-in extensions seamlessly into blonde and all-over colour.</p>
 <p class="team-card__quote"><span class="star">★</span> “Without a doubt the best hairdresser in Canberra… Krystle is incredible!” <span>— Google review</span></p>
 <p class="team-card__quote"><span class="star">★</span> “Krystle did an absolutely amazing job on my hair! She transformed it to the perfect blonde.” <span>— Google review</span></p>
 </div>
@@ -4907,7 +4403,7 @@
 <div class="team-card__body">
 <h3 class="team-card__name">Trin</h3>
 <p class="team-card__role">Master Stylist</p>
-<p class="team-card__bio">Trin is our curly hair specialist, with a real love for working with curls &#8212; her curly cuts are designed to embrace and enhance your natural texture. She&#8217;s also a talented <a href="/blonde-specialist-canberra/" style="color:#2E7D42;text-decoration:underline;text-underline-offset:3px">blonde specialist</a> and is highly skilled in both Nanoplasty and SmoothFiller treatments, making her the perfect choice if you want beautiful colour and smooth, healthy hair in one visit. Trin is also Great Lengths&#8211;trained in tape-in extensions, blending them beautifully into curls and waves.</p>
+<p class="team-card__bio">Trin is our curly hair specialist, with a real love for working with curls &#8212; her curly cuts are designed to embrace and enhance your natural texture. She&#8217;s also a talented <a href="/blonde-specialist-canberra/" class="link-green">blonde specialist</a> and is highly skilled in both Nanoplasty and SmoothFiller treatments, making her the perfect choice if you want beautiful colour and smooth, healthy hair in one visit. Trin is also Great Lengths&#8211;trained in tape-in extensions, blending them beautifully into curls and waves.</p>
 <p class="team-card__quote"><span class="star">★</span> “Trin was amazing — she knows how to take care of hair and is super sweet.” <span>— Google review</span></p>
 <p class="team-card__quote"><span class="star">★</span> “Trin not only maintained the integrity of my hair but also did wonderful grey blending work.” <span>— Google review</span></p>
 </div>
@@ -4977,7 +4473,6 @@
 </div>
 </section>
 
-<!-- Lightbox overlay (hidden until any .section-photo is clicked) -->
 <div class="gallery-lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-labelledby="galleryCaption" aria-hidden="true">
 <span class="gallery-lightbox__counter" id="galleryCounter" aria-live="polite"></span>
 <button class="gallery-lightbox__btn gallery-lightbox__close" id="galleryClose" type="button" aria-label="Close gallery">
@@ -4993,7 +4488,6 @@
 <span class="gallery-lightbox__caption" id="galleryCaption"></span>
 </div>
 
-<!-- ===== GOOGLE REVIEWS ===== -->
 <section class="section reviews-bg" id="reviews" style="background: url('images/team-card-name.webp') center center / cover no-repeat;">
 <div class="container">
 <div class="section-header reveal">
@@ -5034,7 +4528,6 @@
 </div>
 <div class="reviews__track-wrapper">
 <div class="reviews__track" id="reviewsTrack">
-<!-- Reviews will be duplicated by JS for infinite scroll -->
 <div class="review-card">
 <div class="review-card__header">
 <div class="review-card__avatar">M</div>
@@ -5263,8 +4756,6 @@
 </div>
 </div>
 </section>
-<!-- ===== CLIENT TRANSFORMATIONS ===== -->
-<!-- ===== SOCIAL MEDIA FEED ===== -->
 <section class="section social-bg" id="social" style="background: url('images/text-center-reveal.webp') center center / cover no-repeat;">
 <div class="container">
 <div class="section-header reveal">
@@ -5282,7 +4773,6 @@
 <svg height="22" viewBox="0 0 448 512" width="22"><path fill="#25F4EE" d="M448 209.91a210.06 210.06 0 01-122.77-39.25V349.38A162.55 162.55 0 11185 188.31v89.89a74.62 74.62 0 1052.23 71.18V0h88a121.18 121.18 0 001.86 22.17A122.18 122.18 0 00381 102.39a121.43 121.43 0 0067 20.14z"></path><path fill="#FE2C55" d="M448 209.91a210.06 210.06 0 01-122.77-39.25V349.38A162.55 162.55 0 11185 188.31v89.89a74.62 74.62 0 1052.23 71.18V0h88a121.18 121.18 0 001.86 22.17A122.18 122.18 0 00381 102.39a121.43 121.43 0 0067 20.14z" opacity="0.5"></path></svg>
 </a>
 </div>
-<!-- Elfsight Facebook Feed | Untitled Facebook Feed -->
 <div class="reveal" style="max-width:600px; margin:0 auto; border-radius:12px; border: 2px solid #C9A96E;">
 <div class="elfsight-app-c7791a1a-5648-4581-9ce0-0ee98b7538d9" data-elfsight-app-lazy></div>
 <script>
@@ -5297,7 +4787,6 @@ window.addEventListener('load', function() {
 </div>
 </div>
 </section>
-<!-- ===== HAIR GALLERY ===== -->
 <section class="section social-bg" id="gallery" style="padding-top:60px; padding-bottom:60px; background: url('images/text-center-reveal.webp') center center / cover no-repeat;">
 <div class="container" id="products">
 <details class="products-fold" id="productsFold">
@@ -5310,7 +4799,7 @@ window.addEventListener('load', function() {
 <span class="products-fold__hint"><span class="products-fold__hint-open">Explore our products</span><span class="products-fold__hint-close">Hide products</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
 </summary>
 <div class="products-fold__body">
-<div class="products__grid reveal" style="margin-bottom:48px;">
+<div class="products__grid reveal mb-48">
 <div class="products__copy">
 <p class="products__text">Everything we use is professional, salon-grade Wella Professionals &#8212; the colour brand trusted by the world&#8217;s best salons for over 140 years. No shortcuts, no supermarket formulas.</p>
 <p class="products__ranges">Koleston Perfect ME+ &#183; Blondor &#183; WellaPlex &#183; SmoothFiller &#183; LuxeOil &#183; EIMI</p>
@@ -5326,8 +4815,7 @@ window.addEventListener('load', function() {
 </div>
 </div>
 </div>
-<!-- WellaPlex spotlight -->
-<div class="wellaplex-card reveal" style="margin-bottom:48px;">
+<div class="wellaplex-card reveal mb-48">
 <span class="wellaplex-card__badge">New at Hair Avenue</span>
 <h3 class="wellaplex-card__title">WellaPlex Bond Builder</h3>
 <p class="wellaplex-card__tag">Colour without compromise.</p>
@@ -5335,8 +4823,7 @@ window.addEventListener('load', function() {
 <p class="wellaplex-card__price">Add WellaPlex to any colour or lightening service for <em>$35</em> &#8212; or enjoy it <em>included free</em> with our midweek Balayage Special.</p>
 <a class="wellaplex-card__cta" href="#services">Add It to Your Next Colour &rarr;</a>
 </div>
-<!-- Kelly's "Why We Chose Wella" quote -->
-<blockquote class="wella-quote reveal" style="margin-bottom:48px;">
+<blockquote class="wella-quote reveal mb-48">
 <p class="wella-quote__text">"I made one rule when I opened Hair Avenue: if it isn't the best, it doesn't touch your hair. Everything we use is premium Wella Professionals — and with WellaPlex, we can now rebuild the bonds inside your hair with every single colour. Because beautiful hair isn't just how you leave the salon — it's how healthy your hair feels every day after."</p>
 <cite class="wella-quote__cite">— Kelly, Founder &amp; Owner, Hair Avenue Braddon</cite>
 </blockquote>
@@ -5379,7 +4866,6 @@ window.addEventListener('load', function() {
 </details>
 </div>
 </section>
-<!-- ===== FINAL CTA ===== -->
 <section class="final-cta" id="book" style="background-image: url('images/salon/03-reception.webp');">
 <div class="container">
 <div class="reveal">
@@ -5422,7 +4908,6 @@ window.addEventListener('load', function() {
 </div>
 </div>
 </section>
-<!-- ===== HAIR AVENUE LOYALTY REWARDS ===== -->
 <section class="section section--loyalty" id="loyalty">
 <div class="container">
 <details class="loyalty-fold" id="loyaltyFold">
@@ -5570,7 +5055,6 @@ window.addEventListener('load', function() {
 </details>
 </div>
 </section>
-<!-- ===== FAQ ===== -->
 <section class="section faq-bg" id="faq" style="background: url('images/careers-role-card.webp') center center / cover no-repeat;">
 <div class="container">
 <div class="section-header reveal">
@@ -5657,21 +5141,20 @@ window.addEventListener('load', function() {
             Do you do hair extensions?
             <span class="faq-item__icon">+</span>
 </summary>
-<div class="faq-item__a"><div class="faq-item__a-inner">Yes — Hair Avenue is an official Great Lengths salon, and every stylist on our team is Great Lengths–trained in tape-in extensions. Start with a free 20-minute consultation and colour match, where we check your hair, plan the pieces and give you an exact quote. New installs, move-ups every 6–8 weeks and removals can all be booked online — and we happily move up or remove extensions from other salons. <a href="/hair-extensions-canberra/" style="color:#2E7D42;text-decoration:underline;text-underline-offset:3px;">Learn more about tape extensions in Canberra →</a></div></div>
+<div class="faq-item__a"><div class="faq-item__a-inner">Yes — Hair Avenue is an official Great Lengths salon, and every stylist on our team is Great Lengths–trained in tape-in extensions. Start with a free 20-minute consultation and colour match, where we check your hair, plan the pieces and give you an exact quote. New installs, move-ups every 6–8 weeks and removals can all be booked online — and we happily move up or remove extensions from other salons. <a href="/hair-extensions-canberra/" class="link-green">Learn more about tape extensions in Canberra →</a></div></div>
 </details>
 <details class="faq-item">
 <summary class="faq-item__q">
             Do you have blonde specialists in Canberra?
             <span class="faq-item__icon">+</span>
 </summary>
-<div class="faq-item__a"><div class="faq-item__a-inner">Yes — blonde is what we do most. Krystle and Trin are blonde specialists, and every foil, balayage and toner uses Wella Blondor with built-in bond protection for up to 97% less breakage. Half-head foils are from $299, a full head from $350 and balayage from $395, all including a custom toner and blow wave, with midweek packages from $275. <a href="/blonde-specialist-canberra/" style="color:#2E7D42;text-decoration:underline;text-underline-offset:3px;">See our blonde specialists page →</a></div></div>
+<div class="faq-item__a"><div class="faq-item__a-inner">Yes — blonde is what we do most. Krystle and Trin are blonde specialists, and every foil, balayage and toner uses Wella Blondor with built-in bond protection for up to 97% less breakage. Half-head foils are from $299, a full head from $350 and balayage from $395, all including a custom toner and blow wave, with midweek packages from $275. <a href="/blonde-specialist-canberra/" class="link-green">See our blonde specialists page →</a></div></div>
 </details>
 </div>
 </div>
 </details>
 </div>
 </section>
-<!-- ===== CAREERS ===== -->
 <section class="section careers-bg" id="careers" style="background-image: url(images/careers.jpg);">
 <div class="container">
 <div class="section-header reveal">
@@ -5709,7 +5192,6 @@ window.addEventListener('load', function() {
 </div>
 </div>
 </section>
-<!-- ===== FOOTER ===== -->
 <footer class="footer">
 <div class="container">
 <div class="footer__inner">
@@ -5742,7 +5224,6 @@ window.addEventListener('load', function() {
 </div>
 </div>
 </footer>
-<!-- ===== JAVASCRIPT ===== -->
 <script>
     /* ============================================================
        MAIN INIT — wrapped in a function so we can call it reliably
@@ -6119,7 +5600,7 @@ window.addEventListener('load', function() {
 <script>
 (function(){
   var IDX = 
-[{"t":"All Over Colour Package","d":"Your colour, perfected. Every Hair Avenue colour service uses Wella's Koleston Perfect ME+ — the world's most ","k":"Colour & Toner colouring","u":"#services","c":"Service","sv":"All Over Colour Package"},{"t":"Toner / Gloss Maintenance — with Blow Wave","d":"Bring your colour back to life between appointments — a gentle, bleach-free gloss or toner that removes brassiness and adds ","k":"Colour & Toner colouring","u":"#services","c":"Service","sv":"Toner / Gloss Maintenance"},{"t":"Grey Blending","d":"Canberra's grey blending specialists — embrace your grey and make it truly gorgeous, the full service start to finish.","k":"Grey Blending & Regrowth","u":"#services","c":"Service","sv":"Grey Blending"},{"t":"Grey Blending — First Time","d":"Your very first grey blend — a dedicated session with the extra time and product it deserves. Short to medium from $555, long","k":"Grey Blending & Regrowth","u":"#services","c":"Service","sv":"Grey Blending — First Time"},{"t":"Regrowth Package","d":"Just need your roots refreshed? Seamlessly blend new growth with your existing colour — ideal for regular maintenance and gre","k":"Grey Blending & Regrowth","u":"#services","c":"Service","sv":"Regrowth Package"},{"t":"Regrowth + All Over Toner Package","d":"Revitalise your look with expert regrowth colour paired with a complete toner refresh. This package delivers s","k":"Grey Blending & Regrowth","u":"#services","c":"Service","sv":"Regrowth + All Over Toner Package"},{"t":"Scalp Bleach Regrowth + Toner","d":"Lift your roots to a flawless, even blonde with our expert scalp bleach regrowth service. Carefully applied to","k":"Grey Blending & Regrowth","u":"#services","c":"Service","sv":"Scalp Bleach Regrowth + Toner"},{"t":"Full-Head Foils / Blonde Package","d":"Our highlight and balayage services are powered by Wella Blondor — the professional lightening system trusted ","k":"Highlights & Balayage","u":"#services","c":"Service","sv":"Full-Head Foils / Blonde Package"},{"t":"Half-Head Foils Package","d":"Perfect for maintaining existing highlights, adding dimension or achieving a sun-kissed blonde while preservin","k":"Highlights & Balayage","u":"#services","c":"Service","sv":"Half-Head Foils Package"},{"t":"Balayage — Full Head Lightening Package","d":"A tailored balayage colour experience designed for a vibrant, easy-to-maintain look with a gorgeous face-frami","k":"Highlights & Balayage","u":"#services","c":"Service","sv":"Balayage — Full Head Lightening Package"},{"t":"Blonde Refresh (20 Foils)","d":"Keep your blonde looking stunning between full colour appointments. Strategic placement of 20 foils refreshes colour, blends r","k":"Highlights & Balayage","u":"#services","c":"Service","sv":"Blonde Refresh"},{"t":"Hair Cuts with Blow Wave","d":"A fresh, personalised haircut paired with a professional blow wave or iron-styled finish. Includes your choice","k":"Haircuts cutting women men kids","u":"#services","c":"Service","sv":"Hair Cuts with Blow Wave"},{"t":"Dry Cuts","d":"A quick, expertly executed trim to keep your current style looking sharp and fresh — no wash, no blow-dry incl","k":"Haircuts cutting women men kids","u":"#services","c":"Service","sv":"Dry Cuts"},{"t":"Just Fringe Trim","d":"A quick, precise fringe trim to keep your bangs looking neat and perfectly shaped between full haircut appoint","k":"Haircuts cutting women men kids","u":"#services","c":"Service","sv":"Just Fringe Trim"},{"t":"Men's Haircuts","d":"Every haircut is performed by our master stylist, who brings over 15 years of experience specialising in men's","k":"Haircuts cutting women men kids","u":"#services","c":"Service","sv":"Men's Haircuts"},{"t":"Kids' Dry Cut (Kindy – Year 6 only)","d":"A friendly, stress-free dry cut for kids from kindergarten through to Year 6. Our team keeps things fun and re","k":"Haircuts cutting women men kids","u":"#services","c":"Service","sv":"Kids' Dry Cut (Kindy – Year 6 only)"},{"t":"Blow Wave Package","d":"A polished, professional blow wave tailored to your hair — includes a relaxing shampoo with scalp massage and ","k":"Blow Wave","u":"#services","c":"Service","sv":"Blow Wave Package"},{"t":"Bouncy Blow Wave Package","d":"Volume that lasts — a bouncy, brushed-out blow wave set with a round brush for soft curl and beautiful movemen","k":"Blow Wave","u":"#services","c":"Service","sv":"Bouncy Blow Wave Package"},{"t":"Hair SmoothFiller","d":"Hair SmoothFiller (Floractive BTX Smooth) is a luxurious, formaldehyde-free smoothing treatment that works lik","k":"Smoothing Straightening Treatments smoothing SmoothFiller smoothing","u":"#services","c":"Service","sv":"Hair SmoothFiller"},{"t":"Nanoplasty Treatment","d":"A premium, formaldehyde-free Brazilian smoothing treatment that rebuilds each strand with amino acids and natu","k":"Smoothing Straightening Treatments smoothing nanoplasty straightening perm","u":"#services","c":"Service","sv":"Nanoplasty Treatment"},{"t":"Permanent Hair Straightening – Shiseido","d":"A professional Shiseido Japanese hair straightening treatment that permanently restructures the hair's interna","k":"Smoothing Straightening Treatments smoothing nanoplasty straightening perm","u":"#services","c":"Service","sv":"Permanent Hair Straightening – Shiseido"},{"t":"Upstyle (no Shampoo)","d":"An elegant, beautifully crafted updo perfect for wedding hair, bridal parties, formals and special occasions. ","k":"Upstyle & Hair Tinsel","u":"#services","c":"Service","sv":"Upstyle (no Shampoo)"},{"t":"Upstyle (with Shampoo & Blow Wave)","d":"A complete wedding and formal hair experience, including a relaxing shampoo, professional blow wave and elegan","k":"Upstyle & Hair Tinsel","u":"#services","c":"Service","sv":"Upstyle (with Shampoo & Blow Wave)"},{"t":"Hair Tinsels","d":"Add a touch of sparkle and eye-catching shine to your hair with beautiful, lightweight tinsel strands. Availab","k":"Upstyle & Hair Tinsel","u":"#services","c":"Service","sv":"Hair Tinsels"},{"t":"Hair Tinsel - for kid","d":"Fun, sparkly tinsel strands designed especially for kids who love a bit of extra shimmer and pizzazz. Our safe","k":"Upstyle & Hair Tinsel","u":"#services","c":"Service","sv":"Hair Tinsel - for kid"},{"t":"Tape Extensions — Consultation & Colour Match","d":"Free 20-minute Great Lengths consultation — we check condition and density, count the pieces and colour match in daylight.","k":"Hair Extensions great lengths tape-in tapes extensions consultation","u":"#services","c":"Service","sv":"Consultation & Colour Match"},{"t":"New Tape Extension Install","d":"Great Lengths tape-in extensions fitted by our trained stylists — cut, blended and styled, with the hair colour-matched at your free consultation.","k":"Hair Extensions great lengths tape-in tapes install","u":"#services","c":"Service","sv":"New Tape Extension Install"},{"t":"Tape Extension Move Up Package","d":"Maintenance every 6–8 weeks — removal, fresh tape, re-application at the root and a blow wave, all in one visit.","k":"Hair Extensions great lengths tape-in move up maintenance","u":"#services","c":"Service","sv":"Tape Extension Move Up Package"},{"t":"Tape Extension Removal Express","d":"Gentle, residue-free tape removal, with an optional blow wave to lift any leftover adhesive. Other salons' extensions welcome.","k":"Hair Extensions great lengths tape-in removal","u":"#services","c":"Service","sv":"Tape Extension Removal Express"},{"t":"All Over Colour Package + 50% Off Haircut","d":"A complete all-over colour refresh using Wella Professional colour — fresh, vibrant coverage from root to tip ","k":"Midweek Offers","u":"#services","c":"Service","sv":"All Over Colour Package + 50% Off Haircut"},{"t":"Full Head Foils Package + 50% Off Haircut","d":"Bright, bold or beautifully blended — a complete head of foils from our Master Stylists using Wella Blondor, w","k":"Midweek Offers","u":"#services","c":"Service","sv":"Full Head Foils Package + 50% Off Haircut"},{"t":"Half-Head Foils Special Deal + 50% Off Haircut","d":"Refresh your colour with a half head of hand-woven foils at a special midweek price — brightness and dimension","k":"Midweek Offers","u":"#services","c":"Service","sv":"Half-Head Foils Special Deal"},{"t":"Balayage Special Deal + 50% Off Haircut","d":"Our signature all-inclusive Balayage Package performed by our Master Stylist. Stunning, salon-quality colour w","k":"Midweek Offers","u":"#services","c":"Service","sv":"Balayage Special Deal"},{"t":"Nanoplasty Smoothing Treatment + 50% Off Haircut","d":"Say goodbye to frizz with our premium Nanoplasty smoothing treatment at a special midweek price — deeply nouri","k":"Midweek Offers","u":"#services","c":"Service","sv":"Nanoplasty Smoothing Treatment"},{"t":"Cut, Blow Wave & 50% Off Mist Treatment","d":"Get a fresh Haircut and Blow Wave combo, and enjoy a beautifully styled finish. Plus, every booking includes 5","k":"Midweek Offers","u":"#services","c":"Service","sv":"Cut, Blow Wave & 50% Off Mist Treatment"},{"t":"Complimentary Consultation","d":"Not sure which service is right for you? Book a complimentary consultation and let our experienced stylists as","k":"Midweek Offers","u":"#services","c":"Service","sv":"Complimentary Consultation"},{"t":"Blow Wave Midweek Special + Free Treatment Mask","d":"Professional blow wave at a special midweek price with a free Intense Treatment Mask at the basin — from $79, Tue–Fri.","k":"Midweek Offers blow wave","u":"#services","c":"Service","sv":"Blow Wave Midweek Special"},{"t":"Perm & Style","d":"Perms Tuesday to Friday — fringe, root or full perms tailored to your hair, with a shampoo, nourishing mask and dry-off finish included.","k":"Perms perm curls waves root fringe","u":"#services","c":"Service","sv":"Perm & Style"},{"t":"Grey Blending Canberra","d":"Canberra's grey blending specialists — silver softened with gentle highlights and gloss, from $420 at Hair Avenue Braddon","k":"Canberra's Grey Blending Specialists | From $420 | Hair Avenue","u":"/grey-blending-canberra/","c":"Page"},{"t":"Perms Canberra","d":"Perms in Canberra — fringe, root and full perms from $99 at Hair Avenue Braddon, Tuesday to Friday. Consultation in","k":"Perms Canberra | From $99 | Hair Avenue Braddon","u":"/perms-canberra/","c":"Page"},{"t":"Hair Colour Canberra","d":"Expert hair colour in Canberra using Wella Koleston Perfect ME+ — richer tone, less damage, up to 100% grey co","k":"Hair Colour Canberra | Wella Salon in Braddon | Hair Avenue","u":"/hair-colour-canberra/","c":"Page"},{"t":"Hair SmoothFiller Canberra","d":"Wella SmoothFiller in Canberra — frizz-free, smoother hair for up to 3 months without losing your natural text","k":"Hair SmoothFiller Canberra | Hair Avenue Braddon","u":"/hair-smoothfiller-canberra/","c":"Page"},{"t":"Nanoplasty Hair Smoothing Canberra","d":"Nanoplasty hair smoothing in Canberra — months of silky, frizz-free hair using advanced nano-technology. From ","k":"Nanoplasty Hair Smoothing Canberra | Hair Avenue","u":"/nanoplasty-canberra/","c":"Page"},{"t":"Great Lengths Tape Extensions Now at Hair Avenue","d":"News: Hair Avenue Braddon is now an official Great Lengths salon offering tape-in hair extensions — book a free consultation and colour match.","k":"news hair extensions great lengths tape-in announcement","u":"/news/great-lengths-tape-extensions/","c":"News"},{"t":"Award-Winning Hair Salon Canberra","d":"Looking for an award-winning hair salon in Canberra? Hair Avenue Braddon won the 2026 Phorest Client Experienc","k":"Award-Winning Hair Salon Canberra | Hair Avenue Braddon","u":"/news/client-experience-award-2026/","c":"News"},{"t":"Hair Guides & Advice from Canberra Stylists","d":"Honest hair advice from the stylists at Hair Avenue Braddon — balayage maintenance, brass control, smoothing t","k":"Hair Guides & Advice from Canberra Stylists | Hair Avenue Braddon","u":"/guides/","c":"Guide"},{"t":"How Long Does Balayage Last? Maintenance, Toning & Refresh Guide","d":"How long balayage lasts, how often to refresh it, and how to keep it bright between visits — from the balayage","k":"How Long Does Balayage Last? Maintenance, Toning & Refresh Guide","u":"/guides/how-long-does-balayage-last/","c":"Guide"},{"t":"How to Stop Blonde Hair Going Brassy: A Colourist's Guide","d":"Why blonde turns yellow or orange — and how to fix it. Toners, purple shampoo, water quality and salon tricks ","k":"How to Stop Blonde Hair Going Brassy: A Colourist's Guide","u":"/guides/stop-blonde-going-brassy/","c":"Guide"},{"t":"Salon Hair Length Guide: Short, Medium or Long?","d":"What counts as short, medium, long or extra long hair at the salon? Our illustrated length guide shows exactly","k":"Salon Hair Length Guide: Short, Medium or Long? | Hair Avenue","u":"/guides/hair-length-guide/","c":"Guide"},{"t":"Nanoplasty vs Keratin Treatment: Which Hair Smoothing Is Better?","d":"Nanoplasty vs keratin straightening compared — how they work, how long they last, damage, cost and which to ch","k":"Nanoplasty vs Keratin Treatment: Which Hair Smoothing Is Better?","u":"/guides/nanoplasty-vs-keratin/","c":"Guide"},{"t":"Grey Blending vs Full Coverage: Which Is Right for You?","d":"Grey blending vs full grey coverage compared — maintenance, regrowth lines, cost over time and which suits you","k":"Grey Blending vs Full Coverage: Which Is Right for You?","u":"/guides/grey-blending-vs-full-coverage/","c":"Guide"},{"t":"Men's Haircuts Braddon, Canberra","d":"Men's haircuts in Braddon — skin fades, clipper cuts and buzz cuts from $40. Walk-ins welcome at Hair Avenue, ","k":"Men's Haircuts Braddon, Canberra | Hair Avenue","u":"/mens-haircuts-braddon/","c":"Page"},{"t":"Wedding & Bridal Hair Canberra","d":"Wedding, bridal and formal hair in Canberra — elegant upstyles and updos from $195 at Hair Avenue Braddon. Boo","k":"Wedding & Bridal Hair Canberra | Hair Avenue Braddon","u":"/wedding-hair-canberra/","c":"Page"},{"t":"Balayage Canberra","d":"Balayage in Canberra by Wella-trained colourists. Hand-painted, low-maintenance colour from $395 at Hair Avenu","k":"Balayage Canberra | Hand-Painted Colour | Hair Avenue","u":"/balayage-canberra/","c":"Page"},
+[{"t":"All Over Colour Package","d":"Your colour, perfected. Every Hair Avenue colour service uses Wella's Koleston Perfect ME+ — the world's most ","k":"Colour & Toner colouring","u":"#services","c":"Service","sv":"All Over Colour Package"},{"t":"Toner / Gloss Maintenance — with Blow Wave","d":"Bring your colour back to life between appointments — a gentle, bleach-free gloss or toner that removes brassiness and adds ","k":"Colour & Toner colouring","u":"#services","c":"Service","sv":"Toner / Gloss Maintenance"},{"t":"Grey Blending","d":"Canberra's grey blending specialists — embrace your grey and make it truly gorgeous, the full service start to finish.","k":"Grey Blending & Regrowth","u":"#services","c":"Service","sv":"Grey Blending"},{"t":"Grey Blending — First Time","d":"Your very first grey blend — a dedicated session with the extra time and product it deserves. Short to medium from $555, long","k":"Grey Blending & Regrowth","u":"#services","c":"Service","sv":"Grey Blending — First Time"},{"t":"Regrowth Package","d":"Just need your roots refreshed? Seamlessly blend new growth with your existing colour — ideal for regular maintenance and gre","k":"Grey Blending & Regrowth","u":"#services","c":"Service","sv":"Regrowth Package"},{"t":"Regrowth + All Over Toner Package","d":"Revitalise your look with expert regrowth colour paired with a complete toner refresh. This package delivers s","k":"Grey Blending & Regrowth","u":"#services","c":"Service","sv":"Regrowth + All Over Toner Package"},{"t":"Scalp Bleach Regrowth + Toner","d":"Lift your roots to a flawless, even blonde with our expert scalp bleach regrowth service. Carefully applied to","k":"Grey Blending & Regrowth","u":"#services","c":"Service","sv":"Scalp Bleach Regrowth + Toner"},{"t":"Full-Head Foils / Blonde Package","d":"Our highlight and balayage services are powered by Wella Blondor — the professional lightening system trusted ","k":"Highlights & Balayage","u":"#services","c":"Service","sv":"Full-Head Foils / Blonde Package"},{"t":"Half-Head Foils Package","d":"Perfect for maintaining existing highlights, adding dimension or achieving a sun-kissed blonde while preservin","k":"Highlights & Balayage","u":"#services","c":"Service","sv":"Half-Head Foils Package"},{"t":"Balayage — Full Head Lightening Package","d":"A tailored balayage colour experience designed for a vibrant, easy-to-maintain look with a gorgeous face-frami","k":"Highlights & Balayage","u":"#services","c":"Service","sv":"Balayage — Full Head Lightening Package"},{"t":"Blonde Refresh (20 Foils)","d":"Keep your blonde looking stunning between full colour appointments. Strategic placement of 20 foils refreshes colour, blends r","k":"Highlights & Balayage","u":"#services","c":"Service","sv":"Blonde Refresh"},{"t":"Hair Cuts with Blow Wave","d":"A fresh, personalised haircut paired with a professional blow wave or iron-styled finish. Includes your choice","k":"Haircuts cutting women men kids","u":"#services","c":"Service","sv":"Hair Cuts with Blow Wave"},{"t":"Dry Cuts","d":"A quick, expertly executed trim to keep your current style looking sharp and fresh — no wash, no blow-dry incl","k":"Haircuts cutting women men kids","u":"#services","c":"Service","sv":"Dry Cuts"},{"t":"Just Fringe Trim","d":"A quick, precise fringe trim to keep your bangs looking neat and perfectly shaped between full haircut appoint","k":"Haircuts cutting women men kids","u":"#services","c":"Service","sv":"Just Fringe Trim"},{"t":"Men's Haircuts","d":"Every haircut is performed by our master stylist, who brings over 15 years of experience specialising in men's","k":"Haircuts cutting women men kids","u":"#services","c":"Service","sv":"Men's Haircuts"},{"t":"Kids' Dry Cut (Kindy – Year 6 only)","d":"A friendly, stress-free dry cut for kids from kindergarten through to Year 6. Our team keeps things fun and re","k":"Haircuts cutting women men kids","u":"#services","c":"Service","sv":"Kids' Dry Cut (Kindy – Year 6 only)"},{"t":"Blow Wave Package","d":"A polished, professional blow wave tailored to your hair — includes a relaxing shampoo with scalp massage and ","k":"Blow Wave","u":"#services","c":"Service","sv":"Blow Wave Package"},{"t":"Bouncy Blow Wave Package","d":"Volume that lasts — a bouncy, brushed-out blow wave set with a round brush for soft curl and beautiful movemen","k":"Blow Wave","u":"#services","c":"Service","sv":"Bouncy Blow Wave Package"},{"t":"Hair SmoothFiller","d":"Hair SmoothFiller (Floractive BTX Smooth) is a luxurious, formaldehyde-free smoothing treatment that works lik","k":"Smoothing Straightening Treatments smoothing SmoothFiller smoothing","u":"#services","c":"Service","sv":"Hair SmoothFiller"},{"t":"Nanoplasty Treatment","d":"A premium, formaldehyde-free Brazilian smoothing treatment that rebuilds each strand with amino acids and natu","k":"Smoothing Straightening Treatments smoothing nanoplasty straightening perm","u":"#services","c":"Service","sv":"Nanoplasty Treatment"},{"t":"Permanent Hair Straightening – Shiseido","d":"A professional Shiseido Japanese hair straightening treatment that permanently restructures the hair's interna","k":"Smoothing Straightening Treatments smoothing nanoplasty straightening perm","u":"#services","c":"Service","sv":"Permanent Hair Straightening – Shiseido"},{"t":"Upstyle (no Shampoo)","d":"An elegant, beautifully crafted updo perfect for wedding hair, bridal parties, formals and special occasions. ","k":"Upstyle & Hair Tinsel","u":"#services","c":"Service","sv":"Upstyle (no Shampoo)"},{"t":"Upstyle (with Shampoo & Blow Wave)","d":"A complete wedding and formal hair experience, including a relaxing shampoo, professional blow wave and elegan","k":"Upstyle & Hair Tinsel","u":"#services","c":"Service","sv":"Upstyle (with Shampoo & Blow Wave)"},{"t":"Hair Tinsels","d":"Add a touch of sparkle and eye-catching shine to your hair with beautiful, lightweight tinsel strands. Availab","k":"Upstyle & Hair Tinsel","u":"#services","c":"Service","sv":"Hair Tinsels"},{"t":"Hair Tinsel for Kids","d":"Fun, sparkly tinsel strands designed especially for kids who love a bit of extra shimmer and pizzazz. Our safe","k":"Upstyle & Hair Tinsel","u":"#services","c":"Service","sv":"Hair Tinsel for Kids"},{"t":"Tape Extensions — Consultation & Colour Match","d":"Free 20-minute Great Lengths consultation — we check condition and density, count the pieces and colour match in daylight.","k":"Hair Extensions great lengths tape-in tapes extensions consultation","u":"#services","c":"Service","sv":"Consultation & Colour Match"},{"t":"New Tape Extension Install","d":"Great Lengths tape-in extensions fitted by our trained stylists — cut, blended and styled, with the hair colour-matched at your free consultation.","k":"Hair Extensions great lengths tape-in tapes install","u":"#services","c":"Service","sv":"New Tape Extension Install"},{"t":"Tape Extension Move Up Package","d":"Maintenance every 6–8 weeks — removal, fresh tape, re-application at the root and a blow wave, all in one visit.","k":"Hair Extensions great lengths tape-in move up maintenance","u":"#services","c":"Service","sv":"Tape Extension Move Up Package"},{"t":"Tape Extension Removal Express","d":"Gentle, residue-free tape removal, with an optional blow wave to lift any leftover adhesive. Other salons' extensions welcome.","k":"Hair Extensions great lengths tape-in removal","u":"#services","c":"Service","sv":"Tape Extension Removal Express"},{"t":"All Over Colour Package + 50% Off Haircut","d":"A complete all-over colour refresh using Wella Professional colour — fresh, vibrant coverage from root to tip ","k":"Tue–Fri Specials midweek offers","u":"#services","c":"Service","sv":"All Over Colour Package + 50% Off Haircut"},{"t":"Full Head Foils Package + 50% Off Haircut","d":"Bright, bold or beautifully blended — a complete head of foils from our Master Stylists using Wella Blondor, w","k":"Tue–Fri Specials midweek offers","u":"#services","c":"Service","sv":"Full Head Foils Package + 50% Off Haircut"},{"t":"Half-Head Foils Special Deal + 50% Off Haircut","d":"Refresh your colour with a half head of hand-woven foils at a special midweek price — brightness and dimension","k":"Tue–Fri Specials midweek offers","u":"#services","c":"Service","sv":"Half-Head Foils Special Deal"},{"t":"Balayage Special Deal + 50% Off Haircut","d":"Our signature all-inclusive Balayage Package performed by our Master Stylist. Stunning, salon-quality colour w","k":"Tue–Fri Specials midweek offers","u":"#services","c":"Service","sv":"Balayage Special Deal"},{"t":"Nanoplasty Smoothing Treatment + 50% Off Haircut","d":"Say goodbye to frizz with our premium Nanoplasty smoothing treatment at a special midweek price — deeply nouri","k":"Tue–Fri Specials midweek offers","u":"#services","c":"Service","sv":"Nanoplasty Smoothing Treatment"},{"t":"Cut, Blow Wave & 50% Off Mist Treatment","d":"Get a fresh Haircut and Blow Wave combo, and enjoy a beautifully styled finish. Plus, every booking includes 5","k":"Tue–Fri Specials midweek offers","u":"#services","c":"Service","sv":"Cut, Blow Wave & 50% Off Mist Treatment"},{"t":"Complimentary Consultation","d":"Not sure which service is right for you? Book a complimentary consultation and let our experienced stylists as","k":"Tue–Fri Specials midweek offers","u":"#services","c":"Service","sv":"Complimentary Consultation"},{"t":"Blow Wave Midweek Special + Free Treatment Mask","d":"Professional blow wave at a special midweek price with a free Intense Treatment Mask at the basin — from $79, Tue–Fri.","k":"Tue–Fri Specials midweek offers blow wave","u":"#services","c":"Service","sv":"Blow Wave Midweek Special"},{"t":"Perm & Style","d":"Perms Tuesday to Friday — fringe, root or full perms tailored to your hair, with a shampoo, nourishing mask and dry-off finish included.","k":"Perms perm curls waves root fringe","u":"#services","c":"Service","sv":"Perm & Style"},{"t":"Grey Blending Canberra","d":"Canberra's grey blending specialists — silver softened with gentle highlights and gloss, from $420 at Hair Avenue Braddon","k":"Canberra's Grey Blending Specialists | From $420 | Hair Avenue","u":"/grey-blending-canberra/","c":"Page"},{"t":"Perms Canberra","d":"Perms in Canberra — fringe, root and full perms from $99 at Hair Avenue Braddon, Tuesday to Friday. Consultation in","k":"Perms Canberra | From $99 | Hair Avenue Braddon","u":"/perms-canberra/","c":"Page"},{"t":"Hair Colour Canberra","d":"Expert hair colour in Canberra using Wella Koleston Perfect ME+ — richer tone, less damage, up to 100% grey co","k":"Hair Colour Canberra | Wella Salon in Braddon | Hair Avenue","u":"/hair-colour-canberra/","c":"Page"},{"t":"Hair SmoothFiller Canberra","d":"Wella SmoothFiller in Canberra — frizz-free, smoother hair for up to 3 months without losing your natural text","k":"Hair SmoothFiller Canberra | Hair Avenue Braddon","u":"/hair-smoothfiller-canberra/","c":"Page"},{"t":"Nanoplasty Hair Smoothing Canberra","d":"Nanoplasty hair smoothing in Canberra — months of silky, frizz-free hair using advanced nano-technology. From ","k":"Nanoplasty Hair Smoothing Canberra | Hair Avenue","u":"/nanoplasty-canberra/","c":"Page"},{"t":"Great Lengths Tape Extensions Now at Hair Avenue","d":"News: Hair Avenue Braddon is now an official Great Lengths salon offering tape-in hair extensions — book a free consultation and colour match.","k":"news hair extensions great lengths tape-in announcement","u":"/news/great-lengths-tape-extensions/","c":"News"},{"t":"Award-Winning Hair Salon Canberra","d":"Looking for an award-winning hair salon in Canberra? Hair Avenue Braddon won the 2026 Phorest Client Experienc","k":"Award-Winning Hair Salon Canberra | Hair Avenue Braddon","u":"/news/client-experience-award-2026/","c":"News"},{"t":"Hair Guides & Advice from Canberra Stylists","d":"Honest hair advice from the stylists at Hair Avenue Braddon — balayage maintenance, brass control, smoothing t","k":"Hair Guides & Advice from Canberra Stylists | Hair Avenue Braddon","u":"/guides/","c":"Guide"},{"t":"How Long Does Balayage Last? Maintenance, Toning & Refresh Guide","d":"How long balayage lasts, how often to refresh it, and how to keep it bright between visits — from the balayage","k":"How Long Does Balayage Last? Maintenance, Toning & Refresh Guide","u":"/guides/how-long-does-balayage-last/","c":"Guide"},{"t":"How to Stop Blonde Hair Going Brassy: A Colourist's Guide","d":"Why blonde turns yellow or orange — and how to fix it. Toners, purple shampoo, water quality and salon tricks ","k":"How to Stop Blonde Hair Going Brassy: A Colourist's Guide","u":"/guides/stop-blonde-going-brassy/","c":"Guide"},{"t":"Salon Hair Length Guide: Short, Medium or Long?","d":"What counts as short, medium, long or extra long hair at the salon? Our illustrated length guide shows exactly","k":"Salon Hair Length Guide: Short, Medium or Long? | Hair Avenue","u":"/guides/hair-length-guide/","c":"Guide"},{"t":"Nanoplasty vs Keratin Treatment: Which Hair Smoothing Is Better?","d":"Nanoplasty vs keratin straightening compared — how they work, how long they last, damage, cost and which to ch","k":"Nanoplasty vs Keratin Treatment: Which Hair Smoothing Is Better?","u":"/guides/nanoplasty-vs-keratin/","c":"Guide"},{"t":"Grey Blending vs Full Coverage: Which Is Right for You?","d":"Grey blending vs full grey coverage compared — maintenance, regrowth lines, cost over time and which suits you","k":"Grey Blending vs Full Coverage: Which Is Right for You?","u":"/guides/grey-blending-vs-full-coverage/","c":"Guide"},{"t":"Men's Haircuts Braddon, Canberra","d":"Men's haircuts in Braddon — skin fades, clipper cuts and buzz cuts from $40. Walk-ins welcome at Hair Avenue, ","k":"Men's Haircuts Braddon, Canberra | Hair Avenue","u":"/mens-haircuts-braddon/","c":"Page"},{"t":"Wedding & Bridal Hair Canberra","d":"Wedding, bridal and formal hair in Canberra — elegant upstyles and updos from $195 at Hair Avenue Braddon. Boo","k":"Wedding & Bridal Hair Canberra | Hair Avenue Braddon","u":"/wedding-hair-canberra/","c":"Page"},{"t":"Balayage Canberra","d":"Balayage in Canberra by Wella-trained colourists. Hand-painted, low-maintenance colour from $395 at Hair Avenu","k":"Balayage Canberra | Hand-Painted Colour | Hair Avenue","u":"/balayage-canberra/","c":"Page"},
 {"t":"Blonde Specialists Canberra","d":"Foils, balayage, toning and colour correction by Canberra blonde specialists. Wella Blondor bond protection, packages from $299.","k":"blonde specialist canberra blonde hair salon foils platinum icy ash honey toner colour correction bleach","u":"/blonde-specialist-canberra/","c":"Page"},{"t":"Hair Tinsel Canberra","d":"Hair tinsel in Canberra — sparkly, lightweight strands in lots of colours. $60, kids $45, at Hair Avenue Bradd","k":"Hair Tinsel Canberra | $60 · Kids $45 | Hair Avenue Braddon","u":"/hair-tinsel-canberra/","c":"Page"},{"t":"Great Lengths Hair Extensions Canberra","d":"Great Lengths tape-in hair extensions in Canberra — free consultation & colour match, installs from $270, move-ups every 6–8 weeks at Hair Avenue Braddon.","k":"Hair Extensions Canberra | Great Lengths Tape-Ins | Hair Avenue Braddon tape extensions","u":"/hair-extensions-canberra/","c":"Page"},{"t":"Regrowth Colour Canberra","d":"Root regrowth colour in Canberra — seamless touch-ups, toner refreshes and scalp bleach regrowth from $199 at ","k":"Regrowth Colour Canberra | Root Touch-Ups from $199 | Hair Avenue","u":"/regrowth-canberra/","c":"Page"},{"t":"Terms & Conditions","d":"Hair Avenue Braddon salon policies including booking fees, cancellation policy, late policy, colour adjustment","k":"Terms & Conditions | Hair Avenue Braddon","u":"/terms-and-conditions/","c":"Page"},{"t":"Services & Pricing","d":"Browse every service, price and midweek offer, and book online","k":"menu booking price list book","u":"#services","c":"Section","q":1},{"t":"Book an Appointment","d":"Book online or walk in — Unit 102/16 Lonsdale St, Braddon","k":"booking contact phone address walk-in 0449 801 937 parking hours","u":"#book","c":"Section","q":1},{"t":"Reviews & Award","d":"4.9 stars from 200+ Google reviews · 2026 Client Experience Award","k":"google rating testimonials client experience award winner","u":"#reviews","c":"Section","q":1},{"t":"Our Products — Wella","d":"Only premium, salon-grade Wella Professionals — official partner salon","k":"wellaplex koleston blondor luxeoil eimi smoothfiller bond builder premium products","u":"#products","c":"Section","q":1},{"t":"Gift Vouchers","d":"Buy a Hair Avenue gift voucher online: $50, $100, $150 or any amount, emailed straight away","k":"gift voucher card present birthday christmas buy online","u":"/gift-vouchers/","c":"Page"},{"t":"Rewards & App","d":"Earn points every visit with the Hair Avenue app","k":"loyalty points app download treats vouchers","u":"#loyalty","c":"Section"},{"t":"Meet Our Team","d":"The stylists behind the chair at Hair Avenue Braddon","k":"kelly krystle trin kayla stylists hairdressers","u":"#team","c":"Section"},{"t":"FAQs","d":"Everything you need to know before your visit","k":"questions parking cancellation policy","u":"#faq","c":"Section"},{"t":"Careers — Join Our Team","d":"Do what we love, love what we do — hairdressing careers in Braddon","k":"jobs hiring hairdresser stylist apprentice 0401 864 086","u":"#careers","c":"Section"}];
   var ov = document.getElementById('gsearch'), inp = document.getElementById('gsearchInput'), res = document.getElementById('gsearchResults');
   function open(){ ov.classList.add('gsearch--open'); document.body.style.overflow='hidden'; render(''); setTimeout(function(){ inp.focus(); }, 30); }
@@ -6176,7 +5657,7 @@ window.addEventListener('load', function() {
 <script>
 (function(){
   var keys = ['colouring','regrowth','highlights','blowwave','smoothfiller','cutting','tinsel','extensions','perms','offers'];
-  var names = { offers:'Midweek Offers', colouring:'Colour & Toner', regrowth:'Grey Blending & Regrowth', highlights:'Highlights & Balayage', blowwave:'Blow Wave', smoothfiller:'Smoothing & Straightening', cutting:'Haircuts', tinsel:'Upstyle & Hair Tinsel', perms:'Perms', extensions:'Hair Extensions' };
+  var names = { offers:'Tue–Fri Specials', colouring:'Colour & Toner', regrowth:'Grey Blending & Regrowth', highlights:'Highlights & Balayage', blowwave:'Blow Wave', smoothfiller:'Smoothing & Straightening', cutting:'Haircuts', tinsel:'Upstyle & Hair Tinsel', perms:'Perms', extensions:'Hair Extensions' };
   var bar = document.querySelector('.tab-bar'), ink = document.querySelector('.tab-bar__ink');
   var dd = document.querySelector('.svc-dd'), btn = document.getElementById('svcDdBtn'), val = document.getElementById('svcDdVal'), menu = document.getElementById('svcDdMenu'), bk = document.getElementById('svcDdBackdrop');
   function activeKey(){ for (var i=0;i<keys.length;i++){ var r=document.getElementById('svc-tab-'+keys[i]); if (r && r.checked) return keys[i]; } return 'colouring'; }
