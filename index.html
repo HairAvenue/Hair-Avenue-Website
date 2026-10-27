@@ -3633,6 +3633,17 @@
     .price-split .pricing-item__book { margin-top: auto; align-self: flex-start; }
     @media (max-width: 480px) { .price-split { grid-template-columns: 1fr; } }
     .desc-after-book { margin: 14px 0 0; }
+    @media (min-width: 769px) {
+      .services-card .service-tabs .tab-bar { max-height: calc(100vh - 140px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; }
+      .services-card .service-tabs .tab-bar::-webkit-scrollbar { display: none; }
+    }
+    @media (min-width: 769px) and (max-height: 860px) {
+      .services-card .service-tabs .tab-bar { padding: 14px 10px 16px !important; gap: 3px; }
+      .services-card .service-tabs .tab-bar::before { margin-bottom: 8px; }
+      .tab-bar .service-tab { padding: 5px 8px !important; }
+      .tab-bar .service-tab .tab-pic { width: 30px; height: 30px; }
+      .tab-bar .service-tab .tab-active-stack small { display: none; }
+    }
 </style>
   <noscript>
     <style>
