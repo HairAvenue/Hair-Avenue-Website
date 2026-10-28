@@ -3177,7 +3177,7 @@
       .section--services-green .services-card { max-width: 1120px; background: linear-gradient(90deg, #f1f4f1 0, #f1f4f1 251px, rgba(201,169,110,0.35) 251px, rgba(201,169,110,0.35) 252px, #ffffff 252px); }
       .services-card { display: grid !important; grid-template-columns: 252px minmax(0, 1fr); align-items: start; grid-template-rows: auto auto 1fr; }
       .services-card .service-tabs { display: contents !important; }
-      .services-card .service-tabs .tab-bar { grid-column: 1; grid-row: 1 / span 3; align-self: start; position: sticky; top: 84px; display: flex !important; flex-direction: column; justify-content: flex-start !important; gap: 4px; width: auto; max-width: none; min-height: 0 !important; height: auto !important; margin: 0; padding: 18px 12px 22px !important; background: #f1f4f1; border-radius: 20px 0 0 20px; }
+      .services-card .service-tabs .tab-bar { position: sticky; top: 84px; display: flex !important; flex-direction: column; justify-content: flex-start !important; gap: 4px; width: auto; max-width: none; min-height: 0 !important; height: auto !important; margin: 0; padding: 18px 12px 22px !important; background: #f1f4f1; border-radius: 20px 0 0 20px; }
       .tab-bar .service-tab { display: flex !important; justify-content: flex-start !important; align-items: center; width: 100%; gap: 10px; border-radius: 12px !important; padding: 7px 10px !important; background: transparent !important; border: 1px solid transparent !important; box-shadow: none !important; text-align: left; transform: none !important; }
       .tab-bar .service-tab:hover { background: rgba(201,169,110,0.14) !important; }
       .tab-bar .service-tab .tab-pic { width: 34px; height: 34px; box-shadow: 0 0 0 2px #fff, 0 0 0 3px rgba(201,169,110,0.5); }
@@ -3203,7 +3203,7 @@
       .section--services-green .services-card { background: linear-gradient(90deg, #f1f4f1 0, #f1f4f1 71px, rgba(201,169,110,0.35) 71px, rgba(201,169,110,0.35) 72px, #ffffff 72px); }
       .services-card { display: grid !important; grid-template-columns: 90px minmax(0, 1fr); align-items: start; grid-template-rows: auto auto 1fr; }
       .services-card .service-tabs { display: contents !important; }
-      .services-card .service-tabs .tab-bar { grid-column: 1; grid-row: 1 / span 3; align-self: start; position: sticky; top: 72px; max-height: calc(100vh - 72px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; display: flex !important; flex-direction: column; justify-content: flex-start !important; gap: 2px !important; row-gap: 2px !important; column-gap: 0 !important; max-width: none; min-height: 0 !important; height: auto !important; margin: 0; padding: 8px 4px 10px !important; background: transparent !important; border-radius: 0; }
+      .services-card .service-tabs .tab-bar { position: sticky; top: 72px; max-height: calc(100vh - 72px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; display: flex !important; flex-direction: column; justify-content: flex-start !important; gap: 2px !important; row-gap: 2px !important; column-gap: 0 !important; max-width: none; min-height: 0 !important; height: auto !important; margin: 0; padding: 8px 4px 10px !important; background: transparent !important; border-radius: 0; }
       .services-card .service-tabs .tab-bar::-webkit-scrollbar { display: none; }
       .tab-bar .service-tab { display: flex !important; flex-direction: column !important; align-items: center; justify-content: center; gap: 4px !important; width: 100%; padding: 6px 2px 5px !important; border-radius: 10px !important; margin: 0 !important; background: transparent !important; border: 1px solid transparent !important; box-shadow: none !important; transform: none !important; font-size: 0.57rem !important; font-weight: 600 !important; line-height: 1.15 !important; letter-spacing: 0 !important; text-align: center; white-space: normal !important; color: #2E5339 !important; transition: color 0.2s ease; }
       .tab-bar .service-tab .tab-pic { width: 30px; height: 30px; margin: 0; }
@@ -3524,6 +3524,12 @@
       .reviews-ed__big { font-size: 2.8rem; }
       .rslider__track { gap: 14px; }
     }
+    /* ===== category sidebar / rail: pinned until the whole services card has scrolled past =====
+       .tab-col is the first grid column; it runs one viewport further down than the card (the card clips
+       it at its rounded edge), so the sticky bar inside has room to stay put until the card leaves the screen. */
+    .services-card .service-tabs .tab-col { grid-column: 1; grid-row: 1 / span 3; align-self: stretch; display: flex; flex-direction: column; min-height: 0; margin-bottom: -100vh; }
+    .services-card .service-tabs .tab-col::after { content: ""; display: block; flex: 0 0 100vh; }
+    .services-card .service-tabs .tab-bar { align-self: stretch; flex: 0 0 auto; }
 </style>
   <noscript>
     <style>
@@ -3723,6 +3729,7 @@
 <input class="svc-tab-radio" id="svc-tab-mens" name="svc-tab" type="radio"/>
 <div class="service-tabs">
 
+<div class="tab-col">
 <div class="tab-bar">
 <label class="service-tab" for="svc-tab-colouring"><img class="tab-pic" src="images/tabs/tab-colouring.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">All-Over Colour &amp; Toner</span><span class="tab-short">All-Over Colour</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
 <label class="service-tab" for="svc-tab-regrowth"><img class="tab-pic" src="images/tabs/tab-regrowth.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Grey Blending &amp; Regrowth</span><span class="tab-short">Grey Blending</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
@@ -3734,6 +3741,7 @@
 <label class="service-tab" for="svc-tab-extensions"><img class="tab-pic" src="images/tabs/tab-extensions.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Hair Extensions</span><span class="tab-short">Extensions</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
 <label class="service-tab" for="svc-tab-mens"><img class="tab-pic" src="images/tabs/tab-mens.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Men&#8217;s Cuts &amp; Perm</span><span class="tab-short">Men&#8217;s</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
 <label class="service-tab" for="svc-tab-offers"><img class="tab-pic" src="images/tabs/tab-offers.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Tue&#8211;Fri Specials</span><span class="tab-short">Tue&#8211;Fri Specials</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
+</div>
 </div>
 <div class="svc-search" id="svcSearch">
 <div class="svc-search__box">
