@@ -764,9 +764,9 @@
     }
     
     /* Hero CTA: Apple-style pill in the salon green with a gold border (matches the header View Services button) */
-    .hero__link { display: inline-flex; align-items: center; justify-content: center; font-size: 1.0625rem; font-weight: 400; letter-spacing: -0.01em; line-height: 1.2; color: #ffffff; background: #2E7D42; border: 1.5px solid #C9A96E; border-radius: 980px; padding: 11px 22px; text-decoration: none; transition: background-color 0.2s ease, border-color 0.2s ease; -webkit-tap-highlight-color: transparent; }
-    .hero__link:hover { background: #388E4C; border-color: #E8D49A; }
-    .hero__link:active { background: #2E5339; border-color: #C9A96E; }
+    .hero__link { display: inline-flex; align-items: center; justify-content: center; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.2; color: #E8D49A; background: transparent; border: 1px solid #C9A96E; border-radius: 10px; padding: 13px 36px; text-decoration: none; transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease; }
+    .hero__link:hover { background: rgba(201,169,110,0.14); border-color: #E8D49A; color: #ffffff; }
+    .hero__link:active { background: rgba(201,169,110,0.22); border-color: #C9A96E; }
     .hero__link:focus-visible { outline: 2px solid #E8D49A; outline-offset: 3px; }
 
     @keyframes float {
@@ -921,154 +921,14 @@
     /* Color-coded service card headers */
     /* (service card image styles removed — replaced with tabs) */
 
-    /* ===== REVIEWS ===== */
-    .reviews__header-stats {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 28px;
-      margin-bottom: 48px;
-      background: rgba(255,255,255,0.06);
-      padding: 28px 40px;
-      border-radius: 14px;
-      border: 1px solid rgba(201,169,110,0.25);
-      box-shadow: none;
-      max-width: 420px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .reviews__big-rating {
-      font-family: var(--ff-display);
-      font-size: 4.5rem;
-      font-weight: 700;
-      color: #C9A96E;
-      background: linear-gradient(135deg, #C9A96E, #E8D49A);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1;
-      letter-spacing: -0.03em;
-    }
-    .reviews__stars-block { display: flex; flex-direction: column; gap: 6px; }
-    .reviews__stars { color: #C9A96E; font-size: 1.6rem; letter-spacing: 3px; text-shadow: 0 2px 8px rgba(201,169,110,0.3); }
-    .reviews__count { font-size: 0.9rem; color: #1d1d1f; font-weight: 600; }
 
-    .reviews__track-wrapper {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      position: relative;
-      margin: 0 -24px;
-      padding: 16px 0;
-      max-width: 100vw;
-      scrollbar-width: none;
-      -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-      mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-    }
-    .reviews__track-wrapper::-webkit-scrollbar { display: none; }
 
-    .reviews__track {
-      display: flex;
-      gap: 24px;
-      animation: scrollReviews 40s linear infinite;
-      width: max-content;
-    }
-    /* Stop auto-scroll on touch so manual swiping works */
-    .reviews__track-wrapper.is-touched .reviews__track {
-      animation: none;
-    }
 
-    @keyframes scrollReviews {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
 
-    .review-card {
-      flex-shrink: 0;
-      width: 380px;
-      background: #ffffff;
-      border-radius: var(--radius-lg);
-      padding: 32px;
-      box-shadow: none;
-      border: 1.5px solid rgba(201,169,110,0.25);
-      transition: var(--transition);
-    }
-    .review-card:hover { box-shadow: var(--shadow-md); }
-
-    .review-card__header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 16px;
-    }
-    .review-card__avatar {
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      background: var(--clr-sage-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--ff-display);
-      font-weight: 600;
-      color: var(--clr-forest);
-      font-size: 1.1rem;
-    }
-    .review-card__name {
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: var(--clr-charcoal);
-    }
     
-    .review-card__stars {
-      color: var(--clr-star);
-      font-size: 0.9rem;
-      letter-spacing: 2px;
-      margin-bottom: 12px;
-    }
-    .review-card__text {
-      font-size: 0.92rem;
-      color: var(--clr-text);
-      line-height: 1.65;
-      font-style: italic;
-    }
-    .review-card__google {
-      margin-top: 16px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.75rem;
-      color: var(--clr-text-light);
-    }
 
     /* Reviews section photo background */
-    .reviews-bg {
-      position: relative;
-    }
-    .reviews-bg::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(36,62,43,0.92), rgba(46,83,57,0.88));
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      z-index: 0;
-    }
-    .reviews-bg > .container {
-      position: relative;
-      z-index: 1;
-    }
-    .reviews-bg .section-label { color: #E8D49A; }
-    .reviews-bg .section-title { color: #ffffff; }
-    .reviews-bg .section-subtitle { color: rgba(255,255,255,0.85); }
-    .reviews-bg .reviews__big-rating { color: #C9A96E; background: linear-gradient(135deg, #C9A96E, #E8D49A); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .reviews-bg .reviews__stars { color: #C9A96E; text-shadow: 0 2px 8px rgba(201,169,110,0.3); }
-    .reviews-bg .reviews__count { color: rgba(255,255,255,0.6); font-weight: 400; }
-    .reviews-bg .review-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(201,169,110,0.2); box-shadow: none; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
-    .reviews-bg .review-card__stars { color: #C9A96E; }
-    .reviews-bg .review-card__text { color: rgba(255,255,255,0.92); }
-    .reviews-bg .review-card__name { color: rgba(255,255,255,0.9); }
 
-    .reviews-bg .review-card__avatar { background: rgba(201,169,110,0.2); color: #C9A96E; }
-    .reviews-bg .review-card__google { color: rgba(255,255,255,0.65); }
 
     /* ===== TEAM ===== */
     .team__grid {
@@ -2789,7 +2649,6 @@
     @media (max-width: 768px) {
       .section { padding: 48px 0; }
       .container { padding: 0 16px; }
-      .reviews__track-wrapper { margin: 0 -16px; }
       .section-header { margin-bottom: 32px; }
       .section-title { font-size: 1.6rem; margin-bottom: 8px; }
       .section-subtitle { font-size: 0.9rem; }
@@ -2878,7 +2737,7 @@
       .hero__accent { font-size: 1.52rem !important; letter-spacing: 0 !important; }
       
       .hero__proof { flex-direction: column; gap: 7px; font-size: 0.75rem; letter-spacing: 0.12em; margin: 26px 0 0; } .hero__proof-sep { display: none; }
-      .hero__link { font-size: 1.0625rem; }
+      .hero__link { font-size: 0.82rem; padding: 12px 30px; }
 
       
 
@@ -2892,18 +2751,7 @@
       /* Services — compact 2-column grid */
 
       /* Reviews — smaller cards */
-      .reviews__header-stats { flex-direction: row; gap: 14px; margin-bottom: 24px; padding: 18px 24px; border-radius: 16px; max-width: 320px; }
-      .reviews__big-rating { font-size: 2.5rem; }
-      .reviews__stars { font-size: 1rem; }
-      .reviews__count { font-size: 0.75rem; }
-      .review-card { width: 260px; padding: 18px; }
-      .review-card__header { margin-bottom: 10px; gap: 10px; }
-      .review-card__avatar { width: 34px; height: 34px; font-size: 0.9rem; }
-      .review-card__name { font-size: 0.85rem; }
       
-      .review-card__stars { font-size: 0.8rem; margin-bottom: 8px; }
-      .review-card__text { font-size: 0.82rem; line-height: 1.5; }
-      .review-card__google { margin-top: 10px; font-size: 0.75rem; }
 
       /* Team — 2 columns, compact */
       .team__grid { gap: 12px; }
@@ -3084,7 +2932,7 @@
       box-shadow: none;
     }
     .careers-bg .section-label, .final-cta .section-label,
-    .reviews-bg .section-label, .social-bg .section-label, .faq-bg .section-label,
+    .social-bg .section-label, .faq-bg .section-label,
     .section--loyalty .section-label {
       color: #E8D49A;
       border-color: rgba(232,212,154,0.5);
@@ -3644,6 +3492,38 @@
       .tab-bar .service-tab .tab-pic { width: 30px; height: 30px; }
       .tab-bar .service-tab .tab-active-stack small { display: none; }
     }
+    .reviews-ed { background: #f6f4ee; }
+    .reviews-ed__rating { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 18px; margin: 0 auto 28px; max-width: 760px; text-align: center; }
+    .reviews-ed__big { font-family: var(--ff-display); font-size: 3.4rem; font-weight: 700; color: #142a18; line-height: 1; letter-spacing: -0.03em; }
+    .reviews-ed__stars { color: #C9A96E; font-size: 1.35rem; letter-spacing: 0.12em; }
+    .reviews-ed__count { font-size: 0.92rem; font-weight: 600; color: #142a18; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(201,169,110,0.6); }
+    .reviews-ed__award { flex-basis: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.82rem; font-weight: 600; color: #6b5a33; }
+    .reviews-ed__award span { background: #142a18; color: #E8D49A; border-radius: 980px; padding: 2px 9px; font-size: 0.72rem; letter-spacing: 0.06em; }
+    .rslider { position: relative; }
+    .rslider__track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; padding: 4px 2px 10px; -webkit-overflow-scrolling: touch; outline: none; }
+    .rslider__track::-webkit-scrollbar { display: none; }
+    .rv-ed { flex: 0 0 calc(50% - 10px); scroll-snap-align: start; background: #ffffff; border: 1.5px solid rgba(201,169,110,0.28); border-radius: 18px; padding: 26px 26px 20px; display: flex; flex-direction: column; }
+    .rv-ed__mark { display: block; font-family: Georgia, "Times New Roman", serif; font-size: 3.2rem; line-height: 0.55; color: #C9A96E; margin: 4px 0 12px; }
+    .rv-ed__head { font-family: Georgia, "Times New Roman", serif; font-weight: 500; font-size: 1.28rem; line-height: 1.32; color: #142a18; margin: 0 0 10px; letter-spacing: -0.01em; }
+    .rv-ed__body { margin: 0; color: #424245; font-size: 0.95rem; line-height: 1.65; }
+    .rv-ed__meta { margin-top: auto; padding-top: 12px; border-top: 1px solid rgba(201,169,110,0.25); display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-size: 0.86rem; color: #86868b; }
+    .rv-ed__meta b { color: #1d1d1f; }
+    .rv-ed__tag { background: rgba(201,169,110,0.14); color: #6b5a33; border-radius: 980px; padding: 3px 10px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; }
+    .rv-ed__g { margin-left: auto; font-size: 0.76rem; color: #86868b; }
+    .rv-ed__g:hover { color: #142a18; }
+    .rv-ed__g .st { color: #C9A96E; letter-spacing: 0.08em; }
+    .rslider__nav { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 14px; }
+    .rslider__btn { width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid rgba(201,169,110,0.6); background: #fff; color: #142a18; font-size: 1.1rem; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+    .rslider__btn:hover { background: rgba(201,169,110,0.14); }
+    .rslider__count { font-size: 0.82rem; font-weight: 600; color: #6b5a33; letter-spacing: 0.04em; min-width: 64px; text-align: center; }
+    .reviews-ed__more { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 22px; margin-top: 26px; }
+    .reviews-ed__write { font-size: 0.9rem; font-weight: 600; color: #2E7D42; text-decoration: underline; text-underline-offset: 3px; }
+    @media (max-width: 768px) {
+      .rv-ed { flex-basis: 100%; padding: 22px 20px 18px; }
+      .rv-ed__head { font-size: 1.12rem; }
+      .reviews-ed__big { font-size: 2.8rem; }
+      .rslider__track { gap: 14px; }
+    }
 </style>
   <noscript>
     <style>
@@ -3669,7 +3549,7 @@
 <li><a class="nav__link" href="#services">Services &amp; Pricing</a></li>
 <li><a class="nav__link" href="#loyalty">Rewards</a></li>
 <li><a class="nav__link" href="#team">Our Team</a></li>
-<li><a class="nav__link" href="#reviews">Reviews</a></li>
+<li><a class="nav__link" href="/reviews/">Reviews</a></li>
 <li><a class="nav__book" href="#services">Book Now</a></li>
 </ul>
 <button class="nav__search" id="navSearchBtn" aria-label="Search the site"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></button>
@@ -4556,272 +4436,59 @@
 <span class="gallery-lightbox__caption" id="galleryCaption"></span>
 </div>
 
-<section class="section reviews-bg" id="reviews" style="background: url('images/team-card-name.webp') center center / cover no-repeat;">
+<section class="section reviews-ed" id="reviews">
 <div class="container">
 <div class="section-header reveal">
 <span class="section-label">Client Love</span>
-<h2 class="section-title">200+ Five-Star Reviews</h2>
-<p class="section-subtitle">Don't just take our word for it. Here's what real clients have to say.</p>
-</div>
-<div class="reviews__header-stats reveal">
-<div class="reviews__big-rating">4.9</div>
-<div class="reviews__stars-block">
-<div class="reviews__stars">★★★★★</div>
-<div class="reviews__count">Based on 200+ Google Reviews</div>
-</div>
-</div>
-<div class="award-plaque reveal">
-<svg class="award-plaque__emblem" viewBox="0 0 150 84" aria-hidden="true">
-<g transform="translate(-2 0)"><path d="M36 80 C20 64 14 42 22 10" fill="none" stroke="#C9A96E" stroke-width="1.8" stroke-linecap="round"/><g fill="#C9A96E"><use href="#hlvs" transform="translate(31 68) rotate(-140)"/><use href="#hlvs" transform="translate(25 56) rotate(-122)"/><use href="#hlvs" transform="translate(21 44) rotate(-105)"/><use href="#hlvs" transform="translate(20 32) rotate(-92)"/><use href="#hlvs" transform="translate(21 21) rotate(-78)"/><use href="#hlvs" transform="translate(24 11) rotate(-62)"/></g></g>
-<g transform="translate(152 0) scale(-1 1)"><path d="M36 80 C20 64 14 42 22 10" fill="none" stroke="#C9A96E" stroke-width="1.8" stroke-linecap="round"/><g fill="#C9A96E"><use href="#hlvs" transform="translate(31 68) rotate(-140)"/><use href="#hlvs" transform="translate(25 56) rotate(-122)"/><use href="#hlvs" transform="translate(21 44) rotate(-105)"/><use href="#hlvs" transform="translate(20 32) rotate(-92)"/><use href="#hlvs" transform="translate(21 21) rotate(-78)"/><use href="#hlvs" transform="translate(24 11) rotate(-62)"/></g></g>
-<g transform="translate(35 2)">
-<circle cx="40" cy="40" r="37" fill="none" stroke="#C9A96E" stroke-width="1.6"/>
-<circle cx="40" cy="40" r="31.5" fill="none" stroke="rgba(232,212,154,0.5)" stroke-width="1"/>
-<path d="M40 16l2 4 4.4.6-3.2 3.1.8 4.4-4-2.1-4 2.1.8-4.4-3.2-3.1 4.4-.6 2-4z" fill="#E8D49A"/>
-<text x="40" y="49" text-anchor="middle" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#E8D49A" letter-spacing="1">2026</text>
-<path d="M27 59c4 3.4 9 4.6 13 4.6M53 59c-4 3.4-9 4.6-13 4.6" stroke="#C9A96E" stroke-width="1.3" fill="none" stroke-linecap="round"/>
-</g>
-</svg>
-<div class="award-plaque__body">
-<div class="award-plaque__kicker">Phorest Client Experience Award</div>
-<h3 class="award-plaque__title">Our Clients Love Us &#8212; Officially</h3>
-<p class="award-plaque__text">Hair Avenue is a <strong>2026 Client Experience Award winner</strong> &#8212; awarded by Phorest, the salon industry&#8217;s leading booking platform, to salons whose clients rate them outstanding across a full year of verified visits.</p>
-<p class="award-plaque__thanks">&#8220;To every client who trusted us this year &#8212; thank you. This one&#8217;s yours.&#8221; <span>&#8212; Kelly</span></p>
-<a class="award-plaque__link" href="/news/client-experience-award-2026/">Read the announcement &rarr;</a>
-</div>
-<figure class="award-plaque__seal">
-<img src="images/phorest-cea-2026.png" alt="Official Phorest Client Experience Award 2026 badge &#8212; Our Clients Love Us" width="92" height="92" loading="lazy">
-<figcaption>Official Seal</figcaption>
-</figure>
-</div>
-<div class="reviews__track-wrapper">
-<div class="reviews__track" id="reviewsTrack">
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">M</div>
-<div>
-<div class="review-card__name">Michael W.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">“Been searching for a decent men’s haircut in Braddon for ages and finally found Hair Avenue. The quality fade was spot on and the whole experience beat any barbershop I’ve been to — massage chair at the basin, great chat.”</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">A</div>
-<div>
-<div class="review-card__name">Amy W.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">“Thank you for making my first visit at Hair Avenue an amazing one. All the staff are so professional, lovely and accommodating, especially when I’m 35 weeks pregnant. :) The salon is beautifully set up, with great music and uplifting vibes.”</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">C</div>
-<div>
-<div class="review-card__name">Catherine M.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">“Hair Avenue is just so good. Kelly does my hair and she is such a talent — she cuts my hair (short) beautifully, is helping me grow it out and absolutely nails the colour every time. It’s clean, friendly and I couldn’t recommend it enough.”</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">K</div>
-<div>
-<div class="review-card__name">Karmin C.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">“Second time coming to Hair Avenue and just as happy as the first time. Krystle is amazing — not only talented but also provides frank advice to make sure I leave with hair that I am able to style / just wash and wear, not just what looks nice in a photo on Pinterest.”</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">S</div>
-<div>
-<div class="review-card__name">Susan P.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">“Thanks Hair Avenue. Another fabulous afternoon in your capable hands.”</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">L</div>
-<div>
-<div class="review-card__name">Lahmia P.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">“Very professional, relaxing and comfortable experience — thank you!”</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">K</div>
-<div>
-<div class="review-card__name">Kristin K.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">“Krystle is absolutely amazing! She’s incredibly professional, knowledgeable, and always makes me feel welcome. I leave every appointment with a huge smile on my face — not only because my hair looks beautiful, but also because of the friendly chats and the wonderful experience.”</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">I</div>
-<div>
-<div class="review-card__name">Irene S.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">“Kelly is a beautiful lady that always listens to what you want. Been a few times now and always happy. Myself and my 2 daughters attend now.”</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">A</div>
-<div>
-<div class="review-card__name">Abigail H.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">“Hair Avenue always know exactly what to do. This place is curly girl approved ✅ Would highly recommend Trina for face framing and layering of curly hair. All hairdressers are also super friendly.”</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">Y</div>
-<div>
-<div class="review-card__name">Yonnie F.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">“Kayla was observant, unobtrusive, skilled with her scissors and focused on what she was doing. Really appreciated her quiet presence. Perfect.”</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">T</div>
-<div>
-<div class="review-card__name">Tiana P.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">“I really enjoyed my time with Trin. We had great conversations whilst she made me feel incredible and confident again. She transformed my hair from a brassy yellow blonde to a stunning lighter toned blonde. A wonderful and experienced hairdresser. Thank you Trin!”</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">F</div>
-<div>
-<div class="review-card__name">Finch</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">“I couldn’t be happier with the results! With naturally thick, wavy and very unruly hair, I am so so happy with my sleek new look. Trin knows her stuff and is a beautiful person as well. You won’t regret the nanoplasty treatment 😉”</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">N</div>
-<div>
-<div class="review-card__name">Natalia M.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">“So happy with my hair!! Krystle did a full head of blonde for me and I’m obsessed with how it turned out. She knew exactly what I wanted and exceeded my expectations. She is also so lovely and easy to talk to. I’ve found my go-to salon and I’m so excited to come back!”</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">N</div>
-<div>
-<div class="review-card__name">Nerida S.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">“Incredibly engaging and professional. I feel like a new woman!”</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">J</div>
-<div>
-<div class="review-card__name">Jessica G.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">“I had a full head of foils and a bob cut and they did such an amazing job!! I was unsure about going to a new salon, however this one is so so good and I would highly recommend for blondes. I loved that I had a few different hairdressers working on my hair and seeing them all collaborate. Will definitely return 😊”</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">E</div>
-<div>
-<div class="review-card__name">Evangeline B.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">“Krystle was a hair wizard! She transformed my bleached home-job hair into a beautiful vanilla creamy blonde ♥️ You are amazing.”</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">J</div>
-<div>
-<div class="review-card__name">Jasmyn D.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">“Absolutely love my new hair — it feels so much better and healthier and it is exactly what I wanted. Thank you so much, the staff were so lovely 😊”</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">V</div>
-<div>
-<div class="review-card__name">Vrinda D.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">“Thank you, Trin, for giving me such a beautiful new look! You were so kind and professional, and you made me feel comfortable throughout the appointment. I absolutely love my hair and can’t thank you enough.”</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">J</div>
-<div>
-<div class="review-card__name">Janet H.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">“As always, Trin has cut my hair in a style that suits my lifestyle perfectly. Very happy, thank you.”</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-<div class="review-card">
-<div class="review-card__header">
-<div class="review-card__avatar">P</div>
-<div>
-<div class="review-card__name">Poly M.</div>
-</div>
-</div>
-<div class="review-card__stars">★★★★★</div>
-<p class="review-card__text">“I’ve had 5-star consulting and service from Kayla! She listens with care and understands with her amazing thoughtful mind. Sincerely appreciate her service today and looking forward to my next session.”</p>
-<div class="review-card__google"><svg fill="currentColor" height="14" viewBox="0 0 24 24" width="14"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path></svg> Posted on Google</div>
-</div>
-</div>
-</div>
-<div class="text-center reveal" style="margin-top:32px;">
-<a class="btn" href="https://maps.google.com/?cid=145449772508684422" rel="noopener" style="background:transparent; border:2px solid #C9A96E; color:#ffffff; padding:12px 28px; border-radius:50px; font-size:0.9rem; font-weight:600;" target="_blank">Read All Reviews on Google</a>
-<a class="btn" href="https://g.page/r/CYagCifMvQQCEBM/review" rel="noopener" style="background:#2E7D42; border:2px solid #C9A96E; color:#ffffff; padding:12px 28px; border-radius:50px; font-size:0.9rem; font-weight:600; margin-left:12px;" target="_blank">Leave a Review</a>
-</div>
+<h2 class="section-title">What Our Clients Say</h2>
+<p class="section-subtitle">Real words from real visits, exactly as they were posted on Google.</p>
+</div>
+<div class="reviews-ed__rating reveal">
+<div class="reviews-ed__big">4.9</div>
+<div class="reviews-ed__stars" aria-label="4.9 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<a class="reviews-ed__count" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener">Based on 200+ Google reviews &rarr;</a>
+<a class="reviews-ed__award" href="/news/client-experience-award-2026/"><span>2026</span> Phorest Client Experience Award winner &rarr;</a>
+</div>
+<div class="rslider reveal" id="rslider">
+<div class="rslider__track" id="rsliderTrack" tabindex="0" aria-label="Client reviews, swipe or use the arrows">
+<article class="rv-ed" data-i="0"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">The quality fade was spot on</h3><p class="rv-ed__body">Been searching for a decent men&#8217;s haircut in Braddon for ages and finally found Hair Avenue. The quality fade was spot on and the whole experience beat any barbershop I&#8217;ve been to &#8212; massage chair at the basin, great chat.</p><div class="rv-ed__meta"><b>Michael</b><span class="rv-ed__tag">Cuts &amp; Styling</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="1"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">Thank you for making my first visit at Hair Avenue an amazing one</h3><p class="rv-ed__body">Thank you for making my first visit at Hair Avenue an amazing one. All the staff are so professional, lovely and accommodating, especially when I&#8217;m 35 weeks pregnant. :) The salon is beautifully set up, with great music and uplifting vibes.</p><div class="rv-ed__meta"><b>Amy</b><span class="rv-ed__tag">Salon experience</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="2"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">Absolutely nails the colour every time</h3><p class="rv-ed__body">Hair Avenue is just so good. Kelly does my hair and she is such a talent &#8212; she cuts my hair (short) beautifully, is helping me grow it out and absolutely nails the colour every time. It&#8217;s clean, friendly and I couldn&#8217;t recommend it enough.</p><div class="rv-ed__meta"><b>Catherine</b><span class="rv-ed__tag">Colour &amp; Blonde</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="3"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">Hair that I am able to style, just wash and wear</h3><p class="rv-ed__body">Second time coming to Hair Avenue and just as happy as the first time. Krystle is amazing &#8212; not only talented but also provides frank advice to make sure I leave with hair that I am able to style / just wash and wear, not just what looks nice in a photo on Pinterest.</p><div class="rv-ed__meta"><b>Karmin</b><span class="rv-ed__tag">Cuts &amp; Styling</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="4"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">Thanks Hair Avenue. Another fabulous afternoon in your capable hands.</h3><div class="rv-ed__meta"><b>Susan</b><span class="rv-ed__tag">Salon experience</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="5"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">Very professional, relaxing and comfortable experience &#8212; thank you!</h3><div class="rv-ed__meta"><b>Lahmia</b><span class="rv-ed__tag">Salon experience</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="6"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">I leave every appointment with a huge smile on my face</h3><p class="rv-ed__body">Krystle is absolutely amazing! She&#8217;s incredibly professional, knowledgeable, and always makes me feel welcome. I leave every appointment with a huge smile on my face &#8212; not only because my hair looks beautiful, but also because of the friendly chats and the wonderful experience.</p><div class="rv-ed__meta"><b>Kristin</b><span class="rv-ed__tag">Salon experience</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="7"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">Always listens to what you want</h3><p class="rv-ed__body">Kelly is a beautiful lady that always listens to what you want. Been a few times now and always happy. Myself and my 2 daughters attend now.</p><div class="rv-ed__meta"><b>Irene</b><span class="rv-ed__tag">Salon experience</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="8"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">This place is curly girl approved</h3><p class="rv-ed__body">Hair Avenue always know exactly what to do. This place is curly girl approved ✅ Would highly recommend Trina for face framing and layering of curly hair. All hairdressers are also super friendly.</p><div class="rv-ed__meta"><b>Abigail</b><span class="rv-ed__tag">Cuts &amp; Styling</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="9"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">Skilled with her scissors and focused on what she was doing</h3><p class="rv-ed__body">Kayla was observant, unobtrusive, skilled with her scissors and focused on what she was doing. Really appreciated her quiet presence. Perfect.</p><div class="rv-ed__meta"><b>Yonnie</b><span class="rv-ed__tag">Cuts &amp; Styling</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="10"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">From a brassy yellow blonde to a stunning lighter toned blonde</h3><p class="rv-ed__body">I really enjoyed my time with Trin. We had great conversations whilst she made me feel incredible and confident again. She transformed my hair from a brassy yellow blonde to a stunning lighter toned blonde. A wonderful and experienced hairdresser. Thank you Trin!</p><div class="rv-ed__meta"><b>Tiana</b><span class="rv-ed__tag">Colour &amp; Blonde</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="11"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">You won&#8217;t regret the nanoplasty treatment</h3><p class="rv-ed__body">I couldn&#8217;t be happier with the results! With naturally thick, wavy and very unruly hair, I am so so happy with my sleek new look. Trin knows her stuff and is a beautiful person as well. You won&#8217;t regret the nanoplasty treatment 😉</p><div class="rv-ed__meta"><b>Finch</b><span class="rv-ed__tag">Treatments &amp; Perms</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="12"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">I&#8217;ve found my go-to salon</h3><p class="rv-ed__body">So happy with my hair!! Krystle did a full head of blonde for me and I&#8217;m obsessed with how it turned out. She knew exactly what I wanted and exceeded my expectations. She is also so lovely and easy to talk to. I&#8217;ve found my go-to salon and I&#8217;m so excited to come back!</p><div class="rv-ed__meta"><b>Natalia</b><span class="rv-ed__tag">Colour &amp; Blonde</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="13"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">Incredibly engaging and professional. I feel like a new woman!</h3><div class="rv-ed__meta"><b>Nerida</b><span class="rv-ed__tag">Salon experience</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="14"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">I would highly recommend for blondes</h3><p class="rv-ed__body">I had a full head of foils and a bob cut and they did such an amazing job!! I was unsure about going to a new salon, however this one is so so good and I would highly recommend for blondes. I loved that I had a few different hairdressers working on my hair and seeing them all collaborate. Will definitely return 😊</p><div class="rv-ed__meta"><b>Jessica</b><span class="rv-ed__tag">Colour &amp; Blonde</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="15"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">Krystle was a hair wizard!</h3><p class="rv-ed__body">Krystle was a hair wizard! She transformed my bleached home-job hair into a beautiful vanilla creamy blonde ♥️ You are amazing.</p><div class="rv-ed__meta"><b>Evangeline</b><span class="rv-ed__tag">Colour &amp; Blonde</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="16"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">It feels so much better and healthier</h3><p class="rv-ed__body">Absolutely love my new hair &#8212; it feels so much better and healthier and it is exactly what I wanted. Thank you so much, the staff were so lovely 😊</p><div class="rv-ed__meta"><b>Jasmyn</b><span class="rv-ed__tag">Salon experience</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="17"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">I absolutely love my hair and can&#8217;t thank you enough</h3><p class="rv-ed__body">Thank you, Trin, for giving me such a beautiful new look! You were so kind and professional, and you made me feel comfortable throughout the appointment. I absolutely love my hair and can&#8217;t thank you enough.</p><div class="rv-ed__meta"><b>Vrinda</b><span class="rv-ed__tag">Cuts &amp; Styling</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="18"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">A style that suits my lifestyle perfectly</h3><p class="rv-ed__body">As always, Trin has cut my hair in a style that suits my lifestyle perfectly. Very happy, thank you.</p><div class="rv-ed__meta"><b>Janet</b><span class="rv-ed__tag">Cuts &amp; Styling</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="19"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">5-star consulting and service from Kayla</h3><p class="rv-ed__body">I&#8217;ve had 5-star consulting and service from Kayla! She listens with care and understands with her amazing thoughtful mind. Sincerely appreciate her service today and looking forward to my next session.</p><div class="rv-ed__meta"><b>Poly</b><span class="rv-ed__tag">Salon experience</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="20"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">Such a great experience!!</h3><p class="rv-ed__body">Such a great experience!! I called up Hair Avenue after getting a not so great curtain bang haircut at a different salon. They were able to get me in the following morning. Trin did such an amazing job correcting the cut as much as she could! It looks so much better now and I&#8217;m really happy with the outcome.</p><div class="rv-ed__meta"><b>Janna</b><span class="rv-ed__tag">Cuts &amp; Styling</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="21"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">Shapes and blends my hair expertly each time</h3><p class="rv-ed__body">I am so glad my daughter recommended I try The Hair Avenue salon. So efficient, friendly and relaxing to be in, plus priced competitively. Kayla is a very skilful stylist who shapes and blends my hair expertly each time to suit my face, lifestyle and the season &#8212; exactly what I was looking for. 👌</p><div class="rv-ed__meta"><b>Christine</b><span class="rv-ed__tag">Cuts &amp; Styling</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="22"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">Making me look beautiful for the wedding</h3><p class="rv-ed__body">I was made to feel welcome and comfortable from the moment I came in. I had a change of heart during my upstyle and it was no trouble to modify the look. Thank you Kelly for your professionalism and making me look beautiful for the wedding I was attending!</p><div class="rv-ed__meta"><b>Dorothea</b><span class="rv-ed__tag">Cuts &amp; Styling</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="23"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">The blonde they are able to achieve is amazing</h3><p class="rv-ed__body">I absolutely love this business and the hair stylists who work there. I have stubborn dark roots and the blonde they are able to achieve is amazing. Thank you Kelly, your persistence for perfection is incredible.</p><div class="rv-ed__meta"><b>Karen</b><span class="rv-ed__tag">Colour &amp; Blonde</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="24"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">Wonderful grey blending work</h3><p class="rv-ed__body">I just got my hair done at Hair Avenue by Trin, really thankful to her for the amazing work. My hair required a lot of colour correction; she not only maintained the integrity of my hair but also did wonderful grey blending work. I appreciate the way she explained the process to me and her approach towards fixing my hair colour. Highly recommend her.</p><div class="rv-ed__meta"><b>Anu</b><span class="rv-ed__tag">Colour &amp; Blonde</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="25"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">Turned my drop dead straight hair to a cloud of curls</h3><p class="rv-ed__body">Kayla was an absolute expert and turned my drop dead straight hair to a cloud of curls. Could not be happier. Total perm convert! And thank you always to Krystle and Kelly for making the salon such a lovely place to be in. Can&#8217;t wait til next time!</p><div class="rv-ed__meta"><b>Justine</b><span class="rv-ed__tag">Treatments &amp; Perms</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="26"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">Hands down the best colour and cut I&#8217;ve had in years</h3><p class="rv-ed__body">I had foils, toner, and a cut done here and I&#8217;m honestly so impressed! Both the colour specialist and stylist were incredibly friendly and made the whole experience really enjoyable. Thank you Kayla and Kelly for such an amazing job. This is hands down the best colour and cut I&#8217;ve had in years. I&#8217;ll definitely be back &#8212; this is my new go-to salon!</p><div class="rv-ed__meta"><b>Elizabeth</b><span class="rv-ed__tag">Colour &amp; Blonde</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="27"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">The colour turned out so soft, natural, and perfectly blended</h3><p class="rv-ed__body">Just had my balayage done and I&#8217;m honestly OBSESSED 😍✨ The colour turned out so soft, natural, and perfectly blended, exactly what I was hoping for (even better, actually!). The way it catches the light is just chef&#8217;s kiss. Huge thank you to the team for making me feel so comfortable and for really listening to what I wanted. You can tell they truly care about their work. My hair feels so fresh, healthy, and beautiful again! Highly recommend if you&#8217;re thinking of getting balayage &#8212; you won&#8217;t regret it :)</p><div class="rv-ed__meta"><b>Mary</b><span class="rv-ed__tag">Colour &amp; Blonde</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="28"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">20 out of 10!</h3><p class="rv-ed__body">20 out of 10! After leaving the salon, I caught a glimpse of myself in a window as I passed by. I thought that person is wearing the same clothes as me. And then! I realised it was me! A wonderful change had happened for me! The cutters, colourists and counsellors (😊) at Hair Avenue made my experience a classic haircut and colour! Thanks Hair Avenue 😘</p><div class="rv-ed__meta"><b>Dore</b><span class="rv-ed__tag">Colour &amp; Blonde</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+<article class="rv-ed" data-i="29"><span class="rv-ed__mark" aria-hidden="true">&#8220;</span><h3 class="rv-ed__head">I&#8217;ll be making Hair Avenue my hairdresser from now on</h3><p class="rv-ed__body">My first visit to Hair Avenue and it was a great experience. I felt pampered sitting on the massage chair at the sink while Kayla washed and massaged my hair. We then chatted about what to do with my cut and Kayla did a beautiful style that really made me feel good about the cut. I&#8217;ll be making Hair Avenue my hairdresser from now on.</p><div class="rv-ed__meta"><b>Lynda</b><span class="rv-ed__tag">Cuts &amp; Styling</span><a class="rv-ed__g" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener" aria-label="See this review on Google"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Google</a></div></article>
+</div>
+<div class="rslider__nav">
+<button class="rslider__btn" type="button" data-dir="-1" aria-label="Previous reviews">&larr;</button>
+<span class="rslider__count" id="rsliderCount" aria-live="polite">1 / 30</span>
+<button class="rslider__btn" type="button" data-dir="1" aria-label="Next reviews">&rarr;</button>
+</div>
+</div>
+<p class="reviews-ed__more reveal"><a class="btn btn--primary" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener">Read all 200+ reviews on Google</a><a class="reviews-ed__write" href="https://g.page/r/CYagCifMvQQCEBM/review" target="_blank" rel="noopener">Leave a Google review &rarr;</a></p>
 </div>
 </section>
 <section class="section social-bg" id="social" style="background: url('images/text-center-reveal.webp') center center / cover no-repeat;">
@@ -5280,7 +4947,7 @@ window.addEventListener('load', function() {
 <li><a class="footer__link" href="#loyalty">Rewards</a></li>
 <li><a class="footer__link" href="/gift-vouchers/">Gift Vouchers</a></li>
 <li><a class="footer__link" href="#team">Our Team</a></li>
-<li><a class="footer__link" href="#reviews">Reviews</a></li>
+<li><a class="footer__link" href="/reviews/">Reviews</a></li>
 <li><a class="footer__link" href="#careers">Careers</a></li>
 <li><a class="footer__link" href="#faq">FAQ</a></li>
 <li><a class="footer__link" href="/guides/">Hair Guides</a></li>
@@ -5380,7 +5047,7 @@ window.addEventListener('load', function() {
 
       /* Carousels: stop auto-scroll on touch, enable manual swipe */
       (function() {
-        var wrappers = document.querySelectorAll('.expect-scroll-wrapper, .reviews__track-wrapper');
+        var wrappers = document.querySelectorAll('.expect-scroll-wrapper');
         wrappers.forEach(function(wrapper) {
           wrapper.addEventListener('touchstart', function() {
             wrapper.classList.add('is-touched');
@@ -5669,7 +5336,7 @@ window.addEventListener('load', function() {
 (function(){
   var IDX = 
 [{"t":"All Over Colour Package","d":"Your colour, perfected. Every Hair Avenue colour service uses Wella's Koleston Perfect ME+ — the world's most ","k":"All-Over Colour & Toner colouring","u":"#services","c":"Service","sv":"All Over Colour Package"},{"t":"Toner / Gloss Maintenance — with Blow Wave","d":"Bring your colour back to life between appointments — a gentle, bleach-free gloss or toner that removes brassiness and adds ","k":"All-Over Colour & Toner colouring","u":"#services","c":"Service","sv":"Toner / Gloss Maintenance"},{"t":"Grey Blending","d":"Canberra's grey blending specialists — embrace your grey and make it truly gorgeous, the full service start to finish.","k":"Grey Blending & Regrowth","u":"#services","c":"Service","sv":"Grey Blending"},{"t":"Grey Blending — First Time","d":"Your very first grey blend — a dedicated session with the extra time and product it deserves. Short to medium from $555, long","k":"Grey Blending & Regrowth","u":"#services","c":"Service","sv":"Grey Blending — First Time"},{"t":"Regrowth Package","d":"Just need your roots refreshed? Seamlessly blend new growth with your existing colour — ideal for regular maintenance and gre","k":"Grey Blending & Regrowth","u":"#services","c":"Service","sv":"Regrowth Package"},{"t":"Regrowth + All Over Toner Package","d":"Revitalise your look with expert regrowth colour paired with a complete toner refresh. This package delivers s","k":"Grey Blending & Regrowth","u":"#services","c":"Service","sv":"Regrowth + All Over Toner Package"},{"t":"Scalp Bleach Regrowth + Toner","d":"Lift your roots to a flawless, even blonde with our expert scalp bleach regrowth service. Carefully applied to","k":"Grey Blending & Regrowth","u":"#services","c":"Service","sv":"Scalp Bleach Regrowth + Toner"},{"t":"Full-Head Foils / Blonde Package","d":"Our highlight and balayage services are powered by Wella Blondor — the professional lightening system trusted ","k":"Highlights & Balayage","u":"#services","c":"Service","sv":"Full-Head Foils / Blonde Package"},{"t":"Half-Head Foils Package","d":"Perfect for maintaining existing highlights, adding dimension or achieving a sun-kissed blonde while preservin","k":"Highlights & Balayage","u":"#services","c":"Service","sv":"Half-Head Foils Package"},{"t":"Balayage — Full Head Lightening Package","d":"A tailored balayage colour experience designed for a vibrant, easy-to-maintain look with a gorgeous face-frami","k":"Highlights & Balayage","u":"#services","c":"Service","sv":"Balayage — Full Head Lightening Package"},{"t":"Hair Cuts with Blow Wave","d":"A fresh, personalised haircut with a shampoo and conditioning treatment at the basin, finished with a smooth blow wave","k":"Haircuts cutting women kids","u":"#services","c":"Service","sv":"Hair Cuts with Blow Wave"},{"t":"Dry Cuts","d":"A quick, expertly executed trim to keep your current style looking sharp and fresh — no wash, no blow-dry incl","k":"Haircuts cutting women kids","u":"#services","c":"Service","sv":"Dry Cuts"},{"t":"Just Fringe Trim","d":"A quick, precise fringe trim to keep your bangs looking neat and perfectly shaped between full haircut appoint","k":"Haircuts cutting women kids","u":"#services","c":"Service","sv":"Just Fringe Trim"},{"t":"Men's Haircuts","d":"Sharp, clean men's cuts by stylists who specialise in clipper work, skin fades and scissor styling — buzz, clipper, skin fade, scissor or long-hair cut from $40","k":"Men's Cuts & Perm mens haircut fade clipper buzz","u":"#services","c":"Service","sv":"Men's Haircuts"},{"t":"Kids' Dry Cut (Kindy – Year 6 only)","d":"A friendly, stress-free dry cut for kids from kindergarten through to Year 6. Our team keeps things fun and re","k":"Haircuts cutting women kids","u":"#services","c":"Service","sv":"Kids' Dry Cut (Kindy – Year 6 only)"},{"t":"Blow Wave Package","d":"A polished, professional blow wave tailored to your hair — includes a relaxing shampoo with scalp massage and an Intense Hydration Mask; bouncy upgrade $20","k":"Blow Wave","u":"#services","c":"Service","sv":"Blow Wave Package"},{"t":"Bouncy Blow Wave Upgrade","d":"Add to any blow wave for big, soft volume and movement, set with a round brush — $20, or the roller set upgrade for $50","k":"Blow Wave bouncy volume rollers wedding formal race day","u":"#services","c":"Service","sv":"Bouncy Blow Wave"},{"t":"Hair SmoothFiller","d":"Hair SmoothFiller (Floractive BTX Smooth) is a luxurious, formaldehyde-free smoothing treatment that works lik","k":"Perms & Treatments smoothing SmoothFiller","u":"#services","c":"Service","sv":"Hair SmoothFiller"},{"t":"Nanoplasty Treatment","d":"A premium, formaldehyde-free Brazilian smoothing treatment that rebuilds each strand with amino acids and natu","k":"Perms & Treatments smoothing nanoplasty straightening perm","u":"#services","c":"Service","sv":"Nanoplasty Treatment"},{"t":"Permanent Hair Straightening – Shiseido","d":"A professional Shiseido Japanese hair straightening treatment that permanently restructures the hair's interna","k":"Perms & Treatments smoothing nanoplasty straightening perm","u":"#services","c":"Service","sv":"Permanent Hair Straightening – Shiseido"},{"t":"Upstyle (no Shampoo)","d":"An elegant, beautifully crafted updo perfect for wedding hair, bridal parties, formals and special occasions. ","k":"Upstyle & Hair Tinsel","u":"#services","c":"Service","sv":"Upstyle (no Shampoo)"},{"t":"Upstyle (with Shampoo & Blow Wave)","d":"A complete wedding and formal hair experience, including a relaxing shampoo, professional blow wave and elegan","k":"Upstyle & Hair Tinsel","u":"#services","c":"Service","sv":"Upstyle (with Shampoo & Blow Wave)"},{"t":"Hair Tinsels","d":"Add a touch of sparkle and eye-catching shine to your hair with beautiful, lightweight tinsel strands. Availab","k":"Upstyle & Hair Tinsel","u":"#services","c":"Service","sv":"Hair Tinsels"},{"t":"Hair Tinsel for Kids","d":"Fun, sparkly tinsel strands designed especially for kids who love a bit of extra shimmer and pizzazz. Our safe","k":"Upstyle & Hair Tinsel","u":"#services","c":"Service","sv":"Hair Tinsel for Kids"},{"t":"Tape Extensions — Consultation & Colour Match","d":"20-minute Great Lengths consultation ($35, credited to your install) — we check condition and density, count the pieces and colour match in daylight.","k":"Hair Extensions great lengths tape-in tapes extensions consultation","u":"#services","c":"Service","sv":"Consultation & Colour Match"},{"t":"New Tape Extension Install","d":"Great Lengths tape-in extensions fitted by our trained stylists — cut, blended and styled, with the hair colour-matched at your consultation.","k":"Hair Extensions great lengths tape-in tapes install","u":"#services","c":"Service","sv":"New Tape Extension Install"},{"t":"Tape Extension Move Up Package","d":"Maintenance every 6–8 weeks — removal, fresh tape, re-application at the root and a blow wave, all in one visit.","k":"Hair Extensions great lengths tape-in move up maintenance","u":"#services","c":"Service","sv":"Tape Extension Move Up Package"},{"t":"Tape Extension Removal Express","d":"Gentle, residue-free tape removal, with an optional blow wave to lift any leftover adhesive. Other salons' extensions welcome.","k":"Hair Extensions great lengths tape-in removal","u":"#services","c":"Service","sv":"Tape Extension Removal Express"},{"t":"All Over Colour Package + 50% Off Haircut","d":"A complete all-over colour refresh using Wella Professional colour — fresh, vibrant coverage from root to tip ","k":"Tue–Fri Specials midweek offers","u":"#services","c":"Service","sv":"All Over Colour Package + 50% Off Haircut"},{"t":"Full Head Foils Package + 50% Off Haircut","d":"Bright, bold or beautifully blended — a complete head of foils from our colour specialists using Wella Blondor, w","k":"Tue–Fri Specials midweek offers","u":"#services","c":"Service","sv":"Full Head Foils Package + 50% Off Haircut"},{"t":"Half-Head Foils Special Deal + 50% Off Haircut","d":"Refresh your colour with a half head of hand-woven foils at a special midweek price — brightness and dimension","k":"Tue–Fri Specials midweek offers","u":"#services","c":"Service","sv":"Half-Head Foils Special Deal"},{"t":"Balayage Signature Special + Discounted Haircut","d":"Our signature all-inclusive Balayage Package performed by our colour specialists. Stunning, salon-quality colour w","k":"Tue–Fri Specials midweek offers","u":"#services","c":"Service","sv":"Balayage Signature Special"},{"t":"Nanoplasty Smoothing Treatment + 50% Off Haircut","d":"Say goodbye to frizz with our premium Nanoplasty smoothing treatment at a special midweek price — deeply nouri","k":"Tue–Fri Specials midweek offers","u":"#services","c":"Service","sv":"Nanoplasty Smoothing Treatment"},{"t":"Hair Cut & Blow Wave — Midweek Special","d":"A fresh cut with a shampoo and conditioning treatment at the basin and a smooth blow wave to finish, at the midweek price from $120","k":"Tue–Fri Specials midweek offers","u":"#services","c":"Service","sv":"Hair Cut & Blow Wave"},{"t":"Hair Consultation","d":"Not sure which service is right for you? Book a 15-minute consultation ($25, credited to your next appointment; $35 for an extensions colour match) and let our experienced stylists as","k":"Tue–Fri Specials midweek offers","u":"#services","c":"Service","sv":"Hair Consultation"},{"t":"Blow Wave Midweek Special","d":"Professional blow wave at a special midweek price with the Intense Hydration Mask and scalp massage included — from $80, Tue–Fri.","k":"Tue–Fri Specials midweek offers blow wave","u":"#services","c":"Service","sv":"Blow Wave Midweek Special"},{"t":"Men’s Haircut — Tue–Fri Special","d":"Tuesday to Friday men's cut: buzz cut $40, clipper cut $55, skin fade or scissor cut $60, long-hair cut $80, add a shampoo for $10","k":"Men's Cuts & Perm mens haircut midweek special fade","u":"#services","c":"Service","sv":"Men’s Haircut — Tue–Fri Special"},{"t":"Men’s Perm Consultation","d":"$25, credited to your perm: a 15-minute check of your hair's condition, length and colour history before your first men's perm","k":"Men's Cuts & Perm mens perm consultation","u":"#services","c":"Service","sv":"Men’s Perm Consultation"},{"t":"Men’s Perm","d":"Men's perm Monday to Friday: short perm (clipper back and sides) $230 or short hair style perm $280, with hydration mask and scalp massage; add a haircut for $55","k":"Men's Cuts & Perm mens perm curls texture volume","u":"#services","c":"Service","sv":"Men’s Perm"},{"t":"Women’s Perm Package","d":"Perms Tuesday to Friday — fringe, root or full perms tailored to your hair, with a shampoo, nourishing mask and dry-off finish included.","k":"Perms & Treatments perm curls waves root fringe","u":"#services","c":"Service","sv":"Women’s Perm Package"},{"t":"Grey Blending Canberra","d":"Canberra's grey blending specialists — silver softened with gentle highlights and gloss, from $420 at Hair Avenue Braddon","k":"Canberra's Grey Blending Specialists | From $420 | Hair Avenue","u":"/grey-blending-canberra/","c":"Page"},{"t":"Perms Canberra","d":"Perms in Canberra — fringe, root and full perms from $99 at Hair Avenue Braddon, Tuesday to Friday. Consultation in","k":"Perms Canberra | From $99 | Hair Avenue Braddon","u":"/perms-canberra/","c":"Page"},{"t":"Haircuts Canberra","d":"Women's, men's and kids' haircuts at Hair Avenue Braddon: cut and blow wave from $130, dry cuts from $85, fringe trims $27, kids $45","k":"haircut hair cut trim restyle fringe curly dry cut women kids hairdresser","u":"/haircuts-canberra/","c":"Page"},{"t":"Blow Wave Canberra","d":"Blow waves at Hair Avenue Braddon from $95 with the hydration mask included, or from $80 Tue–Fri; bouncy upgrade $20, rollers $50 for events","k":"blow wave blow dry blowdry styling bouncy curls volume event hair","u":"/blow-wave-canberra/","c":"Page"},{"t":"Tue–Fri Specials","d":"All our Tuesday to Friday packages on one page: colour from $199, foils from $275, balayage from $375, blow waves from $80, plus discounted haircut add-ons","k":"specials deals offers packages midweek discount cheap","u":"/tue-fri-specials/","c":"Page"},{"t":"Hair Colour Canberra","d":"Expert hair colour in Canberra using Wella Koleston Perfect ME+ — richer tone, less damage, up to 100% grey co","k":"Hair Colour Canberra | Wella Salon in Braddon | Hair Avenue","u":"/hair-colour-canberra/","c":"Page"},{"t":"Hair SmoothFiller Canberra","d":"Wella SmoothFiller in Canberra — frizz-free, smoother hair for up to 3 months without losing your natural text","k":"Hair SmoothFiller Canberra | Hair Avenue Braddon","u":"/hair-smoothfiller-canberra/","c":"Page"},{"t":"Nanoplasty Hair Smoothing Canberra","d":"Nanoplasty hair smoothing in Canberra — months of silky, frizz-free hair using advanced nano-technology. From ","k":"Nanoplasty Hair Smoothing Canberra | Hair Avenue","u":"/nanoplasty-canberra/","c":"Page"},{"t":"Great Lengths Tape Extensions Now at Hair Avenue","d":"News: Hair Avenue Braddon is now an official Great Lengths salon offering tape-in hair extensions — book a consultation and colour match ($35, credited to your install).","k":"news hair extensions great lengths tape-in announcement","u":"/news/great-lengths-tape-extensions/","c":"News"},{"t":"Award-Winning Hair Salon Canberra","d":"Looking for an award-winning hair salon in Canberra? Hair Avenue Braddon won the 2026 Phorest Client Experienc","k":"Award-Winning Hair Salon Canberra | Hair Avenue Braddon","u":"/news/client-experience-award-2026/","c":"News"},{"t":"Hair Guides & Advice from Canberra Stylists","d":"Honest hair advice from the stylists at Hair Avenue Braddon — balayage maintenance, brass control, smoothing t","k":"Hair Guides & Advice from Canberra Stylists | Hair Avenue Braddon","u":"/guides/","c":"Guide"},{"t":"How Long Does Balayage Last? Maintenance, Toning & Refresh Guide","d":"How long balayage lasts, how often to refresh it, and how to keep it bright between visits — from the balayage","k":"How Long Does Balayage Last? Maintenance, Toning & Refresh Guide","u":"/guides/how-long-does-balayage-last/","c":"Guide"},{"t":"How to Stop Blonde Hair Going Brassy: A Colourist's Guide","d":"Why blonde turns yellow or orange — and how to fix it. Toners, purple shampoo, water quality and salon tricks ","k":"How to Stop Blonde Hair Going Brassy: A Colourist's Guide","u":"/guides/stop-blonde-going-brassy/","c":"Guide"},{"t":"Salon Hair Length Guide: Short, Medium or Long?","d":"What counts as short, medium, long or extra long hair at the salon? Our illustrated length guide shows exactly","k":"Salon Hair Length Guide: Short, Medium or Long? | Hair Avenue","u":"/guides/hair-length-guide/","c":"Guide"},{"t":"Nanoplasty vs Keratin Treatment: Which Hair Smoothing Is Better?","d":"Nanoplasty vs keratin straightening compared — how they work, how long they last, damage, cost and which to ch","k":"Nanoplasty vs Keratin Treatment: Which Hair Smoothing Is Better?","u":"/guides/nanoplasty-vs-keratin/","c":"Guide"},{"t":"Grey Blending vs Full Coverage: Which Is Right for You?","d":"Grey blending vs full grey coverage compared — maintenance, regrowth lines, cost over time and which suits you","k":"Grey Blending vs Full Coverage: Which Is Right for You?","u":"/guides/grey-blending-vs-full-coverage/","c":"Guide"},{"t":"Men's Haircuts Braddon, Canberra","d":"Men's haircuts in Braddon — skin fades, clipper cuts and buzz cuts from $40. Walk-ins welcome at Hair Avenue, ","k":"Men's Haircuts Braddon, Canberra | Hair Avenue","u":"/mens-haircuts-braddon/","c":"Page"},{"t":"Wedding & Bridal Hair Canberra","d":"Wedding, bridal and formal hair in Canberra — elegant upstyles and updos from $195 at Hair Avenue Braddon. Boo","k":"Wedding & Bridal Hair Canberra | Hair Avenue Braddon","u":"/wedding-hair-canberra/","c":"Page"},{"t":"Balayage Canberra","d":"Balayage in Canberra by Wella-trained colourists. Hand-painted, low-maintenance colour from $375 Tue–Fri or $395 Saturdays at Hair Avenu","k":"Balayage Canberra | Hand-Painted Colour | Hair Avenue","u":"/balayage-canberra/","c":"Page"},
-{"t":"Blonde Specialists Canberra","d":"Foils, balayage, toning and colour correction by Canberra blonde specialists. Wella Blondor bond protection, packages from $299.","k":"blonde specialist canberra blonde hair salon foils platinum icy ash honey toner colour correction bleach","u":"/blonde-specialist-canberra/","c":"Page"},{"t":"Hair Tinsel Canberra","d":"Hair tinsel in Canberra — sparkly, lightweight strands in lots of colours. $60, kids $45, at Hair Avenue Bradd","k":"Hair Tinsel Canberra | $60 · Kids $45 | Hair Avenue Braddon","u":"/hair-tinsel-canberra/","c":"Page"},{"t":"Great Lengths Hair Extensions Canberra","d":"Great Lengths tape-in hair extensions in Canberra — consultation & colour match ($35, credited), installs from $270, move-ups every 6–8 weeks at Hair Avenue Braddon.","k":"Hair Extensions Canberra | Great Lengths Tape-Ins | Hair Avenue Braddon tape extensions","u":"/hair-extensions-canberra/","c":"Page"},{"t":"Regrowth Colour Canberra","d":"Root regrowth colour in Canberra — seamless touch-ups, toner refreshes and scalp bleach regrowth from $199 at ","k":"Regrowth Colour Canberra | Root Touch-Ups from $199 | Hair Avenue","u":"/regrowth-canberra/","c":"Page"},{"t":"Terms & Conditions","d":"Hair Avenue Braddon salon policies including booking fees, cancellation policy, late policy, colour adjustment","k":"Terms & Conditions | Hair Avenue Braddon","u":"/terms-and-conditions/","c":"Page"},{"t":"Services & Pricing","d":"Browse every service, price and midweek offer, and book online","k":"menu booking price list book","u":"#services","c":"Section","q":1},{"t":"Book an Appointment","d":"Book online or walk in — Unit 102/16 Lonsdale St, Braddon","k":"booking contact phone address walk-in 0449 801 937 parking hours","u":"#book","c":"Section","q":1},{"t":"Reviews & Award","d":"4.9 stars from 200+ Google reviews · 2026 Client Experience Award","k":"google rating testimonials client experience award winner","u":"#reviews","c":"Section","q":1},{"t":"Our Products — Wella","d":"Only premium, salon-grade Wella Professionals — official partner salon","k":"wellaplex koleston blondor luxeoil eimi smoothfiller bond builder premium products","u":"#products","c":"Section","q":1},{"t":"Gift Vouchers","d":"Buy a Hair Avenue gift voucher online: $50, $100, $150 or any amount, emailed straight away","k":"gift voucher card present birthday christmas buy online","u":"/gift-vouchers/","c":"Page"},{"t":"Rewards & App","d":"Earn points every visit with the Hair Avenue app","k":"loyalty points app download treats vouchers","u":"#loyalty","c":"Section"},{"t":"Meet Our Team","d":"The stylists behind the chair at Hair Avenue Braddon","k":"kelly krystle trin kayla stylists hairdressers","u":"#team","c":"Section"},{"t":"FAQs","d":"Everything you need to know before your visit","k":"questions parking cancellation policy","u":"#faq","c":"Section"},{"t":"Careers — Join Our Team","d":"Do what we love, love what we do — hairdressing careers in Braddon","k":"jobs hiring hairdresser stylist apprentice 0401 864 086","u":"#careers","c":"Section"}];
+{"t":"Blonde Specialists Canberra","d":"Foils, balayage, toning and colour correction by Canberra blonde specialists. Wella Blondor bond protection, packages from $299.","k":"blonde specialist canberra blonde hair salon foils platinum icy ash honey toner colour correction bleach","u":"/blonde-specialist-canberra/","c":"Page"},{"t":"Hair Tinsel Canberra","d":"Hair tinsel in Canberra — sparkly, lightweight strands in lots of colours. $60, kids $45, at Hair Avenue Bradd","k":"Hair Tinsel Canberra | $60 · Kids $45 | Hair Avenue Braddon","u":"/hair-tinsel-canberra/","c":"Page"},{"t":"Great Lengths Hair Extensions Canberra","d":"Great Lengths tape-in hair extensions in Canberra — consultation & colour match ($35, credited), installs from $270, move-ups every 6–8 weeks at Hair Avenue Braddon.","k":"Hair Extensions Canberra | Great Lengths Tape-Ins | Hair Avenue Braddon tape extensions","u":"/hair-extensions-canberra/","c":"Page"},{"t":"Regrowth Colour Canberra","d":"Root regrowth colour in Canberra — seamless touch-ups, toner refreshes and scalp bleach regrowth from $199 at ","k":"Regrowth Colour Canberra | Root Touch-Ups from $199 | Hair Avenue","u":"/regrowth-canberra/","c":"Page"},{"t":"Terms & Conditions","d":"Hair Avenue Braddon salon policies including booking fees, cancellation policy, late policy, colour adjustment","k":"Terms & Conditions | Hair Avenue Braddon","u":"/terms-and-conditions/","c":"Page"},{"t":"Services & Pricing","d":"Browse every service, price and midweek offer, and book online","k":"menu booking price list book","u":"#services","c":"Section","q":1},{"t":"Book an Appointment","d":"Book online or walk in — Unit 102/16 Lonsdale St, Braddon","k":"booking contact phone address walk-in 0449 801 937 parking hours","u":"#book","c":"Section","q":1},{"t":"Reviews & Award","d":"4.9 stars from 200+ Google reviews · 2026 Client Experience Award","k":"google rating testimonials client experience award winner","u":"#reviews","c":"Section","q":1},{"t":"Our Products — Wella","d":"Only premium, salon-grade Wella Professionals — official partner salon","k":"wellaplex koleston blondor luxeoil eimi smoothfiller bond builder premium products","u":"#products","c":"Section","q":1},{"t":"Gift Vouchers","d":"Buy a Hair Avenue gift voucher online: $50, $100, $150 or any amount, emailed straight away","k":"gift voucher card present birthday christmas buy online","u":"/gift-vouchers/","c":"Page"},{"t":"Client Reviews","d":"4.9 stars from 200+ Google reviews and the 2026 Phorest Client Experience Award — 30 reviews in clients' own words","k":"reviews testimonials google rating feedback client love","u":"/reviews/","c":"Page"},{"t":"Rewards & App","d":"Earn points every visit with the Hair Avenue app","k":"loyalty points app download treats vouchers","u":"#loyalty","c":"Section"},{"t":"Meet Our Team","d":"The stylists behind the chair at Hair Avenue Braddon","k":"kelly krystle trin kayla stylists hairdressers","u":"#team","c":"Section"},{"t":"FAQs","d":"Everything you need to know before your visit","k":"questions parking cancellation policy","u":"#faq","c":"Section"},{"t":"Careers — Join Our Team","d":"Do what we love, love what we do — hairdressing careers in Braddon","k":"jobs hiring hairdresser stylist apprentice 0401 864 086","u":"#careers","c":"Section"}];
   var ov = document.getElementById('gsearch'), inp = document.getElementById('gsearchInput'), res = document.getElementById('gsearchResults');
   function open(){ ov.classList.add('gsearch--open'); document.body.style.overflow='hidden'; render(''); setTimeout(function(){ inp.focus(); }, 30); }
   function close(){ ov.classList.remove('gsearch--open'); document.body.style.overflow=''; inp.value=''; }
@@ -5792,6 +5459,19 @@ window.addEventListener('load', function() {
       window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset, behavior: "smooth" });
     }, 60);
   }, true);
+</script>
+<script>
+(function(){
+  var track=document.getElementById("rsliderTrack"); if(!track) return;
+  var cards=track.querySelectorAll(".rv-ed"), counter=document.getElementById("rsliderCount"), n=cards.length;
+  function perView(){ return window.innerWidth>768 ? 2 : 1; }
+  function pages(){ return Math.ceil(n/perView()); }
+  function page(){ var w=cards[0].getBoundingClientRect().width+parseFloat(getComputedStyle(track).gap||20); return Math.round(track.scrollLeft/(w*perView())); }
+  function draw(){ var p=pages(), cur=Math.min(Math.max(page(),0),p-1); counter.textContent=(cur+1)+" / "+p; }
+  document.querySelectorAll(".rslider__btn").forEach(function(b){ b.addEventListener("click", function(){ var w=cards[0].getBoundingClientRect().width+parseFloat(getComputedStyle(track).gap||20); var step=w*perView(); var max=track.scrollWidth-track.clientWidth; var next=track.scrollLeft+step*parseInt(b.getAttribute("data-dir"),10); if(next>max+2) next=0; if(next<-2) next=max; track.scrollTo({left:next, behavior:"smooth"}); }); });
+  var t; track.addEventListener("scroll", function(){ clearTimeout(t); t=setTimeout(draw,80); }, {passive:true});
+  window.addEventListener("resize", draw); draw();
+})();
 </script>
 </body>
 </html>
