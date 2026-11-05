@@ -222,8 +222,6 @@
     
     .length-strip { margin: 38px auto 0; padding: 0 16px; text-align: center; }
     .length-strip__line { font-size: 0.95rem; color: rgba(255,255,255,0.88); line-height: 1.6; margin: 0 auto; max-width: 680px; text-shadow: 0 1px 6px rgba(0,0,0,0.35); }
-    .length-strip__line--gift { margin-top: 10px; font-size: 0.86rem; color: rgba(255,255,255,0.78); }
-    .length-strip__line--gift a { color: #E8D49A; }
     .length-strip__line a { color: #E8D49A; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(232,212,154,0.5); transition: text-decoration-color 0.25s ease, color 0.25s ease; }
     .length-strip__line a:hover { color: #ffffff; text-decoration-color: #E8D49A; }
     .length-strip__line--muted { margin-top: 7px; font-size: 0.84rem; color: rgba(255,255,255,0.6); }
@@ -3370,6 +3368,42 @@
       .hl.is-in { animation: none; }
       .chev, .lit-text .w, .reviews-ed__stars .st, .products__img { transition: none; }
     }
+
+    /* ===== gift voucher band (6 Nov 2026) — the voucher line moved out of the services price strip ===== */
+    .gift-band { background: linear-gradient(135deg, #fbf3dd 0%, #f3e6bf 60%, #ecd8a3 100%); color: #1d1d1f; padding: 84px 0; }
+    .gift-band__inner { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.9fr); gap: 56px; align-items: center; }
+    .gift-band .section-label { color: #8a6a2a; }
+    .gift-band__title { margin-bottom: 14px; }
+    .gift-band .hl { background-image: linear-gradient(100deg, #7a5c22 0%, #a8803c 30%, #C9A96E 50%, #a8803c 70%, #7a5c22 100%); }
+    .gift-band__text { font-size: 1.08rem; line-height: 1.65; color: #3d3a30; max-width: 560px; margin: 0 0 26px; }
+    .gift-band__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 26px; }
+    .gift-band__more { color: #2E7D42; font-weight: 600; text-decoration: none; }
+    .gift-band__more:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .gift-card { position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; width: 100%; max-width: 400px; aspect-ratio: 1.6 / 1; margin: 0 auto; padding: 24px 28px; border-radius: 20px; border: 1px solid rgba(201,169,110,0.45); background: linear-gradient(135deg, #24492d 0%, #142a18 55%, #0f2614 100%); color: #F3E6BF; text-decoration: none; box-shadow: 0 28px 56px rgba(15,38,22,0.32); transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.4s ease; }
+    .gift-card::before { content: ""; position: absolute; inset: 0; background: radial-gradient(120% 80% at 100% 0%, rgba(201,169,110,0.24) 0%, rgba(201,169,110,0) 55%); pointer-events: none; }
+    .gift-card::after { content: ""; position: absolute; top: -40%; bottom: -40%; left: -35%; width: 26%; background: linear-gradient(100deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.18) 50%, rgba(255,255,255,0) 100%); transform: skewX(-18deg); pointer-events: none; }
+    .gift-card > span { position: relative; z-index: 1; }
+    .gift-card__top { display: flex; justify-content: space-between; align-items: center; font-size: 0.74rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #C9A96E; }
+    .gift-card__title { font-family: var(--ff-display); font-size: clamp(1.7rem, 2.6vw, 2.3rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; color: #F3E6BF; }
+    .gift-card__bottom { display: flex; flex-direction: column; gap: 4px; }
+    .gift-card__amounts { font-size: 0.98rem; font-weight: 600; color: #ffffff; }
+    .gift-card__note { font-size: 0.8rem; color: rgba(243,230,191,0.8); }
+    .gift-card:hover { transform: translateY(-5px) rotate(-1.2deg); box-shadow: 0 34px 64px rgba(15,38,22,0.38); }
+    .reveal.is-in .gift-card::after { animation: giftShineIn 1.3s ease 0.9s 1 forwards; }
+    .gift-card:hover::after { animation: giftShine 1.1s ease 1 forwards; }
+    @keyframes giftShineIn { from { left: -35%; } to { left: 125%; } }
+    @keyframes giftShine { from { left: -35%; } to { left: 125%; } }
+    @media (max-width: 900px) {
+      .gift-band { padding: 56px 0; }
+      .gift-band__inner { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+      .gift-card { order: -1; max-width: 340px; }
+      .gift-card__top { text-align: left; }
+      .gift-card__title, .gift-card__bottom { text-align: left; }
+      .gift-band__text { margin: 0 auto 22px; }
+      .gift-band__actions { justify-content: center; }
+    }
+    @media (max-width: 420px) { .gift-band { padding: 44px 0; } .gift-card { padding: 20px 22px; } }
+    @media (prefers-reduced-motion: reduce) { .gift-card, .gift-card::after { animation: none !important; transition: none; } }
 </style>
   <noscript>
     <style>
@@ -4159,7 +4193,6 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="length-strip" id="length-guide">
 <p class="length-strip__line">Prices are a guide rather than exact &#8212; they depend on your hair length/thickness. Not sure? <a href="/guides/hair-length-guide/">See our hair length guide<span class="chev" aria-hidden="true">&rsaquo;</span></a></p>
 <p class="length-strip__line length-strip__line--note">For an exact price, ask your stylist when you&#8217;re in the chair.</p>
-<p class="length-strip__line length-strip__line--gift">Looking for a gift? <a href="/gift-vouchers/">Hair Avenue gift vouchers, emailed straight away<span class="chev" aria-hidden="true">&rsaquo;</span></a></p>
 <p class="length-strip__line length-strip__line--muted">Only premium, professional salon-grade products ever touch your hair &#8212; so it looks beautiful and stays healthy. <a href="#products">See our products<span class="chev" aria-hidden="true">&rsaquo;</span></a></p>
 </div>
 </div>
@@ -4218,6 +4251,27 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 </div>
 </div>
 <p class="reviews-ed__more reveal"><a class="btn btn--primary" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener">Read all 200+ reviews on Google</a><a class="reviews-ed__write" href="https://g.page/r/CYagCifMvQQCEBM/review" target="_blank" rel="noopener">Leave a Google review<span class="chev" aria-hidden="true">&rsaquo;</span></a></p>
+</div>
+</section>
+
+<section class="gift-band" id="gift" aria-labelledby="gift-title">
+<div class="container">
+<div class="gift-band__inner reveal">
+<div class="gift-band__copy">
+<span class="section-label">Gift Vouchers</span>
+<h2 class="section-title gift-band__title" id="gift-title">Give the Gift of <span class="hl">Great Hair</span></h2>
+<p class="gift-band__text">The gift that always fits. A Hair Avenue voucher goes towards any service with any of our stylists, or the products we use in the salon. Choose $50, $100, $150 or any amount up to $1,000 &#8212; bought online in a minute and emailed straight away.</p>
+<div class="gift-band__actions">
+<a class="btn btn--primary" href="https://www.phorest.com/salon/hairavenue/buy/voucher" target="_blank" rel="noopener">Buy a Gift Voucher</a>
+<a class="gift-band__more" href="/gift-vouchers/">How it works<span class="chev" aria-hidden="true">&rsaquo;</span></a>
+</div>
+</div>
+<a class="gift-card" href="/gift-vouchers/" aria-label="Hair Avenue gift voucher: $50, $100, $150 or any amount, emailed straight away and valid for three years">
+<span class="gift-card__top"><span>Hair Avenue</span><span>Braddon</span></span>
+<span class="gift-card__title">Gift Voucher</span>
+<span class="gift-card__bottom"><span class="gift-card__amounts">$50 &#183; $100 &#183; $150 &#183; any amount</span><span class="gift-card__note">Emailed straight away &#183; Valid for 3 years</span></span>
+</a>
+</div>
 </div>
 </section>
 
