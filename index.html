@@ -3247,7 +3247,7 @@
     .services-card { display: grid !important; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto auto 1fr; align-items: start; }
     .services-card .service-tabs, .services-card .service-tabs .tab-col { display: contents !important; }
     .services-card .service-tabs .tab-col::after { content: none; }
-    .services-card .service-tabs .tab-bar { grid-column: 1; grid-row: 1; position: sticky; top: 120px; z-index: 95; box-sizing: border-box; display: flex !important; flex-wrap: wrap !important; justify-content: center !important; align-items: center; row-gap: 0 !important; column-gap: 8px !important; width: auto; max-width: none; min-height: 0 !important; height: auto !important; max-height: none; overflow: visible; margin: 0; padding: 8px 16px 9px !important; background: rgba(255,255,255,0.88); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid rgba(201,169,110,0.45); border-radius: 20px 20px 0 0; }
+    .services-card .service-tabs .tab-bar { grid-column: 1; grid-row: 1; position: sticky; top: 120px; z-index: 95; box-sizing: border-box; display: flex !important; flex-wrap: wrap !important; justify-content: center !important; align-items: center; row-gap: 0 !important; column-gap: 8px !important; width: auto; max-width: none; min-height: 0 !important; height: auto !important; max-height: none; overflow: visible; margin: 0; padding: 8px 16px 9px !important; background: rgba(255,255,255,0.88); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid rgba(201,169,110,0.65); box-shadow: inset 0 -3px 0 #ffffff, inset 0 -4px 0 rgba(201,169,110,0.4); border-radius: 20px 20px 0 0; }
     .services-card .service-tabs .tab-bar::before,
     .services-card .service-tabs .tab-bar::after { content: none !important; display: none !important; }
     .services-card .service-tabs .tab-bar .tab-break { display: none; flex: 0 0 100%; height: 0; }
@@ -3266,7 +3266,7 @@
     /* Tue–Fri Specials reads as the offer: cream pill, gold text */
     .services-card .service-tabs .tab-bar label[for="svc-tab-offers"] { background: #fbf6ea !important; color: #8a6a2a !important; }
     .services-card .service-tabs .tab-bar label[for="svc-tab-offers"]:hover { background: #f5ecd6 !important; }
-    /* selected pill: solid dark green (gold text for the specials pill), gold-lit photo ring */
+    /* selected pill: "velvet" (G3, 5 Nov 2026): forest gradient, inner highlight, gold ring, champagne text, gold-lit photo ring */
     #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"],
     #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"],
     #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"],
@@ -3276,8 +3276,7 @@
     #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"],
     #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"],
     #svc-tab-mens:checked ~ .service-tabs .tab-bar label[for="svc-tab-mens"],
-    #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] { background: #0f2616 !important; color: #ffffff !important; box-shadow: none !important; font-weight: 600 !important; }
-    #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"] { color: #E8D49A !important; }
+    #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] { background: linear-gradient(160deg, #24492d 0%, #0f2614 100%) !important; color: #F3E6BF !important; box-shadow: inset 0 1px 0 rgba(255,255,255,0.14), 0 0 0 1.5px #E8D49A, 0 8px 16px -10px rgba(10,31,14,0.85) !important; font-weight: 600 !important; }
     #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"] .tab-pic,
     #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"] .tab-pic,
     #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"] .tab-pic,
@@ -3305,12 +3304,41 @@
       .services-card .svc-search { position: sticky; top: calc(120px + var(--svc-bar-h, 118px)); padding: 14px 24px 14px; background: linear-gradient(#ffffff 0, #ffffff 70%, rgba(255,255,255,0)); }
     }
     @media (max-width: 768px) {
-      .services-card .service-tabs .tab-bar { top: 110px; border-radius: 0; column-gap: 5px !important; padding: 8px 6px 9px !important; }
-      .services-card .service-tabs .tab-bar .service-tab { margin: 2.5px 0 !important; padding: 7px 10px !important; gap: 0 !important; font-size: 11.5px !important; }
+      .services-card .service-tabs .tab-bar { top: 110px; border-radius: 0; column-gap: 4px !important; padding: 8px 4px 9px !important; }
+      .services-card .service-tabs .tab-bar .service-tab { margin: 2.5px 0 !important; padding: 7px 9px !important; gap: 0 !important; font-size: 12.5px !important; font-weight: 400 !important; letter-spacing: -0.015em !important; }
       .services-card .service-tabs .tab-bar .service-tab .tab-pic { display: none; }
       /* the search box scrolls with the page on phones; only the bar is pinned */
       .services-card .svc-search { position: relative; top: auto; padding: 8px 8px 10px; background: #ffffff; }
       .services-card .service-panel .pricing-item { padding-left: 12px; padding-right: 12px; }
+    }
+    @media (max-width: 374px) {
+      /* narrower phones (360px Androids): one notch smaller so the ten names still pack into four rows */
+      .services-card .service-tabs .tab-bar .service-tab { font-size: 12px !important; letter-spacing: -0.02em !important; }
+    }
+    /* free-wrapping widths: the selected pill must keep its normal width, or a bolder weight re-flows the rows on every tap; a hairline text stroke fakes the emphasis */
+    @media (max-width: 899px) {
+      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"],
+      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"],
+      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"],
+      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"],
+      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"],
+      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"],
+      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"],
+      #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"],
+      #svc-tab-mens:checked ~ .service-tabs .tab-bar label[for="svc-tab-mens"],
+      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] { font-weight: 500 !important; -webkit-text-stroke: 0.3px currentColor; }
+    }
+    @media (max-width: 768px) {
+      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"],
+      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"],
+      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"],
+      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"],
+      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"],
+      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"],
+      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"],
+      #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"],
+      #svc-tab-mens:checked ~ .service-tabs .tab-bar label[for="svc-tab-mens"],
+      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] { font-weight: 400 !important; }
     }
 </style>
   <noscript>
