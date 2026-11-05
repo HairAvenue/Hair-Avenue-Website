@@ -1446,29 +1446,26 @@
     .footer__copy { font-size: 0.8rem; }
 
     /* ===== ANIMATIONS / SCROLL REVEAL ===== */
-    /* Pure CSS fade-in on page load.
-       Uses 'forwards' (not 'both') so elements start visible by default.
-       If the animation doesn't play (bfcache, bookmark, iOS Safari cache),
-       content remains visible instead of stuck at opacity:0. */
+    /* Scroll reveals (5 Nov 2026, Apple-style): each block fades up when it scrolls into view.
+       Default state is VISIBLE. A one-line script in <head> adds html.js-reveal only when JS,
+       IntersectionObserver and normal motion are available; the motion script at the end of the
+       body then marks blocks .is-in as they arrive. Hash jumps and bfcache restores get .is-instant
+       (no animation) for whatever is already on screen, so content never sits invisible. */
     @keyframes revealFadeIn {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(28px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    .reveal {
-      opacity: 1;
-      transform: none;
-      animation: revealFadeIn 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
-    }
-    /* Stagger siblings for a gentle cascade effect */
-    .reveal:nth-child(2) { animation-delay: 0.1s; }
-    .reveal:nth-child(3) { animation-delay: 0.2s; }
-    .reveal:nth-child(4) { animation-delay: 0.3s; }
-    .reveal:nth-child(5) { animation-delay: 0.35s; }
-    .reveal:nth-child(n+6) { animation-delay: 0.4s; }
-    /* Reduce motion for users who prefer it */
-    @media (prefers-reduced-motion: reduce) {
-      .reveal { animation-duration: 0.01s; animation-delay: 0s; }
-    }
+    .reveal { opacity: 1; transform: none; }
+    html.js-reveal .reveal:not(.is-in) { opacity: 0; }
+    html.js-reveal .reveal.is-in { animation: revealFadeIn 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) backwards; }
+    /* Stagger siblings for a gentle cascade */
+    html.js-reveal .reveal.is-in:nth-child(2) { animation-delay: 0.09s; }
+    html.js-reveal .reveal.is-in:nth-child(3) { animation-delay: 0.18s; }
+    html.js-reveal .reveal.is-in:nth-child(4) { animation-delay: 0.27s; }
+    html.js-reveal .reveal.is-in:nth-child(5) { animation-delay: 0.34s; }
+    html.js-reveal .reveal.is-in:nth-child(n+6) { animation-delay: 0.4s; }
+    html.js-reveal .reveal.is-instant { animation: none; }
+
 
     /* ===== CAREERS / RECRUITMENT ===== */
     .careers-bg {
@@ -3340,6 +3337,39 @@
       #svc-tab-mens:checked ~ .service-tabs .tab-bar label[for="svc-tab-mens"],
       #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] { font-weight: 400 !important; }
     }
+    /* ===== motion & links (5 Nov 2026): gold key words, statement paragraph, star light-up, chevron links, product photo zoom ===== */
+    /* E2: one gold key word per heading; a single soft shimmer sweeps through when the heading arrives (.is-in from the motion script) */
+    .hl { background-image: linear-gradient(100deg, #8a6a2a 0%, #C9A96E 22%, #F3E6BF 40%, #C9A96E 58%, #8a6a2a 100%); background-size: 250% 100%; background-position: 100% 0; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
+    .hl--light { background-image: linear-gradient(100deg, #C9A96E 0%, #E8D49A 22%, #FBF2D5 40%, #E8D49A 58%, #C9A96E 100%); }
+    .hl.is-in { animation: hlShimmer 2.4s cubic-bezier(0.22, 0.61, 0.36, 1) 0.35s 1 both; }
+    @keyframes hlShimmer { from { background-position: 100% 0; } to { background-position: 0% 0; } }
+    /* E3: statement paragraph under "More Than Just a Salon" - the motion script wraps each word in .w and lights them (.on) as the paragraph scrolls up the screen */
+    .careers-bg .section-header .section-subtitle.lit-text { color: #ffffff; font-size: 1.25rem; line-height: 1.5; max-width: 700px; }
+    .lit-text .w { transition: opacity 0.35s ease; }
+    html.js-reveal .lit-text .w:not(.on) { opacity: 0.24; }
+    /* E4: the five review stars light up one after another and the 4.9 counts up when the rating box arrives */
+    .reviews-ed__stars .st { display: inline-block; transition: color 0.4s ease, transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1); transition-delay: calc(var(--i) * 130ms + 0.3s); }
+    html.js-reveal .reviews-ed__rating:not(.is-in) .st { color: rgba(201,169,110,0.22); transform: scale(0.8); }
+    /* Apple-style chevron links: text + "›", no underline at rest, underline and a small chevron nudge on hover */
+    .chev { display: inline-block; margin-left: 0.3em; font-weight: 600; line-height: 1; transition: transform 0.25s ease; }
+    a:hover .chev, button:hover .chev { transform: translateX(3px); }
+    .reviews-ed__award .chev { background: none; color: inherit; border-radius: 0; padding: 0; margin-left: 0; font-size: inherit; letter-spacing: 0; } /* the award pill styles its spans; the chevron is not a badge */
+    .services-title .hl { margin-left: 0.28em; } /* the sticky services heading is a flex row, which swallows the space before the gold word */
+    .panel-more, .link-green, .reviews-ed__count, .reviews-ed__write, .reviews-ed__award, .length-strip__line a { text-decoration: none; }
+    .panel-more:hover, .link-green:hover, .reviews-ed__count:hover, .reviews-ed__write:hover, .reviews-ed__award:hover, .length-strip__line a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .salon-story .salon-story__cta { padding: 0; border: 0; border-radius: 0; background: none; color: #2E7D42; font-size: 0.9rem; letter-spacing: 0; gap: 0; }
+    .salon-story .salon-story__cta:hover { background: none; text-decoration: underline; text-underline-offset: 3px; }
+    .final-cta__actions .final-cta__voucher { display: inline-flex; align-items: center; background: none; border: 0; box-shadow: none; padding: 8px 2px; font-size: 1rem; font-weight: 600; letter-spacing: 0.01em; color: #E8D49A; text-decoration: none; white-space: nowrap; }
+    .final-cta__actions .final-cta__voucher:hover { background: none; color: #ffffff; text-decoration: underline; text-underline-offset: 3px; }
+    /* photo zoom on hover: team cards, salon photos and gallery tiles already had it; this adds the Wella product photos */
+    @media (hover: hover) {
+      .products__img { transition: transform 0.65s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.4s ease; }
+      .products__img:hover { transform: scale(1.03); box-shadow: var(--shadow-lg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hl.is-in { animation: none; }
+      .chev, .lit-text .w, .reviews-ed__stars .st, .products__img { transition: none; }
+    }
 </style>
   <noscript>
     <style>
@@ -3354,7 +3384,10 @@
   gtag('js', new Date());
   gtag('config', 'G-8BM4ZYQCSS');
 </script>
+<script>/* Scroll reveals (5 Nov 2026): html.js-reveal hides .reveal blocks until they scroll into view. Only set when JS, IntersectionObserver and normal motion are available, so nothing can get stuck invisible. */
+if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) { document.documentElement.classList.add('js-reveal'); }</script>
 </head>
+
 <body>
 <nav aria-label="Main navigation" class="nav" id="nav" role="navigation">
 <input class="nav__toggle-chk" id="navToggleChk" type="checkbox"/>
@@ -3392,7 +3425,7 @@
 <a class="hero__eyebrow" href="#reviews" aria-label="Read about our 2026 Client Experience Award"><img class="hero__eyebrow-badge" src="images/phorest-cea-2026.png" alt="" width="30" height="30"><span>2026 Client Experience Award Winner</span></a>
 <h1 class="hero__title">
 <span class="sr-only">Hair Avenue Braddon — Canberra hairdresser and hair salon for colour, cuts and care. </span>
-<span class="hero__accent">Come for the services.<br/>Stay for the experience.</span>
+<span class="hero__accent">Come for the services.<br/>Stay for the <span class="hl hl--light">experience.</span></span>
 </h1>
 <a class="hero__link" href="#services">View our services</a>
 <p class="hero__proof"><a href="#reviews" aria-label="Read our Google reviews"><span class="star">★</span> 4.9 · <span class="badge-count">200+ Reviews</span></a><span class="hero__proof-sep" aria-hidden="true">·</span><span>Official Wella Partner</span></p>
@@ -3403,8 +3436,8 @@
 <div class="container">
 <div class="section-header reveal">
 <span class="section-label">Why Choose Us</span>
-<h2 class="section-title">More Than Just a Salon</h2>
-<p class="section-subtitle">We believe every person deserves to feel seen, heard, and celebrated. That's why Hair Avenue isn't just another Braddon hairdresser — it's a place to feel at home. Women, men and kids are all welcome.</p>
+<h2 class="section-title">More Than Just a <span class="hl hl--light">Salon</span></h2>
+<p class="section-subtitle lit-text">We believe every person deserves to feel seen, heard, and celebrated. That's why Hair Avenue isn't just another Braddon hairdresser — it's a place to feel at home. Women, men and kids are all welcome.</p>
 </div>
 <div class="why__grid" style="margin-bottom: 40px;">
 <div class="why__card reveal">
@@ -3525,7 +3558,7 @@
 <div class="section-header reveal">
 <span class="section-label">What We Offer</span>
 </div>
-<h2 class="section-title services-title reveal">Hair Salon Services &amp; Pricing</h2>
+<h2 class="section-title services-title reveal">Hair Salon Services &amp; <span class="hl hl--light">Pricing</span></h2>
 <div class="services-card reveal">
 <input class="svc-tab-radio" id="svc-tab-offers" name="svc-tab" type="radio"/>
 <input checked="" class="svc-tab-radio" id="svc-tab-colouring" name="svc-tab" type="radio"/>
@@ -3602,7 +3635,7 @@
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0qDbPSFl2GQFmyEixso_5Q" rel="noopener" target="_blank">Book Now</a>
 </div>
 </div>
-<a href="/hair-colour-canberra/" class="panel-more">Learn more about hair colour in Canberra &rarr;</a>
+<a href="/hair-colour-canberra/" class="panel-more">Learn more about hair colour in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 
 <div class="service-panel" id="panel-regrowth">
@@ -3651,8 +3684,8 @@
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVwvCD5fUIGpAR13s5zzX528" rel="noopener" target="_blank">Book Now</a>
 </div>
 </div>
-<a href="/regrowth-canberra/" class="panel-more">Learn more about regrowth colour in Canberra &rarr;</a>
-<a href="/grey-blending-canberra/" class="panel-more panel-more--tight">Canberra&#8217;s grey blending specialists &#8212; embrace your silver &rarr;</a>
+<a href="/regrowth-canberra/" class="panel-more">Learn more about regrowth colour in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
+<a href="/grey-blending-canberra/" class="panel-more panel-more--tight">Canberra&#8217;s grey blending specialists &#8212; embrace your silver<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 
 <div class="service-panel" id="panel-highlights">
@@ -3695,8 +3728,8 @@
 </div>
 </div>
 </div>
-<a href="/balayage-canberra/" class="panel-more">Learn more about balayage in Canberra &rarr;</a>
-<a href="/blonde-specialist-canberra/" class="panel-more panel-more--tight">Meet our blonde specialists &rarr;</a>
+<a href="/balayage-canberra/" class="panel-more">Learn more about balayage in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
+<a href="/blonde-specialist-canberra/" class="panel-more panel-more--tight">Meet our blonde specialists<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 
 <div class="service-panel" id="panel-cutting">
@@ -3739,7 +3772,7 @@
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV957xVnKDYdJEXj4PgW1XiM" rel="noopener" target="_blank">Book Now</a>
 </div>
 </div>
-<a href="/haircuts-canberra/" class="panel-more">Learn more about haircuts in Canberra &rarr;</a>
+<a href="/haircuts-canberra/" class="panel-more">Learn more about haircuts in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 
 <div class="service-panel" id="panel-blowwave">
@@ -3764,7 +3797,7 @@
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-KQ8wNrIOec5oeIcIKKXuo" rel="noopener" target="_blank" aria-label="Book a bouncy blow wave online">Book Now</a>
 </div>
 </div>
-<a href="/blow-wave-canberra/" class="panel-more">Learn more about blow waves in Canberra &rarr;</a>
+<a href="/blow-wave-canberra/" class="panel-more">Learn more about blow waves in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 
 <div class="service-panel" id="panel-smoothfiller">
@@ -3813,7 +3846,7 @@
 <p class="pricing-item__desc">Results last several months and grow out softly with no harsh line.</p>
 <p class="pricing-item__desc">Fringe perm $99, root perm $150 and full perms from $230 (short, clipper back and sides) &#8212; priced by hair length when you book, and very long or thick hair may need extra product. First perm with us? Book the perm consultation first ($25).</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV4D4Wv0tvnnaakLnEH0gJ3A" rel="noopener" target="_blank" aria-label="Book the Women's Perm Package online">Book Now</a>
-<p class="pricing-item__desc desc-emphasis desc-after-book">Men&#8217;s perm? <a href="#mens-perm" class="link-green" data-svc-jump="mens">Book it under Men&#8217;s Cuts &amp; Perm &rarr;</a></p>
+<p class="pricing-item__desc desc-emphasis desc-after-book">Men&#8217;s perm? <a href="#mens-perm" class="link-green" data-svc-jump="mens">Book it under Men&#8217;s Cuts &amp; Perm<span class="chev" aria-hidden="true">&rsaquo;</span></a></p>
 </div>
 <div class="pricing-item">
 <div class="pricing-item__header">
@@ -3824,9 +3857,9 @@
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-zzElVzy_MmGWgG3taNIog" rel="noopener" target="_blank">Book Now</a>
 </div>
 </div>
-<a href="/hair-smoothfiller-canberra/" class="panel-more">Learn more about Hair SmoothFiller &rarr;</a>
-<a href="/nanoplasty-canberra/" class="panel-more panel-more--tight">Learn more about nanoplasty in Canberra &rarr;</a>
-<a href="/perms-canberra/" class="panel-more panel-more--tight">Learn more about perms in Canberra &rarr;</a>
+<a href="/hair-smoothfiller-canberra/" class="panel-more">Learn more about Hair SmoothFiller<span class="chev" aria-hidden="true">&rsaquo;</span></a>
+<a href="/nanoplasty-canberra/" class="panel-more panel-more--tight">Learn more about nanoplasty in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
+<a href="/perms-canberra/" class="panel-more panel-more--tight">Learn more about perms in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 
 <div class="service-panel" id="panel-tinsel">
@@ -3866,8 +3899,8 @@
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFVz-2pXcr8IDfzE8eD9186PU" rel="noopener" target="_blank">Book Now</a>
 </div>
 </div>
-<a href="/wedding-hair-canberra/" class="panel-more">Learn more about wedding &amp; formal hair in Canberra &rarr;</a>
-<a href="/hair-tinsel-canberra/" class="panel-more panel-more--tight">Hair tinsel — sparkle for kids &amp; adults &rarr;</a>
+<a href="/wedding-hair-canberra/" class="panel-more">Learn more about wedding &amp; formal hair in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
+<a href="/hair-tinsel-canberra/" class="panel-more panel-more--tight">Hair tinsel — sparkle for kids &amp; adults<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 
 <div class="service-panel" id="panel-extensions">
@@ -3875,7 +3908,7 @@
 <div class="gl-intro">
 <img alt="Great Lengths" class="gl-intro__logo" loading="lazy" src="images/great-lengths/great-lengths-logo-black.png" width="640" height="225"/>
 <span class="gl-intro__badge">Official Great Lengths Salon</span>
-<p class="gl-intro__text">Tape-in hair extensions with Great Lengths Essenza tapes &#8212; about 20% smaller and lighter than standard tapes, with a medical-grade hypoallergenic adhesive and clean, residue-free removal. Colour-matched to your own hair, moved up every 6&#8211;8 weeks and reusable for months. Every Hair Avenue stylist is Great Lengths&#8211;trained. <a href="/news/great-lengths-tape-extensions/" style="color:#2E7D42;font-weight:600;text-decoration:underline;text-underline-offset:3px;">Read the announcement &rarr;</a></p>
+<p class="gl-intro__text">Tape-in hair extensions with Great Lengths Essenza tapes &#8212; about 20% smaller and lighter than standard tapes, with a medical-grade hypoallergenic adhesive and clean, residue-free removal. Colour-matched to your own hair, moved up every 6&#8211;8 weeks and reusable for months. Every Hair Avenue stylist is Great Lengths&#8211;trained. <a href="/news/great-lengths-tape-extensions/" class="link-green">Read the announcement<span class="chev" aria-hidden="true">&rsaquo;</span></a></p>
 </div>
 <div class="gl-video">
 <video class="gl-video__el" id="glTabVideo" muted loop playsinline preload="none" poster="images/great-lengths/great-lengths-tapes-poster.jpg" data-src="images/great-lengths/great-lengths-tapes-360.mp4" aria-label="Great Lengths GL Tapes product film"></video>
@@ -3945,7 +3978,7 @@
 <p><strong>Can I wear my hair up?</strong> Low ponytails and soft styles are ideal. Tell us if you love high styles and we&#8217;ll plan placement for it.</p>
 </div>
 </details>
-<a href="/hair-extensions-canberra/" class="panel-more">Learn more about Great Lengths tape extensions in Canberra &rarr;</a>
+<a href="/hair-extensions-canberra/" class="panel-more">Learn more about Great Lengths tape extensions in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 
 
@@ -3993,7 +4026,7 @@
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVx5CyZSz-fg_AwA79MuI_AM" rel="noopener" target="_blank" aria-label="Book a men's perm online">Book Now</a>
 </div>
 </div>
-<a href="/mens-haircuts-braddon/" class="panel-more">Learn more about men&#8217;s haircuts in Braddon &rarr;</a>
+<a href="/mens-haircuts-braddon/" class="panel-more">Learn more about men&#8217;s haircuts in Braddon<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 <div class="service-panel" id="panel-offers">
 
@@ -4120,14 +4153,14 @@
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV_2roBoXxupMvYk2LVDPdAg" rel="noopener" target="_blank">Book Now</a>
 </div>
 </div>
-<a href="/tue-fri-specials/" class="panel-more">See all Tue&#8211;Fri Specials on one page &rarr;</a>
+<a href="/tue-fri-specials/" class="panel-more">See all Tue&#8211;Fri Specials on one page<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 </div>
 <div class="length-strip" id="length-guide">
-<p class="length-strip__line">Prices are a guide rather than exact &#8212; they depend on your hair length/thickness. Not sure? <a href="/guides/hair-length-guide/">See our hair length guide &rarr;</a></p>
+<p class="length-strip__line">Prices are a guide rather than exact &#8212; they depend on your hair length/thickness. Not sure? <a href="/guides/hair-length-guide/">See our hair length guide<span class="chev" aria-hidden="true">&rsaquo;</span></a></p>
 <p class="length-strip__line length-strip__line--note">For an exact price, ask your stylist when you&#8217;re in the chair.</p>
-<p class="length-strip__line length-strip__line--gift">Looking for a gift? <a href="/gift-vouchers/">Hair Avenue gift vouchers, emailed straight away &rarr;</a></p>
-<p class="length-strip__line length-strip__line--muted">Only premium, professional salon-grade products ever touch your hair &#8212; so it looks beautiful and stays healthy. <a href="#products">See our products &rarr;</a></p>
+<p class="length-strip__line length-strip__line--gift">Looking for a gift? <a href="/gift-vouchers/">Hair Avenue gift vouchers, emailed straight away<span class="chev" aria-hidden="true">&rsaquo;</span></a></p>
+<p class="length-strip__line length-strip__line--muted">Only premium, professional salon-grade products ever touch your hair &#8212; so it looks beautiful and stays healthy. <a href="#products">See our products<span class="chev" aria-hidden="true">&rsaquo;</span></a></p>
 </div>
 </div>
 </section>
@@ -4136,14 +4169,14 @@
 <div class="container">
 <div class="section-header reveal">
 <span class="section-label">Client Love</span>
-<h2 class="section-title">What Our Clients Say</h2>
+<h2 class="section-title">What Our <span class="hl">Clients</span> Say</h2>
 <p class="section-subtitle">Real words from real visits, exactly as they were posted on Google.</p>
 </div>
 <div class="reviews-ed__rating reveal">
 <div class="reviews-ed__big">4.9</div>
-<div class="reviews-ed__stars" aria-label="4.9 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-<a class="reviews-ed__count" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener">Based on 200+ Google reviews &rarr;</a>
-<a class="reviews-ed__award" href="/news/client-experience-award-2026/"><span>2026</span> Phorest Client Experience Award winner &rarr;</a>
+<div class="reviews-ed__stars" role="img" aria-label="4.9 out of 5 stars"><span class="st" style="--i:0">&#9733;</span><span class="st" style="--i:1">&#9733;</span><span class="st" style="--i:2">&#9733;</span><span class="st" style="--i:3">&#9733;</span><span class="st" style="--i:4">&#9733;</span></div>
+<a class="reviews-ed__count" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener">Based on 200+ Google reviews<span class="chev" aria-hidden="true">&rsaquo;</span></a>
+<a class="reviews-ed__award" href="/news/client-experience-award-2026/"><span>2026</span> Phorest Client Experience Award winner<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 <div class="rslider reveal" id="rslider">
 <div class="rslider__track" id="rsliderTrack" tabindex="0" aria-label="Client reviews, swipe or use the arrows">
@@ -4184,7 +4217,7 @@
 <button class="rslider__btn" type="button" data-dir="1" aria-label="Next reviews">&rarr;</button>
 </div>
 </div>
-<p class="reviews-ed__more reveal"><a class="btn btn--primary" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener">Read all 200+ reviews on Google</a><a class="reviews-ed__write" href="https://g.page/r/CYagCifMvQQCEBM/review" target="_blank" rel="noopener">Leave a Google review &rarr;</a></p>
+<p class="reviews-ed__more reveal"><a class="btn btn--primary" href="https://maps.google.com/?cid=145449772508684422" target="_blank" rel="noopener">Read all 200+ reviews on Google</a><a class="reviews-ed__write" href="https://g.page/r/CYagCifMvQQCEBM/review" target="_blank" rel="noopener">Leave a Google review<span class="chev" aria-hidden="true">&rsaquo;</span></a></p>
 </div>
 </section>
 
@@ -4192,7 +4225,7 @@
 <div class="container">
 <div class="section-header reveal">
 <span class="section-label">Our Team</span>
-<h2 class="section-title">Meet the People Behind the Chair</h2>
+<h2 class="section-title">Meet the People Behind the <span class="hl hl--light">Chair</span></h2>
 <p class="section-subtitle">Our team of talented Braddon hair stylists is passionate about making you look and feel your absolute best. Get to know the people who'll be working their magic.</p>
 </div>
 <div class="team__strip">
@@ -4271,7 +4304,7 @@
 <h3 class="salon-story__title">Pull up a chair</h3>
 <p class="salon-story__text">Whoever you book with, your appointment starts the same way: a proper consultation about your hair, your routine and the result you&rsquo;re after. And whenever your service takes you to the basin, you&rsquo;ll sink into a massage chair for a relaxing scalp massage while the water runs. Come in for a coffee and a snack and see it for yourself.</p>
 <blockquote class="salon-story__quote">&ldquo;The salon is beautifully set up, with great music and uplifting vibes.&rdquo;<cite>Google review</cite></blockquote>
-<button class="salon-story__cta" type="button" onclick="document.querySelector('.salon-story__photo').click()">Take a look around <span aria-hidden="true">&rarr;</span></button>
+<button class="salon-story__cta" type="button" onclick="document.querySelector('.salon-story__photo').click()">Take a look around<span class="chev" aria-hidden="true">&rsaquo;</span></button>
 </div>
 <div class="salon-story__more" hidden>
 <button class="section-photo" type="button" tabindex="-1"><img src="images/salon/03-reception.webp" alt="Reception at Hair Avenue Braddon" loading="lazy" decoding="async"><span class="section-photo__caption">Reception</span></button>
@@ -4352,7 +4385,7 @@ window.addEventListener('load', function() {
 <summary class="products-fold__summary">
 <div class="section-header reveal">
 <span class="section-label">Our Products</span>
-<h2 class="section-title">Only Premium Products Touch Your Hair</h2>
+<h2 class="section-title">Only <span class="hl">Premium</span> Products Touch Your Hair</h2>
 <p class="section-subtitle">Every colour, treatment and styling product we use is salon-grade Wella Professionals &#8212; so your hair doesn&#8217;t just look beautiful when you leave. It stays healthy long after.</p>
 </div>
 <span class="products-fold__hint"><span class="products-fold__hint-open">Explore our products</span><span class="products-fold__hint-close">Hide products</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
@@ -4428,7 +4461,7 @@ window.addEventListener('load', function() {
 <section class="final-cta" id="book" style="background-image: url('images/salon/03-reception.webp');">
 <div class="container">
 <div class="reveal">
-<h2 class="final-cta__title">Your Best Hair Day Starts Here</h2>
+<h2 class="final-cta__title">Your <span class="hl hl--light">Best Hair Day</span> Starts Here</h2>
 <p class="final-cta__subtitle">Book your appointment today or simply walk in — discover why 200+ clients have rated us 4.9 stars. Walk-ins welcome.</p>
 <div class="trust-badges">
 <div class="trust-badge"><img alt="Wella Professionals" class="trust-badge__logo" src="images/wella/wella-professionals-logo.webp" width="860" height="608"/><span>Official Wella Partner Salon</span></div>
@@ -4439,7 +4472,7 @@ window.addEventListener('load', function() {
 </div>
 <div class="final-cta__actions">
 <a class="btn btn--primary btn--lg" href="#services">Book Now</a>
-<a class="btn btn--lg final-cta__voucher" href="https://www.phorest.com/salon/hairavenue/buy/voucher" target="_blank" rel="noopener">Buy a Gift Voucher</a>
+<a class="final-cta__voucher" href="https://www.phorest.com/salon/hairavenue/buy/voucher" target="_blank" rel="noopener">Buy a Gift Voucher<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 <p style="margin-top:18px; font-size:0.95rem; color:rgba(255,255,255,0.85); font-style:italic;">Any issues with online booking? Call us on <a href="tel:0449801937" style="color:#E8D49A; font-style:normal; font-weight:700; letter-spacing:0.03em; text-decoration:underline; text-underline-offset:3px; text-shadow:0 0 14px rgba(232,212,154,0.5); padding:6px 4px; display:inline-block;">0449 801 937</a> — we're happy to help.</p>
 </div>
@@ -4473,7 +4506,7 @@ window.addEventListener('load', function() {
 <summary class="loyalty-fold__summary">
 <div class="section-header reveal">
 <span class="section-label">Hair Avenue Loyalty Rewards</span>
-<h2 class="section-title">Loyalty, Rewarded.</h2>
+<h2 class="section-title">Loyalty, <span class="hl hl--light">Rewarded.</span></h2>
 <p class="section-subtitle">Earn points every visit — our way of saying thank you for letting us look after your hair.</p>
 </div>
 <span class="loyalty-fold__hint"><span class="loyalty-fold__hint-open">View the rewards program</span><span class="loyalty-fold__hint-close">Hide the rewards program</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
@@ -4700,14 +4733,14 @@ window.addEventListener('load', function() {
             Do you do hair extensions?
             <span class="faq-item__icon">+</span>
 </summary>
-<div class="faq-item__a"><div class="faq-item__a-inner">Yes — Hair Avenue is an official Great Lengths salon, and every stylist on our team is Great Lengths–trained in tape-in extensions. Start with a 20-minute consultation and colour match ($35), where we check your hair, plan the pieces and give you an exact quote. New installs, move-ups every 6–8 weeks and removals can all be booked online — and we happily move up or remove extensions from other salons. <a href="/hair-extensions-canberra/" class="link-green">Learn more about tape extensions in Canberra →</a></div></div>
+<div class="faq-item__a"><div class="faq-item__a-inner">Yes — Hair Avenue is an official Great Lengths salon, and every stylist on our team is Great Lengths–trained in tape-in extensions. Start with a 20-minute consultation and colour match ($35), where we check your hair, plan the pieces and give you an exact quote. New installs, move-ups every 6–8 weeks and removals can all be booked online — and we happily move up or remove extensions from other salons. <a href="/hair-extensions-canberra/" class="link-green">Learn more about tape extensions in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a></div></div>
 </details>
 <details class="faq-item">
 <summary class="faq-item__q">
             Do you have blonde specialists in Canberra?
             <span class="faq-item__icon">+</span>
 </summary>
-<div class="faq-item__a"><div class="faq-item__a-inner">Yes — blonde is what we do most. Krystle and Trin are blonde specialists, and every foil, balayage and toner uses Wella Blondor with built-in bond protection for up to 97% less breakage. Half-head foils are from $299, a full head from $350 and balayage from $375 Tuesday to Friday or $395 on Saturdays, all including a custom toner and blow wave, with midweek packages from $275. <a href="/blonde-specialist-canberra/" class="link-green">See our blonde specialists page →</a></div></div>
+<div class="faq-item__a"><div class="faq-item__a-inner">Yes — blonde is what we do most. Krystle and Trin are blonde specialists, and every foil, balayage and toner uses Wella Blondor with built-in bond protection for up to 97% less breakage. Half-head foils are from $299, a full head from $350 and balayage from $375 Tuesday to Friday or $395 on Saturdays, all including a custom toner and blow wave, with midweek packages from $275. <a href="/blonde-specialist-canberra/" class="link-green">See our blonde specialists page<span class="chev" aria-hidden="true">&rsaquo;</span></a></div></div>
 </details>
 </div>
 </div>
@@ -4718,7 +4751,7 @@ window.addEventListener('load', function() {
 <div class="container">
 <div class="section-header reveal">
 <span class="section-label">Careers</span>
-<h2 class="section-title">Join Our Team</h2>
+<h2 class="section-title">Join Our <span class="hl hl--light">Team</span></h2>
 <p class="careers-motto">Do what we love, love what we do!</p>
 <p class="section-subtitle">We're always looking for talented, passionate people to grow with us at Hair Avenue Braddon.</p>
 </div>
@@ -4824,7 +4857,7 @@ window.addEventListener('load', function() {
         track.dataset.duped = '1';
       }
 
-      // Scroll reveal is now pure CSS — no JS needed.
+      // Scroll reveal: class-driven, see the motion script at the end of the body (5 Nov 2026).
 
       // ---- Smooth scroll for anchor links ----
       document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
@@ -4898,13 +4931,7 @@ window.addEventListener('load', function() {
        since iOS Safari may not replay CSS animations. */
     window.addEventListener('pageshow', function(e) {
       if (!window.__haInitDone) { hairAvenueInit(); }
-      /* Always force .reveal visible — covers bfcache, bookmark launch,
-         tab-switch, and any iOS Safari scenario where CSS animations
-         don't replay. Safe because the default CSS state is now visible. */
-      document.querySelectorAll('.reveal').forEach(function(el) {
-        el.style.opacity = '1';
-        el.style.transform = 'none';
-      });
+      /* .reveal visibility on bfcache restores is handled by the motion script at the end of the body (5 Nov 2026). */
     });
 
     /* Service tab click → snap back to top of category so users don't
@@ -5298,5 +5325,42 @@ window.addEventListener('load', function() {
   window.addEventListener("resize", draw); draw();
 })();
 </script>
+<script>
+(function(){ /* motion (5 Nov 2026): scroll reveals, gold key-word shimmer, statement paragraph, star light-up and 4.9 count-up */
+  var html = document.documentElement; if (!html.classList.contains('js-reveal')) return;
+  var big = document.querySelector('.reviews-ed__big');
+  function countUp(){ if (!big || big.getAttribute('data-done')) return; big.setAttribute('data-done', '1'); var t0 = null, dur = 1400; big.textContent = '0.0';
+    function step(ts){ if (!t0) t0 = ts; var k = Math.min(1, (ts - t0) / dur); k = 1 - Math.pow(1 - k, 3); big.textContent = (4.9 * k).toFixed(1); if (k < 1) requestAnimationFrame(step); else big.textContent = '4.9'; }
+    requestAnimationFrame(step); }
+  var io = null;
+  function mark(el, instant){ if (el.classList.contains('is-in')) return; if (instant) el.classList.add('is-instant'); el.classList.add('is-in'); if (io) io.unobserve(el);
+    if (el.classList.contains('reviews-ed__rating')) countUp(); }
+  /* landings: for 1.5s after a hash landing or a nav jump, whatever arrives is shown instantly (no fade on the section you asked for) */
+  var landedUntil = location.hash ? Date.now() + 1500 : 0;
+  io = new IntersectionObserver(function(entries){ entries.forEach(function(e){ if (e.isIntersecting) mark(e.target, Date.now() < landedUntil); }); }, { rootMargin: '0px 0px -10% 0px', threshold: 0 });
+  var targets = Array.prototype.slice.call(document.querySelectorAll('.reveal, .section-title .hl, .final-cta__title .hl'));
+  targets.forEach(function(el){ io.observe(el); });
+  /* hash jumps and bfcache restores: show whatever is already on screen with no animation */
+  function revealNow(){ targets.forEach(function(el){ if (el.classList.contains('is-in')) return; var r = el.getBoundingClientRect(); if (r.bottom > 0 && r.top < window.innerHeight) mark(el, true); }); }
+  if (location.hash) revealNow();
+  window.addEventListener('load', function(){ if (location.hash) revealNow(); });
+  window.addEventListener('hashchange', function(){ landedUntil = Date.now() + 1500; revealNow(); });
+  document.addEventListener('click', function(e){ var a = e.target.closest && e.target.closest('a[href^="#"]'); if (a) landedUntil = Date.now() + 1500; }, true);
+  window.addEventListener('pageshow', function(e){ if (e.persisted) revealNow(); });
+  /* hero key word shimmers on load */
+  var heroHl = document.querySelector('.hero__accent .hl'); if (heroHl) setTimeout(function(){ heroHl.classList.add('is-in'); }, 500);
+  /* statement paragraph: words light up as it scrolls from 92% to 42% of the viewport height */
+  var p = document.querySelector('.lit-text');
+  if (p) { var words = p.textContent.trim().split(/\s+/); p.textContent = '';
+    words.forEach(function(w, i){ var sp = document.createElement('span'); sp.className = 'w'; sp.textContent = w; p.appendChild(sp); if (i < words.length - 1) p.appendChild(document.createTextNode(' ')); });
+    var ws = p.querySelectorAll('.w'), ticking = false;
+    function upd(){ ticking = false; var r = p.getBoundingClientRect(), vh = window.innerHeight, start = vh * 0.92, end = vh * 0.42;
+      var prog = Math.max(0, Math.min(1, (start - r.top) / (start - end))), n = Math.round(prog * ws.length);
+      for (var i = 0; i < ws.length; i++) ws[i].classList.toggle('on', i < n); }
+    window.addEventListener('scroll', function(){ if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, { passive: true });
+    window.addEventListener('resize', upd); upd(); }
+})();
+</script>
 </body>
+
 </html>
