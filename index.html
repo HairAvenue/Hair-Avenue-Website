@@ -3001,17 +3001,6 @@
     .search-flash{animation:searchFlash 2.2s ease}
     @keyframes searchFlash{0%,55%{background:rgba(232,212,154,0.4);box-shadow:0 0 0 2px rgba(201,169,110,0.6);border-radius:12px}100%{background:transparent;box-shadow:none}}
     /* ===== Midweek banner in specials + tab offer dot ===== */
-    .tab-deal-dot{display:none;position:absolute}
-    #svc-tab-offers:checked ~ .service-tabs label[for="svc-tab-offers"] .tab-deal-dot,
-    #svc-tab-colouring:checked ~ .service-tabs label[for="svc-tab-colouring"] .tab-deal-dot,
-    #svc-tab-regrowth:checked ~ .service-tabs label[for="svc-tab-regrowth"] .tab-deal-dot,
-    #svc-tab-highlights:checked ~ .service-tabs label[for="svc-tab-highlights"] .tab-deal-dot,
-    #svc-tab-cutting:checked ~ .service-tabs label[for="svc-tab-cutting"] .tab-deal-dot,
-    #svc-tab-blowwave:checked ~ .service-tabs label[for="svc-tab-blowwave"] .tab-deal-dot,
-    #svc-tab-smoothfiller:checked ~ .service-tabs label[for="svc-tab-smoothfiller"] .tab-deal-dot,
-    #svc-tab-extensions:checked ~ .service-tabs label[for="svc-tab-extensions"] .tab-deal-dot,
-    #svc-tab-mens:checked ~ .service-tabs label[for="svc-tab-mens"] .tab-deal-dot,
-    #svc-tab-tinsel:checked ~ .service-tabs label[for="svc-tab-tinsel"] .tab-deal-dot{display:block}
     .pkg-bookline{margin-top:14px}
     /* ===== Silk panel bands (veiled photo + gold crest + motto) ===== */
         .nav__search { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border: none; background: none; cursor: pointer; color: #E8D49A; transition: color 0.25s ease; padding: 0; }
@@ -3038,27 +3027,9 @@
     .gsearch__chip { flex: 0 0 auto; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #a8894f; border: 1px solid rgba(201,169,110,0.55); border-radius: 980px; padding: 4px 10px; }
     .gsearch__empty { padding: 22px 14px; font-size: 0.9rem; color: #6e6e73; text-align: center; }
     @media (max-width: 640px) { .gsearch { padding: 72px 10px 10px; } .gsearch__results { max-height: 70vh; } }
-    /* ===== category photo chips: shared base (sizes and rings live in the sidebar/rail blocks) ===== */
+    /* ===== category photo chips: shared base (size and ring live in the category-bar block) ===== */
     .tab-bar .service-tab .tab-pic { display: block; border-radius: 50%; object-fit: cover; flex: 0 0 auto; }
-    @media (min-width: 769px) {
-      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"] .tab-new,
-      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"] .tab-new,
-      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"] .tab-new,
-      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"] .tab-new,
-      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"] .tab-new,
-      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"] .tab-new,
-      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"] .tab-new,
-      #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"] .tab-new,
-      #svc-tab-mens:checked ~ .service-tabs .tab-bar label[for="svc-tab-mens"] .tab-new,
-      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] .tab-new { background: #E8D49A; color: #142a18; }
-    }
-
-    /* Haircuts tab expands to full wording when selected */
-
     .tab-bar .service-tab .tab-active-stack { display: none !important; }
-    .tab-bar label[for="svc-tab-cutting"] .tab-full { display: none !important; }
-    .tab-bar label[for="svc-tab-cutting"] .tab-active-stack { display: flex !important; flex-direction: column; align-items: center; line-height: 1.2; }
-    .tab-bar .service-tab .tab-active-stack small { font-size: 0.68rem; font-weight: 600; letter-spacing: 0; opacity: 0.85; margin-top: 1px; white-space: nowrap; }
 
     /* ===== Great Lengths tape extensions tab ===== */
     .tab-new { display: inline-block; margin-left: 6px; padding: 1px 6px; border-radius: 980px; background: #142a18; color: #E8D49A; font-size: 0.55rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; vertical-align: middle; line-height: 1.5; }
@@ -3169,265 +3140,18 @@
     .team__grid--scroll img { -webkit-user-drag: none; user-select: none; }
     .team__grid--scroll.is-dragging .team-card { transform: none; }
 
-    /* ===== services: category sidebar (desktop) + icon rail (phones) =====
-       The nine category tabs move from a bar above the panel to a sticky column
-       on the left; the search box, category heading and panel fill the right column.
-       Tab switching is still the CSS-only radio mechanism. */
-    .services-card .service-tabs .tab-bar { flex-wrap: nowrap !important; }
-    @media (min-width: 769px) {
-      .section--services-green .services-card { max-width: 1120px; background: linear-gradient(90deg, #f1f4f1 0, #f1f4f1 251px, rgba(201,169,110,0.35) 251px, rgba(201,169,110,0.35) 252px, #ffffff 252px); }
-      .services-card { display: grid !important; grid-template-columns: 252px minmax(0, 1fr); align-items: start; grid-template-rows: auto auto 1fr; }
-      .services-card .service-tabs { display: contents !important; }
-      .services-card .service-tabs .tab-bar { position: sticky; top: 84px; display: flex !important; flex-direction: column; justify-content: flex-start !important; gap: 4px; width: auto; max-width: none; min-height: 0 !important; height: auto !important; margin: 0; padding: 18px 12px 22px !important; background: #f1f4f1; border-radius: 20px 0 0 20px; }
-      .tab-bar .service-tab { display: flex !important; justify-content: flex-start !important; align-items: center; width: 100%; gap: 10px; border-radius: 12px !important; padding: 7px 10px !important; background: transparent !important; border: 1px solid transparent !important; box-shadow: none !important; text-align: left; transform: none !important; }
-      .tab-bar .service-tab:hover { background: rgba(201,169,110,0.14) !important; }
-      .tab-bar .service-tab .tab-pic { width: 34px; height: 34px; box-shadow: 0 0 0 2px #fff, 0 0 0 3px rgba(201,169,110,0.5); }
-      .tab-bar .service-tab .tab-active-stack { align-items: flex-start !important; text-align: left; }
-      .tab-bar .service-tab .tab-active-stack small { white-space: normal; line-height: 1.25; }
-      /* active-tab marker: a gold chevron pointing at the services instead of the pulsing dot */
-      .tab-bar .service-tab .tab-deal-dot { top: 50%; right: 15px; width: 9px; height: 9px; border-radius: 0; background: transparent !important; border-right: 2px solid #E8D49A; border-bottom: 2px solid #E8D49A; transform: translateY(-50%) rotate(-45deg); animation: none; }
-      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"],
-      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"],
-      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"],
-      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"],
-      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"],
-      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"],
-      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"],
-      #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"],
-      #svc-tab-mens:checked ~ .service-tabs .tab-bar label[for="svc-tab-mens"],
-      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] { background: #142a18 !important; color: #fff !important; border-color: #142a18 !important; box-shadow: inset 3px 0 0 #C9A96E, 0 6px 16px -8px rgba(20,42,24,0.6) !important; }
-      .services-card .svc-search { grid-column: 2; grid-row: 1; margin: 18px 24px 4px !important; }
-      .services-card .service-category-indicator { grid-column: 2; grid-row: 2; }
-      .services-card .service-panel { grid-column: 2; grid-row: 3; }
-    }
-    @media (max-width: 768px) {
-      .section--services-green .services-card { background: linear-gradient(90deg, #f1f4f1 0, #f1f4f1 71px, rgba(201,169,110,0.35) 71px, rgba(201,169,110,0.35) 72px, #ffffff 72px); }
-      .services-card { display: grid !important; grid-template-columns: 90px minmax(0, 1fr); align-items: start; grid-template-rows: auto auto 1fr; }
-      .services-card .service-tabs { display: contents !important; }
-      .services-card .service-tabs .tab-bar { position: sticky; top: 72px; max-height: calc(100vh - 72px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; display: flex !important; flex-direction: column; justify-content: flex-start !important; gap: 2px !important; row-gap: 2px !important; column-gap: 0 !important; max-width: none; min-height: 0 !important; height: auto !important; margin: 0; padding: 8px 4px 10px !important; background: transparent !important; border-radius: 0; }
-      .services-card .service-tabs .tab-bar::-webkit-scrollbar { display: none; }
-      .tab-bar .service-tab { display: flex !important; flex-direction: column !important; align-items: center; justify-content: center; gap: 4px !important; width: 100%; padding: 6px 2px 5px !important; border-radius: 10px !important; margin: 0 !important; background: transparent !important; border: 1px solid transparent !important; box-shadow: none !important; transform: none !important; font-size: 0.57rem !important; font-weight: 600 !important; line-height: 1.15 !important; letter-spacing: 0 !important; text-align: center; white-space: normal !important; color: #2E5339 !important; transition: color 0.2s ease; }
-      .tab-bar .service-tab .tab-pic { width: 30px; height: 30px; margin: 0; }
-      .services-card .service-tabs .tab-bar .service-tab[for] .tab-full { display: inline !important; }
-      .services-card .service-tabs .tab-bar .service-tab .tab-short,
-      .services-card .service-tabs .tab-bar .service-tab .tab-active-stack,
-      .services-card .service-tabs .tab-bar .service-tab small,
-      .services-card .service-tabs .tab-bar .service-tab .tab-mob-active,
-      .services-card .service-tabs .tab-bar .service-tab .tab-deal-dot,
-      .services-card .service-tabs .tab-bar .service-tab .tab-new { display: none !important; }
-      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"],
-      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"],
-      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"],
-      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"],
-      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"],
-      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"],
-      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"],
-      #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"],
-      #svc-tab-mens:checked ~ .service-tabs .tab-bar label[for="svc-tab-mens"],
-      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] { background: #142a18 !important; color: #ffffff !important; border-color: #142a18 !important; box-shadow: none !important; }
-      .services-card .svc-search { grid-column: 2; grid-row: 1; margin: 8px 8px 2px !important; }
-      .services-card .service-category-indicator { grid-column: 2; grid-row: 2; }
-      .services-card .service-panel { grid-column: 2; grid-row: 3; }
-      .services-card .service-panel .pricing-item { padding-left: 12px; padding-right: 12px; }
-    }
-    @media (max-width: 359px) {
-      .section--services-green .services-card { background: linear-gradient(90deg, #f1f4f1 0, #f1f4f1 63px, rgba(201,169,110,0.35) 63px, rgba(201,169,110,0.35) 64px, #ffffff 64px); }
-      .services-card { grid-template-columns: 72px minmax(0, 1fr); }
-      .tab-bar .service-tab .tab-pic { width: 26px; height: 26px; }
-      .tab-bar .service-tab { font-size: 0.53rem !important; }
-      .section--services-green .services-card .service-tabs .tab-bar .service-tab[for] .tab-full { display: none !important; }
-      .section--services-green .services-card .service-tabs .tab-bar .service-tab[for] .tab-short { display: inline !important; }
-    }
     /* ===== services heading: lives outside .section-header; sticky band on phones ===== */
     .section--services-green .section-header { margin-bottom: 0; }
     .section--services-green .services-title { text-align: center; margin-top: 4px; margin-bottom: 26px; }
     @media (max-width: 768px) {
       .section--services-green .services-title { position: sticky; top: 64px; z-index: 120; box-sizing: border-box; height: 46px; margin: 0 -16px 14px; padding: 0 16px 2px; display: flex; align-items: center; justify-content: center; font-size: clamp(1.05rem, 5.4vw, 1.5rem); line-height: 1; white-space: nowrap; background: rgba(10,31,14,0.94); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); box-shadow: 0 1px 0 rgba(201,169,110,0.35); }
-      /* the icon rail now sits under the sticky title */
-      .services-card .service-tabs .tab-bar { top: 110px; max-height: calc(100vh - 110px); }
       #services .section-label { margin-bottom: 14px; }
-    }
-
-    /* ===== services sidebar + phone rail: premium polish (cream column, button-like rows) ===== */
-    @media (min-width: 769px) {
-      .section--services-green .services-card { background: linear-gradient(90deg, #f6f4ee 0, #f6f4ee 251px, rgba(201,169,110,0.45) 251px, rgba(201,169,110,0.45) 252px, #ffffff 252px); }
-      .services-card .service-tabs .tab-bar { background: #f6f4ee; padding: 22px 14px 26px !important; gap: 6px; }
-      .services-card .service-tabs .tab-bar::before { content: 'Browse by category'; display: block; margin: 0 0 12px 12px; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #a8894f; }
-      .tab-bar .service-tab { padding: 9px 34px 9px 10px !important; gap: 12px; border-radius: 14px !important; font-weight: 500 !important; font-size: 0.9rem !important; letter-spacing: 0.005em !important; line-height: 1.2; white-space: normal !important; color: #1d3a24 !important; border: 1px solid transparent !important; transition: background-color .22s ease, border-color .22s ease, box-shadow .22s ease; }
-      .tab-bar .service-tab:hover { background: rgba(201,169,110,0.12) !important; border-color: rgba(201,169,110,0.35) !important; }
-      .tab-bar .service-tab .tab-pic { width: 40px; height: 40px; box-shadow: 0 0 0 1.5px rgba(201,169,110,0.75), 0 6px 12px -6px rgba(20,42,24,0.45); transition: transform .22s ease; }
-      .tab-bar .service-tab:hover .tab-pic { transform: scale(1.04); }
-      .tab-bar .service-tab .tab-active-stack small { font-size: 0.66rem; font-weight: 500; letter-spacing: 0.01em; color: #7b8a7e; margin-top: 2px; }
-      .tab-bar .service-tab .tab-new { background: rgba(201,169,110,0.18); color: #8a6a35; border: 1px solid rgba(201,169,110,0.5); }
-      /* the old chip grid pinned these two labels to one smaller line; in the sidebar they wrap like the rest */
-      .services-card .service-tabs .tab-bar label[for="svc-tab-regrowth"] .tab-full,
-      .services-card .service-tabs .tab-bar label[for="svc-tab-cutting"] .tab-full { font-size: inherit; letter-spacing: inherit; white-space: normal; }
-      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"],
-      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"],
-      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"],
-      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"],
-      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"],
-      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"],
-      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"],
-      #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"],
-      #svc-tab-mens:checked ~ .service-tabs .tab-bar label[for="svc-tab-mens"],
-      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] { background: linear-gradient(135deg, #1f4229 0%, #0f2614 100%) !important; color: #ffffff !important; border-color: rgba(201,169,110,0.6) !important; box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 14px 28px -16px rgba(10,31,14,0.75) !important; font-weight: 600 !important; }
-      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"] .tab-pic,
-      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"] .tab-pic,
-      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"] .tab-pic,
-      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"] .tab-pic,
-      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"] .tab-pic,
-      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"] .tab-pic,
-      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"] .tab-pic,
-      #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"] .tab-pic,
-      #svc-tab-mens:checked ~ .service-tabs .tab-bar label[for="svc-tab-mens"] .tab-pic,
-      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] .tab-pic { box-shadow: 0 0 0 1.5px #E8D49A, 0 0 0 5px rgba(232,212,154,0.16); }
-      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"] .tab-active-stack small,
-      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"] .tab-active-stack small { color: rgba(255,255,255,0.72); }
-      .tab-bar .service-tab .tab-deal-dot { right: 16px; width: 10px; height: 10px; border-right-width: 1.6px; border-bottom-width: 1.6px; }
-    }
-    @media (max-width: 768px) {
-      .section--services-green .services-card { background: linear-gradient(90deg, #f6f4ee 0, #f6f4ee 89px, rgba(201,169,110,0.45) 89px, rgba(201,169,110,0.45) 90px, #ffffff 90px); }
-      .services-card .service-tabs .tab-bar { gap: 5px !important; row-gap: 5px !important; padding: 8px 5px 12px !important; }
-      /* a small cue so the tiles read as tappable */
-      .services-card .service-tabs .tab-bar::before { content: 'Tap a\A category'; white-space: pre; display: block; text-align: center; margin: 0 0 6px; font-size: 0.5rem; font-weight: 700; letter-spacing: 0.14em; line-height: 1.5; text-transform: uppercase; color: #a8894f; }
-      .tab-bar .service-tab { background: #ffffff !important; border: 1px solid rgba(201,169,110,0.5) !important; border-radius: 12px !important; box-shadow: 0 1px 2px rgba(20,42,24,0.08), 0 5px 10px -6px rgba(20,42,24,0.3) !important; color: #1d3a24 !important; }
-      .tab-bar .service-tab .tab-pic { box-shadow: 0 0 0 1.5px rgba(201,169,110,0.7); }
-      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"],
-      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"],
-      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"],
-      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"],
-      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"],
-      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"],
-      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"],
-      #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"],
-      #svc-tab-mens:checked ~ .service-tabs .tab-bar label[for="svc-tab-mens"],
-      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] { background: linear-gradient(160deg, #1f4229 0%, #0f2614 100%) !important; color: #ffffff !important; border-color: rgba(201,169,110,0.7) !important; box-shadow: 0 8px 16px -10px rgba(10,31,14,0.8) !important; }
-      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"] .tab-pic,
-      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"] .tab-pic,
-      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"] .tab-pic,
-      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"] .tab-pic,
-      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"] .tab-pic,
-      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"] .tab-pic,
-      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"] .tab-pic,
-      #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"] .tab-pic,
-      #svc-tab-mens:checked ~ .service-tabs .tab-bar label[for="svc-tab-mens"] .tab-pic,
-      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] .tab-pic { box-shadow: 0 0 0 1.5px #E8D49A, 0 0 0 4px rgba(232,212,154,0.18); }
-    }
-    @media (max-width: 359px) {
-      .section--services-green .services-card { background: linear-gradient(90deg, #f6f4ee 0, #f6f4ee 71px, rgba(201,169,110,0.45) 71px, rgba(201,169,110,0.45) 72px, #ffffff 72px); }
-    }
-
-    /* ===== phone rail: fit on one screen, scroll shadows, pointer on the selected tile ===== */
-    @media (max-width: 768px) {
-      /* real-phone height (Safari's toolbar) + a shadow at the bottom whenever more tiles are hidden */
-      .services-card .service-tabs .tab-bar { max-height: calc(100vh - 110px); max-height: calc(100dvh - 110px); padding: 8px 10px 12px 5px !important; gap: 3px !important; row-gap: 3px !important;
-        background: linear-gradient(#f6f4ee 30%, rgba(246,244,238,0)) center top / 100% 22px no-repeat local,
-                    linear-gradient(rgba(246,244,238,0), #f6f4ee 70%) center bottom / 100% 22px no-repeat local,
-                    radial-gradient(farthest-side at 50% 0, rgba(20,42,24,0.22), rgba(20,42,24,0)) center top / 100% 10px no-repeat scroll,
-                    radial-gradient(farthest-side at 50% 100%, rgba(20,42,24,0.32), rgba(20,42,24,0)) center bottom / 100% 12px no-repeat scroll !important; }
-      /* tighter tiles and short names so all nine fit on common phones */
-      .tab-bar .service-tab { padding: 4px 2px 3px !important; gap: 3px !important; overflow: visible !important; }
-      .tab-bar .service-tab .tab-pic { width: 26px; height: 26px; margin: 0; }
-      .services-card .service-tabs .tab-bar .service-tab[for] .tab-full { display: inline !important; }
-      .services-card .service-tabs .tab-bar .service-tab[for] .tab-short { display: none !important; }
-      /* selected tile: a small pointer on its right edge aimed at the services */
-      /* selected tile: gold chevron badge on its right edge, pointing at the services */
-      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"]::before,
-      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"]::before,
-      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"]::before,
-      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"]::before,
-      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"]::before,
-      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"]::before,
-      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"]::before,
-      #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"]::before,
-      #svc-tab-mens:checked ~ .service-tabs .tab-bar label[for="svc-tab-mens"]::before,
-      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"]::before { content: ''; position: absolute; top: 50%; right: -10px; width: 20px; height: 20px; border-radius: 50%; background: #E8D49A url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23142a18' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 6 15 12 9 18'/%3E%3C/svg%3E") center / 12px 12px no-repeat; border: 1px solid #142a18; box-shadow: 0 2px 6px rgba(10,31,14,0.35); transform: translateY(-50%); z-index: 2; }
-      #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"]::after,
-      #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"]::after,
-      #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"]::after,
-      #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"]::after,
-      #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"]::after,
-      #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"]::after,
-      #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"]::after,
-      #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"]::after,
-      #svc-tab-mens:checked ~ .service-tabs .tab-bar label[for="svc-tab-mens"]::after,
-      #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"]::after { content: none; }
-      /* short phones: the rail scrolls, so a down-chevron sticks to its bottom edge as a cue */
-      @media (max-height: 724px) {
-        .services-card .service-tabs .tab-bar::after { content: ''; display: block; position: sticky; bottom: 2px; flex: 0 0 auto; align-self: center; width: 18px; height: 18px; margin-top: -6px; border-radius: 50%; background: #E8D49A url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23142a18' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") center / 11px 11px no-repeat; border: 1px solid #142a18; box-shadow: 0 2px 6px rgba(10,31,14,0.35); z-index: 3; }
-      }
-    }
-
-    /* ===== phone rail badge: arrives on selection, ripples twice, then rests (once the card is in view) ===== */
-    @keyframes svcBadgeIn { from { opacity: 0; transform: translate(-5px, -50%) scale(0.55); } to { opacity: 1; transform: translate(0, -50%) scale(1); } }
-    @keyframes svcBadgeRing { 0% { box-shadow: 0 2px 6px rgba(10,31,14,0.35), 0 0 0 0 rgba(232,212,154,0.8); } 100% { box-shadow: 0 2px 6px rgba(10,31,14,0.35), 0 0 0 15px rgba(232,212,154,0); } }
-    @media (max-width: 768px) {
-      .services-card.rail-seen #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"]::before,
-      .services-card.rail-seen #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"]::before,
-      .services-card.rail-seen #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"]::before,
-      .services-card.rail-seen #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"]::before,
-      .services-card.rail-seen #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"]::before,
-      .services-card.rail-seen #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"]::before,
-      .services-card.rail-seen #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"]::before,
-      .services-card.rail-seen #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"]::before,
-      .services-card.rail-seen #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"]::before { animation: svcBadgeIn 0.38s cubic-bezier(0.22, 0.61, 0.36, 1) both, svcBadgeRing 1.15s ease-out 0.45s 2; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .services-card.rail-seen #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"]::before,
-      .services-card.rail-seen #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"]::before,
-      .services-card.rail-seen #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"]::before,
-      .services-card.rail-seen #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"]::before,
-      .services-card.rail-seen #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"]::before,
-      .services-card.rail-seen #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"]::before,
-      .services-card.rail-seen #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"]::before,
-      .services-card.rail-seen #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"]::before,
-      .services-card.rail-seen #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"]::before { animation: none; }
     }
 
     /* ===== services heading: sticky band on desktop too (phones already have one) ===== */
     @media (min-width: 769px) {
       .section--services-green .section-label { margin-bottom: 16px; }
       .section--services-green .services-title { position: sticky; top: 62px; z-index: 120; box-sizing: border-box; height: 58px; margin: 0 calc(50% - 50vw) 26px; padding: 0 24px 2px; display: flex; align-items: center; justify-content: center; font-size: 2rem; line-height: 1; white-space: nowrap; background: rgba(10,31,14,0.94); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); box-shadow: 0 1px 0 rgba(201,169,110,0.35); }
-    }
-    @media (min-width: 769px) {
-      /* the category sidebar now pins under the band */
-      .services-card .service-tabs .tab-bar { top: 128px; }
-    }
-
-    /* ===== desktop sidebar chevron: slides into place on selection (once the card is in view) ===== */
-    @keyframes svcChevIn { from { opacity: 0; transform: translate(-6px, -50%) rotate(-45deg); } to { opacity: 1; transform: translate(0, -50%) rotate(-45deg); } }
-    @media (min-width: 769px) {
-      .services-card.rail-seen #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"] .tab-deal-dot,
-      .services-card.rail-seen #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"] .tab-deal-dot,
-      .services-card.rail-seen #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"] .tab-deal-dot,
-      .services-card.rail-seen #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"] .tab-deal-dot,
-      .services-card.rail-seen #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"] .tab-deal-dot,
-      .services-card.rail-seen #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"] .tab-deal-dot,
-      .services-card.rail-seen #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"] .tab-deal-dot,
-      .services-card.rail-seen #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"] .tab-deal-dot,
-      .services-card.rail-seen #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] .tab-deal-dot { animation: svcChevIn 0.35s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .services-card.rail-seen #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"] .tab-deal-dot,
-      .services-card.rail-seen #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"] .tab-deal-dot,
-      .services-card.rail-seen #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"] .tab-deal-dot,
-      .services-card.rail-seen #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"] .tab-deal-dot,
-      .services-card.rail-seen #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"] .tab-deal-dot,
-      .services-card.rail-seen #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"] .tab-deal-dot,
-      .services-card.rail-seen #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"] .tab-deal-dot,
-      .services-card.rail-seen #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"] .tab-deal-dot,
-      .services-card.rail-seen #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] .tab-deal-dot { animation: none; }
-    }
-
-    /* ===== services search box: sticks under the heading band, services scroll beneath it ===== */
-    .services-card .svc-search { position: sticky; z-index: 90; }
-    .services-card .svc-search:focus-within { background: #ffffff; }
-    @media (min-width: 769px) {
-      .services-card .svc-search { top: 120px; margin: 0 !important; padding: 18px 24px 16px; background: linear-gradient(#ffffff 0, #ffffff 70%, rgba(255,255,255,0)); }
-    }
-    @media (max-width: 768px) {
-      .services-card .svc-search { top: 110px; margin: 0 !important; padding: 6px 8px 12px; background: linear-gradient(#ffffff 0, #ffffff 68%, rgba(255,255,255,0)); }
     }
 
     /* ===== team: salon story (stations photo with context, quote and a short photo tour) ===== */
@@ -3482,17 +3206,6 @@
     .price-split .pricing-item__book { margin-top: auto; align-self: flex-start; }
     @media (max-width: 480px) { .price-split { grid-template-columns: 1fr; } }
     .desc-after-book { margin: 14px 0 0; }
-    @media (min-width: 769px) {
-      .services-card .service-tabs .tab-bar { max-height: calc(100vh - 140px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; }
-      .services-card .service-tabs .tab-bar::-webkit-scrollbar { display: none; }
-    }
-    @media (min-width: 769px) and (max-height: 860px) {
-      .services-card .service-tabs .tab-bar { padding: 14px 10px 16px !important; gap: 3px; }
-      .services-card .service-tabs .tab-bar::before { margin-bottom: 8px; }
-      .tab-bar .service-tab { padding: 5px 8px !important; }
-      .tab-bar .service-tab .tab-pic { width: 30px; height: 30px; }
-      .tab-bar .service-tab .tab-active-stack small { display: none; }
-    }
     .reviews-ed { background: #f6f4ee; }
     .reviews-ed__rating { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 18px; margin: 0 auto 28px; max-width: 760px; text-align: center; }
     .reviews-ed__big { font-family: var(--ff-display); font-size: 3.4rem; font-weight: 700; color: #142a18; line-height: 1; letter-spacing: -0.03em; }
@@ -3525,12 +3238,80 @@
       .reviews-ed__big { font-size: 2.8rem; }
       .rslider__track { gap: 14px; }
     }
-    /* ===== category sidebar / rail: pinned until the whole services card has scrolled past =====
-       .tab-col is the first grid column; it runs one viewport further down than the card (the card clips
-       it at its rounded edge), so the sticky bar inside has room to stay put until the card leaves the screen. */
-    .services-card .service-tabs .tab-col { grid-column: 1; grid-row: 1 / span 3; align-self: stretch; display: flex; flex-direction: column; min-height: 0; margin-bottom: -100vh; }
-    .services-card .service-tabs .tab-col::after { content: ""; display: block; flex: 0 0 100vh; }
-    .services-card .service-tabs .tab-bar { align-self: stretch; flex: 0 0 auto; }
+    /* ===== services: category bar above the card (5 Nov 2026) =====
+       Replaces the left sidebar and the phone icon rail. The card is one column: the sticky pill bar
+       (all ten .tab-full names; tab photo on desktop only), the search box, the hidden category
+       indicator, then the panel. Tab switching is still the CSS-only radio mechanism.
+       The .tab-break spans force the row split: 5 + 5 from 1100px, 4 + 3 + 3 from 900px; narrower screens wrap freely. */
+    .section--services-green .services-card { max-width: 1120px; background: #ffffff; }
+    .services-card { display: grid !important; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto auto 1fr; align-items: start; }
+    .services-card .service-tabs, .services-card .service-tabs .tab-col { display: contents !important; }
+    .services-card .service-tabs .tab-col::after { content: none; }
+    .services-card .service-tabs .tab-bar { grid-column: 1; grid-row: 1; position: sticky; top: 120px; z-index: 95; box-sizing: border-box; display: flex !important; flex-wrap: wrap !important; justify-content: center !important; align-items: center; row-gap: 0 !important; column-gap: 8px !important; width: auto; max-width: none; min-height: 0 !important; height: auto !important; max-height: none; overflow: visible; margin: 0; padding: 8px 16px 9px !important; background: rgba(255,255,255,0.88); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid rgba(201,169,110,0.45); border-radius: 20px 20px 0 0; }
+    .services-card .service-tabs .tab-bar::before,
+    .services-card .service-tabs .tab-bar::after { content: none !important; display: none !important; }
+    .services-card .service-tabs .tab-bar .tab-break { display: none; flex: 0 0 100%; height: 0; }
+    .services-card .service-tabs .tab-bar .service-tab { display: inline-flex !important; flex-direction: row !important; align-items: center; justify-content: center; width: auto; gap: 9px !important; margin: 4px 0 !important; padding: 4px 15px 4px 4px !important; border-radius: 980px !important; border: 0 !important; background: #f1f4f1 !important; color: #142a18 !important; box-shadow: none !important; transform: none !important; font-family: var(--ff-body); font-size: 13px !important; font-weight: 500 !important; letter-spacing: -0.01em !important; line-height: 1.2 !important; text-align: center; white-space: nowrap !important; overflow: visible !important; transition: background-color .2s ease, color .2s ease; }
+    .services-card .service-tabs .tab-bar .service-tab:hover { background: #e4ebe5 !important; }
+    .services-card .service-tabs .tab-bar .service-tab .tab-pic { display: block; width: 32px; height: 32px; margin: 0; box-shadow: 0 0 0 1.5px #C9A96E; transform: none; }
+    .services-card .service-tabs .tab-bar .service-tab[for] .tab-full { display: inline !important; font-size: inherit; letter-spacing: inherit; white-space: nowrap; }
+    .services-card .service-tabs .tab-bar .service-tab .tab-short,
+    .services-card .service-tabs .tab-bar .service-tab .tab-active-stack,
+    .services-card .service-tabs .tab-bar .service-tab small,
+    .services-card .service-tabs .tab-bar .service-tab .tab-mob-active,
+    .services-card .service-tabs .tab-bar .service-tab .sm-mob,
+    .services-card .service-tabs .tab-bar .service-tab .tab-new { display: none !important; }
+    .services-card .service-tabs .tab-bar .service-tab::before,
+    .services-card .service-tabs .tab-bar .service-tab::after { content: none !important; }
+    /* Tue–Fri Specials reads as the offer: cream pill, gold text */
+    .services-card .service-tabs .tab-bar label[for="svc-tab-offers"] { background: #fbf6ea !important; color: #8a6a2a !important; }
+    .services-card .service-tabs .tab-bar label[for="svc-tab-offers"]:hover { background: #f5ecd6 !important; }
+    /* selected pill: solid dark green (gold text for the specials pill), gold-lit photo ring */
+    #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"],
+    #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"],
+    #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"],
+    #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"],
+    #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"],
+    #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"],
+    #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"],
+    #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"],
+    #svc-tab-mens:checked ~ .service-tabs .tab-bar label[for="svc-tab-mens"],
+    #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] { background: #0f2616 !important; color: #ffffff !important; box-shadow: none !important; font-weight: 600 !important; }
+    #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"] { color: #E8D49A !important; }
+    #svc-tab-offers:checked ~ .service-tabs .tab-bar label[for="svc-tab-offers"] .tab-pic,
+    #svc-tab-colouring:checked ~ .service-tabs .tab-bar label[for="svc-tab-colouring"] .tab-pic,
+    #svc-tab-regrowth:checked ~ .service-tabs .tab-bar label[for="svc-tab-regrowth"] .tab-pic,
+    #svc-tab-highlights:checked ~ .service-tabs .tab-bar label[for="svc-tab-highlights"] .tab-pic,
+    #svc-tab-blowwave:checked ~ .service-tabs .tab-bar label[for="svc-tab-blowwave"] .tab-pic,
+    #svc-tab-smoothfiller:checked ~ .service-tabs .tab-bar label[for="svc-tab-smoothfiller"] .tab-pic,
+    #svc-tab-cutting:checked ~ .service-tabs .tab-bar label[for="svc-tab-cutting"] .tab-pic,
+    #svc-tab-extensions:checked ~ .service-tabs .tab-bar label[for="svc-tab-extensions"] .tab-pic,
+    #svc-tab-mens:checked ~ .service-tabs .tab-bar label[for="svc-tab-mens"] .tab-pic,
+    #svc-tab-tinsel:checked ~ .service-tabs .tab-bar label[for="svc-tab-tinsel"] .tab-pic { box-shadow: 0 0 0 1.5px #E8D49A; }
+    /* the rest of the column */
+    .services-card .svc-search { grid-column: 1; grid-row: 2; z-index: 90; margin: 0 !important; }
+    .services-card .svc-search:focus-within { background: #ffffff; }
+    .services-card .service-category-indicator { display: none !important; }
+    .services-card .service-panel { grid-column: 1; grid-row: 4; }
+    @media (min-width: 900px) and (max-width: 1099px) {
+      .services-card .service-tabs .tab-bar .tab-break--4,
+      .services-card .service-tabs .tab-bar .tab-break--7 { display: block; }
+    }
+    @media (min-width: 1100px) {
+      .services-card .service-tabs .tab-bar .tab-break--5 { display: block; }
+    }
+    @media (min-width: 769px) {
+      /* the search box pins just under the bar; --svc-bar-h is kept current by a small script near the end of the page */
+      .services-card .svc-search { position: sticky; top: calc(120px + var(--svc-bar-h, 118px)); padding: 14px 24px 14px; background: linear-gradient(#ffffff 0, #ffffff 70%, rgba(255,255,255,0)); }
+    }
+    @media (max-width: 768px) {
+      .services-card .service-tabs .tab-bar { top: 110px; border-radius: 0; column-gap: 5px !important; padding: 8px 6px 9px !important; }
+      .services-card .service-tabs .tab-bar .service-tab { margin: 2.5px 0 !important; padding: 7px 10px !important; gap: 0 !important; font-size: 11.5px !important; }
+      .services-card .service-tabs .tab-bar .service-tab .tab-pic { display: none; }
+      /* the search box scrolls with the page on phones; only the bar is pinned */
+      .services-card .svc-search { position: relative; top: auto; padding: 8px 8px 10px; background: #ffffff; }
+      .services-card .service-panel .pricing-item { padding-left: 12px; padding-right: 12px; }
+    }
 </style>
   <noscript>
     <style>
@@ -3732,16 +3513,19 @@
 
 <div class="tab-col">
 <div class="tab-bar">
-<label class="service-tab" for="svc-tab-colouring"><img class="tab-pic" src="images/tabs/tab-colouring.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">All-Over Colour &amp; Toner</span><span class="tab-short">All-Over Colour</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
-<label class="service-tab" for="svc-tab-regrowth"><img class="tab-pic" src="images/tabs/tab-regrowth.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Grey Blending &amp; Regrowth</span><span class="tab-short">Grey Blending</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
-<label class="service-tab" for="svc-tab-highlights"><img class="tab-pic" src="images/tabs/tab-highlights.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Foils &amp; Balayage</span><span class="tab-short">Foils</span><span class="tab-mob-active">Foils</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
-<label class="service-tab" for="svc-tab-blowwave"><img class="tab-pic" src="images/tabs/tab-blowwave.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Blow Wave</span><span class="tab-short">Blow Wave</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
-<label class="service-tab" for="svc-tab-smoothfiller"><img class="tab-pic" src="images/tabs/tab-smoothfiller.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Perms &amp; Treatments</span><span class="tab-active-stack">Perms &amp; Treatments<small><span class="sm-desk">Perms &#183; SmoothFiller &#183; Nanoplasty &#183; Shiseido</span><span class="sm-mob">Perms &#183; SmoothFiller &#183; Nanoplasty</span></small></span><span class="tab-short">Perms</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
-<label class="service-tab" for="svc-tab-tinsel"><img class="tab-pic" src="images/tabs/tab-tinsel.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Upstyle &amp; Hair Tinsel</span><span class="tab-short">Upstyle</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
-<label class="service-tab" for="svc-tab-cutting"><img class="tab-pic" src="images/tabs/tab-cutting.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Haircuts</span><span class="tab-active-stack">Haircuts<small>Women &amp; Kids</small></span><span class="tab-short">Haircuts</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
-<label class="service-tab" for="svc-tab-extensions"><img class="tab-pic" src="images/tabs/tab-extensions.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Hair Extensions</span><span class="tab-short">Extensions</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
-<label class="service-tab" for="svc-tab-mens"><img class="tab-pic" src="images/tabs/tab-mens.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Men&#8217;s Cuts &amp; Perm</span><span class="tab-short">Men&#8217;s</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
-<label class="service-tab" for="svc-tab-offers"><img class="tab-pic" src="images/tabs/tab-offers.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Tue&#8211;Fri Specials</span><span class="tab-short">Tue&#8211;Fri Specials</span><span class="tab-deal-dot" aria-hidden="true"></span></label>
+<label class="service-tab" for="svc-tab-colouring"><img class="tab-pic" src="images/tabs/tab-colouring.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">All-Over Colour &amp; Toner</span><span class="tab-short">All-Over Colour</span></label>
+<label class="service-tab" for="svc-tab-regrowth"><img class="tab-pic" src="images/tabs/tab-regrowth.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Grey Blending &amp; Regrowth</span><span class="tab-short">Grey Blending</span></label>
+<label class="service-tab" for="svc-tab-highlights"><img class="tab-pic" src="images/tabs/tab-highlights.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Foils &amp; Balayage</span><span class="tab-short">Foils</span><span class="tab-mob-active">Foils</span></label>
+<label class="service-tab" for="svc-tab-blowwave"><img class="tab-pic" src="images/tabs/tab-blowwave.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Blow Wave</span><span class="tab-short">Blow Wave</span></label>
+<span class="tab-break tab-break--4" aria-hidden="true"></span>
+<label class="service-tab" for="svc-tab-smoothfiller"><img class="tab-pic" src="images/tabs/tab-smoothfiller.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Perms &amp; Treatments</span><span class="tab-active-stack">Perms &amp; Treatments<small><span class="sm-desk">Perms &#183; SmoothFiller &#183; Nanoplasty &#183; Shiseido</span><span class="sm-mob">Perms &#183; SmoothFiller &#183; Nanoplasty</span></small></span><span class="tab-short">Perms</span></label>
+<span class="tab-break tab-break--5" aria-hidden="true"></span>
+<label class="service-tab" for="svc-tab-tinsel"><img class="tab-pic" src="images/tabs/tab-tinsel.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Upstyle &amp; Hair Tinsel</span><span class="tab-short">Upstyle</span></label>
+<label class="service-tab" for="svc-tab-cutting"><img class="tab-pic" src="images/tabs/tab-cutting.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Haircuts</span><span class="tab-active-stack">Haircuts<small>Women &amp; Kids</small></span><span class="tab-short">Haircuts</span></label>
+<span class="tab-break tab-break--7" aria-hidden="true"></span>
+<label class="service-tab" for="svc-tab-extensions"><img class="tab-pic" src="images/tabs/tab-extensions.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Hair Extensions</span><span class="tab-short">Extensions</span></label>
+<label class="service-tab" for="svc-tab-mens"><img class="tab-pic" src="images/tabs/tab-mens.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Men&#8217;s Cuts &amp; Perm</span><span class="tab-short">Men&#8217;s</span></label>
+<label class="service-tab" for="svc-tab-offers"><img class="tab-pic" src="images/tabs/tab-offers.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span class="tab-full">Tue&#8211;Fri Specials</span><span class="tab-short">Tue&#8211;Fri Specials</span></label>
 </div>
 </div>
 <div class="svc-search" id="svcSearch">
@@ -5293,6 +5077,7 @@ window.addEventListener('load', function() {
         if(tabs&&getComputedStyle(tabs).position==='sticky'){ off=(parseFloat(getComputedStyle(tabs).top)||0)+tabs.offsetHeight+14; }
         else { var nav=document.querySelector('.nav'); off=(nav?nav.offsetHeight:70)+16; }
         var st=document.querySelector('.services-title'); if(st&&getComputedStyle(st).position==='sticky'){ off=parseFloat(getComputedStyle(st).top)+st.offsetHeight+16; }
+        var tb=document.querySelector('.services-card .tab-bar'); if(tb&&getComputedStyle(tb).position==='sticky'){ off+=tb.offsetHeight; }
         var sb=document.querySelector('.services-card .svc-search'); if(sb&&getComputedStyle(sb).position==='sticky'){ off+=sb.offsetHeight; }
         var top=entry.el.getBoundingClientRect().top+window.pageYOffset-off;
         window.scrollTo({top:top,behavior:'smooth'});
@@ -5442,14 +5227,12 @@ window.addEventListener('load', function() {
 </script>
 <script>
 (function(){
-  /* phone rail: let the selected-tile badge animate only once the services card has scrolled into view */
-  var card = document.querySelector('.services-card');
-  if (!card) return;
-  if (!('IntersectionObserver' in window)) { card.classList.add('rail-seen'); return; }
-  var io = new IntersectionObserver(function(entries){
-    for (var i = 0; i < entries.length; i++) { if (entries[i].isIntersecting) { card.classList.add('rail-seen'); io.disconnect(); break; } }
-  }, { threshold: 0.15 });
-  io.observe(card);
+  /* category bar: publish its height so the desktop search box can pin just under it */
+  var card = document.querySelector('.services-card'), bar = card && card.querySelector('.tab-bar');
+  if (!bar) return;
+  function set(){ card.style.setProperty('--svc-bar-h', bar.offsetHeight + 'px'); }
+  set();
+  if ('ResizeObserver' in window) { new ResizeObserver(set).observe(bar); } else { window.addEventListener('resize', set); }
 })();
 </script>
 <script>
@@ -5465,8 +5248,10 @@ window.addEventListener('load', function() {
     setTimeout(function(){
       var offset = 90;
       var st = document.querySelector(".services-title");
+      var tb = document.querySelector(".services-card .tab-bar");
       var ss = document.querySelector(".services-card .svc-search");
       if (st && getComputedStyle(st).position === "sticky") offset = parseFloat(getComputedStyle(st).top) + st.offsetHeight + 8;
+      if (tb && getComputedStyle(tb).position === "sticky") offset += tb.offsetHeight;
       if (ss && getComputedStyle(ss).position === "sticky") offset += ss.offsetHeight;
       window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset, behavior: "smooth" });
     }, 60);
