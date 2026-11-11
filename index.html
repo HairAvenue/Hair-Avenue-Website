@@ -3272,7 +3272,13 @@
     .svc-menu .menu-tfnote { display: none; padding: 16px 28px 0; }
     .svc-menu .menu-tfnote .offers-note { margin: 0; }
     .svc-menu .menu-group + .menu-group { margin-top: 18px; border-top: 1px solid rgba(201,169,110,0.5); }
-    .svc-menu .menu-group__title { display: flex; align-items: baseline; gap: 10px; margin: 0; padding: 26px 28px 0; font-family: var(--ff-display); font-size: 1.45rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: #142a18; }
+    /* Group title parks under the sticky bar while its group is on screen and is pushed out by the next group (11 Nov 2026, user
+       request). --menu-stick (bar top + bar height) is kept current by the menu script; .is-stuck is set only while a title is
+       parked. The 26px that used to be the title's top padding is now 17px on the group + 9px on the title, and the 7px bottom
+       padding is taken back by the negative margin, so nothing moves while the title is in its normal place. */
+    .svc-menu .menu-group { padding-top: 17px; }
+    .svc-menu .menu-group__title { position: -webkit-sticky; position: sticky; top: var(--menu-stick, 230px); z-index: 90; display: flex; align-items: baseline; gap: 10px; margin: 0 0 -7px; padding: 9px 28px 7px; background: #ffffff; font-family: var(--ff-display); font-size: 1.45rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: #142a18; transition: box-shadow 0.2s ease; }
+    .svc-menu .menu-group__title.is-stuck { box-shadow: 0 1px 0 rgba(201,169,110,0.5), 0 10px 14px -12px rgba(10,31,14,0.5); }
     .svc-menu .menu-group__title span { font-family: var(--ff-body); font-size: 0.78rem; font-weight: 500; letter-spacing: 0; color: #86868b; }
     .svc-menu .menu-sub { padding-bottom: 4px; }
     .svc-menu .menu-group__title + .menu-sub > .menu-rows:first-child { margin-top: 14px; }
@@ -3365,7 +3371,8 @@
       .svc-menu .menu-bar .svc-search { padding: 2px 8px 10px; }
       .svc-menu .menu-bar .svc-search__results { left: 8px; right: 8px; }
       .svc-menu .menu-tfnote { padding: 12px 14px 0; }
-      .svc-menu .menu-group__title { padding: 22px 14px 0; font-size: 1.25rem; }
+      .svc-menu .menu-group { padding-top: 14px; }
+      .svc-menu .menu-group__title { top: var(--menu-stick, 208px); margin-bottom: -6px; padding: 8px 14px 6px; font-size: 1.25rem; }
       .svc-menu .menu-sub__title { padding: 17px 14px 8px; }
       .svc-menu .menu-hint { padding: 4px 14px 0; }
       .svc-menu .menu-hint--sub { padding: 0 14px 9px; }
@@ -5193,8 +5200,17 @@ window.addEventListener('load', function() {
   function norm(x){ return String(x || '').toLowerCase().replace(/[\u2018\u2019]/g, "'").replace(/\s+/g, ' ').trim(); }
   function shown(el){ return !!(el && el.offsetParent !== null); }
   function barTop(){ return parseFloat(getComputedStyle(bar).top) || 62; }
-  function offset(){ return barTop() + bar.offsetHeight + 10; }
-  function scrollToEl(el){ hold(el); var y = el.getBoundingClientRect().top + window.pageYOffset - offset(); window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' }); }
+  /* 11 Nov 2026 (user request): each group title parks under the bar while its group is on screen. --menu-stick is the line it
+     parks on (1px under the bar's lower edge, so no gap can open); .is-stuck (hairline + shadow) is set only while a title is
+     parked. A jump to anything inside a group leaves room for that group's parked title. */
+  var titles = groups.map(function(g){ return g.querySelector('.menu-group__title'); }), lastStick = -1;
+  function stickLine(){ return barTop() + bar.offsetHeight - 1; }
+  function setStick(){ var v = stickLine(); if (v !== lastStick){ lastStick = v; card.style.setProperty('--menu-stick', v + 'px'); } }
+  function stuckTitle(){ var y = stickLine(), i, r; for (i = 0; i < groups.length; i++){ if (!titles[i] || !shown(groups[i])) continue; r = titles[i].getBoundingClientRect(); if (Math.abs(r.top - y) <= 1.5 && groups[i].getBoundingClientRect().top < y - 20) return titles[i]; } return null; }
+  function markStuck(){ var t = stuckTitle(); titles.forEach(function(x){ if (x) x.classList.toggle('is-stuck', x === t); }); }
+  function titleRoom(el){ var g = el && !el.classList.contains('menu-group') ? el.closest('.menu-group') : null, t = g ? g.querySelector('.menu-group__title') : null; return t ? t.offsetHeight : 0; }
+  function offset(el){ return barTop() + bar.offsetHeight + 10 + titleRoom(el); }
+  function scrollToEl(el){ hold(el); var y = el.getBoundingClientRect().top + window.pageYOffset - offset(el); window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' }); }
   function pick(list, line){ var hit = null, first = null; for (var i = 0; i < list.length; i++){ if (!shown(list[i])) continue; if (!first) first = list[i]; if (list[i].getBoundingClientRect().top <= line) hit = list[i]; } return hit || first; }
   /* light one group pill and one sub-heading (no pill is lit while the Tue–Fri view is on) */
   function paint(gk, sk){
@@ -5203,10 +5219,10 @@ window.addEventListener('load', function() {
       subSets.forEach(function(ss){ ss.hidden = ss.getAttribute('data-for') !== (tf ? 'tf' : gk); }); }
     if (sk !== curSub){ curSub = sk; subBtns.forEach(function(b){ b.classList.toggle('is-current', b.getAttribute('data-jump') === sk); }); }
   }
-  function spy(){ ticking = false; if (jumping) return;
+  function spy(){ ticking = false; setStick(); markStuck(); if (jumping) return;
     var line = barTop() + bar.offsetHeight + 28;
     var g = pick(groups, line), gk = g ? g.getAttribute('data-group') : null;
-    var s = g ? pick([].slice.call(g.querySelectorAll('.menu-sub')), line) : null, sk = s ? s.id : null;
+    var s = g ? pick([].slice.call(g.querySelectorAll('.menu-sub')), line + titleRoom(g.firstElementChild)) : null, sk = s ? s.id : null;
     paint(gk, sk);
   }
   /* 11 Nov 2026 (user request): a jump (group pill, sub-heading, search result, cross-link) lights its own group straight away and
@@ -5222,10 +5238,11 @@ window.addEventListener('load', function() {
     jumping = true; clearTimeout(jumpTimer); jumpTimer = setTimeout(endJump, 400);
   }
   window.addEventListener('scroll', function(){
-    if (jumping){ clearTimeout(jumpTimer); jumpTimer = setTimeout(endJump, 150); return; }
+    if (jumping){ clearTimeout(jumpTimer); jumpTimer = setTimeout(endJump, 150); }
     if (!ticking){ ticking = true; requestAnimationFrame(spy); } }, { passive: true });
   ['wheel', 'touchstart', 'keydown'].forEach(function(ev){ window.addEventListener(ev, endJump, { passive: true }); });
   window.addEventListener('resize', spy);
+  if (window.ResizeObserver) new ResizeObserver(function(){ setStick(); markStuck(); }).observe(bar);
   function setTf(on){ jumping = false; clearTimeout(jumpTimer); tf = !!on; card.classList.toggle('menu--tf', tf); if (tfBtn) tfBtn.setAttribute('aria-pressed', String(tf)); curGroup = null; curSub = null; spy(); }
   /* 11 Nov 2026: the Tue–Fri pill (and "Show all services") filters in place. The first heading or row below the bar that is still
      shown after the switch stays exactly where it was on screen, so the visitor is never moved to the top of the menu.
@@ -5237,8 +5254,9 @@ window.addEventListener('load', function() {
     var y0 = window.pageYOffset;
     if (!on && tfBack && Math.abs(y0 - tfBack.after) < 3){ var back = tfBack.before; tfBack = null; setTf(false); jumpTo(back); return; }
     /* pinned = the top of the menu card has scrolled up to the bar's resting line (measured on the card, so the card's reveal slide cannot fool it) */
-    var pinned = card.getBoundingClientRect().top < barTop() + 2, line = barTop() + bar.offsetHeight, marks = [];
-    if (pinned) [].forEach.call(card.querySelectorAll('.menu-group__title, .menu-sub__title, .menu-item'), function(el){ var r = el.getBoundingClientRect(); if (r.height > 0) marks.push([el, r.top, r.bottom]); });
+    var parked = stuckTitle(), pinned = card.getBoundingClientRect().top < barTop() + 2, line = barTop() + bar.offsetHeight + (parked ? parked.offsetHeight : 0), marks = [];
+    /* group titles are left out of the marks: a parked title does not move with the page, so it cannot say where the visitor was looking */
+    if (pinned) [].forEach.call(card.querySelectorAll('.menu-sub__title, .menu-item'), function(el){ var r = el.getBoundingClientRect(); if (r.height > 0) marks.push([el, r.top, r.bottom]); });
     setTf(on);
     if (pinned){
       var full = null, part = null, last = null;
