@@ -1436,7 +1436,7 @@
     .footer__links {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px 24px;
+      gap: 12px 20px;
       list-style: none;
     }
     .footer__link { font-size: 0.85rem; transition: var(--transition); padding: 8px 0; display: inline-block; }
@@ -2856,8 +2856,6 @@
       .pricing-item__price { font-size: 0.96rem; }
       .pricing-item__desc { font-size: 0.95rem; margin: 2px 0 8px; }
       .pricing-item__book { font-size: 0.76rem; padding: 6px 15px; }
-      .services-card .price-split__note { font-size: 0.84rem; }
-      .services-card .price-split__label { font-size: 0.76rem; }
       .pricing-subcat__list--open { padding: 2px 0 0; }
     }
 
@@ -3170,16 +3168,6 @@
     .ba-item { flex: 1; position: relative; }
     .ba-item__img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; }
     .ba-item__tag { position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.55); color: #fff; font-size: 0.6rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 2px 8px; border-radius: 980px; }
-    /* ===== split weekday / Saturday pricing (balayage, 25 Oct 2026) ===== */
-    .price-split { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 4px 0 12px; max-width: 600px; }
-    .price-split__col { display: flex; flex-direction: column; gap: 4px; padding: 12px 14px 14px; border: 1px solid rgba(46,83,57,0.16); border-radius: 12px; background: #fff; }
-    .price-split__col--deal { background: rgba(201,169,110,0.08); border-color: rgba(201,169,110,0.45); }
-    .price-split__label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #55685a; }
-    .price-split__label small { font-size: inherit; font-weight: 600; letter-spacing: 0.04em; text-transform: none; color: #8a8a8f; margin-left: 6px; }
-    .price-split__price { font-family: var(--ff-body); font-weight: 700; color: var(--clr-gold); font-size: 1.05rem; margin-bottom: 8px; }
-    .price-split__note { font-size: 0.78rem; color: #6e6e73; line-height: 1.5; margin-bottom: 6px; }
-    .price-split .pricing-item__book { margin-top: auto; align-self: flex-start; }
-    @media (max-width: 480px) { .price-split { grid-template-columns: 1fr; } }
     .desc-after-book { margin: 14px 0 0; }
     .reviews-ed { background: #f6f4ee; }
     .reviews-ed__rating { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 18px; margin: 0 auto 28px; max-width: 760px; text-align: center; }
@@ -3217,8 +3205,8 @@
        Replaces the ten radio tabs. One continuous list inside the card: a sticky bar (seven group pills, a search
        button, and a thin line naming the sub-headings of the group in view), then groups > sub-headings > one
        <details class="menu-item"> per service. The summary row shows name, short line, price, Book and a chevron;
-       opening it shows the full description. Rows with a Tue–Fri package carry .has-tf and a .price-split with two
-       Book buttons; the Tue–Fri Specials pill filters the list to those rows (.menu--tf on the card).
+       opening it shows the full description. Each Tue–Fri package is its own tinted row
+       (.menu-item--tf.has-tf, tagged "Tue–Fri only") under its service; the Tue–Fri Specials pill shows only the .has-tf rows (.menu--tf on the card).
        Script: "services menu" near the end of the body. */
     .section--services-green .services-title { color: #ffffff; text-align: center; margin: 4px 0 24px; }
     .section--services-green .services-card.svc-menu { max-width: 1040px; background: #ffffff; display: block; }
@@ -3232,6 +3220,9 @@
     .svc-menu .menu-pill--tf { background: #fbf6ea; color: #8a6a2a; box-shadow: inset 0 0 0 1px rgba(201,169,110,0.6); }
     .svc-menu .menu-pill--tf:hover { background: #f5ecd6; }
     .svc-menu .menu-pill--tf[aria-pressed="true"] { background: linear-gradient(160deg, #d9bd84 0%, #f0deaa 100%); color: #142a18; box-shadow: 0 0 0 1.5px #8a6a2a, 0 8px 16px -10px rgba(138,106,42,0.8); -webkit-text-stroke: 0.3px currentColor; }
+    /* nine pills (11 Nov 2026): on desktop and tablets the row breaks after the fifth pill, so it reads 5 + 4 + search */
+    .svc-menu .menu-break { display: none; flex: 0 0 100%; height: 0; margin-bottom: -6px; }
+    @media (min-width: 769px) { .svc-menu .menu-break { display: block; } }
     .svc-menu .menu-search-btn { -webkit-appearance: none; appearance: none; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; margin: 0; padding: 0; border: 1.5px solid rgba(201,169,110,0.7); border-radius: 50%; background: #fffdf8; color: #9c7a38; cursor: pointer; transition: background 0.2s ease, border-color 0.2s ease; }
     .svc-menu .menu-search-btn:hover, .svc-menu .menu-search-btn[aria-expanded="true"] { background: #fbf6ea; border-color: #9c7a38; }
     .svc-menu .menu-search-btn svg { width: 16px; height: 16px; }
@@ -3258,6 +3249,7 @@
     .svc-menu .menu-group__title { display: flex; align-items: baseline; gap: 10px; margin: 0; padding: 26px 28px 0; font-family: var(--ff-display); font-size: 1.45rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: #142a18; }
     .svc-menu .menu-group__title span { font-family: var(--ff-body); font-size: 0.78rem; font-weight: 500; letter-spacing: 0; color: #86868b; }
     .svc-menu .menu-sub { padding-bottom: 4px; }
+    .svc-menu .menu-group__title + .menu-sub > .menu-rows:first-child { margin-top: 14px; }
     .svc-menu .menu-sub__title { margin: 0; padding: 20px 28px 9px; font-family: var(--ff-body); font-size: 0.74rem; font-weight: 700; line-height: 1.3; letter-spacing: 0.14em; text-transform: uppercase; color: #8a6a2a; }
     /* small pointers for men who look under Cuts or Perms first (11 Nov 2026) */
     .svc-menu .menu-hint { margin: 0; padding: 5px 28px 0; font-size: 0.84rem; line-height: 1.45; color: #6e6e73; }
@@ -3275,7 +3267,13 @@
     .svc-menu .menu-row__name small { font-size: 0.86em; font-weight: 400; color: #86868b; }
     .svc-menu .menu-row__short { font-size: 0.84rem; line-height: 1.4; color: #6e6e73; }
     .svc-menu .menu-row__price { display: flex; flex-direction: column; align-items: flex-end; gap: 1px; font-family: var(--ff-body); font-size: 0.95rem; font-weight: 700; line-height: 1.3; color: #8a6a2a; text-align: right; white-space: nowrap; }
-    .svc-menu .menu-row__tf { font-size: 0.78rem; font-weight: 600; color: #2E7D42; }
+    /* midweek lines (11 Nov 2026) */
+    .svc-menu .menu-row__tag { align-self: flex-start; margin-bottom: 3px; padding: 1px 8px; border: 1px solid rgba(201,169,110,0.85); border-radius: 980px; background: #ffffff; color: #8a6a2a; font-size: 0.64rem; font-weight: 700; line-height: 1.5; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
+    .svc-menu .menu-item--tf > .menu-row, .svc-menu .menu-item--tf > .menu-item__body { background: #fbf6ea; padding-left: 46px; }
+    .svc-menu .menu-item--tf > .menu-row:hover, .svc-menu .menu-item--tf[open] > .menu-row { background: #f7efd9; }
+    .svc-menu .menu-item--tf .menu-row__short { color: #2E7D42; font-weight: 500; }
+    .svc-menu.menu--tf .menu-item--tf > .menu-row, .svc-menu.menu--tf .menu-item--tf > .menu-item__body { padding-left: 28px; }
+    .svc-menu .menu-tiers { color: #424245; }
     .svc-menu .menu-row__book { display: inline-flex; align-items: center; justify-content: center; padding: 6px 15px; border: 1.5px solid rgba(46,83,57,0.3); border-radius: 980px; background: #ffffff; color: #2E5339; font-size: 0.72rem; font-weight: 600; line-height: 1.3; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
     .svc-menu .menu-row__book:hover { background: #2E5339; border-color: #2E5339; color: #ffffff; }
     .svc-menu .menu-row__chev { justify-self: center; width: 9px; height: 9px; border-right: 2px solid #9a968c; border-bottom: 2px solid #9a968c; transform: translateY(-2px) rotate(45deg); transition: transform 0.25s ease; }
@@ -3283,13 +3281,9 @@
     .svc-menu .menu-item[open] > .menu-row .menu-row__chev { transform: translateY(2px) rotate(-135deg); border-color: #142a18; }
     .svc-menu .menu-item__body { padding: 4px 28px 20px; background: #fbf9f3; }
     .svc-menu .menu-item__body > :first-child { margin-top: 2px; }
-    .svc-menu .menu-item__body .price-split { margin: 6px 0 14px; }
     .svc-menu .menu-item__body .pkg-details { margin: 4px 0 10px; }
-    .svc-menu .menu-deal { max-width: 600px; margin: 14px 0 0; padding: 14px 16px 6px; border: 1px solid rgba(201,169,110,0.45); border-radius: 12px; background: rgba(201,169,110,0.09); }
     .svc-menu .menu-deal__title { margin: 0 0 8px; font-size: 0.92rem; font-weight: 600; line-height: 1.4; color: #1d1d1f; }
     .svc-menu .menu-deal__title span { display: block; margin-bottom: 2px; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #8a6a2a; }
-    .svc-menu .panel-more { display: block; width: -moz-fit-content; width: fit-content; margin: 10px 28px 0; }
-    .svc-menu .menu-item__body .panel-more, .svc-menu .menu-tfnote .panel-more { margin: 12px 0 0; }
     .svc-menu .gl-intro { margin: 16px 28px 6px; }
     .svc-menu .menu-more { margin: 14px 28px 0; }
     .svc-menu .menu-more > summary { cursor: pointer; font-size: 0.88rem; font-weight: 600; color: #2E7D42; }
@@ -3305,8 +3299,8 @@
     @media (max-width: 768px) {
       .section--services-green .services-title { margin: 2px 0 16px; }
       .svc-menu .menu-bar { top: 64px; }
-      .svc-menu .menu-bar__groups { gap: 5px; padding: 9px 6px 6px; }
-      .svc-menu .menu-pill { gap: 0; padding: 7px 10px; font-size: 12.5px; font-weight: 400; letter-spacing: -0.015em; }
+      .svc-menu .menu-bar__groups { gap: 4px; padding: 9px 4px 6px; }
+      .svc-menu .menu-pill { gap: 0; padding: 7px 8px; font-size: 12px; font-weight: 400; letter-spacing: -0.015em; }
       .svc-menu .menu-pill__pic { display: none; }
       .svc-menu .menu-search-btn { width: 31px; height: 31px; }
       .svc-menu .menu-search-btn svg { width: 14px; height: 14px; }
@@ -3337,10 +3331,11 @@
       .svc-menu .menu-row__name { font-size: 0.98rem; }
       .svc-menu .menu-row__short { font-size: 0.8rem; }
       .svc-menu .menu-row__price { font-size: 0.9rem; }
-      .svc-menu .menu-row__tf { max-width: 112px; font-size: 0.74rem; white-space: normal; text-align: right; }
+      .svc-menu .menu-row__tag { grid-area: eyebrow; justify-self: start; margin-bottom: 4px; }
+      .svc-menu .menu-item--tf > .menu-row, .svc-menu .menu-item--tf > .menu-item__body { padding-left: 26px; }
+      .svc-menu.menu--tf .menu-item--tf > .menu-row, .svc-menu.menu--tf .menu-item--tf > .menu-item__body { padding-left: 14px; }
       .svc-menu .menu-row__book { padding: 6px 11px; font-size: 0.68rem; }
       .svc-menu .menu-item__body { padding: 4px 14px 18px; }
-      .svc-menu .panel-more { margin: 10px 14px 0; }
       .svc-menu .gl-intro { margin: 14px 12px 6px; }
       .svc-menu .menu-more { margin: 12px 14px 0; }
       .svc-menu .menu-extfaq { margin: 12px 14px 0 !important; }
@@ -3613,8 +3608,11 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="menu-bar__groups" role="group" aria-label="Service groups">
 <button type="button" class="menu-pill is-active" data-group="colour" data-jump="menu-colour"><img class="menu-pill__pic" src="images/tabs/tab-colouring.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Colour</span></button>
 <button type="button" class="menu-pill" data-group="cuts" data-jump="menu-cuts"><img class="menu-pill__pic" src="images/tabs/tab-cutting.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Cuts</span></button>
-<button type="button" class="menu-pill" data-group="styling" data-jump="menu-styling"><img class="menu-pill__pic" src="images/tabs/tab-blowwave.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Blow Wave &amp; Upstyle</span></button>
-<button type="button" class="menu-pill" data-group="treatments" data-jump="menu-treatments"><img class="menu-pill__pic" src="images/tabs/tab-smoothfiller.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Perms &amp; Treatments</span></button>
+<button type="button" class="menu-pill" data-group="blowwave" data-jump="menu-blowwave"><img class="menu-pill__pic" src="images/tabs/tab-blowwave.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Blow Wave</span></button>
+<button type="button" class="menu-pill" data-group="upstyle" data-jump="menu-upstyle"><img class="menu-pill__pic" src="images/tabs/tab-tinsel.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Upstyle / Special Occasion</span></button>
+<button type="button" class="menu-pill" data-group="perms" data-jump="menu-perms"><img class="menu-pill__pic" src="images/tabs/tab-perms.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Perms</span></button>
+<span class="menu-break" aria-hidden="true"></span>
+<button type="button" class="menu-pill" data-group="smoothing" data-jump="menu-smoothing"><img class="menu-pill__pic" src="images/tabs/tab-smoothfiller.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Nanoplasty &amp; SmoothFiller</span></button>
 <button type="button" class="menu-pill" data-group="extensions" data-jump="menu-extensions"><img class="menu-pill__pic" src="images/tabs/tab-extensions.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Extensions</span></button>
 <button type="button" class="menu-pill" data-group="mens" data-jump="menu-mens"><img class="menu-pill__pic" src="images/tabs/tab-mens.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Men&#8217;s</span></button>
 <button type="button" class="menu-pill menu-pill--tf" id="menuTfBtn" aria-pressed="false" title="Show only the services with a Tuesday to Friday price"><img class="menu-pill__pic" src="images/tabs/tab-offers.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Tue&#8211;Fri Specials</span></button>
@@ -3623,8 +3621,10 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="menu-bar__subs">
 <div class="menu-subs" data-for="colour"><button type="button" data-jump="sub-colouring" class="is-current"><span class="sub-full">All-Over Colour &amp; Toner</span><span class="sub-short">All-Over Colour</span></button><button type="button" data-jump="sub-regrowth"><span class="sub-full">Grey Blending &amp; Regrowth</span><span class="sub-short">Grey Blending</span></button><button type="button" data-jump="sub-highlights"><span class="sub-full">Foils &amp; Balayage</span><span class="sub-short">Foils &amp; Balayage</span></button></div>
 <div class="menu-subs" data-for="cuts" hidden><button type="button" data-jump="sub-cutblow"><span class="sub-full">Cut &amp; Blow Wave</span><span class="sub-short">Cut &amp; Blow Wave</span></button><button type="button" data-jump="sub-express"><span class="sub-full">Express Cuts</span><span class="sub-short">Express Cuts</span></button><button type="button" data-jump="sub-kids"><span class="sub-full">Kids&#8217; Cuts</span><span class="sub-short">Kids&#8217; Cuts</span></button></div>
-<div class="menu-subs" data-for="styling" hidden><button type="button" data-jump="sub-blowwave"><span class="sub-full">Blow Wave</span><span class="sub-short">Blow Wave</span></button><button type="button" data-jump="sub-upstyle"><span class="sub-full">Upstyle</span><span class="sub-short">Upstyle</span></button><button type="button" data-jump="sub-tinsel"><span class="sub-full">Hair Tinsel</span><span class="sub-short">Hair Tinsel</span></button></div>
-<div class="menu-subs" data-for="treatments" hidden><button type="button" data-jump="sub-smoothfiller"><span class="sub-full">SmoothFiller</span><span class="sub-short">SmoothFiller</span></button><button type="button" data-jump="sub-nanoplasty"><span class="sub-full">Nanoplasty</span><span class="sub-short">Nanoplasty</span></button><button type="button" data-jump="sub-perms"><span class="sub-full">Perms &amp; Permanent Straightening</span><span class="sub-short">Perms &amp; Straightening</span></button></div>
+<div class="menu-subs" data-for="blowwave" hidden><span class="menu-subs__static">Blow wave and bouncy upgrade</span></div>
+<div class="menu-subs" data-for="upstyle" hidden><button type="button" data-jump="sub-upstyle"><span class="sub-full">Upstyle</span><span class="sub-short">Upstyle</span></button><button type="button" data-jump="sub-tinsel"><span class="sub-full">Hair Tinsel</span><span class="sub-short">Hair Tinsel</span></button></div>
+<div class="menu-subs" data-for="perms" hidden><span class="menu-subs__static">Perms and permanent straightening</span></div>
+<div class="menu-subs" data-for="smoothing" hidden><button type="button" data-jump="sub-nanoplasty"><span class="sub-full">Nanoplasty</span><span class="sub-short">Nanoplasty</span></button><button type="button" data-jump="sub-smoothfiller"><span class="sub-full">SmoothFiller</span><span class="sub-short">SmoothFiller</span></button></div>
 <div class="menu-subs" data-for="extensions" hidden><span class="menu-subs__static">Great Lengths tape extensions</span></div>
 <div class="menu-subs" data-for="mens" hidden><button type="button" data-jump="sub-menscuts"><span class="sub-full">Men&#8217;s Cuts</span><span class="sub-short">Men&#8217;s Cuts</span></button><button type="button" data-jump="sub-mensperm"><span class="sub-full">Men&#8217;s Perm</span><span class="sub-short">Men&#8217;s Perm</span></button></div>
 <div class="menu-subs" data-for="tf" hidden><span class="menu-subs__static">Showing Tue&#8211;Fri prices only</span><button type="button" data-tf-off>Show all services</button></div>
@@ -3640,7 +3640,6 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="menu-list">
 <div class="menu-tfnote">
 <p class="offers-note"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg><span>Packages marked <strong>Tuesday&#8211;Friday</strong> are available on those days only.</span></p>
-<a href="/tue-fri-specials/" class="panel-more">See all Tue&#8211;Fri Specials on one page<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 <div class="menu-start">
 <details class="menu-item" id="svc-consultation" data-name="Hair Consultation" data-price="$35" data-alias="Hair Consultation">
@@ -3657,27 +3656,19 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="menu-sub has-tf" id="sub-colouring">
 <h4 class="menu-sub__title">All-Over Colour &amp; Toner</h4>
 <div class="menu-rows">
-<details class="menu-item has-tf" id="svc-all-over-colour" data-name="All Over Colour" data-price="from $229" data-alias="All Over Colour Package|All Over Colour Package + 50% Off Haircut|All Over Colour Package + Midweek Haircut Discount">
-<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">All Over Colour</span><span class="menu-row__short">Root-to-tip colour with up to 100% grey coverage</span></span><span class="menu-row__price">from $229<span class="menu-row__tf">Tue&#8211;Fri from $210</span></span><span class="menu-row__book menu-row__book--choose">Book</span><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<details class="menu-item" id="svc-all-over-colour" data-name="All Over Colour" data-alias="All Over Colour Package" data-price="from $229">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">All Over Colour</span><span class="menu-row__short">Root-to-tip colour with up to 100% grey coverage</span></span><span class="menu-row__price">from $229</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVxF_C_4mQMY3w_h9tMAd_0s" rel="noopener" target="_blank" aria-label="Book All Over Colour online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
 <div class="menu-item__body">
-<div class="price-split" role="group" aria-label="All over colour prices by day">
-<div class="price-split__col price-split__col--deal">
-<span class="price-split__label">Weekday <small>Tue&#8211;Fri</small></span>
-<span class="price-split__price">from $210</span>
-<span class="price-split__note">Short $210 &#183; Medium $234 &#183; Long $269 &#183; Extra long $299. Add a haircut for $45.</span>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV3YuKrD_7sTrdGKw9pkhjg8" rel="noopener" target="_blank" aria-label="Book the Tuesday to Friday all over colour special online">Book Tue&#8211;Fri</a>
-</div>
-<div class="price-split__col">
-<span class="price-split__label">Saturday</span>
-<span class="price-split__price">from $229</span>
-<span class="price-split__note">Short $229 &#183; Medium $249 &#183; Long $279 &#183; Extra long $309. Add a haircut for $65.</span>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVxF_C_4mQMY3w_h9tMAd_0s" rel="noopener" target="_blank" aria-label="Book the Saturday all over colour package online">Book Saturday</a>
-</div>
-</div>
 <p class="pricing-item__desc">Your colour, perfected. Every Hair Avenue colour service uses Wella's Koleston Perfect ME+ — the world's most advanced professional permanent colour. With Pure Balance Technology, it neutralises free radicals caused by mineral build-up in your hair, delivering richer, truer-to-tone results with significantly less damage, colour after colour.</p>
 <p class="pricing-item__desc">The ME+ molecule is a Wella-exclusive breakthrough — over seven years of research and 3,000+ formulations tested — that reduces the risk of developing a new colour allergy by up to 60 times. Gorgeous colour shouldn't come with compromise, and with Koleston Perfect, it doesn't.</p>
 <p class="pricing-item__desc desc-emphasis">Up to 100% grey coverage, up to 5 levels of lift, and natural depth and shine that lasts.</p>
-<div class="menu-deal">
+<p class="pricing-item__desc menu-tiers">Short $229 &#183; Medium $249 &#183; Long $279 &#183; Extra long $309. Add a haircut for $65.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVxF_C_4mQMY3w_h9tMAd_0s" rel="noopener" target="_blank">Book Now</a>
+</div>
+</details>
+<details class="menu-item menu-item--tf has-tf" id="svc-all-over-colour-tf" data-name="All Over Colour, midweek" data-alias="All Over Colour Package + 50% Off Haircut|All Over Colour Package + Midweek Haircut Discount|All Over Colour — Tue–Fri Special" data-price="from $210">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__tag">Tue&#8211;Fri only</span><span class="menu-row__name">All Over Colour, midweek</span><span class="menu-row__short">Save up to $19. Add a haircut for $45, not $65</span></span><span class="menu-row__price">from $210</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV3YuKrD_7sTrdGKw9pkhjg8" rel="noopener" target="_blank" aria-label="Book All Over Colour, midweek online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<div class="menu-item__body">
 <p class="menu-deal__title"><span>Tue&#8211;Fri special</span>All Over Colour Package + Midweek Haircut Discount</p>
 <p class="pricing-item__desc">A complete all-over colour refresh using Wella Professional colour &#8212; fresh, vibrant coverage from root to tip with expert application. Includes a consultation, luxurious shampoo, full colour application &amp; a polished blow wave finish. Book midweek and add a haircut for $45 (normally $65).</p>
 <details class="pkg-details">
@@ -3689,8 +3680,8 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 </div>
 </div>
 </details>
-</div>
-<a href="/hair-colour-canberra/" class="panel-more">Learn more about hair colour in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
+<p class="pricing-item__desc menu-tiers">Short $210 &#183; Medium $234 &#183; Long $269 &#183; Extra long $299. Add a haircut for $45.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV3YuKrD_7sTrdGKw9pkhjg8" rel="noopener" target="_blank">Book Now</a>
 </div>
 </details>
 <details class="menu-item" id="svc-toner-gloss" data-name="Toner / Gloss Maintenance" data-price="from $165" data-alias="Toner / Gloss Maintenance (with blow wave)">
@@ -3699,7 +3690,6 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <p class="pricing-item__desc">Bring your colour back to life between appointments. A gloss (or toner) is a gentle, bleach-free colour that sits over your existing shade &#8212; taking out brassy yellow or orange tones, evening out patchy or dull colour, and adding depth, richness and shine. Think of it as a top coat for your colour, lasting around 4&#8211;6 weeks.</p>
 <p class="pricing-item__desc">Your gloss is mixed to suit your hair using Wella professional colour, and the package is completed with a professional blow wave and styling.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0qDbPSFl2GQFmyEixso_5Q" rel="noopener" target="_blank">Book Now</a>
-<a href="/hair-colour-canberra/" class="panel-more">Learn more about hair colour in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 </details>
 </div>
@@ -3712,7 +3702,6 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="menu-item__body">
 <p class="pricing-item__desc">Your very first grey blend &#8212; a dedicated session with the extra time and product it deserves, finished with a gloss/toner and polished blow wave. Choose this option if you&#8217;re starting grey blending with us, going lighter from a dark base, or correcting uneven colour. Short to medium hair from $555; long or thick hair from $650.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV6mGnLVeD6QbatjKTtZVU30" rel="noopener" target="_blank" aria-label="Book first-time grey blending online">Book Now</a>
-<a href="/grey-blending-canberra/" class="panel-more">Canberra&#8217;s grey blending specialists &#8212; embrace your silver<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 </details>
 <details class="menu-item" id="svc-grey-blending" data-name="Grey Blending" data-price="$420 – $545">
@@ -3720,7 +3709,6 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="menu-item__body">
 <p class="pricing-item__desc">Canberra&#8217;s grey blending specialists &#8212; embrace your grey and make it truly gorgeous, the full service start to finish. Grey blending colour tailored to your hair and colour history, a gloss or toner to perfect your tone, a WellaPlex bond treatment and intensive nourishing treatment at the basin, and a polished blow wave or iron-styled finish. It grows out naturally, so you can go longer between visits.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV6mGnLVeD6QbatjKTtZVU30" rel="noopener" target="_blank">Book Now</a>
-<a href="/grey-blending-canberra/" class="panel-more">Canberra&#8217;s grey blending specialists &#8212; embrace your silver<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 </details>
 <details class="menu-item" id="svc-regrowth" data-name="Regrowth" data-price="from $199" data-alias="Regrowth Package">
@@ -3728,7 +3716,6 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="menu-item__body">
 <p class="pricing-item__desc">Just need your roots refreshed? Seamlessly blend new growth with your existing colour for a flawless, natural finish &#8212; ideal for regular colour maintenance and grey cover, with no bleach needed. Includes Wella regrowth colour, shampoo &amp; a polished blow wave or iron-styled finish.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-2CYQcH03edgARkSEc1xXo" rel="noopener" target="_blank">Book Now</a>
-<a href="/regrowth-canberra/" class="panel-more">Learn more about regrowth colour in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 </details>
 <details class="menu-item" id="svc-regrowth-toner" data-name="Regrowth + All Over Toner" data-price="from $230" data-alias="Regrowth + All Over Toner Package">
@@ -3736,7 +3723,6 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="menu-item__body">
 <p class="pricing-item__desc">Revitalise your look with expert regrowth colour paired with a complete toner refresh. This package delivers seamless, vibrant coverage from roots to ends, ensuring your shade stays rich, even and beautifully blended throughout.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV7cS6yvWGVZdj26jjsS84r8" rel="noopener" target="_blank">Book Now</a>
-<a href="/regrowth-canberra/" class="panel-more">Learn more about regrowth colour in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 </details>
 <details class="menu-item" id="svc-scalp-bleach" data-name="Scalp Bleach Regrowth + Toner" data-price="from $320">
@@ -3744,7 +3730,6 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="menu-item__body">
 <p class="pricing-item__desc">Lift your roots to a flawless, even blonde with our expert scalp bleach regrowth service. Carefully applied to minimise damage while achieving a seamless, bright result. Includes a professional toner &amp; polished blow wave.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVwvCD5fUIGpAR13s5zzX528" rel="noopener" target="_blank">Book Now</a>
-<a href="/regrowth-canberra/" class="panel-more">Learn more about regrowth colour in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 </details>
 </div>
@@ -3752,25 +3737,17 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="menu-sub has-tf" id="sub-highlights">
 <h4 class="menu-sub__title">Foils &amp; Balayage</h4>
 <div class="menu-rows">
-<details class="menu-item has-tf" id="svc-full-foils" data-name="Full-Head Foils" data-price="from $350" data-alias="Full-Head Foils / Blonde Package|Full Head Foils Package + 50% Off Haircut">
-<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Full-Head Foils</span><span class="menu-row__short">Blonde package with toner and blow wave</span></span><span class="menu-row__price">from $350<span class="menu-row__tf">Tue&#8211;Fri from $345</span></span><span class="menu-row__book menu-row__book--choose">Book</span><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<details class="menu-item" id="svc-full-foils" data-name="Full-Head Foils" data-alias="Full-Head Foils / Blonde Package" data-price="from $350">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Full-Head Foils</span><span class="menu-row__short">Blonde package with toner and blow wave</span></span><span class="menu-row__price">from $350</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV_2sKO91oCqwKSEoY0JbueA" rel="noopener" target="_blank" aria-label="Book Full-Head Foils online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
 <div class="menu-item__body">
-<div class="price-split" role="group" aria-label="Full-head foils prices by day">
-<div class="price-split__col price-split__col--deal">
-<span class="price-split__label">Weekday <small>Tue&#8211;Fri</small></span>
-<span class="price-split__price">from $345</span>
-<span class="price-split__note">Short $345 &#183; Medium $385 &#183; Long $395 &#183; Extra long or thick $445 &#183; Ultra blonde or colour correction $550. Add a haircut for $35.</span>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV2QQHpJ6hAgpy5YaNvslGa0" rel="noopener" target="_blank" aria-label="Book the Tuesday to Friday full-head foils special online">Book Tue&#8211;Fri</a>
-</div>
-<div class="price-split__col">
-<span class="price-split__label">Saturday</span>
-<span class="price-split__price">from $350</span>
-<span class="price-split__note">Short $350 &#183; Medium $395 &#183; Long $445 &#183; Extra long or thick $470 &#183; Ultra blonde or colour correction $550. Add a haircut for $65.</span>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV_2sKO91oCqwKSEoY0JbueA" rel="noopener" target="_blank" aria-label="Book the Saturday full-head foils package online">Book Saturday</a>
-</div>
-</div>
 <p class="pricing-item__desc">Our highlight and balayage services are powered by Wella Blondor — the professional lightening system trusted for controlled, reliable lift across the full blonde spectrum. Blondor delivers up to 9 levels of lift with built-in Bond Builder Technology for up to 97% less breakage. Anti-yellow molecules work during the lifting process to neutralise unwanted warmth, so your blonde comes out clean and exactly where you want it. Paired with Wellaplex bond protection, your hair stays strong and feels as healthy as it looks. Includes toner and blow wave. Ultra Blonde and Colour Correction options available.</p>
-<div class="menu-deal">
+<p class="pricing-item__desc menu-tiers">Short $350 &#183; Medium $395 &#183; Long $445 &#183; Extra long or thick $470 &#183; Ultra blonde or colour correction $550. Add a haircut for $65.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV_2sKO91oCqwKSEoY0JbueA" rel="noopener" target="_blank">Book Now</a>
+</div>
+</details>
+<details class="menu-item menu-item--tf has-tf" id="svc-full-foils-tf" data-name="Full-Head Foils, midweek" data-alias="Full Head Foils Package + 50% Off Haircut|Full-Head Foils — Tue–Fri Special" data-price="from $345">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__tag">Tue&#8211;Fri only</span><span class="menu-row__name">Full-Head Foils, midweek</span><span class="menu-row__short">Save up to $50. Add a haircut for $35, not $65</span></span><span class="menu-row__price">from $345</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV2QQHpJ6hAgpy5YaNvslGa0" rel="noopener" target="_blank" aria-label="Book Full-Head Foils, midweek online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<div class="menu-item__body">
 <p class="menu-deal__title"><span>Tue&#8211;Fri special</span>Full Head Foils Package + Discounted Haircut</p>
 <p class="pricing-item__desc">Bright, bold or beautifully blended &#8212; a complete head of foils from our colour specialists using Wella Blondor, with Bond Builder Technology for up to 97% less breakage. Fresh colour, expert care and a flawless finish in one appointment.</p>
 <details class="pkg-details">
@@ -3784,55 +3761,38 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <p class="pkg-note">Includes full head foils, gloss/toner, WellaPlex bond builder &amp; blow wave / iron styling.</p>
 </div>
 </details>
-</div>
-<a href="/blonde-specialist-canberra/" class="panel-more">Meet our blonde specialists<span class="chev" aria-hidden="true">&rsaquo;</span></a>
+<p class="pricing-item__desc menu-tiers">Short $345 &#183; Medium $385 &#183; Long $395 &#183; Extra long or thick $445 &#183; Ultra blonde or colour correction $550. Add a haircut for $35.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV2QQHpJ6hAgpy5YaNvslGa0" rel="noopener" target="_blank">Book Now</a>
 </div>
 </details>
-<details class="menu-item has-tf" id="svc-half-foils" data-name="Half-Head Foils" data-price="from $299" data-alias="Half-Head Foils Package|Half-Head Foils Special Deal">
-<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Half-Head Foils</span><span class="menu-row__short">Face-framing and crown foils, with toner</span></span><span class="menu-row__price">from $299<span class="menu-row__tf">Tue&#8211;Fri from $275</span></span><span class="menu-row__book menu-row__book--choose">Book</span><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<details class="menu-item" id="svc-half-foils" data-name="Half-Head Foils" data-alias="Half-Head Foils Package" data-price="from $299">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Half-Head Foils</span><span class="menu-row__short">Face-framing and crown foils, with toner</span></span><span class="menu-row__price">from $299</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV07vTBIEAvR5cyBbyLpN-Z8" rel="noopener" target="_blank" aria-label="Book Half-Head Foils online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
 <div class="menu-item__body">
-<div class="price-split" role="group" aria-label="Half-head foils prices by day">
-<div class="price-split__col price-split__col--deal">
-<span class="price-split__label">Weekday <small>Tue&#8211;Fri</small></span>
-<span class="price-split__price">from $275</span>
-<span class="price-split__note">Short $275 &#183; Medium $310 &#183; Long $345 &#183; Thick or extra long $375. Add a haircut for $35.</span>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV4b5ngtlA2aIcoz-AGTU3Vo" rel="noopener" target="_blank" aria-label="Book the Tuesday to Friday half-head foils special online">Book Tue&#8211;Fri</a>
-</div>
-<div class="price-split__col">
-<span class="price-split__label">Saturday</span>
-<span class="price-split__price">from $299</span>
-<span class="price-split__note">Short $299 &#183; Medium $335 &#183; Long $365 &#183; Thick or extra long $395. Add a haircut for $65.</span>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV07vTBIEAvR5cyBbyLpN-Z8" rel="noopener" target="_blank" aria-label="Book the Saturday half-head foils package online">Book Saturday</a>
-</div>
-</div>
 <p class="pricing-item__desc">Perfect for maintaining existing highlights, adding dimension or achieving a sun-kissed blonde while preserving your natural base colour. A low-maintenance grow-out with a soft, effortlessly stunning finish. Includes face-framing and crown foils, professional toner, treatment and a polished iron-styled finish.</p>
-<div class="menu-deal">
+<p class="pricing-item__desc menu-tiers">Short $299 &#183; Medium $335 &#183; Long $365 &#183; Thick or extra long $395. Add a haircut for $65.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV07vTBIEAvR5cyBbyLpN-Z8" rel="noopener" target="_blank">Book Now</a>
+</div>
+</details>
+<details class="menu-item menu-item--tf has-tf" id="svc-half-foils-tf" data-name="Half-Head Foils, midweek" data-alias="Half-Head Foils Special Deal|Half-Head Foils — Tue–Fri Special" data-price="from $275">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__tag">Tue&#8211;Fri only</span><span class="menu-row__name">Half-Head Foils, midweek</span><span class="menu-row__short">Save up to $25. Add a haircut for $35, not $65</span></span><span class="menu-row__price">from $275</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV4b5ngtlA2aIcoz-AGTU3Vo" rel="noopener" target="_blank" aria-label="Book Half-Head Foils, midweek online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<div class="menu-item__body">
 <p class="menu-deal__title"><span>Tue&#8211;Fri special</span>Half-Head Foils Special Deal + Discounted Haircut</p>
 <p class="pricing-item__desc">Refresh your colour with a half head of hand-woven foils at a special midweek price &#8212; brightness and dimension through the top and face-framing sections, finished with a professional toner and polished styling.</p>
-</div>
-<a href="/blonde-specialist-canberra/" class="panel-more">Meet our blonde specialists<span class="chev" aria-hidden="true">&rsaquo;</span></a>
+<p class="pricing-item__desc menu-tiers">Short $275 &#183; Medium $310 &#183; Long $345 &#183; Thick or extra long $375. Add a haircut for $35.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV4b5ngtlA2aIcoz-AGTU3Vo" rel="noopener" target="_blank">Book Now</a>
 </div>
 </details>
-<details class="menu-item has-tf" id="svc-balayage" data-name="Balayage" data-price="from $395" data-alias="Balayage — Full Head Lightening Package|Balayage Signature Special">
-<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Balayage</span><span class="menu-row__short">Full head, with toner, WellaPlex and blow wave</span></span><span class="menu-row__price">from $395<span class="menu-row__tf">Tue&#8211;Fri from $375</span></span><span class="menu-row__book menu-row__book--choose">Book</span><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<details class="menu-item" id="svc-balayage" data-name="Balayage" data-alias="Balayage — Full Head Lightening Package" data-price="from $395">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Balayage</span><span class="menu-row__short">Full head, with toner, WellaPlex and blow wave</span></span><span class="menu-row__price">from $395</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0b39yNcvZ1XnvdShve23Mg" rel="noopener" target="_blank" aria-label="Book Balayage online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
 <div class="menu-item__body">
-<div class="price-split" role="group" aria-label="Balayage prices by day">
-<div class="price-split__col price-split__col--deal">
-<span class="price-split__label">Weekday <small>Tue&#8211;Fri</small></span>
-<span class="price-split__price">from $375</span>
-<span class="price-split__note">Short $375 &#183; Medium $419 &#183; Long $449 &#183; Extra long $470. Add a haircut for $45.</span>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVzO1Js8jlGXGQs07gAe5Sko" rel="noopener" target="_blank" aria-label="Book the Tuesday to Friday balayage special online">Book Tue&#8211;Fri</a>
-</div>
-<div class="price-split__col">
-<span class="price-split__label">Saturday</span>
-<span class="price-split__price">from $395</span>
-<span class="price-split__note">Short $395 &#183; Medium $450 &#183; Long $485 &#183; Extra long $545. Add a haircut for $65.</span>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0b39yNcvZ1XnvdShve23Mg" rel="noopener" target="_blank" aria-label="Book the Saturday balayage package online">Book Saturday</a>
-</div>
-</div>
 <p class="pricing-item__desc">A tailored balayage colour experience designed for a vibrant, easy-to-maintain look with a gorgeous face-framing glow. Our stylists use strategic placement techniques for maximum visual impact with minimal upkeep between visits. Includes a gloss/toner, WellaPlex bond protection and a blow wave finish. Ultra Blonde (from $550) and Colour Correction (from $600) options available when you book.</p>
-
-<div class="menu-deal">
+<p class="pricing-item__desc menu-tiers">Short $395 &#183; Medium $450 &#183; Long $485 &#183; Extra long $545. Add a haircut for $65.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0b39yNcvZ1XnvdShve23Mg" rel="noopener" target="_blank">Book Now</a>
+</div>
+</details>
+<details class="menu-item menu-item--tf has-tf" id="svc-balayage-tf" data-name="Balayage, midweek" data-alias="Balayage Signature Special|Balayage — Tue–Fri Special" data-price="from $375">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__tag">Tue&#8211;Fri only</span><span class="menu-row__name">Balayage, midweek</span><span class="menu-row__short">Save up to $75. Add a haircut for $45, not $65</span></span><span class="menu-row__price">from $375</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVzO1Js8jlGXGQs07gAe5Sko" rel="noopener" target="_blank" aria-label="Book Balayage, midweek online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<div class="menu-item__body">
 <p class="menu-deal__title"><span>Tue&#8211;Fri special</span>Balayage Signature Special + Discounted Haircut</p>
 <p class="pricing-item__desc">Our signature all-inclusive Balayage Package performed by our colour specialists. Stunning, salon-quality colour with a complete treatment and finish &#8212; everything you need in one appointment, at an exceptional value.</p>
 <details class="pkg-details">
@@ -3847,9 +3807,8 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 </div>
 </div>
 </details>
-</div>
-<a href="/balayage-canberra/" class="panel-more">Learn more about balayage in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
-<a href="/blonde-specialist-canberra/" class="panel-more">Meet our blonde specialists<span class="chev" aria-hidden="true">&rsaquo;</span></a>
+<p class="pricing-item__desc menu-tiers">Short $375 &#183; Medium $419 &#183; Long $449 &#183; Extra long $470. Add a haircut for $45.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVzO1Js8jlGXGQs07gAe5Sko" rel="noopener" target="_blank">Book Now</a>
 </div>
 </details>
 </div>
@@ -3861,29 +3820,21 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="menu-sub has-tf" id="sub-cutblow">
 <h4 class="menu-sub__title">Cut &amp; Blow Wave</h4>
 <div class="menu-rows">
-<details class="menu-item has-tf" id="svc-cut-blow-wave" data-name="Haircut with Blow Wave" data-price="from $130" data-alias="Hair Cuts with Blow Wave|Hair Cut &amp; Blow Wave">
-<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Haircut with Blow Wave</span><span class="menu-row__short">Shampoo, cut and smooth blow wave</span></span><span class="menu-row__price">from $130<span class="menu-row__tf">Tue&#8211;Fri from $120</span></span><span class="menu-row__book menu-row__book--choose">Book</span><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<details class="menu-item" id="svc-cut-blow-wave" data-name="Haircut with Blow Wave" data-alias="Hair Cuts with Blow Wave" data-price="from $130">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Haircut with Blow Wave</span><span class="menu-row__short">Shampoo, cut and smooth blow wave</span></span><span class="menu-row__price">from $130</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV7XuycL-QI0-lzV0moNr2h4" rel="noopener" target="_blank" aria-label="Book Haircut with Blow Wave online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
 <div class="menu-item__body">
-<div class="price-split" role="group" aria-label="Haircut with blow wave prices by day">
-<div class="price-split__col price-split__col--deal">
-<span class="price-split__label">Weekday <small>Tue&#8211;Fri</small></span>
-<span class="price-split__price">from $120</span>
-<span class="price-split__note">Short $120 &#183; Medium $135 &#183; Long $150 &#183; Extra long, thick or restyle $170.</span>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV35KZ-62IFNvfTXjj-indc4" rel="noopener" target="_blank" aria-label="Book the Tuesday to Friday haircut and blow wave special online">Book Tue&#8211;Fri</a>
-</div>
-<div class="price-split__col">
-<span class="price-split__label">Saturday</span>
-<span class="price-split__price">from $130</span>
-<span class="price-split__note">Short $130 &#183; Medium $150 &#183; Long $170 &#183; Extra long, thick or restyle $185.</span>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV7XuycL-QI0-lzV0moNr2h4" rel="noopener" target="_blank" aria-label="Book a Saturday haircut with blow wave online">Book Saturday</a>
-</div>
-</div>
 <p class="pricing-item__desc">A fresh, personalised haircut with a shampoo and conditioning treatment at the basin, finished with a smooth blow wave. Simply choose your hair length when booking &#8212; or select Restyle for a complete change of shape. Add the Bouncy Blow Wave upgrade for $20.</p>
-<div class="menu-deal">
+<p class="pricing-item__desc menu-tiers">Short $130 &#183; Medium $150 &#183; Long $170 &#183; Extra long, thick or restyle $185.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV7XuycL-QI0-lzV0moNr2h4" rel="noopener" target="_blank">Book Now</a>
+</div>
+</details>
+<details class="menu-item menu-item--tf has-tf" id="svc-cut-blow-wave-tf" data-name="Haircut with Blow Wave, midweek" data-alias="Hair Cut &amp; Blow Wave|Haircut with Blow Wave — Tue–Fri Special" data-price="from $120">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__tag">Tue&#8211;Fri only</span><span class="menu-row__name">Haircut with Blow Wave, midweek</span><span class="menu-row__short">Save up to $20</span></span><span class="menu-row__price">from $120</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV35KZ-62IFNvfTXjj-indc4" rel="noopener" target="_blank" aria-label="Book Haircut with Blow Wave, midweek online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<div class="menu-item__body">
 <p class="menu-deal__title"><span>Tue&#8211;Fri special</span>Hair Cut &amp; Blow Wave &#8212; Midweek Special</p>
 <p class="pricing-item__desc">A fresh cut with a shampoo and conditioning treatment at the basin and a smooth blow wave to finish, at the midweek price &#8212; priced by hair length when you book. Add the Bouncy Blow Wave upgrade for $20.</p>
-</div>
-<a href="/haircuts-canberra/" class="panel-more">Learn more about haircuts in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
+<p class="pricing-item__desc menu-tiers">Short $120 &#183; Medium $135 &#183; Long $150 &#183; Extra long, thick or restyle $170.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV35KZ-62IFNvfTXjj-indc4" rel="noopener" target="_blank">Book Now</a>
 </div>
 </details>
 </div>
@@ -3896,7 +3847,6 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="menu-item__body">
 <p class="pricing-item__desc">A quick, expertly executed trim to keep your current style looking sharp and fresh &#8212; no wash, no blow-dry included. Please arrive with freshly washed and dried hair so our stylists can cut with precision and accuracy. For trims only &#8212; if you&#8217;re after a restyle, have thick hair or it&#8217;s been more than three months since your last cut, book a Hair Cut with Blow Wave instead.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV-FZjR3OSDqAVu-HKYLs9m0" rel="noopener" target="_blank">Book Now</a>
-<a href="/haircuts-canberra/" class="panel-more">Learn more about haircuts in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 </details>
 <details class="menu-item" id="svc-fringe-trim" data-name="Fringe Trim" data-price="$27" data-alias="Just Fringe Trim">
@@ -3904,7 +3854,6 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="menu-item__body">
 <p class="pricing-item__desc">A quick, precise fringe trim to keep your bangs looking neat and perfectly shaped between full haircut appointments. Walk-ins are always welcome for this express service. Please note that no shampoo or blow-dry is included.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV2GmuxY40GO52Rtnt9-sVQU" rel="noopener" target="_blank">Book Now</a>
-<a href="/haircuts-canberra/" class="panel-more">Learn more about haircuts in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 </details>
 </div>
@@ -3917,40 +3866,30 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="menu-item__body">
 <p class="pricing-item__desc">A friendly, stress-free dry cut for kids from kindergarten through to Year 6. Our team keeps things fun and relaxed so little ones feel comfortable in the chair. Please arrive with freshly washed, dry hair &#8212; no shampoo or blow-dry is included in this service.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV957xVnKDYdJEXj4PgW1XiM" rel="noopener" target="_blank">Book Now</a>
-<a href="/haircuts-canberra/" class="panel-more">Learn more about haircuts in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 </details>
 </div>
 </div>
 </section>
-<section class="menu-group has-tf" id="menu-styling" data-group="styling" data-label="Blow Wave &amp; Upstyle" aria-labelledby="menu-styling-t">
-<h3 class="menu-group__title" id="menu-styling-t">Blow Wave &amp; Upstyle <span>6 services</span></h3>
+<section class="menu-group has-tf" id="menu-blowwave" data-group="blowwave" data-label="Blow Wave" aria-labelledby="menu-blowwave-t">
+<h3 class="menu-group__title" id="menu-blowwave-t">Blow Wave <span>2 services</span></h3>
 <div class="menu-sub has-tf" id="sub-blowwave">
-<h4 class="menu-sub__title">Blow Wave</h4>
 <div class="menu-rows">
-<details class="menu-item has-tf" id="svc-blow-wave" data-name="Blow Wave" data-price="from $95" data-alias="Blow Wave Package|Blow Wave Midweek Special">
-<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Blow Wave</span><span class="menu-row__short">Shampoo, scalp massage and hydration mask included</span></span><span class="menu-row__price">from $95<span class="menu-row__tf">Tue&#8211;Fri from $80</span></span><span class="menu-row__book menu-row__book--choose">Book</span><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<details class="menu-item" id="svc-blow-wave" data-name="Blow Wave" data-alias="Blow Wave Package" data-price="from $95">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Blow Wave</span><span class="menu-row__short">Shampoo, scalp massage and hydration mask included</span></span><span class="menu-row__price">from $95</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-KQ8wNrIOec5oeIcIKKXuo" rel="noopener" target="_blank" aria-label="Book Blow Wave online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
 <div class="menu-item__body">
-<div class="price-split" role="group" aria-label="Blow wave prices by day">
-<div class="price-split__col price-split__col--deal">
-<span class="price-split__label">Weekday <small>Tue&#8211;Fri</small></span>
-<span class="price-split__price">from $80</span>
-<span class="price-split__note">Short $80 &#183; Medium $95 &#183; Long $110 &#183; Extra long $130 &#183; With extensions $145.</span>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV3KxCYrBOa9UtdPSGe-Z638" rel="noopener" target="_blank" aria-label="Book the Tuesday to Friday blow wave special online">Book Tue&#8211;Fri</a>
-</div>
-<div class="price-split__col">
-<span class="price-split__label">Saturday</span>
-<span class="price-split__price">from $95</span>
-<span class="price-split__note">Short $95 &#183; Medium $110 &#183; Long $125 &#183; Extra long $145 &#183; With extensions $165.</span>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-KQ8wNrIOec5oeIcIKKXuo" rel="noopener" target="_blank" aria-label="Book a Saturday blow wave online">Book Saturday</a>
-</div>
-</div>
 <p class="pricing-item__desc">A polished, professional blow wave tailored to your hair &#8212; includes a relaxing shampoo with scalp massage and an Intense Hydration Mask at the basin. Want more volume? Add the Bouncy Blow Wave upgrade for $20, or $50 set with rollers for weddings and events. Wearing hair extensions? Choose the extensions option so we can allow the right time and care.</p>
-<div class="menu-deal">
+<p class="pricing-item__desc menu-tiers">Short $95 &#183; Medium $110 &#183; Long $125 &#183; Extra long $145 &#183; With extensions $165.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-KQ8wNrIOec5oeIcIKKXuo" rel="noopener" target="_blank">Book Now</a>
+</div>
+</details>
+<details class="menu-item menu-item--tf has-tf" id="svc-blow-wave-tf" data-name="Blow Wave, midweek" data-alias="Blow Wave Midweek Special|Blow Wave — Tue–Fri Special" data-price="from $80">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__tag">Tue&#8211;Fri only</span><span class="menu-row__name">Blow Wave, midweek</span><span class="menu-row__short">Save $15, or $20 with extensions</span></span><span class="menu-row__price">from $80</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV3KxCYrBOa9UtdPSGe-Z638" rel="noopener" target="_blank" aria-label="Book Blow Wave, midweek online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<div class="menu-item__body">
 <p class="menu-deal__title"><span>Tue&#8211;Fri special</span>Blow Wave Midweek Special</p>
 <p class="pricing-item__desc">Our professional blow wave at a special midweek price &#8212; shampoo with scalp massage and the Intense Hydration Mask at the basin included. Add the Bouncy Blow Wave upgrade for $20, or $50 set with rollers, and choose the extensions option if you wear them.</p>
-</div>
-<a href="/blow-wave-canberra/" class="panel-more">Learn more about blow waves in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
+<p class="pricing-item__desc menu-tiers">Short $80 &#183; Medium $95 &#183; Long $110 &#183; Extra long $130 &#183; With extensions $145.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV3KxCYrBOa9UtdPSGe-Z638" rel="noopener" target="_blank">Book Now</a>
 </div>
 </details>
 <details class="menu-item" id="svc-bouncy" data-name="Bouncy Blow Wave Upgrade" data-price="+ $20" data-alias="Bouncy Blow Wave">
@@ -3958,20 +3897,20 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="menu-item__body">
 <p class="pricing-item__desc">Add to any blow wave for big, soft volume and movement through the ends, set with a round brush &#8212; ideal for weddings, formals and race days. For fuller volume that holds even longer, choose the roller set upgrade instead for $50. Select the upgrade when you book your blow wave.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-KQ8wNrIOec5oeIcIKKXuo" rel="noopener" target="_blank" aria-label="Book a bouncy blow wave online">Book Now</a>
-<a href="/blow-wave-canberra/" class="panel-more">Learn more about blow waves in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 </details>
 </div>
 </div>
+</section>
+<section class="menu-group" id="menu-upstyle" data-group="upstyle" data-label="Upstyle / Special Occasion" aria-labelledby="menu-upstyle-t">
+<h3 class="menu-group__title" id="menu-upstyle-t">Upstyle / Special Occasion <span>4 services</span></h3>
 <div class="menu-sub" id="sub-upstyle">
-<h4 class="menu-sub__title">Upstyle</h4>
 <div class="menu-rows">
 <details class="menu-item" id="svc-upstyle" data-name="Upstyle" data-price="from $195" data-alias="Upstyle (no Shampoo)|Upstyle">
 <summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Upstyle <small>(no shampoo)</small></span><span class="menu-row__short">Formal styling on clean, dry hair</span></span><span class="menu-row__price">from $195</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV-83KVI_nv3DzoQU4cJP1o0" rel="noopener" target="_blank" aria-label="Book Upstyle online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
 <div class="menu-item__body">
 <p class="pricing-item__desc">An elegant, beautifully crafted updo perfect for wedding hair, bridal parties, formals and special occasions. Includes a personalised consultation to design a style that complements your outfit and features. Please arrive with clean, dry hair.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV-83KVI_nv3DzoQU4cJP1o0" rel="noopener" target="_blank">Book Now</a>
-<a href="/wedding-hair-canberra/" class="panel-more">Learn more about wedding &amp; formal hair in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 </details>
 <details class="menu-item" id="svc-upstyle-shampoo" data-name="Upstyle with Shampoo &amp; Blow Wave" data-price="from $250" data-alias="Upstyle (with Shampoo &amp; Blow Wave)">
@@ -3979,7 +3918,6 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="menu-item__body">
 <p class="pricing-item__desc">A complete wedding and formal hair experience, including a relaxing shampoo, professional blow wave and elegant formal styling. Our stylists will create a stunning, long-lasting updo tailored to your look and occasion.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV4b5ngtlA2aIcoz-AGTU3Vo" rel="noopener" target="_blank">Book Now</a>
-<a href="/wedding-hair-canberra/" class="panel-more">Learn more about wedding &amp; formal hair in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 </details>
 </div>
@@ -3992,7 +3930,6 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="menu-item__body">
 <p class="pricing-item__desc">Add a touch of sparkle and eye-catching shine to your hair with beautiful, lightweight tinsel strands. Available in a range of colours to match your style, they are gentle on your hair and last for weeks with normal washing.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV_JP1OBIwk-OuH0sfzBCX8M" rel="noopener" target="_blank">Book Now</a>
-<a href="/hair-tinsel-canberra/" class="panel-more">Hair tinsel — sparkle for kids &amp; adults<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 </details>
 <details class="menu-item" id="svc-tinsel-kids" data-name="Hair Tinsel for Kids" data-price="$45">
@@ -4000,14 +3937,61 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="menu-item__body">
 <p class="pricing-item__desc">Fun, sparkly tinsel strands designed especially for kids who love a bit of extra shimmer and pizzazz. Our safe, gentle application ensures no damage to young hair. Available in a variety of bright, exciting colours. Exclusively for primary and high school students.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFVz-2pXcr8IDfzE8eD9186PU" rel="noopener" target="_blank">Book Now</a>
-<a href="/hair-tinsel-canberra/" class="panel-more">Hair tinsel — sparkle for kids &amp; adults<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 </details>
 </div>
 </div>
 </section>
-<section class="menu-group has-tf" id="menu-treatments" data-group="treatments" data-label="Perms &amp; Treatments" aria-labelledby="menu-treatments-t">
-<h3 class="menu-group__title" id="menu-treatments-t">Perms &amp; Treatments <span>4 services</span></h3>
+<section class="menu-group has-tf" id="menu-perms" data-group="perms" data-label="Perms" aria-labelledby="menu-perms-t">
+<h3 class="menu-group__title" id="menu-perms-t">Perms <span>2 services</span></h3>
+<div class="menu-sub has-tf" id="sub-perms">
+<h4 class="menu-sub__title">Perms &amp; Permanent Straightening</h4>
+<p class="menu-hint menu-hint--sub">Looking for a men&#8217;s perm? <a href="#mens-perm" class="link-green" data-menu-jump>See Men&#8217;s Perm<span class="chev" aria-hidden="true">&rsaquo;</span></a></p>
+<div class="menu-rows">
+<details class="menu-item has-tf" id="svc-womens-perm" data-name="Women’s Perm" data-price="from $230" data-alias="Women’s Perm Package|Women&#x27;s Perm Package|Perm Package">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__tag">Tue&#8211;Fri only</span><span class="menu-row__name">Women&#8217;s Perm</span><span class="menu-row__short">Waves, curls or root volume</span></span><span class="menu-row__price">from $230</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV4D4Wv0tvnnaakLnEH0gJ3A" rel="noopener" target="_blank" aria-label="Book Women’s Perm online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<div class="menu-item__body">
+<span class="pkg-availability"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>Available Tuesday &#8211; Friday</span>
+<p class="pricing-item__desc">Soft beach waves, defined curls or lasting volume at the roots &#8212; a modern perm tailored to your hair, with a shampoo, nourishing hair mask and dry-off finish included. Choose a full perm by hair length, a root perm for lift without changing your lengths, or a quick fringe-only perm when you book. Add a haircut for $65 if you&#8217;d like one.</p>
+<p class="pricing-item__desc">Results last several months and grow out softly with no harsh line.</p>
+<p class="pricing-item__desc">Fringe perm $99, root perm $150 and full perms from $230 (short, clipper back and sides) &#8212; priced by hair length when you book, and very long or thick hair may need extra product. First perm with us? Book the perm consultation first ($35).</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV4D4Wv0tvnnaakLnEH0gJ3A" rel="noopener" target="_blank" aria-label="Book the Women's Perm Package online">Book Now</a>
+</div>
+</details>
+<details class="menu-item" id="svc-shiseido" data-name="Shiseido Permanent Straightening" data-price="from $415" data-alias="Permanent Hair Straightening – Shiseido">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Shiseido Permanent Straightening</span><span class="menu-row__short">Permanently sleek, straight hair</span></span><span class="menu-row__price">from $415</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-zzElVzy_MmGWgG3taNIog" rel="noopener" target="_blank" aria-label="Book Shiseido Permanent Straightening online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<div class="menu-item__body">
+<p class="pricing-item__desc">A professional Shiseido Japanese hair straightening treatment that permanently restructures the hair&#8217;s internal bonds — transforming wavy, curly or coarse hair into sleek, frizz-free, low-maintenance strands. Long-lasting results &#8212; up to 8 months before regrowth shows. A consultation is required prior to booking; not recommended for heavily bleached or severely damaged hair. Formaldehyde-free and gentler than many keratin treatments. Prices include the $35 consultation: short $415, medium $515, long $615.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-zzElVzy_MmGWgG3taNIog" rel="noopener" target="_blank">Book Now</a>
+</div>
+</details>
+</div>
+</div>
+</section>
+<section class="menu-group has-tf" id="menu-smoothing" data-group="smoothing" data-label="Nanoplasty &amp; SmoothFiller" aria-labelledby="menu-smoothing-t">
+<h3 class="menu-group__title" id="menu-smoothing-t">Nanoplasty &amp; SmoothFiller <span>2 services</span></h3>
+<div class="menu-sub has-tf" id="sub-nanoplasty">
+<h4 class="menu-sub__title">Nanoplasty</h4>
+<div class="menu-rows">
+<details class="menu-item" id="svc-nanoplasty" data-name="Nanoplasty" data-alias="Nanoplasty Treatment" data-price="from $445">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Nanoplasty</span><span class="menu-row__short">Frizz-free, silky hair for 6&#8211;12 months</span></span><span class="menu-row__price">from $445</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV3Fnu9iG5ML_9k0LZeKK1tw" rel="noopener" target="_blank" aria-label="Book Nanoplasty online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<div class="menu-item__body">
+<p class="pricing-item__desc">A premium, formaldehyde-free Brazilian smoothing treatment that rebuilds each strand with amino acids and natural proteins &#8212; beautifully frizz-free, silky-smooth hair with results lasting 6&#8211;12 months. Suitable for most hair types, including colour-treated hair. Allow 3&#8211;4.5 hours in the salon. Prices include the $35 consultation.</p>
+<p class="pricing-item__desc menu-tiers">Short $445 &#183; Medium $584 &#183; Long $634 &#183; Extra long or very thick $725. Add a haircut for $65.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV3Fnu9iG5ML_9k0LZeKK1tw" rel="noopener" target="_blank">Book Now</a>
+</div>
+</details>
+<details class="menu-item menu-item--tf has-tf" id="svc-nanoplasty-tf" data-name="Nanoplasty, midweek" data-alias="Nanoplasty Smoothing Treatment|Nanoplasty — Tue–Fri Special" data-price="from $445">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__tag">Tue&#8211;Fri only</span><span class="menu-row__name">Nanoplasty, midweek</span><span class="menu-row__short">Save up to $40. Add a haircut for $35, not $65</span></span><span class="menu-row__price">from $445</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV5nIgzydhxXWsBD0jQxgjD0" rel="noopener" target="_blank" aria-label="Book Nanoplasty, midweek online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<div class="menu-item__body">
+<p class="menu-deal__title"><span>Tue&#8211;Fri special</span>Nanoplasty Smoothing Treatment + Discounted Haircut</p>
+<p class="pricing-item__desc">Say goodbye to frizz with our premium Nanoplasty smoothing treatment at a special midweek price &#8212; deeply nourishing ingredients leave hair straighter, silkier and easier to manage for months. Book midweek and add a haircut for $35 (normally $65).</p>
+<p class="pricing-item__desc menu-tiers">Short $445 &#183; Medium $555 &#183; Long $605 &#183; Extra long or very thick $685. Add a haircut for $35.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV5nIgzydhxXWsBD0jQxgjD0" rel="noopener" target="_blank">Book Now</a>
+</div>
+</details>
+</div>
+</div>
 <div class="menu-sub" id="sub-smoothfiller">
 <h4 class="menu-sub__title">SmoothFiller</h4>
 <div class="menu-rows">
@@ -4029,62 +4013,6 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="ba-item"><img alt="Before SmoothFiller" loading="lazy" src="images/wella/wella-smoothfiller-before.webp" width="480" height="480" class="ba-item__img"/><span class="ba-item__tag">Before</span></div>
 <div class="ba-item"><img alt="After SmoothFiller" loading="lazy" src="images/wella/wella-smoothfiller-after.webp" width="480" height="480" class="ba-item__img"/><span class="ba-item__tag">After</span></div>
 </div>
-<a href="/hair-smoothfiller-canberra/" class="panel-more">Learn more about Hair SmoothFiller<span class="chev" aria-hidden="true">&rsaquo;</span></a>
-</div>
-</details>
-</div>
-</div>
-<div class="menu-sub has-tf" id="sub-nanoplasty">
-<h4 class="menu-sub__title">Nanoplasty</h4>
-<div class="menu-rows">
-<details class="menu-item has-tf" id="svc-nanoplasty" data-name="Nanoplasty" data-price="from $445" data-alias="Nanoplasty Treatment|Nanoplasty Smoothing Treatment">
-<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Nanoplasty</span><span class="menu-row__short">Frizz-free, silky hair for 6&#8211;12 months</span></span><span class="menu-row__price">from $445<span class="menu-row__tf">Tue&#8211;Fri saves up to $40</span></span><span class="menu-row__book menu-row__book--choose">Book</span><span class="menu-row__chev" aria-hidden="true"></span></summary>
-<div class="menu-item__body">
-<div class="price-split" role="group" aria-label="Nanoplasty prices by day">
-<div class="price-split__col price-split__col--deal">
-<span class="price-split__label">Weekday <small>Tue&#8211;Fri</small></span>
-<span class="price-split__price">from $445</span>
-<span class="price-split__note">Short $445 &#183; Medium $555 &#183; Long $605 &#183; Extra long or very thick $685. Add a haircut for $35.</span>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV5nIgzydhxXWsBD0jQxgjD0" rel="noopener" target="_blank" aria-label="Book the Tuesday to Friday nanoplasty special online">Book Tue&#8211;Fri</a>
-</div>
-<div class="price-split__col">
-<span class="price-split__label">Saturday</span>
-<span class="price-split__price">from $445</span>
-<span class="price-split__note">Short $445 &#183; Medium $584 &#183; Long $634 &#183; Extra long or very thick $725. Add a haircut for $65.</span>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV3Fnu9iG5ML_9k0LZeKK1tw" rel="noopener" target="_blank" aria-label="Book a Saturday nanoplasty treatment online">Book Saturday</a>
-</div>
-</div>
-<p class="pricing-item__desc">A premium, formaldehyde-free Brazilian smoothing treatment that rebuilds each strand with amino acids and natural proteins &#8212; beautifully frizz-free, silky-smooth hair with results lasting 6&#8211;12 months. Suitable for most hair types, including colour-treated hair. Allow 3&#8211;4.5 hours in the salon. Prices include the $35 consultation.</p>
-<div class="menu-deal">
-<p class="menu-deal__title"><span>Tue&#8211;Fri special</span>Nanoplasty Smoothing Treatment + Discounted Haircut</p>
-<p class="pricing-item__desc">Say goodbye to frizz with our premium Nanoplasty smoothing treatment at a special midweek price &#8212; deeply nourishing ingredients leave hair straighter, silkier and easier to manage for months. Book midweek and add a haircut for $35 (normally $65).</p>
-</div>
-<a href="/nanoplasty-canberra/" class="panel-more">Learn more about nanoplasty in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
-</div>
-</details>
-</div>
-</div>
-<div class="menu-sub has-tf" id="sub-perms">
-<h4 class="menu-sub__title">Perms &amp; Permanent Straightening</h4>
-<p class="menu-hint menu-hint--sub">Looking for a men&#8217;s perm? <a href="#mens-perm" class="link-green" data-menu-jump>See Men&#8217;s Perm<span class="chev" aria-hidden="true">&rsaquo;</span></a></p>
-<div class="menu-rows">
-<details class="menu-item has-tf" id="svc-womens-perm" data-name="Women’s Perm" data-price="from $230" data-alias="Women’s Perm Package|Women&#x27;s Perm Package|Perm Package">
-<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Women&#8217;s Perm</span><span class="menu-row__short">Waves, curls or root volume</span></span><span class="menu-row__price">from $230<span class="menu-row__tf">Tue&#8211;Fri only</span></span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV4D4Wv0tvnnaakLnEH0gJ3A" rel="noopener" target="_blank" aria-label="Book Women’s Perm online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
-<div class="menu-item__body">
-<span class="pkg-availability"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>Available Tuesday &#8211; Friday</span>
-<p class="pricing-item__desc">Soft beach waves, defined curls or lasting volume at the roots &#8212; a modern perm tailored to your hair, with a shampoo, nourishing hair mask and dry-off finish included. Choose a full perm by hair length, a root perm for lift without changing your lengths, or a quick fringe-only perm when you book. Add a haircut for $65 if you&#8217;d like one.</p>
-<p class="pricing-item__desc">Results last several months and grow out softly with no harsh line.</p>
-<p class="pricing-item__desc">Fringe perm $99, root perm $150 and full perms from $230 (short, clipper back and sides) &#8212; priced by hair length when you book, and very long or thick hair may need extra product. First perm with us? Book the perm consultation first ($35).</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV4D4Wv0tvnnaakLnEH0gJ3A" rel="noopener" target="_blank" aria-label="Book the Women's Perm Package online">Book Now</a>
-<a href="/perms-canberra/" class="panel-more">Learn more about perms in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
-</div>
-</details>
-<details class="menu-item" id="svc-shiseido" data-name="Shiseido Permanent Straightening" data-price="from $415" data-alias="Permanent Hair Straightening – Shiseido">
-<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Shiseido Permanent Straightening</span><span class="menu-row__short">Permanently sleek, straight hair</span></span><span class="menu-row__price">from $415</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-zzElVzy_MmGWgG3taNIog" rel="noopener" target="_blank" aria-label="Book Shiseido Permanent Straightening online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
-<div class="menu-item__body">
-<p class="pricing-item__desc">A professional Shiseido Japanese hair straightening treatment that permanently restructures the hair&#8217;s internal bonds — transforming wavy, curly or coarse hair into sleek, frizz-free, low-maintenance strands. Long-lasting results &#8212; up to 8 months before regrowth shows. A consultation is required prior to booking; not recommended for heavily bleached or severely damaged hair. Formaldehyde-free and gentler than many keratin treatments. Prices include the $35 consultation: short $415, medium $515, long $615.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-zzElVzy_MmGWgG3taNIog" rel="noopener" target="_blank">Book Now</a>
-<a href="/perms-canberra/" class="panel-more">Learn more about perms in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 </details>
 </div>
@@ -4095,7 +4023,7 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="gl-intro">
 <img alt="Great Lengths" class="gl-intro__logo" loading="lazy" src="images/great-lengths/great-lengths-logo-black.png" width="640" height="225"/>
 <span class="gl-intro__badge">Official Great Lengths Salon</span>
-<p class="gl-intro__text">Tape-in hair extensions with Great Lengths Essenza tapes &#8212; about 20% smaller and lighter than standard tapes, with a medical-grade hypoallergenic adhesive and clean, residue-free removal. Colour-matched to your own hair, moved up every 6&#8211;8 weeks and reusable for months. Every Hair Avenue stylist is Great Lengths&#8211;trained. <a href="/news/great-lengths-tape-extensions/" class="link-green">Read the announcement<span class="chev" aria-hidden="true">&rsaquo;</span></a></p>
+<p class="gl-intro__text">Tape-in hair extensions with Great Lengths Essenza tapes &#8212; about 20% smaller and lighter than standard tapes, with a medical-grade hypoallergenic adhesive and clean, residue-free removal. Colour-matched to your own hair, moved up every 6&#8211;8 weeks and reusable for months. Every Hair Avenue stylist is Great Lengths&#8211;trained.</p>
 </div>
 <div class="menu-sub" id="sub-extensions">
 <div class="menu-rows">
@@ -4108,7 +4036,6 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <p class="pricing-item__desc"><strong>Why it matters:</strong> no guesswork. If your hair isn&#8217;t ready for extensions yet, we&#8217;ll tell you and give you a plan to get it there &#8212; we&#8217;d rather say so now than after.</p>
 <p class="pricing-item__desc"><strong>Good to know:</strong> all installs using salon-supplied Great Lengths hair must be booked with a consultation first, so we can match and order your shades before your fitting.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV1LIzh6djkeSjLuE377PwgE" rel="noopener" target="_blank" aria-label="Book a tape extension consultation and colour match online">Book Now</a>
-<a href="/hair-extensions-canberra/" class="panel-more">Learn more about Great Lengths tape extensions in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 </details>
 <details class="menu-item" id="svc-ext-install" data-name="New Tape Extension Install" data-price="$270 – $570">
@@ -4120,7 +4047,6 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <p class="pricing-item__desc"><strong>How to prepare:</strong> arrive with clean, dry hair washed with shampoo only &#8212; no conditioner, oils or styling product near the roots, so the tapes bond properly. Booking colour as well? We&#8217;ll do the colour first so your extensions are matched to the fresh shade.</p>
 <p class="pricing-item__desc"><strong>Why clients love it:</strong> the quickest professional extension method to fit, light and comfortable for everyday wear, and the hair is reusable &#8212; it&#8217;s simply moved up every 6&#8211;8 weeks as your own hair grows.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV995KK36SVs6rASMTzwumpQ" rel="noopener" target="_blank" aria-label="Book a new tape extension install online">Book Now</a>
-<a href="/hair-extensions-canberra/" class="panel-more">Learn more about Great Lengths tape extensions in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 </details>
 <details class="menu-item" id="svc-ext-move-up" data-name="Tape Extension Move Up" data-price="$280 – $580" data-alias="Tape Extension Move Up Package">
@@ -4132,7 +4058,6 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <p class="pricing-item__desc"><strong>How to prepare:</strong> come with clean, dry hair, shampoo only, with no conditioner or oils near the tapes. There&#8217;s nothing to take out beforehand &#8212; it all happens in the one visit. Try not to stretch past 8 weeks, as grown-out tapes can tangle and pull.</p>
 <p class="pricing-item__desc"><strong>Why clients love it:</strong> the same Great Lengths hair is reused visit after visit, the result stays consistent, and your natural hair is protected. Wearing extensions from another salon? We&#8217;re happy to move those up too &#8212; if the hair is in good condition we&#8217;ll re-tape it, and if it isn&#8217;t we&#8217;ll tell you honestly what your options are.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0heQ90vSrGjXXRYL0_TBxY" rel="noopener" target="_blank" aria-label="Book a tape extension move up online">Book Now</a>
-<a href="/hair-extensions-canberra/" class="panel-more">Learn more about Great Lengths tape extensions in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 </details>
 <details class="menu-item" id="svc-ext-removal" data-name="Tape Extension Removal" data-price="$100 – $200" data-alias="Tape Extension Removal Express">
@@ -4144,7 +4069,6 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <p class="pricing-item__desc"><strong>How to prepare:</strong> nothing special &#8212; come as you are. If you&#8217;d like a new set fitted straight after, tell us when you book so we can allow the time.</p>
 <p class="pricing-item__desc"><strong>Good to know:</strong> not our extensions? No problem &#8212; we remove other salons&#8217; work too.</p>
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVz0wvkdpiZWHaYkOy2GP7BY" rel="noopener" target="_blank" aria-label="Book a tape extension removal online">Book Now</a>
-<a href="/hair-extensions-canberra/" class="panel-more">Learn more about Great Lengths tape extensions in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 </details>
 </div>
@@ -4176,25 +4100,21 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="menu-sub has-tf" id="sub-menscuts">
 <h4 class="menu-sub__title">Men&#8217;s Cuts</h4>
 <div class="menu-rows">
-<details class="menu-item has-tf" id="svc-mens-haircut" data-name="Men’s Haircut" data-price="from $40" data-alias="Men’s Haircuts|Men&#x27;s Haircuts|Men’s Haircut — Tue–Fri Special">
-<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Men&#8217;s Haircut</span><span class="menu-row__short">Buzz cut, clipper cut, skin fade or scissor cut</span></span><span class="menu-row__price">from $40<span class="menu-row__tf">Tue&#8211;Fri saves up to $10</span></span><span class="menu-row__book menu-row__book--choose">Book</span><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<details class="menu-item" id="svc-mens-haircut" data-name="Men’s Haircut" data-alias="Men’s Haircuts|Men&#x27;s Haircuts" data-price="from $40">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Men&#8217;s Haircut</span><span class="menu-row__short">Buzz cut, clipper cut, skin fade or scissor cut</span></span><span class="menu-row__price">from $40</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-83KVI_nv3DzoQU4cJP1o0" rel="noopener" target="_blank" aria-label="Book Men’s Haircut online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
 <div class="menu-item__body">
-<div class="price-split" role="group" aria-label="Men&#8217;s haircut prices by day">
-<div class="price-split__col price-split__col--deal">
-<span class="price-split__label">Weekday <small>Tue&#8211;Fri</small></span>
-<span class="price-split__price">from $40</span>
-<span class="price-split__note">Buzz cut $40 &#183; Clipper cut $55 &#183; Skin fade or scissor cut $60 &#183; Long hair $80 &#183; Add a shampoo $10</span>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVyK3W4mE5ISF_nctsewhB0U" rel="noopener" target="_blank" aria-label="Book the Tuesday to Friday men's haircut special online">Book Tue&#8211;Fri</a>
-</div>
-<div class="price-split__col">
-<span class="price-split__label">Saturday</span>
-<span class="price-split__price">from $40</span>
-<span class="price-split__note">Buzz cut $40 &#183; Clipper cut $65 &#183; Skin fade or scissor cut $65 &#183; Long hair $85 &#183; Add a shampoo $15</span>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-83KVI_nv3DzoQU4cJP1o0" rel="noopener" target="_blank" aria-label="Book a Saturday men's haircut online">Book Saturday</a>
-</div>
-</div>
 <p class="pricing-item__desc">Sharp, clean men&#8217;s cuts by stylists who specialise in clipper work, skin fades and scissor styling &#8212; shaped to your head so it grows out well. Choose a buzz cut, clipper cut, skin fade, scissor style or long-hair cut, each finished with a dry-off and style. Add a shampoo if you like, or arrive with freshly washed hair for the most precise cut. The same cuts cost a little less Tuesday to Friday &#8212; pick the day that suits you.</p>
-<a href="/mens-haircuts-braddon/" class="panel-more">Learn more about men&#8217;s haircuts in Braddon<span class="chev" aria-hidden="true">&rsaquo;</span></a>
+<p class="pricing-item__desc menu-tiers">Buzz cut $40 &#183; Clipper cut $65 &#183; Skin fade or scissor cut $65 &#183; Long hair $85 &#183; Add a shampoo $15</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-83KVI_nv3DzoQU4cJP1o0" rel="noopener" target="_blank">Book Now</a>
+</div>
+</details>
+<details class="menu-item menu-item--tf has-tf" id="svc-mens-haircut-tf" data-name="Men’s Haircut, midweek" data-alias="Men’s Haircut — Tue–Fri Special" data-price="from $40">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__tag">Tue&#8211;Fri only</span><span class="menu-row__name">Men&#8217;s Haircut, midweek</span><span class="menu-row__short">Save up to $10</span></span><span class="menu-row__price">from $40</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVyK3W4mE5ISF_nctsewhB0U" rel="noopener" target="_blank" aria-label="Book Men’s Haircut, midweek online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<div class="menu-item__body">
+<p class="menu-deal__title"><span>Tue&#8211;Fri special</span>Men&#8217;s Haircut &#8212; Tue&#8211;Fri Special</p>
+<p class="pricing-item__desc">The same men&#8217;s cuts at the midweek price, Tuesday to Friday.</p>
+<p class="pricing-item__desc menu-tiers">Buzz cut $40 &#183; Clipper cut $55 &#183; Skin fade or scissor cut $60 &#183; Long hair $80 &#183; Add a shampoo $10</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVyK3W4mE5ISF_nctsewhB0U" rel="noopener" target="_blank">Book Now</a>
 </div>
 </details>
 </div>
@@ -4209,26 +4129,21 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV_2roBoXxupMvYk2LVDPdAg" rel="noopener" target="_blank" aria-label="Book a men's perm consultation online">Book Now</a>
 </div>
 </details>
-<details class="menu-item has-tf" id="mens-perm" data-name="Men’s Perm" data-price="from $250">
-<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Men&#8217;s Perm <small>(returning clients or after consultation)</small></span><span class="menu-row__short">Texture and volume, clipper back and sides</span></span><span class="menu-row__price">from $250<span class="menu-row__tf">Tue&#8211;Fri from $230</span></span><span class="menu-row__book menu-row__book--choose">Book</span><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<details class="menu-item" id="mens-perm" data-name="Men’s Perm" data-price="from $250">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Men&#8217;s Perm <small>(returning clients or after consultation)</small></span><span class="menu-row__short">Texture and volume, clipper back and sides</span></span><span class="menu-row__price">from $250</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVxw9X5yojPsDTbPzZYmzIGs" rel="noopener" target="_blank" aria-label="Book Men’s Perm online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
 <div class="menu-item__body">
-<div class="price-split" role="group" aria-label="Men&#8217;s perm prices by day">
-<div class="price-split__col price-split__col--deal">
-<span class="price-split__label">Weekday <small>Tue&#8211;Fri</small></span>
-<span class="price-split__price">from $230</span>
-<span class="price-split__note">Men&#8217;s short perm, clipper back and sides. Add a haircut for $65.</span>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVx5CyZSz-fg_AwA79MuI_AM" rel="noopener" target="_blank" aria-label="Book a Tuesday to Friday men's perm online">Book Tue&#8211;Fri</a>
+<p class="pricing-item__desc">Texture, volume and an easy everyday shape that styles in minutes. Men&#8217;s short perm (clipper back and sides, perm through the top) is $230 Tuesday to Friday or $250 on Saturday. A short hair style perm (one length all over) is $280 in the perm package under Perms. Includes the perm wrap, processing and neutralising, an Intense Hydration Mask and scalp massage at the basin, and a dry-off and style with aftercare tips. Add a haircut for $65. Allow about 2.5 hours. First perm with us? Book the consultation above first.</p>
+<p class="pricing-item__desc menu-tiers">Men&#8217;s short perm, clipper back and sides. Add a haircut for $65.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVxw9X5yojPsDTbPzZYmzIGs" rel="noopener" target="_blank">Book Now</a>
 </div>
-<div class="price-split__col">
-<span class="price-split__label">Saturday</span>
-<span class="price-split__price">from $250</span>
-<span class="price-split__note">Men&#8217;s short perm, clipper back and sides. Add a haircut for $65.</span>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVxw9X5yojPsDTbPzZYmzIGs" rel="noopener" target="_blank" aria-label="Book a Saturday men's perm online">Book Saturday</a>
-</div>
-</div>
-
-<p class="pricing-item__desc">Texture, volume and an easy everyday shape that styles in minutes. Men&#8217;s short perm (clipper back and sides, perm through the top) is $230 Tuesday to Friday or $250 on Saturday. A short hair style perm (one length all over) is $280 in the perm package under Perms &amp; Treatments. Includes the perm wrap, processing and neutralising, an Intense Hydration Mask and scalp massage at the basin, and a dry-off and style with aftercare tips. Add a haircut for $65. Allow about 2.5 hours. First perm with us? Book the consultation above first.</p>
-<a href="/perms-canberra/" class="panel-more">Learn more about perms in Canberra<span class="chev" aria-hidden="true">&rsaquo;</span></a>
+</details>
+<details class="menu-item menu-item--tf has-tf" id="mens-perm-tf" data-name="Men’s Perm, midweek" data-alias="Men’s Perm — Tue–Fri" data-price="from $230">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__tag">Tue&#8211;Fri only</span><span class="menu-row__name">Men&#8217;s Perm, midweek</span><span class="menu-row__short">Save $20</span></span><span class="menu-row__price">from $230</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVx5CyZSz-fg_AwA79MuI_AM" rel="noopener" target="_blank" aria-label="Book Men’s Perm, midweek online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<div class="menu-item__body">
+<p class="menu-deal__title"><span>Tue&#8211;Fri special</span>Men&#8217;s Perm &#8212; Tue&#8211;Fri price</p>
+<p class="pricing-item__desc">The same men&#8217;s short perm at the midweek price, Tuesday to Friday. First perm with us? Book the Men&#8217;s Perm Consultation first.</p>
+<p class="pricing-item__desc menu-tiers">Men&#8217;s short perm, clipper back and sides. Add a haircut for $65.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVx5CyZSz-fg_AwA79MuI_AM" rel="noopener" target="_blank">Book Now</a>
 </div>
 </details>
 </div>
@@ -4903,6 +4818,7 @@ window.addEventListener('load', function() {
 <li><a class="footer__link" href="/perms-canberra/">Perms</a></li>
 <li><a class="footer__link" href="/hair-tinsel-canberra/">Hair Tinsel</a></li>
 <li><a class="footer__link" href="/hair-extensions-canberra/">Hair Extensions</a></li>
+<li><a class="footer__link" href="/news/great-lengths-tape-extensions/">Great Lengths News</a></li>
 <li><a class="footer__link" href="/mens-haircuts-braddon/">Men&#8217;s Cuts</a></li>
 <li><a class="footer__link" href="/tue-fri-specials/">Tue&#8211;Fri Specials</a></li>
 <li><a class="footer__link" href="#loyalty">Rewards</a></li>
@@ -5161,7 +5077,7 @@ window.addEventListener('load', function() {
     var g = pick(groups, line), gk = g ? g.getAttribute('data-group') : null;
     var s = g ? pick([].slice.call(g.querySelectorAll('.menu-sub')), line) : null, sk = s ? s.id : null;
     if (gk !== curGroup){ curGroup = gk;
-      pills.forEach(function(p){ p.classList.toggle('is-active', p.getAttribute('data-group') === gk); });
+      pills.forEach(function(p){ p.classList.toggle('is-active', !tf && p.getAttribute('data-group') === gk); });
       subSets.forEach(function(ss){ ss.hidden = ss.getAttribute('data-for') !== (tf ? 'tf' : gk); }); }
     if (sk !== curSub){ curSub = sk; subBtns.forEach(function(b){ b.classList.toggle('is-current', b.getAttribute('data-jump') === sk); }); }
   }
@@ -5176,10 +5092,7 @@ window.addEventListener('load', function() {
     var t = e.target;
     var off = t.closest && t.closest('[data-tf-off]'); if (off){ setTf(false); toCardTop(); return; }
     var j = t.closest && t.closest('[data-jump]');
-    if (j){ var el = document.getElementById(j.getAttribute('data-jump')); if (!el) return; if (!shown(el)) setTf(false); if (shown(el)) scrollToEl(el); return; }
-    var ch = t.closest && t.closest('.menu-row__book--choose');
-    if (ch){ e.preventDefault(); var d = ch.closest('details'); d.open = true;
-      setTimeout(function(){ var sp = d.querySelector('.price-split'); if (!sp) return; var r = sp.getBoundingClientRect(); if (r.bottom > window.innerHeight - 8 || r.top < offset()) scrollToEl(d); }, 40); }
+    if (j){ var el = document.getElementById(j.getAttribute('data-jump')); if (!el) return; /* a group pill always shows its whole group: it leaves the Tue–Fri view */ if (tf && (j.classList.contains('menu-pill') || !shown(el))) setTf(false); if (shown(el)) scrollToEl(el); return; }
   });
   /* in-page links to a row, e.g. "Men's perm? Find it under Men's" (capture phase, so the page's generic anchor scroller stays out of it) */
   document.addEventListener('click', function(e){
@@ -5238,7 +5151,7 @@ window.addEventListener('load', function() {
 <script>
 (function(){
   var IDX = 
-[{"t":"All Over Colour","d":"Your colour, perfected. Every Hair Avenue colour service uses Wella's Koleston Perfect ME+ — the world's most ","k":"All-Over Colour & Toner colouring","u":"#services","c":"Service","sv":"All Over Colour"},{"t":"Toner / Gloss Maintenance — with Blow Wave","d":"Bring your colour back to life between appointments — a gentle, bleach-free gloss or toner that removes brassiness and adds ","k":"All-Over Colour & Toner colouring","u":"#services","c":"Service","sv":"Toner / Gloss Maintenance"},{"t":"Grey Blending","d":"Canberra's grey blending specialists — embrace your grey and make it truly gorgeous, the full service start to finish.","k":"Grey Blending & Regrowth","u":"#services","c":"Service","sv":"Grey Blending"},{"t":"Grey Blending — First Time","d":"Your very first grey blend — a dedicated session with the extra time and product it deserves. Short to medium from $555, long","k":"Grey Blending & Regrowth","u":"#services","c":"Service","sv":"Grey Blending — First Time"},{"t":"Regrowth","d":"Just need your roots refreshed? Seamlessly blend new growth with your existing colour — ideal for regular maintenance and gre","k":"Grey Blending & Regrowth","u":"#services","c":"Service","sv":"Regrowth"},{"t":"Regrowth + All Over Toner","d":"Revitalise your look with expert regrowth colour paired with a complete toner refresh. This package delivers s","k":"Grey Blending & Regrowth","u":"#services","c":"Service","sv":"Regrowth + All Over Toner"},{"t":"Scalp Bleach Regrowth + Toner","d":"Lift your roots to a flawless, even blonde with our expert scalp bleach regrowth service. Carefully applied to","k":"Grey Blending & Regrowth","u":"#services","c":"Service","sv":"Scalp Bleach Regrowth + Toner"},{"t":"Full-Head Foils","d":"Our highlight and balayage services are powered by Wella Blondor — the professional lightening system trusted ","k":"Highlights & Balayage","u":"#services","c":"Service","sv":"Full-Head Foils"},{"t":"Half-Head Foils","d":"Perfect for maintaining existing highlights, adding dimension or achieving a sun-kissed blonde while preservin","k":"Highlights & Balayage","u":"#services","c":"Service","sv":"Half-Head Foils"},{"t":"Balayage","d":"A tailored balayage colour experience designed for a vibrant, easy-to-maintain look with a gorgeous face-frami","k":"Highlights & Balayage","u":"#services","c":"Service","sv":"Balayage"},{"t":"Haircut with Blow Wave","d":"A fresh, personalised haircut with a shampoo and conditioning treatment at the basin, finished with a smooth blow wave","k":"Haircuts cutting women kids","u":"#services","c":"Service","sv":"Haircut with Blow Wave"},{"t":"Dry Cut","d":"A quick, expertly executed trim to keep your current style looking sharp and fresh — no wash, no blow-dry incl","k":"Haircuts cutting women kids","u":"#services","c":"Service","sv":"Dry Cut"},{"t":"Fringe Trim","d":"A quick, precise fringe trim to keep your bangs looking neat and perfectly shaped between full haircut appoint","k":"Haircuts cutting women kids","u":"#services","c":"Service","sv":"Fringe Trim"},{"t":"Men's Haircut","d":"Sharp, clean men's cuts by stylists who specialise in clipper work, skin fades and scissor styling — buzz, clipper, skin fade, scissor or long-hair cut from $40","k":"Men's Cuts & Perm mens haircut fade clipper buzz","u":"#services","c":"Service","sv":"Men's Haircut"},{"t":"Kids' Dry Cut","d":"A friendly, stress-free dry cut for kids from kindergarten through to Year 6. Our team keeps things fun and re","k":"Haircuts cutting women kids","u":"#services","c":"Service","sv":"Kids' Dry Cut"},{"t":"Blow Wave","d":"A polished, professional blow wave tailored to your hair — includes a relaxing shampoo with scalp massage and an Intense Hydration Mask; bouncy upgrade $20","k":"Blow Wave","u":"#services","c":"Service","sv":"Blow Wave"},{"t":"Bouncy Blow Wave Upgrade","d":"Add to any blow wave for big, soft volume and movement, set with a round brush — $20, or the roller set upgrade for $50","k":"Blow Wave bouncy volume rollers wedding formal race day","u":"#services","c":"Service","sv":"Bouncy Blow Wave Upgrade"},{"t":"Hair SmoothFiller","d":"Hair SmoothFiller (Floractive BTX Smooth) is a luxurious, formaldehyde-free smoothing treatment that works lik","k":"Perms & Treatments smoothing SmoothFiller","u":"#services","c":"Service","sv":"Hair SmoothFiller"},{"t":"Nanoplasty","d":"A premium, formaldehyde-free Brazilian smoothing treatment that rebuilds each strand with amino acids and natu","k":"Perms & Treatments smoothing nanoplasty straightening perm","u":"#services","c":"Service","sv":"Nanoplasty"},{"t":"Shiseido Permanent Straightening","d":"A professional Shiseido Japanese hair straightening treatment that permanently restructures the hair's interna","k":"Perms & Treatments smoothing nanoplasty straightening perm","u":"#services","c":"Service","sv":"Shiseido Permanent Straightening"},{"t":"Upstyle (no Shampoo)","d":"An elegant, beautifully crafted updo perfect for wedding hair, bridal parties, formals and special occasions. ","k":"Upstyle & Hair Tinsel","u":"#services","c":"Service","sv":"Upstyle"},{"t":"Upstyle with Shampoo & Blow Wave","d":"A complete wedding and formal hair experience, including a relaxing shampoo, professional blow wave and elegan","k":"Upstyle & Hair Tinsel","u":"#services","c":"Service","sv":"Upstyle with Shampoo & Blow Wave"},{"t":"Hair Tinsel","d":"Add a touch of sparkle and eye-catching shine to your hair with beautiful, lightweight tinsel strands. Availab","k":"Upstyle & Hair Tinsel","u":"#services","c":"Service","sv":"Hair Tinsel"},{"t":"Hair Tinsel for Kids","d":"Fun, sparkly tinsel strands designed especially for kids who love a bit of extra shimmer and pizzazz. Our safe","k":"Upstyle & Hair Tinsel","u":"#services","c":"Service","sv":"Hair Tinsel for Kids"},{"t":"Extensions Consultation & Colour Match","d":"15-minute Great Lengths consultation ($35) — we check condition and density, count the pieces and colour match in daylight.","k":"Hair Extensions great lengths tape-in tapes extensions consultation","u":"#services","c":"Service","sv":"Extensions Consultation & Colour Match"},{"t":"New Tape Extension Install","d":"Great Lengths tape-in extensions fitted by our trained stylists — cut, blended and styled, with the hair colour-matched at your consultation.","k":"Hair Extensions great lengths tape-in tapes install","u":"#services","c":"Service","sv":"New Tape Extension Install"},{"t":"Tape Extension Move Up","d":"Maintenance every 6–8 weeks — removal, fresh tape, re-application at the root and a blow wave, all in one visit.","k":"Hair Extensions great lengths tape-in move up maintenance","u":"#services","c":"Service","sv":"Tape Extension Move Up"},{"t":"Tape Extension Removal","d":"Gentle, residue-free tape removal, with an optional blow wave to lift any leftover adhesive. Other salons' extensions welcome.","k":"Hair Extensions great lengths tape-in removal","u":"#services","c":"Service","sv":"Tape Extension Removal"},{"t":"All Over Colour — Tue–Fri Special","d":"Tuesday to Friday all-over colour from $210, with a haircut add-on for $45 (normally $65) and the Intense Mist treatment at half price","k":"Tue–Fri Specials midweek offers","u":"#services","c":"Service","sv":"All Over Colour"},{"t":"Full-Head Foils — Tue–Fri Special","d":"Bright, bold or beautifully blended — a complete head of foils from our colour specialists using Wella Blondor, w","k":"Tue–Fri Specials midweek offers","u":"#services","c":"Service","sv":"Full-Head Foils"},{"t":"Half-Head Foils — Tue–Fri Special","d":"Refresh your colour with a half head of hand-woven foils at a special midweek price — brightness and dimension","k":"Tue–Fri Specials midweek offers","u":"#services","c":"Service","sv":"Half-Head Foils"},{"t":"Balayage — Tue–Fri Special","d":"Our signature all-inclusive Balayage Package performed by our colour specialists. Stunning, salon-quality colour w","k":"Tue–Fri Specials midweek offers","u":"#services","c":"Service","sv":"Balayage"},{"t":"Nanoplasty — Tue–Fri Special","d":"Say goodbye to frizz with our premium Nanoplasty smoothing treatment at a special midweek price — deeply nouri","k":"Tue–Fri Specials midweek offers","u":"#services","c":"Service","sv":"Nanoplasty"},{"t":"Haircut with Blow Wave — Tue–Fri Special","d":"A fresh cut with a shampoo and conditioning treatment at the basin and a smooth blow wave to finish, at the midweek price from $120","k":"Tue–Fri Specials midweek offers","u":"#services","c":"Service","sv":"Haircut with Blow Wave"},{"t":"Hair Consultation","d":"Not sure which service is right for you? Book a 15-minute consultation ($35) and let our experienced stylists as","k":"consultation start here colour extensions perm not sure","u":"#services","c":"Service","sv":"Hair Consultation"},{"t":"Blow Wave — Tue–Fri Special","d":"Professional blow wave at a special midweek price with the Intense Hydration Mask and scalp massage included — from $80, Tue–Fri.","k":"Tue–Fri Specials midweek offers blow wave","u":"#services","c":"Service","sv":"Blow Wave"},{"t":"Men’s Haircut — Tue–Fri Special","d":"Tuesday to Friday men's cut: buzz cut $40, clipper cut $55, skin fade or scissor cut $60, long-hair cut $80, add a shampoo for $10","k":"Men's Cuts & Perm mens haircut midweek special fade","u":"#services","c":"Service","sv":"Men’s Haircut"},{"t":"Men’s Perm Consultation","d":"$35: a 15-minute check of your hair's condition, length and colour history before your first men's perm","k":"Men's Cuts & Perm mens perm consultation","u":"#services","c":"Service","sv":"Men’s Perm Consultation"},{"t":"Men’s Perm","d":"Men's short perm (clipper back and sides) from $230 Tuesday to Friday or $250 on Saturday, with hydration mask and scalp massage; add a haircut for $65","k":"Men's Cuts & Perm mens perm curls texture volume","u":"#services","c":"Service","sv":"Men’s Perm"},{"t":"Women’s Perm","d":"Perms Tuesday to Friday — fringe, root or full perms tailored to your hair, with a shampoo, nourishing mask and dry-off finish included.","k":"Perms & Treatments perm curls waves root fringe","u":"#services","c":"Service","sv":"Women’s Perm"},{"t":"Grey Blending Canberra","d":"Canberra's grey blending specialists — silver softened with gentle highlights and gloss, from $420 at Hair Avenue Braddon","k":"Canberra's Grey Blending Specialists | From $420 | Hair Avenue","u":"/grey-blending-canberra/","c":"Page"},{"t":"Perms Canberra","d":"Modern perms in Canberra for women and men — soft waves, defined curls, root perms and Korean-style perms for short hair. Tuesday","k":"Perms Canberra | Women's & Men's Perms | Hair Avenue Braddon","u":"/perms-canberra/","c":"Page"},{"t":"Haircuts Canberra","d":"Women's, men's and kids' haircuts at Hair Avenue Braddon: cut and blow wave from $130, dry cuts from $85, fringe trims $27, kids $45","k":"haircut hair cut trim restyle fringe curly dry cut women kids hairdresser","u":"/haircuts-canberra/","c":"Page"},{"t":"Blow Wave Canberra","d":"Blow waves at Hair Avenue Braddon from $95 with the hydration mask included, or from $80 Tue–Fri; bouncy upgrade $20, rollers $50 for events","k":"blow wave blow dry blowdry styling bouncy curls volume event hair","u":"/blow-wave-canberra/","c":"Page"},{"t":"Tue–Fri Specials","d":"All our Tuesday to Friday packages on one page: colour from $210, foils from $275, balayage from $375, blow waves from $80, plus discounted haircut add-ons","k":"specials deals offers packages midweek discount cheap","u":"/tue-fri-specials/","c":"Page"},{"t":"Hair Colour Canberra","d":"Expert hair colour in Canberra using Wella Koleston Perfect ME+ — richer tone, less damage, up to 100% grey co","k":"Hair Colour Canberra | Wella Salon in Braddon | Hair Avenue","u":"/hair-colour-canberra/","c":"Page"},{"t":"Hair SmoothFiller Canberra","d":"Wella SmoothFiller in Canberra — frizz-free, smoother hair for up to 3 months without losing your natural text","k":"Hair SmoothFiller Canberra | Hair Avenue Braddon","u":"/hair-smoothfiller-canberra/","c":"Page"},{"t":"Nanoplasty Hair Smoothing Canberra","d":"Nanoplasty hair smoothing in Canberra — months of silky, frizz-free hair using advanced nano-technology. From ","k":"Nanoplasty Hair Smoothing Canberra | Hair Avenue","u":"/nanoplasty-canberra/","c":"Page"},{"t":"Great Lengths Tape Extensions Now at Hair Avenue","d":"News: Hair Avenue Braddon is now an official Great Lengths salon offering tape-in hair extensions — book a consultation and colour match ($35).","k":"news hair extensions great lengths tape-in announcement","u":"/news/great-lengths-tape-extensions/","c":"News"},{"t":"Award-Winning Hair Salon Canberra","d":"Looking for an award-winning hair salon in Canberra? Hair Avenue Braddon won the 2026 Phorest Client Experienc","k":"Award-Winning Hair Salon Canberra | Hair Avenue Braddon","u":"/news/client-experience-award-2026/","c":"News"},{"t":"Hair Guides & Advice from Canberra Stylists","d":"Honest hair advice from the stylists at Hair Avenue Braddon — balayage maintenance, brass control, smoothing t","k":"Hair Guides & Advice from Canberra Stylists | Hair Avenue Braddon","u":"/guides/","c":"Guide"},{"t":"How Long Does Balayage Last? Maintenance, Toning & Refresh Guide","d":"How long balayage lasts, how often to refresh it, and how to keep it bright between visits — from the balayage","k":"How Long Does Balayage Last? Maintenance, Toning & Refresh Guide","u":"/guides/how-long-does-balayage-last/","c":"Guide"},{"t":"How to Stop Blonde Hair Going Brassy: A Colourist's Guide","d":"Why blonde turns yellow or orange — and how to fix it. Toners, purple shampoo, water quality and salon tricks ","k":"How to Stop Blonde Hair Going Brassy: A Colourist's Guide","u":"/guides/stop-blonde-going-brassy/","c":"Guide"},{"t":"Salon Hair Length Guide: Short, Medium or Long?","d":"What counts as short, medium, long or extra long hair at the salon? Our illustrated length guide shows exactly","k":"Salon Hair Length Guide: Short, Medium or Long? | Hair Avenue","u":"/guides/hair-length-guide/","c":"Guide"},{"t":"Nanoplasty vs Keratin Treatment: Which Hair Smoothing Is Better?","d":"Nanoplasty vs keratin straightening compared — how they work, how long they last, damage, cost and which to ch","k":"Nanoplasty vs Keratin Treatment: Which Hair Smoothing Is Better?","u":"/guides/nanoplasty-vs-keratin/","c":"Guide"},{"t":"Grey Blending vs Full Coverage: Which Is Right for You?","d":"Grey blending vs full grey coverage compared — maintenance, regrowth lines, cost over time and which suits you","k":"Grey Blending vs Full Coverage: Which Is Right for You?","u":"/guides/grey-blending-vs-full-coverage/","c":"Guide"},{"t":"Men's Haircuts Braddon, Canberra","d":"Men's haircuts in Braddon — skin fades, clipper cuts and buzz cuts from $40. Walk-ins welcome at Hair Avenue, ","k":"Men's Haircuts Braddon, Canberra | Hair Avenue","u":"/mens-haircuts-braddon/","c":"Page"},{"t":"Wedding & Bridal Hair Canberra","d":"Wedding, bridal and formal hair in Canberra — elegant upstyles and updos from $195 at Hair Avenue Braddon. Boo","k":"Wedding & Bridal Hair Canberra | Hair Avenue Braddon","u":"/wedding-hair-canberra/","c":"Page"},{"t":"Balayage Canberra","d":"Balayage in Canberra by Wella-trained colourists. Hand-painted, low-maintenance colour from $375 Tue–Fri or $395 Saturdays at Hair Avenu","k":"Balayage Canberra | Hand-Painted Colour | Hair Avenue","u":"/balayage-canberra/","c":"Page"},{"t":"Blonde Specialists Canberra","d":"Foils, balayage, toning and colour correction by Canberra blonde specialists. Wella Blondor bond protection, packages from $299.","k":"blonde specialist canberra blonde hair salon foils platinum icy ash honey toner colour correction bleach","u":"/blonde-specialist-canberra/","c":"Page"},{"t":"Hair Tinsel Canberra","d":"Hair tinsel in Canberra — sparkly, lightweight strands in lots of colours. $60, kids $45, at Hair Avenue Bradd","k":"Hair Tinsel Canberra | $60 · Kids $45 | Hair Avenue Braddon","u":"/hair-tinsel-canberra/","c":"Page"},{"t":"Great Lengths Hair Extensions Canberra","d":"Great Lengths tape-in hair extensions in Canberra — consultation & colour match ($35), installs from $270, move-ups every 6–8 weeks at Hair Avenue Braddon.","k":"Hair Extensions Canberra | Great Lengths Tape-Ins | Hair Avenue Braddon tape extensions","u":"/hair-extensions-canberra/","c":"Page"},{"t":"Regrowth Colour Canberra","d":"Root regrowth colour in Canberra — seamless touch-ups, toner refreshes and scalp bleach regrowth from $199 at ","k":"Regrowth Colour Canberra | Root Touch-Ups from $199 | Hair Avenue","u":"/regrowth-canberra/","c":"Page"},{"t":"Terms & Conditions","d":"Hair Avenue Braddon salon policies including booking fees, cancellation policy, late policy, colour adjustment","k":"Terms & Conditions | Hair Avenue Braddon","u":"/terms-and-conditions/","c":"Page"},{"t":"Services & Pricing","d":"Browse every service, price and midweek offer, and book online","k":"menu booking price list book","u":"#services","c":"Section","q":1},{"t":"Book an Appointment","d":"Book online or walk in — Unit 102/16 Lonsdale St, Braddon","k":"booking contact phone address walk-in 0449 801 937 parking hours","u":"#book","c":"Section","q":1},{"t":"Reviews & Award","d":"4.9 stars from 200+ Google reviews · 2026 Client Experience Award","k":"google rating testimonials client experience award winner","u":"#reviews","c":"Section","q":1},{"t":"Our Products — Wella","d":"Only premium, salon-grade Wella Professionals — official partner salon","k":"wellaplex koleston blondor luxeoil eimi smoothfiller bond builder premium products","u":"#products","c":"Section","q":1},{"t":"Gift Vouchers","d":"Buy a Hair Avenue gift voucher online: $50, $100, $150 or any amount, emailed straight away","k":"gift voucher card present birthday christmas buy online","u":"/gift-vouchers/","c":"Page"},{"t":"Client Reviews","d":"4.9 stars from 200+ Google reviews and the 2026 Phorest Client Experience Award — 30 reviews in clients' own words","k":"reviews testimonials google rating feedback client love","u":"/reviews/","c":"Page"},{"t":"Rewards & App","d":"Earn points every visit with the Hair Avenue app","k":"loyalty points app download treats vouchers","u":"#loyalty","c":"Section"},{"t":"Meet Our Team","d":"The stylists behind the chair at Hair Avenue Braddon","k":"kelly krystle trin kayla stylists hairdressers","u":"#team","c":"Section"},{"t":"FAQs","d":"Everything you need to know before your visit","k":"questions parking cancellation policy","u":"#faq","c":"Section"},{"t":"Careers — Join Our Team","d":"Do what we love, love what we do — hairdressing careers in Braddon","k":"jobs hiring hairdresser stylist apprentice 0401 864 086","u":"#careers","c":"Section"}];
+[{"t":"All Over Colour","d":"Your colour, perfected. Every Hair Avenue colour service uses Wella's Koleston Perfect ME+ — the world's most ","k":"All-Over Colour & Toner colouring","u":"#services","c":"Service","sv":"All Over Colour"},{"t":"Toner / Gloss Maintenance — with Blow Wave","d":"Bring your colour back to life between appointments — a gentle, bleach-free gloss or toner that removes brassiness and adds ","k":"All-Over Colour & Toner colouring","u":"#services","c":"Service","sv":"Toner / Gloss Maintenance"},{"t":"Grey Blending","d":"Canberra's grey blending specialists — embrace your grey and make it truly gorgeous, the full service start to finish.","k":"Grey Blending & Regrowth","u":"#services","c":"Service","sv":"Grey Blending"},{"t":"Grey Blending — First Time","d":"Your very first grey blend — a dedicated session with the extra time and product it deserves. Short to medium from $555, long","k":"Grey Blending & Regrowth","u":"#services","c":"Service","sv":"Grey Blending — First Time"},{"t":"Regrowth","d":"Just need your roots refreshed? Seamlessly blend new growth with your existing colour — ideal for regular maintenance and gre","k":"Grey Blending & Regrowth","u":"#services","c":"Service","sv":"Regrowth"},{"t":"Regrowth + All Over Toner","d":"Revitalise your look with expert regrowth colour paired with a complete toner refresh. This package delivers s","k":"Grey Blending & Regrowth","u":"#services","c":"Service","sv":"Regrowth + All Over Toner"},{"t":"Scalp Bleach Regrowth + Toner","d":"Lift your roots to a flawless, even blonde with our expert scalp bleach regrowth service. Carefully applied to","k":"Grey Blending & Regrowth","u":"#services","c":"Service","sv":"Scalp Bleach Regrowth + Toner"},{"t":"Full-Head Foils","d":"Our highlight and balayage services are powered by Wella Blondor — the professional lightening system trusted ","k":"Highlights & Balayage","u":"#services","c":"Service","sv":"Full-Head Foils"},{"t":"Half-Head Foils","d":"Perfect for maintaining existing highlights, adding dimension or achieving a sun-kissed blonde while preservin","k":"Highlights & Balayage","u":"#services","c":"Service","sv":"Half-Head Foils"},{"t":"Balayage","d":"A tailored balayage colour experience designed for a vibrant, easy-to-maintain look with a gorgeous face-frami","k":"Highlights & Balayage","u":"#services","c":"Service","sv":"Balayage"},{"t":"Haircut with Blow Wave","d":"A fresh, personalised haircut with a shampoo and conditioning treatment at the basin, finished with a smooth blow wave","k":"Haircuts cutting women kids","u":"#services","c":"Service","sv":"Haircut with Blow Wave"},{"t":"Dry Cut","d":"A quick, expertly executed trim to keep your current style looking sharp and fresh — no wash, no blow-dry incl","k":"Haircuts cutting women kids","u":"#services","c":"Service","sv":"Dry Cut"},{"t":"Fringe Trim","d":"A quick, precise fringe trim to keep your bangs looking neat and perfectly shaped between full haircut appoint","k":"Haircuts cutting women kids","u":"#services","c":"Service","sv":"Fringe Trim"},{"t":"Men's Haircut","d":"Sharp, clean men's cuts by stylists who specialise in clipper work, skin fades and scissor styling — buzz, clipper, skin fade, scissor or long-hair cut from $40","k":"Men's Cuts & Perm mens haircut fade clipper buzz","u":"#services","c":"Service","sv":"Men's Haircut"},{"t":"Kids' Dry Cut","d":"A friendly, stress-free dry cut for kids from kindergarten through to Year 6. Our team keeps things fun and re","k":"Haircuts cutting women kids","u":"#services","c":"Service","sv":"Kids' Dry Cut"},{"t":"Blow Wave","d":"A polished, professional blow wave tailored to your hair — includes a relaxing shampoo with scalp massage and an Intense Hydration Mask; bouncy upgrade $20","k":"Blow Wave","u":"#services","c":"Service","sv":"Blow Wave"},{"t":"Bouncy Blow Wave Upgrade","d":"Add to any blow wave for big, soft volume and movement, set with a round brush — $20, or the roller set upgrade for $50","k":"Blow Wave bouncy volume rollers wedding formal race day","u":"#services","c":"Service","sv":"Bouncy Blow Wave Upgrade"},{"t":"Hair SmoothFiller","d":"Hair SmoothFiller (Floractive BTX Smooth) is a luxurious, formaldehyde-free smoothing treatment that works lik","k":"Perms & Treatments smoothing SmoothFiller","u":"#services","c":"Service","sv":"Hair SmoothFiller"},{"t":"Nanoplasty","d":"A premium, formaldehyde-free Brazilian smoothing treatment that rebuilds each strand with amino acids and natu","k":"Perms & Treatments smoothing nanoplasty straightening perm","u":"#services","c":"Service","sv":"Nanoplasty"},{"t":"Shiseido Permanent Straightening","d":"A professional Shiseido Japanese hair straightening treatment that permanently restructures the hair's interna","k":"Perms & Treatments smoothing nanoplasty straightening perm","u":"#services","c":"Service","sv":"Shiseido Permanent Straightening"},{"t":"Upstyle (no Shampoo)","d":"An elegant, beautifully crafted updo perfect for wedding hair, bridal parties, formals and special occasions. ","k":"Upstyle & Hair Tinsel","u":"#services","c":"Service","sv":"Upstyle"},{"t":"Upstyle with Shampoo & Blow Wave","d":"A complete wedding and formal hair experience, including a relaxing shampoo, professional blow wave and elegan","k":"Upstyle & Hair Tinsel","u":"#services","c":"Service","sv":"Upstyle with Shampoo & Blow Wave"},{"t":"Hair Tinsel","d":"Add a touch of sparkle and eye-catching shine to your hair with beautiful, lightweight tinsel strands. Availab","k":"Upstyle & Hair Tinsel","u":"#services","c":"Service","sv":"Hair Tinsel"},{"t":"Hair Tinsel for Kids","d":"Fun, sparkly tinsel strands designed especially for kids who love a bit of extra shimmer and pizzazz. Our safe","k":"Upstyle & Hair Tinsel","u":"#services","c":"Service","sv":"Hair Tinsel for Kids"},{"t":"Extensions Consultation & Colour Match","d":"15-minute Great Lengths consultation ($35) — we check condition and density, count the pieces and colour match in daylight.","k":"Hair Extensions great lengths tape-in tapes extensions consultation","u":"#services","c":"Service","sv":"Extensions Consultation & Colour Match"},{"t":"New Tape Extension Install","d":"Great Lengths tape-in extensions fitted by our trained stylists — cut, blended and styled, with the hair colour-matched at your consultation.","k":"Hair Extensions great lengths tape-in tapes install","u":"#services","c":"Service","sv":"New Tape Extension Install"},{"t":"Tape Extension Move Up","d":"Maintenance every 6–8 weeks — removal, fresh tape, re-application at the root and a blow wave, all in one visit.","k":"Hair Extensions great lengths tape-in move up maintenance","u":"#services","c":"Service","sv":"Tape Extension Move Up"},{"t":"Tape Extension Removal","d":"Gentle, residue-free tape removal, with an optional blow wave to lift any leftover adhesive. Other salons' extensions welcome.","k":"Hair Extensions great lengths tape-in removal","u":"#services","c":"Service","sv":"Tape Extension Removal"},{"t":"All Over Colour — Tue–Fri Special","d":"Tuesday to Friday all-over colour from $210, with a haircut add-on for $45 (normally $65) and the Intense Mist treatment at half price","k":"Tue–Fri Specials midweek offers","u":"#services","c":"Service","sv":"All Over Colour, midweek"},{"t":"Full-Head Foils — Tue–Fri Special","d":"Bright, bold or beautifully blended — a complete head of foils from our colour specialists using Wella Blondor, w","k":"Tue–Fri Specials midweek offers","u":"#services","c":"Service","sv":"Full-Head Foils, midweek"},{"t":"Half-Head Foils — Tue–Fri Special","d":"Refresh your colour with a half head of hand-woven foils at a special midweek price — brightness and dimension","k":"Tue–Fri Specials midweek offers","u":"#services","c":"Service","sv":"Half-Head Foils, midweek"},{"t":"Balayage — Tue–Fri Special","d":"Our signature all-inclusive Balayage Package performed by our colour specialists. Stunning, salon-quality colour w","k":"Tue–Fri Specials midweek offers","u":"#services","c":"Service","sv":"Balayage, midweek"},{"t":"Nanoplasty — Tue–Fri Special","d":"Say goodbye to frizz with our premium Nanoplasty smoothing treatment at a special midweek price — deeply nouri","k":"Tue–Fri Specials midweek offers","u":"#services","c":"Service","sv":"Nanoplasty, midweek"},{"t":"Haircut with Blow Wave — Tue–Fri Special","d":"A fresh cut with a shampoo and conditioning treatment at the basin and a smooth blow wave to finish, at the midweek price from $120","k":"Tue–Fri Specials midweek offers","u":"#services","c":"Service","sv":"Haircut with Blow Wave, midweek"},{"t":"Hair Consultation","d":"Not sure which service is right for you? Book a 15-minute consultation ($35) and let our experienced stylists as","k":"consultation start here colour extensions perm not sure","u":"#services","c":"Service","sv":"Hair Consultation"},{"t":"Blow Wave — Tue–Fri Special","d":"Professional blow wave at a special midweek price with the Intense Hydration Mask and scalp massage included — from $80, Tue–Fri.","k":"Tue–Fri Specials midweek offers blow wave","u":"#services","c":"Service","sv":"Blow Wave, midweek"},{"t":"Men’s Haircut — Tue–Fri Special","d":"Tuesday to Friday men's cut: buzz cut $40, clipper cut $55, skin fade or scissor cut $60, long-hair cut $80, add a shampoo for $10","k":"Men's Cuts & Perm mens haircut midweek special fade","u":"#services","c":"Service","sv":"Men’s Haircut, midweek"},{"t":"Men’s Perm Consultation","d":"$35: a 15-minute check of your hair's condition, length and colour history before your first men's perm","k":"Men's Cuts & Perm mens perm consultation","u":"#services","c":"Service","sv":"Men’s Perm Consultation"},{"t":"Men’s Perm","d":"Men's short perm (clipper back and sides) from $230 Tuesday to Friday or $250 on Saturday, with hydration mask and scalp massage; add a haircut for $65","k":"Men's Cuts & Perm mens perm curls texture volume","u":"#services","c":"Service","sv":"Men’s Perm"},{"t":"Women’s Perm","d":"Perms Tuesday to Friday — fringe, root or full perms tailored to your hair, with a shampoo, nourishing mask and dry-off finish included.","k":"Perms & Treatments perm curls waves root fringe","u":"#services","c":"Service","sv":"Women’s Perm"},{"t":"Grey Blending Canberra","d":"Canberra's grey blending specialists — silver softened with gentle highlights and gloss, from $420 at Hair Avenue Braddon","k":"Canberra's Grey Blending Specialists | From $420 | Hair Avenue","u":"/grey-blending-canberra/","c":"Page"},{"t":"Perms Canberra","d":"Modern perms in Canberra for women and men — soft waves, defined curls, root perms and Korean-style perms for short hair. Tuesday","k":"Perms Canberra | Women's & Men's Perms | Hair Avenue Braddon","u":"/perms-canberra/","c":"Page"},{"t":"Haircuts Canberra","d":"Women's, men's and kids' haircuts at Hair Avenue Braddon: cut and blow wave from $130, dry cuts from $85, fringe trims $27, kids $45","k":"haircut hair cut trim restyle fringe curly dry cut women kids hairdresser","u":"/haircuts-canberra/","c":"Page"},{"t":"Blow Wave Canberra","d":"Blow waves at Hair Avenue Braddon from $95 with the hydration mask included, or from $80 Tue–Fri; bouncy upgrade $20, rollers $50 for events","k":"blow wave blow dry blowdry styling bouncy curls volume event hair","u":"/blow-wave-canberra/","c":"Page"},{"t":"Tue–Fri Specials","d":"All our Tuesday to Friday packages on one page: colour from $210, foils from $275, balayage from $375, blow waves from $80, plus discounted haircut add-ons","k":"specials deals offers packages midweek discount cheap","u":"/tue-fri-specials/","c":"Page"},{"t":"Hair Colour Canberra","d":"Expert hair colour in Canberra using Wella Koleston Perfect ME+ — richer tone, less damage, up to 100% grey co","k":"Hair Colour Canberra | Wella Salon in Braddon | Hair Avenue","u":"/hair-colour-canberra/","c":"Page"},{"t":"Hair SmoothFiller Canberra","d":"Wella SmoothFiller in Canberra — frizz-free, smoother hair for up to 3 months without losing your natural text","k":"Hair SmoothFiller Canberra | Hair Avenue Braddon","u":"/hair-smoothfiller-canberra/","c":"Page"},{"t":"Nanoplasty Hair Smoothing Canberra","d":"Nanoplasty hair smoothing in Canberra — months of silky, frizz-free hair using advanced nano-technology. From ","k":"Nanoplasty Hair Smoothing Canberra | Hair Avenue","u":"/nanoplasty-canberra/","c":"Page"},{"t":"Great Lengths Tape Extensions Now at Hair Avenue","d":"News: Hair Avenue Braddon is now an official Great Lengths salon offering tape-in hair extensions — book a consultation and colour match ($35).","k":"news hair extensions great lengths tape-in announcement","u":"/news/great-lengths-tape-extensions/","c":"News"},{"t":"Award-Winning Hair Salon Canberra","d":"Looking for an award-winning hair salon in Canberra? Hair Avenue Braddon won the 2026 Phorest Client Experienc","k":"Award-Winning Hair Salon Canberra | Hair Avenue Braddon","u":"/news/client-experience-award-2026/","c":"News"},{"t":"Hair Guides & Advice from Canberra Stylists","d":"Honest hair advice from the stylists at Hair Avenue Braddon — balayage maintenance, brass control, smoothing t","k":"Hair Guides & Advice from Canberra Stylists | Hair Avenue Braddon","u":"/guides/","c":"Guide"},{"t":"How Long Does Balayage Last? Maintenance, Toning & Refresh Guide","d":"How long balayage lasts, how often to refresh it, and how to keep it bright between visits — from the balayage","k":"How Long Does Balayage Last? Maintenance, Toning & Refresh Guide","u":"/guides/how-long-does-balayage-last/","c":"Guide"},{"t":"How to Stop Blonde Hair Going Brassy: A Colourist's Guide","d":"Why blonde turns yellow or orange — and how to fix it. Toners, purple shampoo, water quality and salon tricks ","k":"How to Stop Blonde Hair Going Brassy: A Colourist's Guide","u":"/guides/stop-blonde-going-brassy/","c":"Guide"},{"t":"Salon Hair Length Guide: Short, Medium or Long?","d":"What counts as short, medium, long or extra long hair at the salon? Our illustrated length guide shows exactly","k":"Salon Hair Length Guide: Short, Medium or Long? | Hair Avenue","u":"/guides/hair-length-guide/","c":"Guide"},{"t":"Nanoplasty vs Keratin Treatment: Which Hair Smoothing Is Better?","d":"Nanoplasty vs keratin straightening compared — how they work, how long they last, damage, cost and which to ch","k":"Nanoplasty vs Keratin Treatment: Which Hair Smoothing Is Better?","u":"/guides/nanoplasty-vs-keratin/","c":"Guide"},{"t":"Grey Blending vs Full Coverage: Which Is Right for You?","d":"Grey blending vs full grey coverage compared — maintenance, regrowth lines, cost over time and which suits you","k":"Grey Blending vs Full Coverage: Which Is Right for You?","u":"/guides/grey-blending-vs-full-coverage/","c":"Guide"},{"t":"Men's Haircuts Braddon, Canberra","d":"Men's haircuts in Braddon — skin fades, clipper cuts and buzz cuts from $40. Walk-ins welcome at Hair Avenue, ","k":"Men's Haircuts Braddon, Canberra | Hair Avenue","u":"/mens-haircuts-braddon/","c":"Page"},{"t":"Wedding & Bridal Hair Canberra","d":"Wedding, bridal and formal hair in Canberra — elegant upstyles and updos from $195 at Hair Avenue Braddon. Boo","k":"Wedding & Bridal Hair Canberra | Hair Avenue Braddon","u":"/wedding-hair-canberra/","c":"Page"},{"t":"Balayage Canberra","d":"Balayage in Canberra by Wella-trained colourists. Hand-painted, low-maintenance colour from $375 Tue–Fri or $395 Saturdays at Hair Avenu","k":"Balayage Canberra | Hand-Painted Colour | Hair Avenue","u":"/balayage-canberra/","c":"Page"},{"t":"Blonde Specialists Canberra","d":"Foils, balayage, toning and colour correction by Canberra blonde specialists. Wella Blondor bond protection, packages from $299.","k":"blonde specialist canberra blonde hair salon foils platinum icy ash honey toner colour correction bleach","u":"/blonde-specialist-canberra/","c":"Page"},{"t":"Hair Tinsel Canberra","d":"Hair tinsel in Canberra — sparkly, lightweight strands in lots of colours. $60, kids $45, at Hair Avenue Bradd","k":"Hair Tinsel Canberra | $60 · Kids $45 | Hair Avenue Braddon","u":"/hair-tinsel-canberra/","c":"Page"},{"t":"Great Lengths Hair Extensions Canberra","d":"Great Lengths tape-in hair extensions in Canberra — consultation & colour match ($35), installs from $270, move-ups every 6–8 weeks at Hair Avenue Braddon.","k":"Hair Extensions Canberra | Great Lengths Tape-Ins | Hair Avenue Braddon tape extensions","u":"/hair-extensions-canberra/","c":"Page"},{"t":"Regrowth Colour Canberra","d":"Root regrowth colour in Canberra — seamless touch-ups, toner refreshes and scalp bleach regrowth from $199 at ","k":"Regrowth Colour Canberra | Root Touch-Ups from $199 | Hair Avenue","u":"/regrowth-canberra/","c":"Page"},{"t":"Terms & Conditions","d":"Hair Avenue Braddon salon policies including booking fees, cancellation policy, late policy, colour adjustment","k":"Terms & Conditions | Hair Avenue Braddon","u":"/terms-and-conditions/","c":"Page"},{"t":"Services & Pricing","d":"Browse every service, price and midweek offer, and book online","k":"menu booking price list book","u":"#services","c":"Section","q":1},{"t":"Book an Appointment","d":"Book online or walk in — Unit 102/16 Lonsdale St, Braddon","k":"booking contact phone address walk-in 0449 801 937 parking hours","u":"#book","c":"Section","q":1},{"t":"Reviews & Award","d":"4.9 stars from 200+ Google reviews · 2026 Client Experience Award","k":"google rating testimonials client experience award winner","u":"#reviews","c":"Section","q":1},{"t":"Our Products — Wella","d":"Only premium, salon-grade Wella Professionals — official partner salon","k":"wellaplex koleston blondor luxeoil eimi smoothfiller bond builder premium products","u":"#products","c":"Section","q":1},{"t":"Gift Vouchers","d":"Buy a Hair Avenue gift voucher online: $50, $100, $150 or any amount, emailed straight away","k":"gift voucher card present birthday christmas buy online","u":"/gift-vouchers/","c":"Page"},{"t":"Client Reviews","d":"4.9 stars from 200+ Google reviews and the 2026 Phorest Client Experience Award — 30 reviews in clients' own words","k":"reviews testimonials google rating feedback client love","u":"/reviews/","c":"Page"},{"t":"Rewards & App","d":"Earn points every visit with the Hair Avenue app","k":"loyalty points app download treats vouchers","u":"#loyalty","c":"Section"},{"t":"Meet Our Team","d":"The stylists behind the chair at Hair Avenue Braddon","k":"kelly krystle trin kayla stylists hairdressers","u":"#team","c":"Section"},{"t":"FAQs","d":"Everything you need to know before your visit","k":"questions parking cancellation policy","u":"#faq","c":"Section"},{"t":"Careers — Join Our Team","d":"Do what we love, love what we do — hairdressing careers in Braddon","k":"jobs hiring hairdresser stylist apprentice 0401 864 086","u":"#careers","c":"Section"}];
   var ov = document.getElementById('gsearch'), inp = document.getElementById('gsearchInput'), res = document.getElementById('gsearchResults');
   function open(){ ov.classList.add('gsearch--open'); document.body.style.overflow='hidden'; render(''); setTimeout(function(){ inp.focus(); }, 30); }
   function close(){ ov.classList.remove('gsearch--open'); document.body.style.overflow=''; inp.value=''; }
