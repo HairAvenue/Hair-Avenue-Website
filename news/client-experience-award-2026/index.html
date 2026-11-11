@@ -147,6 +147,24 @@ footer a:hover{text-decoration:underline}
 .home-btn:hover{background:#2E7D42;color:#fff;border-color:#2E7D42}
 .cta-band .home-btn{background:transparent;color:#E8D49A;border-color:rgba(201,169,110,.7)}
 .cta-band .home-btn:hover{background:rgba(201,169,110,.18);color:#fff;border-color:#E8D49A}
+/* ===== Christmas strip + footer greeting (11 Nov 2026) =====
+   Shown only while <html> has the class "xmas" (Christmas look, until 26 Dec 2026) or "hols" (salon closed, 24 Dec 2026 to 11 Jan 2027).
+   The script at the end of <head> sets them by date, so the page goes back to normal by itself. Preview: ?xmas=on, ?xmas=closed, ?xmas=after, ?xmas=off. */
+.xmas-strip,.xmas-shut,.xmas-strip .xs-short,p.footer__xmas,p.footer__hols{display:none}
+html.hols .xmas-open{display:none}
+html.hols .xmas-shut{display:inline}
+html.xmas .xmas-strip,html.hols .xmas-strip{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4px 22px;margin:0;padding:9px 20px;background:linear-gradient(90deg,#56101d 0%,#7d1a2b 50%,#56101d 100%);border-bottom:1px solid rgba(232,212,154,.5);color:#f6e7c1;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:.84rem;font-weight:400;line-height:1.4;letter-spacing:.02em;text-align:center}
+.xmas-strip__lead{display:inline-flex;align-items:center;gap:8px;font-family:'New York',ui-serif,Georgia,'Times New Roman',serif;font-style:italic;font-size:1.02rem;color:#fbeecb;white-space:nowrap}
+.xmas-strip__lead svg{width:12px;height:12px;flex:0 0 auto;fill:#E8D49A}
+.xmas-strip__note{color:#f6e7c1;white-space:nowrap}
+.xmas-strip__links{display:inline-flex;flex-wrap:wrap;justify-content:center;gap:2px 20px}
+.xmas-strip a{color:#fff;font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-decoration-color:rgba(232,212,154,.6);text-underline-offset:3px;white-space:nowrap}
+.xmas-strip a:hover{color:#fbeecb;text-decoration-color:#E8D49A}
+.xmas-strip .chev{display:inline-block;margin-left:.3em;font-weight:600;line-height:1}
+html.xmas p.footer__xmas{display:block;margin:0 0 4px;font-family:'New York',ui-serif,Georgia,'Times New Roman',serif;font-style:italic;font-size:1.08rem;line-height:1.5;color:#E8D49A;opacity:1}
+html.xmas p.footer__hols,html.hols p.footer__hols{display:block;margin:0 0 16px;font-size:.82rem;letter-spacing:.04em;color:#E8D49A;opacity:1}
+@media (max-width:768px){html.xmas .xmas-strip,html.hols .xmas-strip{padding:8px 12px;gap:2px 14px;font-size:.8rem}.xmas-strip__lead{font-size:.96rem}.xmas-strip__links{gap:2px 14px}}
+@media (max-width:560px){.xmas-strip .xs-full{display:none}.xmas-strip .xs-short{display:inline}}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8BM4ZYQCSS"></script>
@@ -156,6 +174,13 @@ footer a:hover{text-decoration:underline}
   gtag('js', new Date());
   gtag('config', 'G-8BM4ZYQCSS');
 </script>
+<script>/* Christmas switch (11 Nov 2026). Sets two classes on <html> by date, so nothing needs editing or uploading afterwards:
+   "xmas" = Christmas look, on until the end of 26 Dec 2026.  "hols" = salon closed, 24 Dec 2026 to 11 Jan 2027 (last day open is Wed 23 Dec, back Tue 12 Jan).
+   From 12 Jan 2027 neither is set and the site shows as normal. To end it sooner, delete this script. Preview: add ?xmas=on, ?xmas=closed, ?xmas=after or ?xmas=off to the address. */
+(function(){ var m = /[?&]xmas=(on|closed|after|off)\b/.exec(location.search), n = Date.now(), d = document.documentElement,
+  x = n < new Date(2026, 11, 27).getTime(), h = n >= new Date(2026, 11, 24).getTime() && n < new Date(2027, 0, 12).getTime();
+  if (m) { x = m[1] === 'on' || m[1] === 'closed'; h = m[1] === 'closed' || m[1] === 'after'; }
+  if (x) d.classList.add('xmas'); if (h) d.classList.add('hols'); })();</script>
 </head>
 <body>
 <nav class="nav" aria-label="Main navigation">
@@ -167,6 +192,11 @@ footer a:hover{text-decoration:underline}
 </div>
 </div>
 </nav>
+<div class="xmas-strip" role="note" aria-label="Christmas at Hair Avenue">
+<span class="xmas-strip__lead"><svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 1l2.6 7.4L22 11l-7.4 2.6L12 21l-2.6-7.4L2 11l7.4-2.6z"/></svg><span class="xmas-open"><span class="xs-full">Christmas at Hair Avenue</span><span class="xs-short">Christmas hours</span></span><span class="xmas-shut">Christmas break</span></span>
+<span class="xmas-strip__note"><span class="xmas-open"><span class="xs-full">December is filling fast &#183; </span>Open until <span class="xs-full">Wednesday 23 December</span><span class="xs-short">Wed 23 Dec</span></span><span class="xmas-shut">We reopen <span class="xs-full">Tuesday 12 January</span><span class="xs-short">Tue 12 Jan</span></span></span>
+<span class="xmas-strip__links"><a href="/#services"><span class="xmas-open"><span class="xs-full">Book your December appointment</span><span class="xs-short">Filling fast: book now</span></span><span class="xmas-shut"><span class="xs-full">Book online for January</span><span class="xs-short">Book for January</span></span><span class="chev" aria-hidden="true">&rsaquo;</span></a><a href="/gift-vouchers/"><span class="xmas-open"><span class="xs-full">Christmas gift vouchers</span><span class="xs-short">Gift vouchers</span></span><span class="xmas-shut">Gift vouchers</span><span class="chev" aria-hidden="true">&rsaquo;</span></a></span>
+</div>
 <header class="hero">
 <svg class="hero-emblem" viewBox="0 0 80 80" aria-hidden="true">
 <circle cx="40" cy="40" r="37" fill="none" stroke="#C9A96E" stroke-width="1.6"/>
@@ -222,6 +252,8 @@ footer a:hover{text-decoration:underline}
 </div>
 <footer>
 <div class="container">
+<p class="footer__xmas">Merry Christmas and a Happy New Year from all of us at Hair Avenue.</p>
+<p class="footer__hols">Open until Wednesday 23 December &#183; Back Tuesday 12 January</p>
 <p><strong>Hair Avenue Braddon</strong> &#8212; Unit 102/16 Lonsdale St, Braddon ACT 2612 &#183; <a href="tel:0449801937">0449 801 937</a></p>
 <p style="margin-top:8px"><a href="/">Home</a> &#183; <a href="/#services">Services</a> &#183; <a href="/reviews/">Reviews</a> &#183; <a href="/terms-and-conditions/">Terms &amp; Conditions</a></p>
 <p style="margin-top:8px;opacity:.6">&#169; 2026 Hair Avenue Braddon. All rights reserved.</p>

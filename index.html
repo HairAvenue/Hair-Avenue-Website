@@ -3264,10 +3264,11 @@
     .svc-menu .menu-bar .svc-search[hidden] { display: none; }
     .svc-menu .menu-bar .svc-search__results { left: 14px; right: 14px; top: calc(100% - 4px); }
     .svc-menu .menu-list { padding: 0 0 10px; }
-    .svc-menu .menu-start { padding: 16px 18px 0; }
-    .svc-menu .menu-start .menu-item { border: 1px solid rgba(201,169,110,0.55); border-radius: 14px; background: #fbf9f3; overflow: hidden; }
-    .svc-menu .menu-start .menu-row { padding: 12px 16px; }
-    .svc-menu .menu-start .menu-item__body { padding: 4px 16px 16px; }
+    /* Hair Consultation (11 Nov 2026, user requests): moved from the "Not sure? Start here" box at the top of the list to the very
+       end of it, so it is not pushed. A grey, quiet version was tried and turned down the same day: the row looks exactly like
+       every other service row, it just sits last, under the same gold divider that separates the groups. */
+    .svc-menu .menu-consult { margin-top: 18px; border-top: 1px solid rgba(201,169,110,0.5); }
+    .svc-menu .menu-consult .menu-item { border-top: 0; }
     .svc-menu .menu-tfnote { display: none; padding: 16px 28px 0; }
     .svc-menu .menu-tfnote .offers-note { margin: 0; }
     .svc-menu .menu-group + .menu-group { margin-top: 18px; border-top: 1px solid rgba(201,169,110,0.5); }
@@ -3340,7 +3341,7 @@
     .svc-menu .menu-extfaq { margin: 12px 28px 0 !important; }
     /* Tue–Fri filter */
     .svc-menu.menu--tf .menu-item:not(.has-tf), .svc-menu.menu--tf .menu-sub:not(.has-tf), .svc-menu.menu--tf .menu-group:not(.has-tf),
-    .svc-menu.menu--tf .menu-start, .svc-menu.menu--tf .menu-hint,
+    .svc-menu.menu--tf .menu-consult, .svc-menu.menu--tf .menu-hint,
     .svc-menu.menu--tf .menu-group__title span { display: none; }
     .svc-menu.menu--tf .menu-tfnote { display: block; }
     .svc-menu .search-flash > .menu-row { animation: searchFlash 2.2s ease; }
@@ -3363,9 +3364,6 @@
       .svc-menu .sub-short { display: inline; }
       .svc-menu .menu-bar .svc-search { padding: 2px 8px 10px; }
       .svc-menu .menu-bar .svc-search__results { left: 8px; right: 8px; }
-      .svc-menu .menu-start { padding: 12px 10px 0; }
-      .svc-menu .menu-start .menu-row { padding: 11px 12px; }
-      .svc-menu .menu-start .menu-item__body { padding: 4px 12px 14px; }
       .svc-menu .menu-tfnote { padding: 12px 14px 0; }
       .svc-menu .menu-group__title { padding: 22px 14px 0; font-size: 1.25rem; }
       .svc-menu .menu-sub__title { padding: 17px 14px 8px; }
@@ -3578,8 +3576,8 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <header class="hero" id="home">
 <div class="xmas-strip" role="note" aria-label="Christmas at Hair Avenue">
 <span class="xmas-strip__lead"><svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 1l2.6 7.4L22 11l-7.4 2.6L12 21l-2.6-7.4L2 11l7.4-2.6z"/></svg><span class="xmas-open"><span class="xs-full">Christmas at Hair Avenue</span><span class="xs-short">Christmas hours</span></span><span class="xmas-shut">Christmas break</span></span>
-<span class="xmas-strip__note"><span class="xmas-open">Open until <span class="xs-full">Wednesday 23 December</span><span class="xs-short">Wed 23 Dec</span></span><span class="xmas-shut">We reopen <span class="xs-full">Tuesday 12 January</span><span class="xs-short">Tue 12 Jan</span></span></span>
-<span class="xmas-strip__links"><a href="#services"><span class="xmas-open"><span class="xs-full">Book your December appointment</span><span class="xs-short">Book for December</span></span><span class="xmas-shut"><span class="xs-full">Book online for January</span><span class="xs-short">Book for January</span></span><span class="chev" aria-hidden="true">&rsaquo;</span></a><a href="#gift"><span class="xmas-open"><span class="xs-full">Christmas gift vouchers</span><span class="xs-short">Gift vouchers</span></span><span class="xmas-shut">Gift vouchers</span><span class="chev" aria-hidden="true">&rsaquo;</span></a></span>
+<span class="xmas-strip__note"><span class="xmas-open"><span class="xs-full">December is filling fast &#183; </span>Open until <span class="xs-full">Wednesday 23 December</span><span class="xs-short">Wed 23 Dec</span></span><span class="xmas-shut">We reopen <span class="xs-full">Tuesday 12 January</span><span class="xs-short">Tue 12 Jan</span></span></span>
+<span class="xmas-strip__links"><a href="#services"><span class="xmas-open"><span class="xs-full">Book your December appointment</span><span class="xs-short">Filling fast: book now</span></span><span class="xmas-shut"><span class="xs-full">Book online for January</span><span class="xs-short">Book for January</span></span><span class="chev" aria-hidden="true">&rsaquo;</span></a><a href="#gift"><span class="xmas-open"><span class="xs-full">Christmas gift vouchers</span><span class="xs-short">Gift vouchers</span></span><span class="xmas-shut">Gift vouchers</span><span class="chev" aria-hidden="true">&rsaquo;</span></a></span>
 <span class="xmas-baubles" aria-hidden="true"><svg viewBox="0 0 150 150"><defs><radialGradient id="xbGold" cx="35%" cy="30%" r="78%"><stop offset="0" stop-color="#fff6dc"/><stop offset="0.32" stop-color="#e8d49a"/><stop offset="0.72" stop-color="#b8924f"/><stop offset="1" stop-color="#7a5c22"/></radialGradient><radialGradient id="xbRed" cx="35%" cy="30%" r="78%"><stop offset="0" stop-color="#e9909c"/><stop offset="0.3" stop-color="#b3384b"/><stop offset="0.74" stop-color="#7d1a2b"/><stop offset="1" stop-color="#450b16"/></radialGradient></defs><g class="xb xb--1"><line x1="34" y1="0" x2="34" y2="60" stroke="#E8D49A" stroke-opacity="0.75" stroke-width="1"/><rect x="30" y="59" width="8" height="6" rx="1.5" fill="#b8924f"/><circle cx="34" cy="85" r="21" fill="url(#xbGold)"/><ellipse cx="27" cy="76" rx="5" ry="8" fill="#ffffff" fill-opacity="0.32" transform="rotate(-28 27 76)"/></g><g class="xb xb--2"><line x1="82" y1="0" x2="82" y2="27" stroke="#E8D49A" stroke-opacity="0.75" stroke-width="1"/><rect x="78.5" y="26" width="7" height="5" rx="1.5" fill="#b8924f"/><circle cx="82" cy="46" r="15.5" fill="url(#xbRed)"/><ellipse cx="77" cy="40" rx="3.6" ry="6" fill="#ffffff" fill-opacity="0.3" transform="rotate(-28 77 40)"/></g><g class="xb xb--3"><line x1="120" y1="0" x2="120" y2="84" stroke="#E8D49A" stroke-opacity="0.75" stroke-width="1"/><rect x="117" y="83" width="6" height="5" rx="1.5" fill="#b8924f"/><circle cx="120" cy="100" r="12.5" fill="url(#xbGold)"/><ellipse cx="116" cy="95" rx="3" ry="5" fill="#ffffff" fill-opacity="0.32" transform="rotate(-28 116 95)"/></g></svg></span>
 </div>
 <div class="hero__media">
@@ -3762,16 +3760,6 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="menu-list">
 <div class="menu-tfnote">
 <p class="offers-note"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg><span>Packages marked <strong>Tuesday&#8211;Friday</strong> are available on those days only.</span></p>
-</div>
-<div class="menu-start">
-<details class="menu-item" id="svc-consultation" data-name="Hair Consultation" data-price="$35" data-alias="Hair Consultation">
-<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__eyebrow">Not sure? Start here</span><span class="menu-row__name">Hair Consultation <small>(colour, extensions or perm)</small></span><span class="menu-row__short">15 minutes with a stylist. Leave with a clear plan and an exact price.</span></span><span class="menu-row__price">$35</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV_2roBoXxupMvYk2LVDPdAg" rel="noopener" target="_blank" aria-label="Book Hair Consultation online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
-<div class="menu-item__body">
-<span class="pkg-availability"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>Available Monday &#8211; Friday</span>
-<p class="pricing-item__desc">Not sure which service is right for you? Book a 15-minute consultation ($35) and let our experienced stylists assess your hair, discuss your goals and recommend the perfect treatment or style tailored just for you.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV_2roBoXxupMvYk2LVDPdAg" rel="noopener" target="_blank">Book Now</a>
-</div>
-</details>
 </div>
 <section class="menu-group has-tf" id="menu-colour" data-group="colour" data-label="Colour" aria-labelledby="menu-colour-t">
 <h3 class="menu-group__title" id="menu-colour-t">Colour <span>10 services</span></h3>
@@ -4271,6 +4259,16 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 </div>
 </div>
 </section>
+<div class="menu-consult">
+<details class="menu-item" id="svc-consultation" data-name="Hair Consultation" data-price="$35" data-alias="Hair Consultation">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Hair Consultation <small>(colour, extensions or perm)</small></span><span class="menu-row__short">15 minutes with a stylist</span></span><span class="menu-row__price">$35</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV_2roBoXxupMvYk2LVDPdAg" rel="noopener" target="_blank" aria-label="Book Hair Consultation online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<div class="menu-item__body">
+<span class="pkg-availability"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>Available Monday &#8211; Friday</span>
+<p class="pricing-item__desc">Not sure which service is right for you? Book a 15-minute consultation ($35) and let our experienced stylists assess your hair, discuss your goals and recommend the perfect treatment or style tailored just for you.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV_2roBoXxupMvYk2LVDPdAg" rel="noopener" target="_blank">Book Now</a>
+</div>
+</details>
+</div>
 </div>
 </div>
 <div class="length-strip" id="length-guide">
@@ -5191,25 +5189,44 @@ window.addEventListener('load', function() {
   var groups = [].slice.call(card.querySelectorAll('.menu-group'));
   var tfBtn = document.getElementById('menuTfBtn'), searchBtn = document.getElementById('menuSearchBtn');
   var wrap = document.getElementById('svcSearch'), input = document.getElementById('svcSearchInput'), resultsEl = document.getElementById('svcSearchResults');
-  var tf = false, curGroup = null, curSub = null, ticking = false;
+  var tf = false, curGroup = null, curSub = null, ticking = false, jumping = false, jumpTimer = null;
   function norm(x){ return String(x || '').toLowerCase().replace(/[\u2018\u2019]/g, "'").replace(/\s+/g, ' ').trim(); }
   function shown(el){ return !!(el && el.offsetParent !== null); }
   function barTop(){ return parseFloat(getComputedStyle(bar).top) || 62; }
   function offset(){ return barTop() + bar.offsetHeight + 10; }
-  function scrollToEl(el){ var y = el.getBoundingClientRect().top + window.pageYOffset - offset(); window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' }); }
+  function scrollToEl(el){ hold(el); var y = el.getBoundingClientRect().top + window.pageYOffset - offset(); window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' }); }
   function pick(list, line){ var hit = null, first = null; for (var i = 0; i < list.length; i++){ if (!shown(list[i])) continue; if (!first) first = list[i]; if (list[i].getBoundingClientRect().top <= line) hit = list[i]; } return hit || first; }
-  function spy(){ ticking = false;
-    var line = barTop() + bar.offsetHeight + 28;
-    var g = pick(groups, line), gk = g ? g.getAttribute('data-group') : null;
-    var s = g ? pick([].slice.call(g.querySelectorAll('.menu-sub')), line) : null, sk = s ? s.id : null;
+  /* light one group pill and one sub-heading (no pill is lit while the Tue–Fri view is on) */
+  function paint(gk, sk){
     if (gk !== curGroup){ curGroup = gk;
       pills.forEach(function(p){ p.classList.toggle('is-active', !tf && p.getAttribute('data-group') === gk); });
       subSets.forEach(function(ss){ ss.hidden = ss.getAttribute('data-for') !== (tf ? 'tf' : gk); }); }
     if (sk !== curSub){ curSub = sk; subBtns.forEach(function(b){ b.classList.toggle('is-current', b.getAttribute('data-jump') === sk); }); }
   }
-  window.addEventListener('scroll', function(){ if (!ticking){ ticking = true; requestAnimationFrame(spy); } }, { passive: true });
+  function spy(){ ticking = false; if (jumping) return;
+    var line = barTop() + bar.offsetHeight + 28;
+    var g = pick(groups, line), gk = g ? g.getAttribute('data-group') : null;
+    var s = g ? pick([].slice.call(g.querySelectorAll('.menu-sub')), line) : null, sk = s ? s.id : null;
+    paint(gk, sk);
+  }
+  /* 11 Nov 2026 (user request): a jump (group pill, sub-heading, search result, cross-link) lights its own group straight away and
+     the pills then hold still until the smooth scroll has settled, instead of lighting every group the page passes on the way.
+     A wheel, touch or key press hands the pills back to the scroll position at once. */
+  function endJump(){ if (!jumping) return; jumping = false; clearTimeout(jumpTimer); spy(); }
+  function hold(el){
+    var g = el.closest('.menu-group'), s = el.closest('.menu-sub'), after = false, i, subs;
+    if (!g){ for (i = 0; i < groups.length; i++){ if (!shown(groups[i])) continue; if (!g) g = groups[i]; if (groups[i].compareDocumentPosition(el) & 4){ g = groups[i]; after = true; } } }
+    if (!g) return;
+    if (!s){ subs = g.querySelectorAll('.menu-sub'); for (i = 0; i < subs.length; i++){ if (!shown(subs[i])) continue; if (!s || after) s = subs[i]; } }
+    jumping = false; paint(g.getAttribute('data-group'), s ? s.id : null);
+    jumping = true; clearTimeout(jumpTimer); jumpTimer = setTimeout(endJump, 400);
+  }
+  window.addEventListener('scroll', function(){
+    if (jumping){ clearTimeout(jumpTimer); jumpTimer = setTimeout(endJump, 150); return; }
+    if (!ticking){ ticking = true; requestAnimationFrame(spy); } }, { passive: true });
+  ['wheel', 'touchstart', 'keydown'].forEach(function(ev){ window.addEventListener(ev, endJump, { passive: true }); });
   window.addEventListener('resize', spy);
-  function setTf(on){ tf = !!on; card.classList.toggle('menu--tf', tf); if (tfBtn) tfBtn.setAttribute('aria-pressed', String(tf)); curGroup = null; curSub = null; spy(); }
+  function setTf(on){ jumping = false; clearTimeout(jumpTimer); tf = !!on; card.classList.toggle('menu--tf', tf); if (tfBtn) tfBtn.setAttribute('aria-pressed', String(tf)); curGroup = null; curSub = null; spy(); }
   /* 11 Nov 2026: the Tue–Fri pill (and "Show all services") filters in place. The first heading or row below the bar that is still
      shown after the switch stays exactly where it was on screen, so the visitor is never moved to the top of the menu.
      Turning the filter on and straight off again (no scrolling in between) puts the page back exactly where it was.
@@ -5256,7 +5273,7 @@ window.addEventListener('load', function() {
     var body = d.querySelector('.menu-item__body'), sh = d.querySelector('.menu-row__short');
     index.push({ name: name, lname: norm(name), alias: norm(d.getAttribute('data-alias')).split('|').map(norm),
       desc: norm((sh ? sh.textContent : '') + ' ' + (d.getAttribute('data-alias') || '') + ' ' + (body ? body.textContent : '')),
-      price: d.getAttribute('data-price') || '', label: g ? (g.getAttribute('data-label') || '') : 'Start here', el: d });
+      price: d.getAttribute('data-price') || '', label: g ? (g.getAttribute('data-label') || '') : 'Consultation', el: d });
   });
   function closeResults(){ resultsEl.classList.remove('is-open'); resultsEl.innerHTML = ''; }
   function showSearch(on){ wrap.hidden = !on; searchBtn.setAttribute('aria-expanded', String(!!on)); if (on) { setTimeout(function(){ input.focus(); }, 30); } else { closeResults(); input.value = ''; } spy(); }
