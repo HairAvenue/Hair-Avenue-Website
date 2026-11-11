@@ -671,6 +671,17 @@
     .nav__toggle-chk:checked ~ .nav__inner .nav__toggle span:nth-child(2) { opacity: 0; }
     .nav__toggle-chk:checked ~ .nav__inner .nav__toggle span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
+    /* Tablet portrait, 769-899px (iPad Air 820, iPad Pro 11 834). The desktop nav did not fit here: three links and
+       Book Now wrapped onto two lines and the bar grew from 70px to 76px. Keep every item on one line and close up
+       the spacing; the gap grows with the width and is back to the normal 32px at 900px, where the rules above apply
+       unchanged. Text size and bar height (70px, 62px once scrolled) stay as on desktop: the sticky services bar
+       (top: 62px) relies on that height. Added 11 Nov 2026. */
+    @media (min-width: 769px) and (max-width: 899px) {
+      .nav__links { gap: clamp(14px, calc(14px + (100vw - 769px) * 0.14), 32px); }
+      .nav__link, .nav__book { white-space: nowrap; }
+      .nav__book { padding: 8px 16px; }
+    }
+
     /* ===== HERO ===== */
     .hero {
       position: relative;
@@ -3211,21 +3222,35 @@
     .section--services-green .services-title { color: #ffffff; text-align: center; margin: 4px 0 24px; }
     .section--services-green .services-card.svc-menu { max-width: 1040px; background: #ffffff; display: block; }
     .svc-menu .menu-bar { position: sticky; top: 62px; z-index: 95; background: rgba(255,255,255,0.93); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid rgba(201,169,110,0.65); border-radius: 20px 20px 0 0; }
-    .svc-menu .menu-bar__groups { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px; padding: 11px 14px 8px; }
-    .svc-menu .menu-pill { -webkit-appearance: none; appearance: none; display: inline-flex; align-items: center; gap: 8px; margin: 0; padding: 4px 13px 4px 4px; border: 0; border-radius: 980px; background: #f1f4f1; color: #142a18; font-family: var(--ff-body); font-size: 13px; font-weight: 500; line-height: 1.25; letter-spacing: -0.01em; white-space: nowrap; cursor: pointer; transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease; -webkit-tap-highlight-color: transparent; }
-    .svc-menu .menu-pill:hover { background: #e4ebe5; }
-    .svc-menu .menu-pill__pic { display: block; width: 30px; height: 30px; border-radius: 50%; object-fit: cover; flex: 0 0 auto; box-shadow: 0 0 0 1.5px #C9A96E; }
-    .svc-menu .menu-pill.is-active { background: linear-gradient(160deg, #24492d 0%, #0f2614 100%); color: #F3E6BF; box-shadow: inset 0 1px 0 rgba(255,255,255,0.14), 0 0 0 1.5px #E8D49A, 0 8px 16px -10px rgba(10,31,14,0.85); -webkit-text-stroke: 0.3px currentColor; }
+    /* pills restyled 11 Nov 2026: white medallion pills with a gold hairline; bigger photo and text from 900px wide (two rows of 5 + 4 still fit) */
+    .svc-menu .menu-bar__groups { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; padding: 13px 14px 9px; }
+    .svc-menu .menu-pill { -webkit-appearance: none; appearance: none; display: inline-flex; align-items: center; gap: 9px; margin: 0; padding: 4px 14px 4px 4px; border: 0; border-radius: 980px; background: linear-gradient(180deg, #ffffff 0%, #f8f5ee 100%); color: #142a18; font-family: var(--ff-body); font-size: 13px; font-weight: 600; line-height: 1.25; letter-spacing: -0.005em; white-space: nowrap; cursor: pointer; box-shadow: inset 0 0 0 1px rgba(201,169,110,0.5), 0 1px 2px rgba(20,42,24,0.06); transition: background 0.2s ease, color 0.2s ease, box-shadow 0.25s ease, transform 0.25s ease; -webkit-tap-highlight-color: transparent; }
+    .svc-menu .menu-pill:focus-visible, .svc-menu .menu-search-btn:focus-visible { outline: 2px solid #C9A96E; outline-offset: 2px; }
+    .svc-menu .menu-pill__pic { display: block; width: 30px; height: 30px; border-radius: 50%; object-fit: cover; flex: 0 0 auto; box-shadow: 0 0 0 1.5px #C9A96E, 0 2px 5px rgba(20,42,24,0.22); transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1); }
+    @media (hover: hover) {
+      .svc-menu .menu-pill:hover { background: linear-gradient(180deg, #fffdf7 0%, #f6edd8 100%); box-shadow: inset 0 0 0 1px #C9A96E, 0 10px 18px -11px rgba(20,42,24,0.55); transform: translateY(-1px); }
+      .svc-menu .menu-pill:hover .menu-pill__pic { transform: scale(1.08); }
+      .svc-menu .menu-pill--tf:hover { background: linear-gradient(180deg, #fbf3dd 0%, #f0e0b6 100%); }
+      .svc-menu .menu-search-btn:hover { background: #fbf6ea; box-shadow: inset 0 0 0 1px #9c7a38, 0 10px 18px -11px rgba(20,42,24,0.5); transform: translateY(-1px); }
+    }
+    .svc-menu .menu-pill.is-active, .svc-menu .menu-pill.is-active:hover { background: linear-gradient(160deg, #2a5434 0%, #0f2614 100%); color: #F3E6BF; box-shadow: inset 0 1px 0 rgba(255,255,255,0.16), 0 0 0 1.5px #E8D49A, 0 10px 18px -10px rgba(10,31,14,0.9); transform: none; }
     .svc-menu .menu-pill.is-active .menu-pill__pic { box-shadow: 0 0 0 1.5px #E8D49A; }
-    .svc-menu .menu-pill--tf { background: #fbf6ea; color: #8a6a2a; box-shadow: inset 0 0 0 1px rgba(201,169,110,0.6); }
-    .svc-menu .menu-pill--tf:hover { background: #f5ecd6; }
-    .svc-menu .menu-pill--tf[aria-pressed="true"] { background: linear-gradient(160deg, #d9bd84 0%, #f0deaa 100%); color: #142a18; box-shadow: 0 0 0 1.5px #8a6a2a, 0 8px 16px -10px rgba(138,106,42,0.8); -webkit-text-stroke: 0.3px currentColor; }
+    .svc-menu .menu-pill--tf { background: linear-gradient(180deg, #fdf8ea 0%, #f6ecd2 100%); color: #7a5c22; box-shadow: inset 0 0 0 1px rgba(201,169,110,0.9), 0 1px 2px rgba(138,106,42,0.12); }
+    .svc-menu .menu-pill--tf[aria-pressed="true"], .svc-menu .menu-pill--tf[aria-pressed="true"]:hover { background: linear-gradient(160deg, #d9bd84 0%, #f0deaa 100%); color: #142a18; box-shadow: inset 0 1px 0 rgba(255,255,255,0.45), 0 0 0 1.5px #8a6a2a, 0 10px 18px -10px rgba(138,106,42,0.85); transform: none; }
     /* nine pills (11 Nov 2026): on desktop and tablets the row breaks after the fifth pill, so it reads 5 + 4 + search */
-    .svc-menu .menu-break { display: none; flex: 0 0 100%; height: 0; margin-bottom: -6px; }
+    .svc-menu .menu-break { display: none; flex: 0 0 100%; height: 0; margin-bottom: -8px; }
     @media (min-width: 769px) { .svc-menu .menu-break { display: block; } }
-    .svc-menu .menu-search-btn { -webkit-appearance: none; appearance: none; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; margin: 0; padding: 0; border: 1.5px solid rgba(201,169,110,0.7); border-radius: 50%; background: #fffdf8; color: #9c7a38; cursor: pointer; transition: background 0.2s ease, border-color 0.2s ease; }
-    .svc-menu .menu-search-btn:hover, .svc-menu .menu-search-btn[aria-expanded="true"] { background: #fbf6ea; border-color: #9c7a38; }
+    .svc-menu .menu-search-btn { -webkit-appearance: none; appearance: none; display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; margin: 0; padding: 0; border: 0; border-radius: 50%; background: linear-gradient(180deg, #ffffff 0%, #f8f5ee 100%); color: #8a6a2a; cursor: pointer; box-shadow: inset 0 0 0 1px rgba(201,169,110,0.75), 0 1px 2px rgba(20,42,24,0.06); transition: background 0.2s ease, box-shadow 0.25s ease, transform 0.25s ease; }
+    .svc-menu .menu-search-btn[aria-expanded="true"] { background: #fbf6ea; box-shadow: inset 0 0 0 1.5px #9c7a38; }
     .svc-menu .menu-search-btn svg { width: 16px; height: 16px; }
+    @media (min-width: 900px) {
+      .svc-menu .menu-bar__groups { gap: 9px; padding: 15px 14px 10px; }
+      .svc-menu .menu-break { margin-bottom: -9px; }
+      .svc-menu .menu-pill { gap: 10px; padding: 5px 18px 5px 5px; font-size: 14px; }
+      .svc-menu .menu-pill__pic { width: 36px; height: 36px; }
+      .svc-menu .menu-search-btn { width: 46px; height: 46px; }
+      .svc-menu .menu-search-btn svg { width: 18px; height: 18px; }
+    }
     .svc-menu .menu-bar__subs { padding: 0 14px 9px; }
     .svc-menu .menu-subs { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2px 20px; min-height: 24px; }
     .svc-menu .menu-subs[hidden] { display: none; }
@@ -3345,7 +3370,7 @@
       .svc-menu .menu-row { column-gap: 7px; padding: 10px 10px 11px; }
       .svc-menu .menu-row__book { padding: 6px 9px; }
     }
-    @media (prefers-reduced-motion: reduce) { .svc-menu .menu-pill, .svc-menu .menu-row, .svc-menu .menu-row__chev, .svc-menu .menu-row__book { transition: none; } }
+    @media (prefers-reduced-motion: reduce) { .svc-menu .menu-pill, .svc-menu .menu-pill__pic, .svc-menu .menu-search-btn, .svc-menu .menu-row, .svc-menu .menu-row__chev, .svc-menu .menu-row__book { transition: none; } }
     /* ===== motion & links (5 Nov 2026): gold key words, statement paragraph, star light-up, chevron links, product photo zoom ===== */
     /* E2: one gold key word per heading; a single soft shimmer sweeps through when the heading arrives (.is-in from the motion script) */
     .hl { background-image: linear-gradient(100deg, #8a6a2a 0%, #C9A96E 22%, #F3E6BF 40%, #C9A96E 58%, #8a6a2a 100%); background-size: 250% 100%; background-position: 100% 0; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
@@ -3414,6 +3439,58 @@
     }
     @media (max-width: 420px) { .gift-band { padding: 44px 0; } .gift-card { padding: 20px 22px; } }
     @media (prefers-reduced-motion: reduce) { .gift-card, .gift-card::after { animation: none !important; transition: none; } }
+
+    /* ===== Christmas theme (11 Nov 2026) =====
+       Nothing below shows unless <html> has the class "xmas". The short script at the end of <head> adds it until the end of
+       26 Dec 2026; from 27 Dec the site is back to normal with no edit needed. Preview either way with ?xmas=on or ?xmas=off.
+       Parts: .xmas-strip (ribbon under the nav, first child of .hero) with .xmas-baubles hanging from it, canvas.xmas-dust
+       (gold flecks in the hero panel, made by the script near the end of <body>), gift band wording + .gift-card__ribbon, .footer__xmas. */
+    .xmas-on, .xmas-shut, .xmas-strip, .xmas-hours, .footer__hols, .gift-card__ribbon { display: none; }
+    html.hols .xmas-open { display: none; }
+    html.hols .xmas-shut { display: inline; }
+    html.hols:not(.xmas) .xmas-baubles { display: none; }
+    html.xmas .xmas-off { display: none; }
+    html.xmas span.xmas-on { display: inline; }
+    html.xmas p.xmas-on { display: block; }
+    html.xmas .hero, html.hols .hero { grid-template-rows: auto 1fr; }
+    html.xmas .xmas-strip, html.hols .xmas-strip { position: relative; z-index: 3; grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px 22px; padding: 9px 20px; background: linear-gradient(90deg, #56101d 0%, #7d1a2b 50%, #56101d 100%); border-top: 1px solid rgba(232,212,154,0.5); border-bottom: 1px solid rgba(232,212,154,0.5); color: #f6e7c1; font-size: 0.84rem; line-height: 1.4; letter-spacing: 0.02em; text-align: center; }
+    .xmas-strip__lead { display: inline-flex; align-items: center; gap: 8px; font-family: 'New York', ui-serif, Georgia, 'Times New Roman', serif; font-style: italic; font-size: 1.02rem; color: #fbeecb; white-space: nowrap; }
+    .xmas-strip__lead svg { width: 12px; height: 12px; flex: 0 0 auto; fill: #E8D49A; }
+    .xmas-strip__note { color: #f6e7c1; white-space: nowrap; }
+    .xmas-strip__links { display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 2px 20px; }
+    .xmas-strip a { color: #ffffff; font-weight: 600; text-decoration: underline; text-decoration-thickness: 1px; text-decoration-color: rgba(232,212,154,0.6); text-underline-offset: 3px; white-space: nowrap; transition: color 0.2s ease, text-decoration-color 0.2s ease; }
+    .xmas-strip a:hover { color: #fbeecb; text-decoration-color: #E8D49A; }
+    .xmas-strip .xs-short { display: none; }
+    .xmas-baubles { position: absolute; top: 100%; right: 5%; width: 150px; height: 150px; pointer-events: none; filter: drop-shadow(0 8px 10px rgba(0,0,0,0.35)); }
+    .xmas-baubles svg { display: block; width: 100%; height: 100%; overflow: visible; }
+    .xmas-baubles .xb { transform-box: view-box; animation: xmasSway 6s ease-in-out infinite alternate; }
+    .xmas-baubles .xb--1 { transform-origin: 34px 0; }
+    .xmas-baubles .xb--2 { transform-origin: 82px 0; animation-duration: 4.6s; animation-delay: -1.2s; }
+    .xmas-baubles .xb--3 { transform-origin: 120px 0; animation-duration: 7.2s; animation-delay: -2.5s; }
+    @keyframes xmasSway { from { transform: rotate(-2.6deg); } to { transform: rotate(2.6deg); } }
+    canvas.xmas-dust { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+    html.xmas .gift-card__top { justify-content: flex-start; gap: 16px; }
+    html.xmas .gift-card > .gift-card__ribbon { display: block; position: absolute; z-index: 0; top: 0; bottom: 0; right: 54px; width: 22px; background: linear-gradient(90deg, #5d1220 0%, #8f1d30 45%, #7d1a2b 100%); box-shadow: inset 1px 0 0 rgba(232,212,154,0.55), inset -1px 0 0 rgba(232,212,154,0.55), 0 0 14px rgba(0,0,0,0.25); }
+    .gift-card__ribbon svg { position: absolute; left: 50%; top: 44%; width: 96px; height: 73px; transform: translate(-50%, -50%); overflow: visible; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.38)); }
+    html.xmas .xmas-hours, html.hols .xmas-hours { display: block; margin: 22px auto 0; max-width: 560px; padding: 12px 18px; border: 1px solid rgba(232,212,154,0.55); border-radius: 12px; background: rgba(86,16,29,0.72); color: #f6e7c1; font-size: 0.95rem; line-height: 1.55; }
+    .xmas-hours strong { display: block; margin-bottom: 2px; font-family: 'New York', ui-serif, Georgia, 'Times New Roman', serif; font-style: italic; font-weight: 400; font-size: 1.08rem; color: #fbeecb; }
+    html.xmas .footer__hols, html.hols .footer__hols { display: block; flex: 0 0 100%; margin: -14px 0 0; font-size: 0.82rem; letter-spacing: 0.04em; color: #E8D49A; }
+    .footer__xmas { flex: 0 0 100%; margin: 0; font-family: 'New York', ui-serif, Georgia, 'Times New Roman', serif; font-style: italic; font-size: 1.08rem; line-height: 1.5; color: #E8D49A; }
+    @media (max-width: 768px) {
+      html.xmas .hero, html.hols .hero { grid-template-rows: auto 48vh auto; }
+      html.xmas .xmas-strip, html.hols .xmas-strip { padding: 8px 12px; gap: 2px 14px; font-size: 0.8rem; }
+      .xmas-strip__lead { font-size: 0.96rem; }
+      .xmas-strip__links { gap: 2px 14px; }
+      .xmas-baubles { right: 3%; width: 104px; height: 104px; }
+      html.xmas .gift-card > .gift-card__ribbon { right: 40px; width: 18px; }
+      .gift-card__ribbon svg { width: 78px; height: 60px; }
+    }
+    @media (max-width: 560px) { .xmas-strip .xs-full { display: none; } .xmas-strip .xs-short { display: inline; } }
+    @media (prefers-reduced-motion: reduce) { .xmas-baubles .xb { animation: none; } }
+    /* 11 Nov 2026 fix (not part of the Christmas theme, keep it): on phones narrower than 400px the award line (312px, no wrap) plus the
+       paddings forced the hero column to 400px, so the hero text sat about 12px right of centre and was clipped. */
+    @media (max-width: 768px) { .hero { grid-template-columns: minmax(0, 1fr); } }
+    @media (max-width: 400px) { .hero__panel { padding-left: 20px; padding-right: 20px; } .hero__content { padding: 0; } }
 </style>
   <noscript>
     <style>
@@ -3430,6 +3507,13 @@
 </script>
 <script>/* Scroll reveals (5 Nov 2026): html.js-reveal hides .reveal blocks until they scroll into view. Only set when JS, IntersectionObserver and normal motion are available, so nothing can get stuck invisible. */
 if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) { document.documentElement.classList.add('js-reveal'); }</script>
+<script>/* Christmas switch (11 Nov 2026). Sets two classes on <html> by date, so nothing needs editing or uploading afterwards:
+   "xmas" = Christmas look, on until the end of 26 Dec 2026.  "hols" = salon closed, 24 Dec 2026 to 11 Jan 2027 (last day open is Wed 23 Dec, back Tue 12 Jan).
+   From 12 Jan 2027 neither is set and the site shows as normal. To end it sooner, delete this script. Preview: add ?xmas=on, ?xmas=closed, ?xmas=after or ?xmas=off to the address. */
+(function(){ var m = /[?&]xmas=(on|closed|after|off)\b/.exec(location.search), n = Date.now(), d = document.documentElement,
+  x = n < new Date(2026, 11, 27).getTime(), h = n >= new Date(2026, 11, 24).getTime() && n < new Date(2027, 0, 12).getTime();
+  if (m) { x = m[1] === 'on' || m[1] === 'closed'; h = m[1] === 'closed' || m[1] === 'after'; }
+  if (x) d.classList.add('xmas'); if (h) d.classList.add('hols'); })();</script>
 </head>
 
 <body>
@@ -3460,6 +3544,12 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 </div>
 
 <header class="hero" id="home">
+<div class="xmas-strip" role="note" aria-label="Christmas at Hair Avenue">
+<span class="xmas-strip__lead"><svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 1l2.6 7.4L22 11l-7.4 2.6L12 21l-2.6-7.4L2 11l7.4-2.6z"/></svg><span class="xmas-open"><span class="xs-full">Christmas at Hair Avenue</span><span class="xs-short">Christmas hours</span></span><span class="xmas-shut">Christmas break</span></span>
+<span class="xmas-strip__note"><span class="xmas-open">Open until <span class="xs-full">Wednesday 23 December</span><span class="xs-short">Wed 23 Dec</span></span><span class="xmas-shut">We reopen <span class="xs-full">Tuesday 12 January</span><span class="xs-short">Tue 12 Jan</span></span></span>
+<span class="xmas-strip__links"><a href="#services"><span class="xmas-open"><span class="xs-full">Book your December appointment</span><span class="xs-short">Book for December</span></span><span class="xmas-shut"><span class="xs-full">Book online for January</span><span class="xs-short">Book for January</span></span><span class="chev" aria-hidden="true">&rsaquo;</span></a><a href="#gift"><span class="xmas-open"><span class="xs-full">Christmas gift vouchers</span><span class="xs-short">Gift vouchers</span></span><span class="xmas-shut">Gift vouchers</span><span class="chev" aria-hidden="true">&rsaquo;</span></a></span>
+<span class="xmas-baubles" aria-hidden="true"><svg viewBox="0 0 150 150"><defs><radialGradient id="xbGold" cx="35%" cy="30%" r="78%"><stop offset="0" stop-color="#fff6dc"/><stop offset="0.32" stop-color="#e8d49a"/><stop offset="0.72" stop-color="#b8924f"/><stop offset="1" stop-color="#7a5c22"/></radialGradient><radialGradient id="xbRed" cx="35%" cy="30%" r="78%"><stop offset="0" stop-color="#e9909c"/><stop offset="0.3" stop-color="#b3384b"/><stop offset="0.74" stop-color="#7d1a2b"/><stop offset="1" stop-color="#450b16"/></radialGradient></defs><g class="xb xb--1"><line x1="34" y1="0" x2="34" y2="60" stroke="#E8D49A" stroke-opacity="0.75" stroke-width="1"/><rect x="30" y="59" width="8" height="6" rx="1.5" fill="#b8924f"/><circle cx="34" cy="85" r="21" fill="url(#xbGold)"/><ellipse cx="27" cy="76" rx="5" ry="8" fill="#ffffff" fill-opacity="0.32" transform="rotate(-28 27 76)"/></g><g class="xb xb--2"><line x1="82" y1="0" x2="82" y2="27" stroke="#E8D49A" stroke-opacity="0.75" stroke-width="1"/><rect x="78.5" y="26" width="7" height="5" rx="1.5" fill="#b8924f"/><circle cx="82" cy="46" r="15.5" fill="url(#xbRed)"/><ellipse cx="77" cy="40" rx="3.6" ry="6" fill="#ffffff" fill-opacity="0.3" transform="rotate(-28 77 40)"/></g><g class="xb xb--3"><line x1="120" y1="0" x2="120" y2="84" stroke="#E8D49A" stroke-opacity="0.75" stroke-width="1"/><rect x="117" y="83" width="6" height="5" rx="1.5" fill="#b8924f"/><circle cx="120" cy="100" r="12.5" fill="url(#xbGold)"/><ellipse cx="116" cy="95" rx="3" ry="5" fill="#ffffff" fill-opacity="0.32" transform="rotate(-28 116 95)"/></g></svg></span>
+</div>
 <div class="hero__media">
 <img alt="Editorial portrait of a Hair Avenue client with beautifully styled hair" class="hero__img" fetchpriority="high" src="images/wella/wella-smoothfiller-blonde-hero.webp" width="1281" height="1920"/>
 </div>
@@ -4219,15 +4309,16 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="container">
 <div class="gift-band__inner reveal">
 <div class="gift-band__copy">
-<span class="section-label">Gift Vouchers</span>
-<h2 class="section-title gift-band__title" id="gift-title">Give the Gift of <span class="hl">Great Hair</span></h2>
-<p class="gift-band__text">The gift that always fits. A Hair Avenue voucher goes towards any service with any of our stylists, or the products we use in the salon. Choose $50, $100, $150 or any amount up to $1,000 &#8212; bought online in a minute and emailed straight away.</p>
+<span class="section-label"><span class="xmas-on">Christmas </span>Gift Vouchers</span>
+<h2 class="section-title gift-band__title" id="gift-title">Give the Gift of <span class="hl">Great Hair</span> <span class="xmas-on" style="white-space:nowrap;">This Christmas</span></h2>
+<p class="gift-band__text">The gift that always fits. A Hair Avenue voucher goes towards any service with any of our stylists, or the products we use in the salon. Choose $50, $100, $150 or any amount up to $1,000 &#8212; bought online in a minute and emailed straight away.<span class="xmas-on"> A lovely last-minute present, even on Christmas Eve.</span></p>
 <div class="gift-band__actions">
 <a class="btn btn--primary" href="https://www.phorest.com/salon/hairavenue/buy/voucher" target="_blank" rel="noopener">Buy a Gift Voucher</a>
 <a class="gift-band__more" href="/gift-vouchers/">How it works<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 </div>
 <a class="gift-card" href="/gift-vouchers/" aria-label="Hair Avenue gift voucher: $50, $100, $150 or any amount, emailed straight away and valid for three years">
+<span class="gift-card__ribbon" aria-hidden="true"><svg viewBox="0 0 96 73"><path d="M45 35 L30 66 L39 61 L43 70 L50 40 Z" fill="#6d1525"/><path d="M51 35 L66 66 L57 61 L53 70 L46 40 Z" fill="#7d1a2b"/><path d="M48 31 C35 3 5 6 8 27 C10 46 36 42 48 31 Z" fill="#8f1d30" stroke="#E8D49A" stroke-opacity="0.5" stroke-width="1"/><path d="M48 31 C61 3 91 6 88 27 C86 46 60 42 48 31 Z" fill="#8f1d30" stroke="#E8D49A" stroke-opacity="0.5" stroke-width="1"/><path d="M42 27 C32 14 18 13 14 24" fill="none" stroke="#c4566a" stroke-opacity="0.7" stroke-width="2" stroke-linecap="round"/><path d="M54 27 C64 14 78 13 82 24" fill="none" stroke="#c4566a" stroke-opacity="0.7" stroke-width="2" stroke-linecap="round"/><rect x="40.5" y="22" width="15" height="18" rx="4.5" fill="#a52a3d" stroke="#E8D49A" stroke-opacity="0.5" stroke-width="1"/></svg></span>
 <span class="gift-card__top"><span>Hair Avenue</span><span>Braddon</span></span>
 <span class="gift-card__title">Gift Voucher</span>
 <span class="gift-card__bottom"><span class="gift-card__amounts">$50 &#183; $100 &#183; $150 &#183; any amount</span><span class="gift-card__note">Emailed straight away &#183; Valid for 3 years</span></span>
@@ -4490,6 +4581,7 @@ window.addEventListener('load', function() {
 <a class="final-cta__voucher" href="https://www.phorest.com/salon/hairavenue/buy/voucher" target="_blank" rel="noopener">Buy a Gift Voucher<span class="chev" aria-hidden="true">&rsaquo;</span></a>
 </div>
 <p style="margin-top:18px; font-size:0.95rem; color:rgba(255,255,255,0.85); font-style:italic;">Any issues with online booking? Call us on <a href="tel:0449801937" style="color:#E8D49A; font-style:normal; font-weight:700; letter-spacing:0.03em; text-decoration:underline; text-underline-offset:3px; text-shadow:0 0 14px rgba(232,212,154,0.5); padding:6px 4px; display:inline-block;">0449 801 937</a> — we're happy to help.</p>
+<p class="xmas-hours"><strong>Christmas hours</strong>Our last day before Christmas is Wednesday 23 December. We&#8217;re closed from Thursday 24 December and reopen on Tuesday 12 January.</p>
 </div>
 <div class="final-cta__info reveal">
 <div class="final-cta__info-item">
@@ -4830,6 +4922,8 @@ window.addEventListener('load', function() {
 <li><a class="footer__link" href="/guides/">Hair Guides</a></li>
 <li><a class="footer__link" href="/terms-and-conditions/" rel="noopener" target="_blank">Terms &amp; Conditions</a></li>
 </ul>
+<p class="footer__xmas xmas-on">Merry Christmas and a Happy New Year from all of us at Hair Avenue.</p>
+<p class="footer__hols">Open until Wednesday 23 December &#183; Back Tuesday 12 January</p>
 <p style="font-size:0.78rem; color:#C9A96E; margin-bottom:8px;">★ 4.9 from 200+ Google reviews — and counting.</p>
 <p class="footer__copy"><a href="/news/client-experience-award-2026/" style="color:#C9A96E;text-decoration:underline;text-underline-offset:3px;">2026 Phorest Client Experience Award Winner</a> &#183; Official Wella Professionals Partner Salon</p>
 <p class="footer__copy">© 2026 Hair Avenue Braddon. All rights reserved.</p>
@@ -5084,13 +5178,36 @@ window.addEventListener('load', function() {
   window.addEventListener('scroll', function(){ if (!ticking){ ticking = true; requestAnimationFrame(spy); } }, { passive: true });
   window.addEventListener('resize', spy);
   function setTf(on){ tf = !!on; card.classList.toggle('menu--tf', tf); if (tfBtn) tfBtn.setAttribute('aria-pressed', String(tf)); curGroup = null; curSub = null; spy(); }
-  function toCardTop(){ window.scrollTo({ top: Math.max(0, card.getBoundingClientRect().top + window.pageYOffset - barTop() - 4), behavior: 'smooth' }); }
-  if (tfBtn) tfBtn.addEventListener('click', function(){ setTf(!tf); toCardTop(); if (typeof gtag === 'function') gtag('event', 'menu_tue_fri_filter', { state: tf ? 'on' : 'off' }); });
+  /* 11 Nov 2026: the Tue–Fri pill (and "Show all services") filters in place. The first heading or row below the bar that is still
+     shown after the switch stays exactly where it was on screen, so the visitor is never moved to the top of the menu.
+     Turning the filter on and straight off again (no scrolling in between) puts the page back exactly where it was.
+     If the bar is not pinned yet (top of the menu is on screen) the page is simply left where it is. */
+  var tfBack = null;
+  function jumpTo(y){ var root = document.documentElement, was = root.style.scrollBehavior; root.style.scrollBehavior = 'auto'; window.scrollTo(0, Math.max(0, y)); root.style.scrollBehavior = was; spy(); }
+  function setTfInPlace(on){
+    var y0 = window.pageYOffset;
+    if (!on && tfBack && Math.abs(y0 - tfBack.after) < 3){ var back = tfBack.before; tfBack = null; setTf(false); jumpTo(back); return; }
+    /* pinned = the top of the menu card has scrolled up to the bar's resting line (measured on the card, so the card's reveal slide cannot fool it) */
+    var pinned = card.getBoundingClientRect().top < barTop() + 2, line = barTop() + bar.offsetHeight, marks = [];
+    if (pinned) [].forEach.call(card.querySelectorAll('.menu-group__title, .menu-sub__title, .menu-item'), function(el){ var r = el.getBoundingClientRect(); if (r.height > 0) marks.push([el, r.top, r.bottom]); });
+    setTf(on);
+    if (pinned){
+      var full = null, part = null, last = null;
+      for (var i = 0; i < marks.length && !full; i++){ if (marks[i][0].getBoundingClientRect().height <= 0) continue; last = marks[i];
+        if (marks[i][1] >= line - 4) full = marks[i]; else if (!part && marks[i][2] > line + 6) part = marks[i]; }
+      /* prefer the first heading or row fully below the bar; a row cut by the bar only if nothing else is on screen */
+      var m = (full && full[1] < window.innerHeight ? full : null) || part || full || last;
+      if (m){ var minY = card.getBoundingClientRect().top + window.pageYOffset - barTop() - 4;
+        jumpTo(Math.max(minY, window.pageYOffset + (m[0].getBoundingClientRect().top - m[1]))); }
+    }
+    tfBack = on ? { before: y0, after: window.pageYOffset } : null;
+  }
+  if (tfBtn) tfBtn.addEventListener('click', function(){ setTfInPlace(!tf); if (typeof gtag === 'function') gtag('event', 'menu_tue_fri_filter', { state: tf ? 'on' : 'off' }); });
   function openItem(d, flash){ if (!d) return; if (tf && !d.classList.contains('has-tf')) setTf(false); if (d.tagName === 'DETAILS') d.open = true;
     requestAnimationFrame(function(){ scrollToEl(d); if (flash){ d.classList.remove('search-flash'); void d.offsetWidth; d.classList.add('search-flash'); setTimeout(function(){ d.classList.remove('search-flash'); }, 2400); } }); }
   card.addEventListener('click', function(e){
     var t = e.target;
-    var off = t.closest && t.closest('[data-tf-off]'); if (off){ setTf(false); toCardTop(); return; }
+    var off = t.closest && t.closest('[data-tf-off]'); if (off){ setTfInPlace(false); return; }
     var j = t.closest && t.closest('[data-jump]');
     if (j){ var el = document.getElementById(j.getAttribute('data-jump')); if (!el) return; /* a group pill always shows its whole group: it leaves the Tue–Fri view */ if (tf && (j.classList.contains('menu-pill') || !shown(el))) setTf(false); if (shown(el)) scrollToEl(el); return; }
   });
@@ -5253,6 +5370,31 @@ window.addEventListener('load', function() {
     window.addEventListener('resize', upd); upd(); }
 })();
 </script>
+<script>/* Christmas theme (11 Nov 2026): slow gold flecks in the hero panel. Runs only while <html> has the class "xmas" and the visitor has not asked for reduced motion; pauses when the hero is off screen or the tab is hidden. */
+(function(){
+  if (!document.documentElement.classList.contains('xmas')) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var panel = document.querySelector('.hero__panel'); if (!panel || !window.requestAnimationFrame) return;
+  var c = document.createElement('canvas'); c.className = 'xmas-dust'; c.setAttribute('aria-hidden', 'true');
+  var ctx = c.getContext && c.getContext('2d'); if (!ctx) return;
+  panel.insertBefore(c, panel.firstChild);
+  var W = 0, H = 0, flecks = [], running = false, visible = true, last = 0;
+  function make(anywhere){ return { x: Math.random() * W, y: anywhere ? Math.random() * H : -8, r: 0.7 + Math.random() * 1.7, v: 9 + Math.random() * 20, sway: 6 + Math.random() * 14, ph: Math.random() * 6.28, tw: 0.6 + Math.random() * 1.4, a: 0.35 + Math.random() * 0.5 }; }
+  function size(){ var r = panel.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2); W = r.width; H = r.height;
+    c.width = Math.round(W * dpr); c.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.shadowColor = 'rgba(232,212,154,0.9)'; ctx.shadowBlur = 6;
+    var n = Math.max(14, Math.min(46, Math.round(W * H / 16000))); while (flecks.length < n) flecks.push(make(true)); flecks.length = n; }
+  function frame(t){ if (!running) return; var dt = Math.min(0.05, Math.max(0, (t - last) / 1000)); last = t; ctx.clearRect(0, 0, W, H);
+    for (var i = 0; i < flecks.length; i++){ var f = flecks[i]; f.y += f.v * dt; f.ph += dt * f.tw; if (f.y > H + 8) { f = flecks[i] = make(false); }
+      ctx.globalAlpha = Math.max(0, f.a * (0.55 + 0.45 * Math.sin(f.ph * 2.3))); ctx.fillStyle = i % 4 === 0 ? '#fff6dc' : '#E8D49A';
+      ctx.beginPath(); ctx.arc(f.x + Math.sin(f.ph) * f.sway, f.y, f.r, 0, 6.2832); ctx.fill(); }
+    ctx.globalAlpha = 1; requestAnimationFrame(frame); }
+  function start(){ if (running || !visible || document.hidden) return; running = true; last = performance.now(); requestAnimationFrame(frame); }
+  function stop(){ running = false; }
+  size();
+  window.addEventListener('resize', size);
+  document.addEventListener('visibilitychange', function(){ if (document.hidden) stop(); else start(); });
+  if ('IntersectionObserver' in window) { new IntersectionObserver(function(es){ visible = es[0].isIntersecting; if (visible) start(); else stop(); }).observe(panel); } else { start(); }
+})();</script>
 </body>
 
 </html>
