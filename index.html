@@ -3298,9 +3298,32 @@
     .svc-menu .menu-item--tf > .menu-row, .svc-menu .menu-item--tf > .menu-item__body { padding-left: 46px; }
     .svc-menu .menu-item--tf .menu-row__short { color: #2E7D42; font-weight: 500; }
     .svc-menu.menu--tf .menu-item--tf > .menu-row, .svc-menu.menu--tf .menu-item--tf > .menu-item__body { padding-left: 28px; }
+    /* Midweek rows read as a child of the service above them (11 Nov 2026, user request). In the full list only (not in the
+       Tue-Fri view, where they stand alone) they lose the divider above, hang off a small gold elbow, and use smaller, lighter
+       type, a smaller price and a tighter row. No tint: the user had the cream tint removed. */
+    .svc-menu:not(.menu--tf) .menu-item + .menu-item--tf { border-top-color: transparent; }
+    .svc-menu:not(.menu--tf) .menu-item + .menu-item--tf > .menu-row { position: relative; padding-top: 5px; padding-bottom: 9px; }
+    .svc-menu:not(.menu--tf) .menu-item + .menu-item--tf > .menu-row::before { content: ''; position: absolute; left: 30px; top: 0; width: 10px; height: calc(50% - 2px); border-left: 1.5px solid rgba(201,169,110,0.85); border-bottom: 1.5px solid rgba(201,169,110,0.85); border-bottom-left-radius: 7px; pointer-events: none; }
+    .svc-menu:not(.menu--tf) .menu-item--tf .menu-row__name { font-size: 0.9rem; font-weight: 500; color: #3a3a3c; }
+    .svc-menu:not(.menu--tf) .menu-item--tf .menu-row__short { font-size: 0.78rem; }
+    .svc-menu:not(.menu--tf) .menu-item--tf .menu-row__price { font-size: 0.86rem; font-weight: 600; }
+    .svc-menu:not(.menu--tf) .menu-item--tf .menu-row__tag { font-size: 0.58rem; margin-bottom: 2px; }
+    /* From 769px the tag sits on the same line as the name, so the child row is two lines and shorter than its parent (54px against 64px). */
+    @media (min-width: 769px) {
+      .svc-menu:not(.menu--tf) .menu-item + .menu-item--tf > .menu-row { padding-top: 6px; padding-bottom: 10px; }
+      .svc-menu:not(.menu--tf) .menu-item + .menu-item--tf > .menu-row::before { height: 16px; }
+      .svc-menu:not(.menu--tf) .menu-item--tf .menu-row__main { flex-direction: row; flex-wrap: wrap; align-items: center; column-gap: 9px; row-gap: 1px; }
+      .svc-menu:not(.menu--tf) .menu-item--tf .menu-row__tag { align-self: center; margin-bottom: 0; }
+      .svc-menu:not(.menu--tf) .menu-item--tf .menu-row__short { flex: 0 0 100%; }
+      .svc-menu:not(.menu--tf) .menu-item--tf .menu-row__book { padding: 5px 13px; font-size: 0.66rem; }
+    }
     .svc-menu .menu-tiers { color: #424245; }
-    .svc-menu .menu-row__book { display: inline-flex; align-items: center; justify-content: center; padding: 6px 15px; border: 1.5px solid rgba(46,83,57,0.3); border-radius: 980px; background: #ffffff; color: #2E5339; font-size: 0.72rem; font-weight: 600; line-height: 1.3; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
-    .svc-menu .menu-row__book:hover { background: #2E5339; border-color: #2E5339; color: #ffffff; }
+    /* Row Book button (restyled 11 Nov 2026): deep green pill with a fine gold edge and cream lettering, so it stands off the white
+       rows and matches the lit group pill and the nav Book Now. Same box as before (1px edge, same padding); wider letter-spacing
+       on desktop only, phones keep 0.04em so no row re-wraps. */
+    .svc-menu .menu-row__book { display: inline-flex; align-items: center; justify-content: center; padding: 6px 15px; border: 1px solid rgba(201,169,110,0.95); border-radius: 980px; background: linear-gradient(160deg, #2f6a3f 0%, #1b4427 100%); color: #FBF3DC; font-size: 0.72rem; font-weight: 600; line-height: 1.3; letter-spacing: 0.09em; text-transform: uppercase; text-decoration: none; white-space: nowrap; cursor: pointer; box-shadow: inset 0 1px 0 rgba(255,255,255,0.16), 0 2px 6px -3px rgba(10,31,14,0.55); transition: filter 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease; }
+    .svc-menu .menu-row__book:hover { filter: brightness(1.16); border-color: #E8D49A; color: #ffffff; box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 6px 12px -6px rgba(10,31,14,0.7); }
+    @media (hover: hover) { .svc-menu .menu-row__book:hover { transform: translateY(-1px); } }
     .svc-menu .menu-row__chev { justify-self: center; width: 9px; height: 9px; border-right: 2px solid #9a968c; border-bottom: 2px solid #9a968c; transform: translateY(-2px) rotate(45deg); transition: transform 0.25s ease; }
     .svc-menu .menu-item[open] > .menu-row { background: #fbf9f3; }
     .svc-menu .menu-item[open] > .menu-row .menu-row__chev { transform: translateY(2px) rotate(-135deg); border-color: #142a18; }
@@ -3325,9 +3348,13 @@
       .section--services-green .services-title { margin: 2px 0 16px; }
       .svc-menu .menu-bar { top: 64px; }
       .svc-menu .menu-bar__groups { gap: 4px; padding: 9px 4px 6px; }
-      .svc-menu .menu-pill { gap: 0; padding: 7px 8px; font-size: 12px; font-weight: 400; letter-spacing: -0.015em; }
+      /* Phone pills (restyled 11 Nov 2026): no photos here, so the look comes from a champagne fill, a full gold edge, a soft shadow
+         and medium-weight deep green text. The rows are tight (about 3px spare in row two at 390px): the 7px side padding pays for
+         the heavier weight, so the bar stays three rows from 390px and four rows below. Lit and pressed states are the desktop ones. */
+      .svc-menu .menu-pill { gap: 0; padding: 7px 7px; font-size: 12px; font-weight: 500; letter-spacing: -0.015em; color: #17371f; background: linear-gradient(180deg, #fffdf8 0%, #f4ead2 100%); box-shadow: inset 0 0 0 1px #C9A96E, inset 0 1.5px 0 rgba(255,255,255,0.95), 0 2px 5px -2px rgba(138,106,42,0.45); }
+      .svc-menu .menu-pill--tf { background: linear-gradient(180deg, #f9edc9 0%, #ebd59c 100%); color: #5f4613; box-shadow: inset 0 0 0 1px #b08d45, inset 0 1.5px 0 rgba(255,255,255,0.7), 0 2px 5px -2px rgba(138,106,42,0.5); }
       .svc-menu .menu-pill__pic { display: none; }
-      .svc-menu .menu-search-btn { width: 31px; height: 31px; }
+      .svc-menu .menu-search-btn { width: 31px; height: 31px; background: linear-gradient(180deg, #fffdf8 0%, #f4ead2 100%); box-shadow: inset 0 0 0 1px #C9A96E, inset 0 1.5px 0 rgba(255,255,255,0.95), 0 2px 5px -2px rgba(138,106,42,0.45); }
       .svc-menu .menu-search-btn svg { width: 14px; height: 14px; }
       .svc-menu .menu-bar__subs { padding: 0 8px 8px; }
       .svc-menu .menu-subs { gap: 2px 15px; }
@@ -3359,7 +3386,12 @@
       .svc-menu .menu-row__tag { grid-area: eyebrow; justify-self: start; margin-bottom: 4px; }
       .svc-menu .menu-item--tf > .menu-row, .svc-menu .menu-item--tf > .menu-item__body { padding-left: 26px; }
       .svc-menu.menu--tf .menu-item--tf > .menu-row, .svc-menu.menu--tf .menu-item--tf > .menu-item__body { padding-left: 14px; }
-      .svc-menu .menu-row__book { padding: 6px 11px; font-size: 0.68rem; }
+      .svc-menu:not(.menu--tf) .menu-item + .menu-item--tf > .menu-row { padding-top: 4px; padding-bottom: 9px; }
+      .svc-menu:not(.menu--tf) .menu-item + .menu-item--tf > .menu-row::before { left: 12px; width: 8px; }
+      .svc-menu:not(.menu--tf) .menu-item--tf .menu-row__name { font-size: 0.88rem; }
+      .svc-menu:not(.menu--tf) .menu-item--tf .menu-row__short { font-size: 0.76rem; }
+      .svc-menu:not(.menu--tf) .menu-item--tf .menu-row__price { font-size: 0.84rem; }
+      .svc-menu .menu-row__book { padding: 6px 11px; font-size: 0.68rem; letter-spacing: 0.04em; }
       .svc-menu .menu-item__body { padding: 4px 14px 18px; }
       .svc-menu .gl-intro { margin: 14px 12px 6px; }
       .svc-menu .menu-more { margin: 12px 14px 0; }
