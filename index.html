@@ -242,6 +242,13 @@
     #why.careers-bg .why__card-title { color: #ffffff; }
     #why.careers-bg .why__card-text { color: rgba(255,255,255,0.72); }
     #why.careers-bg .why__icon { color: #E8D49A; }
+    /* Clear-pricing card: the link in its line covers the whole card, so the card is one big tap target */
+    #why .why__card--link { position: relative; }
+    #why .why__card-link { color: #E8D49A; text-decoration: underline; text-decoration-color: rgba(232,212,154,0.55); text-underline-offset: 3px; transition: color 0.2s ease, text-decoration-color 0.2s ease; }
+    #why .why__card-link::after { content: ''; position: absolute; inset: 0; border-radius: 14px; }
+    #why .why__card--link:hover .why__card-link { color: #ffffff; text-decoration-color: #E8D49A; }
+    #why .why__card-link:focus-visible { outline: none; color: #ffffff; }
+    #why .why__card-link:focus-visible::after { outline: 2px solid #E8D49A; outline-offset: 2px; }
     #why.careers-bg .why__icon svg { stroke: #E8D49A !important; }
     #why.careers-bg .expect-card { background: rgba(255,255,255,0.08); }
     #why.careers-bg .expect-card__title { color: #ffffff; }
@@ -3618,11 +3625,11 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <p class="why__card-text">SmoothFiller, nanoplasty &amp; grey blending — care few salons offer</p>
 </div>
 </div>
-<div class="why__card reveal">
-<div aria-hidden="true" class="why__icon"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" x2="4" y1="22" y2="15"></line></svg></div>
+<div class="why__card why__card--link reveal">
+<div aria-hidden="true" class="why__icon"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" x2="7.01" y1="7" y2="7"></line></svg></div>
 <div class="why__card-info">
-<h3 class="why__card-title">LGBTQ+ Friendly</h3>
-<p class="why__card-text">A safe, welcoming space for everyone — exactly as you are</p>
+<h3 class="why__card-title">Upfront, Clear Pricing</h3>
+<p class="why__card-text">Every service has its price listed — <a class="why__card-link" href="#services">see our services menu</a></p>
 </div>
 </div>
 <div class="why__card reveal">
@@ -3734,7 +3741,7 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="menu-bar" id="menuBar">
 <div class="menu-bar__groups" role="group" aria-label="Service groups">
 <button type="button" class="menu-pill is-active" data-group="colour" data-jump="menu-colour"><img class="menu-pill__pic" src="images/tabs/tab-colouring.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Colour</span></button>
-<button type="button" class="menu-pill" data-group="cuts" data-jump="menu-cuts"><img class="menu-pill__pic" src="images/tabs/tab-cutting.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Cuts</span></button>
+<button type="button" class="menu-pill" data-group="cuts" data-jump="menu-cuts"><img class="menu-pill__pic" src="images/tabs/tab-cutting.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Haircuts</span></button>
 <button type="button" class="menu-pill" data-group="blowwave" data-jump="menu-blowwave"><img class="menu-pill__pic" src="images/tabs/tab-blowwave.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Blow Wave</span></button>
 <button type="button" class="menu-pill" data-group="upstyle" data-jump="menu-upstyle"><img class="menu-pill__pic" src="images/tabs/tab-tinsel.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Upstyle / Special Occasion</span></button>
 <button type="button" class="menu-pill" data-group="perms" data-jump="menu-perms"><img class="menu-pill__pic" src="images/tabs/tab-perms.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Perms</span></button>
@@ -3931,8 +3938,8 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 </div>
 </div>
 </section>
-<section class="menu-group has-tf" id="menu-cuts" data-group="cuts" data-label="Cuts" aria-labelledby="menu-cuts-t">
-<h3 class="menu-group__title" id="menu-cuts-t">Cuts <span>4 services</span></h3>
+<section class="menu-group has-tf" id="menu-cuts" data-group="cuts" data-label="Haircuts" aria-labelledby="menu-cuts-t">
+<h3 class="menu-group__title" id="menu-cuts-t">Haircuts <span>4 services</span></h3>
 <p class="menu-hint">Looking for men&#8217;s cuts? <a href="#svc-mens-haircut" class="link-green" data-menu-jump>See Men&#8217;s Haircut<span class="chev" aria-hidden="true">&rsaquo;</span></a></p>
 <div class="menu-sub has-tf" id="sub-cutblow">
 <h4 class="menu-sub__title">Cut &amp; Blow Wave</h4>
