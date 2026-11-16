@@ -107,6 +107,7 @@
     }
     .policy-section {
       margin-bottom: 48px;
+      scroll-margin-top: 96px; /* keeps the heading clear of the sticky menu when jumping from "On This Page" */
     }
     .policy-section h2 {
       font-family: var(--ff-display);
@@ -270,6 +271,7 @@ html.xmas p.footer__hols,html.hols p.footer__hols{display:block;margin:0 0 16px;
     <nav class="toc">
       <h2>On This Page</h2>
       <ol>
+        <li><a href="#prices">Prices &amp; Quotes</a></li>
         <li><a href="#booking-fees">Booking Fees &amp; Consultation Fees</a></li>
         <li><a href="#rescheduling">Rescheduling &amp; Cancellations</a></li>
         <li><a href="#no-shows">No Shows Policy</a></li>
@@ -285,9 +287,21 @@ html.xmas p.footer__hols,html.hols p.footer__hols{display:block;margin:0 0 16px;
 
     <p>Upon booking with Hair Avenue you agree to comply with the following booking policies:</p>
 
-    <!-- 1. BOOKING FEES -->
+    <!-- 1. PRICES & QUOTES -->
+    <div class="policy-section" id="prices">
+      <h2>1. Prices &amp; Quotes</h2>
+      <p>Prices shown on our website with the word <strong>&#8220;from&#8221;</strong> are <strong>quotes, not exact prices</strong>.</p>
+      <ul>
+        <li>For these services, your final price depends on your actual hair on the day of your appointment: its length, its thickness and the complexity of the work.</li>
+        <li>If your final price comes to <strong>less than $100 above the quote</strong>, we will go ahead with your service without discussing the difference with you first.</li>
+        <li>If your final price would come to <strong>$100 or more above the quote</strong>, we will discuss it with you before we start.</li>
+        <li>This section does not apply to haircuts or to any service shown at a fixed price.</li>
+      </ul>
+    </div>
+
+    <!-- 2. BOOKING FEES -->
     <div class="policy-section" id="booking-fees">
-      <h2>1. Booking Fees &amp; Consultation Fees</h2>
+      <h2>2. Booking Fees &amp; Consultation Fees</h2>
       <ul>
         <li>All new clients and online bookings are required to pay a booking fee (deposit) to secure their appointment.</li>
         <li>Your booking fee is <strong>fully refundable</strong> if you cancel with more than <strong>48 hours' notice</strong> before your appointment time. Cancellations made with less notice will forfeit the booking fee — see our <a href="#rescheduling">Rescheduling &amp; Cancellations</a> policy below.</li>
@@ -299,9 +313,9 @@ html.xmas p.footer__hols,html.hols p.footer__hols{display:block;margin:0 0 16px;
       </ul>
     </div>
 
-    <!-- 2. RESCHEDULING -->
+    <!-- 3. RESCHEDULING -->
     <div class="policy-section" id="rescheduling">
-      <h2>2. Rescheduling &amp; Cancellations</h2>
+      <h2>3. Rescheduling &amp; Cancellations</h2>
       <p>What happens to your booking fee depends on how much notice you give us before your appointment time:</p>
       <h3>Reschedules</h3>
       <ul>
@@ -326,9 +340,9 @@ html.xmas p.footer__hols,html.hols p.footer__hols{display:block;margin:0 0 16px;
       </div>
     </div>
 
-    <!-- 3. NO SHOWS -->
+    <!-- 4. NO SHOWS -->
     <div class="policy-section" id="no-shows">
-      <h2>3. No Shows Policy</h2>
+      <h2>4. No Shows Policy</h2>
       <ul>
         <li>No shows will forfeit their booking fee and be charged <strong>100%</strong> of their booked service amount; any card on file will be charged.</li>
         <li>First-time clients to Hair Avenue who fail to show will not be able to rebook any future appointments.</li>
@@ -336,9 +350,9 @@ html.xmas p.footer__hols,html.hols p.footer__hols{display:block;margin:0 0 16px;
       </ul>
     </div>
 
-    <!-- 4. CONFIRMATION -->
+    <!-- 5. CONFIRMATION -->
     <div class="policy-section" id="confirmation">
-      <h2>4. Confirmation Policy</h2>
+      <h2>5. Confirmation Policy</h2>
       <ul>
         <li>A confirmation text will be sent prior to your appointment via our booking system.</li>
         <li>Please confirm your appointment. If we cannot confirm your appointment 48 hours prior to your appointment time, your appointment may be cancelled and any booking fees will be forfeited.</li>
@@ -346,9 +360,9 @@ html.xmas p.footer__hols,html.hols p.footer__hols{display:block;margin:0 0 16px;
       </ul>
     </div>
 
-    <!-- 5. LATE POLICY -->
+    <!-- 6. LATE POLICY -->
     <div class="policy-section" id="late">
-      <h2>5. Late Policy</h2>
+      <h2>6. Late Policy</h2>
       <ul>
         <li>Please allow extra time to arrive at your appointment. If you are more than <strong>10 minutes late</strong>, we may not be able to provide you with your full service.</li>
         <li>Late fees may apply.</li>
@@ -356,9 +370,9 @@ html.xmas p.footer__hols,html.hols p.footer__hols{display:block;margin:0 0 16px;
       </ul>
     </div>
 
-    <!-- 6. COLOUR ADJUSTMENT -->
+    <!-- 7. COLOUR ADJUSTMENT -->
     <div class="policy-section" id="colour-adjustment">
-      <h2>6. Colour &amp; Cut Adjustment Policy</h2>
+      <h2>7. Colour &amp; Cut Adjustment Policy</h2>
       <p>We do not offer a "change of mind" redo service. However, we want to ensure all our clients are 100% satisfied with their service.</p>
       <ul>
         <li>We have a <strong>10-day adjustment policy</strong>.</li>
@@ -370,9 +384,9 @@ html.xmas p.footer__hols,html.hols p.footer__hols{display:block;margin:0 0 16px;
       </div>
     </div>
 
-    <!-- 7. NO EXTRAS -->
+    <!-- 8. NO EXTRAS -->
     <div class="policy-section" id="extras">
-      <h2>7. No Extras Policy</h2>
+      <h2>8. No Extras Policy</h2>
       <p>It's salon policy that due to insurance and OH&amp;S requirements, additional persons or children cannot attend the salon with you during your appointment.</p>
       <ul>
         <li>If for some reason you need to bring an extra person with you, please contact the salon prior to your appointment.</li>
@@ -380,9 +394,9 @@ html.xmas p.footer__hols,html.hols p.footer__hols{display:block;margin:0 0 16px;
       </ul>
     </div>
 
-    <!-- 8. PAYMENT -->
+    <!-- 9. PAYMENT -->
     <div class="policy-section" id="payment">
-      <h2>8. Payment Options</h2>
+      <h2>9. Payment Options</h2>
       <p>Payment for your appointment can be made using:</p>
       <ul>
         <li>Cash</li>
@@ -392,9 +406,9 @@ html.xmas p.footer__hols,html.hols p.footer__hols{display:block;margin:0 0 16px;
       </ul>
     </div>
 
-    <!-- 9. PARKING -->
+    <!-- 10. PARKING -->
     <div class="policy-section" id="parking">
-      <h2>9. Parking</h2>
+      <h2>10. Parking</h2>
       <p>Hair Avenue is located at Unit 102/16 Lonsdale Street, Braddon ACT 2612.</p>
       <ul>
         <li>Free street parking is available along Lonsdale Street and surrounding streets in the Braddon precinct.</li>
@@ -403,10 +417,10 @@ html.xmas p.footer__hols,html.hols p.footer__hols{display:block;margin:0 0 16px;
       </ul>
     </div>
 
-    <!-- 10. PRIVACY POLICY -->
+    <!-- 11. PRIVACY POLICY -->
     <div class="policy-section" id="privacy">
-      <h2>10. Privacy Policy</h2>
-      <p>Hair Avenue ABN (insert ABN), trading as Hair Avenue ("Hair Avenue", "we", "us") is committed to protecting the information about you that we collect, store and use when you provide it to us on our website: <a href="https://www.hairavenue.com.au">hairavenue.com.au</a> (Site).</p>
+      <h2>11. Privacy Policy</h2>
+      <p>Hair Avenue ("we", "us") is committed to protecting the information about you that we collect, store and use when you provide it to us on our website: <a href="https://www.hairavenue.com.au">hairavenue.com.au</a> (Site).</p>
       <p>We manage your information in accordance with the requirements of the Australian Privacy Principles (APPs) and the <em>Privacy Act 1988</em> (Cth).</p>
       <p>By accessing the Site, you consent to the collection, use and disclosure of your personal information in accordance with this Privacy Policy.</p>
 
@@ -455,7 +469,7 @@ html.xmas p.footer__hols,html.hols p.footer__hols{display:block;margin:0 0 16px;
       <p>If you have any concerns about how we handle your personal information or require further information, please contact us at <a href="mailto:hairavenueatbraddon@gmail.com">hairavenueatbraddon@gmail.com</a>.</p>
     </div>
 
-    <p class="updated-date">This document represents our Terms &amp; Conditions and Privacy Policy as of September 2026. We may update this document from time to time. We encourage you to review this page regularly.</p>
+    <p class="updated-date">This document represents our Terms &amp; Conditions and Privacy Policy as of November 2026. We may update this document from time to time. We encourage you to review this page regularly.</p>
 
   </main>
 
