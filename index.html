@@ -3229,7 +3229,7 @@
     .section--services-green .services-title { color: #ffffff; text-align: center; margin: 4px 0 24px; }
     .section--services-green .services-card.svc-menu { max-width: 1040px; background: #ffffff; display: block; }
     .svc-menu .menu-bar { position: sticky; top: 62px; z-index: 95; background: rgba(255,255,255,0.93); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid rgba(201,169,110,0.65); border-radius: 20px 20px 0 0; }
-    /* pills restyled 11 Nov 2026: white medallion pills with a gold hairline; bigger photo and text from 900px wide (two rows of 5 + 4 still fit) */
+    /* pills restyled 11 Nov 2026: white medallion pills with a gold hairline; slightly bigger photo and text from 1100px wide */
     .svc-menu .menu-bar__groups { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; padding: 13px 14px 9px; }
     .svc-menu .menu-pill { -webkit-appearance: none; appearance: none; display: inline-flex; align-items: center; gap: 9px; margin: 0; padding: 4px 14px 4px 4px; border: 0; border-radius: 980px; background: linear-gradient(180deg, #ffffff 0%, #f8f5ee 100%); color: #142a18; font-family: var(--ff-body); font-size: 13px; font-weight: 600; line-height: 1.25; letter-spacing: -0.005em; white-space: nowrap; cursor: pointer; box-shadow: inset 0 0 0 1px rgba(201,169,110,0.5), 0 1px 2px rgba(20,42,24,0.06); transition: background 0.2s ease, color 0.2s ease, box-shadow 0.25s ease, transform 0.25s ease; -webkit-tap-highlight-color: transparent; }
     .svc-menu .menu-pill:focus-visible, .svc-menu .menu-search-btn:focus-visible { outline: 2px solid #C9A96E; outline-offset: 2px; }
@@ -3244,19 +3244,31 @@
     .svc-menu .menu-pill.is-active .menu-pill__pic { box-shadow: 0 0 0 1.5px #E8D49A; }
     .svc-menu .menu-pill--tf { background: linear-gradient(180deg, #fdf8ea 0%, #f6ecd2 100%); color: #7a5c22; box-shadow: inset 0 0 0 1px rgba(201,169,110,0.9), 0 1px 2px rgba(138,106,42,0.12); }
     .svc-menu .menu-pill--tf[aria-pressed="true"], .svc-menu .menu-pill--tf[aria-pressed="true"]:hover { background: linear-gradient(160deg, #d9bd84 0%, #f0deaa 100%); color: #142a18; box-shadow: inset 0 1px 0 rgba(255,255,255,0.45), 0 0 0 1.5px #8a6a2a, 0 10px 18px -10px rgba(138,106,42,0.85); transform: none; }
-    /* nine pills (11 Nov 2026): on desktop and tablets the row breaks after the fifth pill, so it reads 5 + 4 + search */
+    /* ten pills (16 Nov 2026, owner's order): 769-1099px wide = three rows, 4 + 4 + 2 + search (.menu-break--a after the 4th and 8th pill);
+       1100px and wider = two rows, 5 + 5 + search (.menu-break--b after the 5th). Phones wrap freely and use the short labels. */
     .svc-menu .menu-break { display: none; flex: 0 0 100%; height: 0; margin-bottom: -8px; }
-    @media (min-width: 769px) { .svc-menu .menu-break { display: block; } }
+    @media (min-width: 769px) and (max-width: 1099px) { .svc-menu .menu-break--a { display: block; } }
+    @media (min-width: 1100px) { .svc-menu .menu-break--b { display: block; } }
     .svc-menu .menu-search-btn { -webkit-appearance: none; appearance: none; display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; margin: 0; padding: 0; border: 0; border-radius: 50%; background: linear-gradient(180deg, #ffffff 0%, #f8f5ee 100%); color: #8a6a2a; cursor: pointer; box-shadow: inset 0 0 0 1px rgba(201,169,110,0.75), 0 1px 2px rgba(20,42,24,0.06); transition: background 0.2s ease, box-shadow 0.25s ease, transform 0.25s ease; }
     .svc-menu .menu-search-btn[aria-expanded="true"] { background: #fbf6ea; box-shadow: inset 0 0 0 1.5px #9c7a38; }
     .svc-menu .menu-search-btn svg { width: 16px; height: 16px; }
-    @media (min-width: 900px) {
-      .svc-menu .menu-bar__groups { gap: 9px; padding: 15px 14px 10px; }
+    /* narrow desktop windows: a little tighter, so four pills still fit on a row with wider system fonts (Windows) */
+    @media (min-width: 769px) and (max-width: 859px) {
+      .svc-menu .menu-bar__groups { gap: 6px; }
+      .svc-menu .menu-break { margin-bottom: -6px; }
+      .svc-menu .menu-pill { gap: 7px; padding-right: 11px; }
+    }
+    @media (min-width: 1100px) {
+      .svc-menu .menu-bar__groups { gap: 9px; padding: 14px 14px 10px; }
       .svc-menu .menu-break { margin-bottom: -9px; }
-      .svc-menu .menu-pill { gap: 10px; padding: 5px 18px 5px 5px; font-size: 14px; }
-      .svc-menu .menu-pill__pic { width: 36px; height: 36px; }
-      .svc-menu .menu-search-btn { width: 46px; height: 46px; }
-      .svc-menu .menu-search-btn svg { width: 18px; height: 18px; }
+      /* the search button sits at the end of the first row here, which leaves both rows room for wider system fonts */
+      .svc-menu .menu-search-btn { order: 1; }
+      .svc-menu .menu-break--b { order: 2; }
+      .svc-menu .menu-break--b ~ .menu-pill { order: 3; }
+      .svc-menu .menu-pill { gap: 9px; padding: 4px 15px 4px 4px; font-size: 13.5px; }
+      .svc-menu .menu-pill__pic { width: 32px; height: 32px; }
+      .svc-menu .menu-search-btn { width: 40px; height: 40px; }
+      .svc-menu .menu-search-btn svg { width: 17px; height: 17px; }
     }
     .svc-menu .menu-bar__subs { padding: 0 14px 9px; }
     .svc-menu .menu-subs { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2px 20px; min-height: 24px; }
@@ -3740,28 +3752,32 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="services-card svc-menu reveal">
 <div class="menu-bar" id="menuBar">
 <div class="menu-bar__groups" role="group" aria-label="Service groups">
-<button type="button" class="menu-pill is-active" data-group="colour" data-jump="menu-colour"><img class="menu-pill__pic" src="images/tabs/tab-colouring.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Colour</span></button>
+<button type="button" class="menu-pill is-active" data-group="grey" data-jump="menu-grey"><img class="menu-pill__pic" src="images/tabs/tab-regrowth.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Grey Blending</span></button>
+<button type="button" class="menu-pill" data-group="balayage" data-jump="menu-balayage"><img class="menu-pill__pic" src="images/tabs/tab-balayage.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Balayage</span></button>
+<button type="button" class="menu-pill" data-group="foils" data-jump="menu-foils"><img class="menu-pill__pic" src="images/tabs/tab-highlights.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span><span class="sub-full">Foils / Highlights</span><span class="sub-short">Foils</span></span></button>
+<button type="button" class="menu-pill" data-group="colour" data-jump="menu-colour"><img class="menu-pill__pic" src="images/tabs/tab-colouring.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span><span class="sub-full">Colour, Regrowth &amp; Toner</span><span class="sub-short">Colour &amp; Regrowth</span></span></button>
+<span class="menu-break menu-break--a" aria-hidden="true"></span>
 <button type="button" class="menu-pill" data-group="cuts" data-jump="menu-cuts"><img class="menu-pill__pic" src="images/tabs/tab-cutting.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Haircuts</span></button>
-<button type="button" class="menu-pill" data-group="blowwave" data-jump="menu-blowwave"><img class="menu-pill__pic" src="images/tabs/tab-blowwave.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Blow Wave</span></button>
-<button type="button" class="menu-pill" data-group="upstyle" data-jump="menu-upstyle"><img class="menu-pill__pic" src="images/tabs/tab-tinsel.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Upstyle / Special Occasion</span></button>
-<button type="button" class="menu-pill" data-group="perms" data-jump="menu-perms"><img class="menu-pill__pic" src="images/tabs/tab-perms.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Perms</span></button>
-<span class="menu-break" aria-hidden="true"></span>
-<button type="button" class="menu-pill" data-group="smoothing" data-jump="menu-smoothing"><img class="menu-pill__pic" src="images/tabs/tab-smoothfiller.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Nanoplasty &amp; SmoothFiller</span></button>
+<span class="menu-break menu-break--b" aria-hidden="true"></span>
+<button type="button" class="menu-pill" data-group="blowwave" data-jump="menu-blowwave"><img class="menu-pill__pic" src="images/tabs/tab-blowwave.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Blow Wave / Upstyle</span></button>
+<button type="button" class="menu-pill" data-group="smoothing" data-jump="menu-smoothing"><img class="menu-pill__pic" src="images/tabs/tab-smoothfiller.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Nanoplasty / Perms</span></button>
 <button type="button" class="menu-pill" data-group="extensions" data-jump="menu-extensions"><img class="menu-pill__pic" src="images/tabs/tab-extensions.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Extensions</span></button>
-<button type="button" class="menu-pill" data-group="mens" data-jump="menu-mens"><img class="menu-pill__pic" src="images/tabs/tab-mens.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Men&#8217;s</span></button>
-<button type="button" class="menu-pill menu-pill--tf" id="menuTfBtn" aria-pressed="false" title="Show only the services with a Tuesday to Friday price"><img class="menu-pill__pic" src="images/tabs/tab-offers.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Tue&#8211;Fri Specials</span></button>
+<span class="menu-break menu-break--a" aria-hidden="true"></span>
+<button type="button" class="menu-pill" data-group="mens" data-jump="menu-mens"><img class="menu-pill__pic" src="images/tabs/tab-mens.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span><span class="sub-full">Men&#8217;s Haircuts / Perm</span><span class="sub-short">Men&#8217;s</span></span></button>
+<button type="button" class="menu-pill menu-pill--tf" id="menuTfBtn" aria-pressed="false" title="Show only the services with a Tuesday to Friday price"><img class="menu-pill__pic" src="images/tabs/tab-offers.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Midweek Specials</span></button>
 <button type="button" class="menu-search-btn" id="menuSearchBtn" aria-label="Search services" aria-expanded="false" aria-controls="svcSearch"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
 </div>
 <div class="menu-bar__subs">
-<div class="menu-subs" data-for="colour"><button type="button" data-jump="sub-colouring" class="is-current"><span class="sub-full">All-Over Colour &amp; Toner</span><span class="sub-short">All-Over Colour</span></button><button type="button" data-jump="sub-regrowth"><span class="sub-full">Grey Blending &amp; Regrowth</span><span class="sub-short">Grey Blending</span></button><button type="button" data-jump="sub-highlights"><span class="sub-full">Foils &amp; Balayage</span><span class="sub-short">Foils &amp; Balayage</span></button></div>
+<div class="menu-subs" data-for="grey"><span class="menu-subs__static">First visit and follow-up grey blending</span></div>
+<div class="menu-subs" data-for="balayage" hidden><span class="menu-subs__static">Balayage, any day or midweek</span></div>
+<div class="menu-subs" data-for="foils" hidden><span class="menu-subs__static">Full-head and half-head foils</span></div>
+<div class="menu-subs" data-for="colour" hidden><button type="button" data-jump="sub-colouring"><span class="sub-full">All-Over Colour &amp; Toner</span><span class="sub-short">All-Over Colour</span></button><button type="button" data-jump="sub-regrowth"><span class="sub-full">Regrowth</span><span class="sub-short">Regrowth</span></button></div>
 <div class="menu-subs" data-for="cuts" hidden><button type="button" data-jump="sub-cutblow"><span class="sub-full">Cut &amp; Blow Wave</span><span class="sub-short">Cut &amp; Blow Wave</span></button><button type="button" data-jump="sub-express"><span class="sub-full">Express Cuts</span><span class="sub-short">Express Cuts</span></button><button type="button" data-jump="sub-kids"><span class="sub-full">Kids&#8217; Cuts</span><span class="sub-short">Kids&#8217; Cuts</span></button></div>
-<div class="menu-subs" data-for="blowwave" hidden><span class="menu-subs__static">Blow wave and bouncy upgrade</span></div>
-<div class="menu-subs" data-for="upstyle" hidden><button type="button" data-jump="sub-upstyle"><span class="sub-full">Upstyle</span><span class="sub-short">Upstyle</span></button><button type="button" data-jump="sub-tinsel"><span class="sub-full">Hair Tinsel</span><span class="sub-short">Hair Tinsel</span></button></div>
-<div class="menu-subs" data-for="perms" hidden><span class="menu-subs__static">Perms and permanent straightening</span></div>
-<div class="menu-subs" data-for="smoothing" hidden><button type="button" data-jump="sub-nanoplasty"><span class="sub-full">Nanoplasty</span><span class="sub-short">Nanoplasty</span></button><button type="button" data-jump="sub-smoothfiller"><span class="sub-full">SmoothFiller</span><span class="sub-short">SmoothFiller</span></button></div>
+<div class="menu-subs" data-for="blowwave" hidden><button type="button" data-jump="sub-blowwave"><span class="sub-full">Blow Wave</span><span class="sub-short">Blow Wave</span></button><button type="button" data-jump="sub-upstyle"><span class="sub-full">Upstyle / Special Occasion</span><span class="sub-short">Upstyle</span></button><button type="button" data-jump="sub-tinsel"><span class="sub-full">Hair Tinsel</span><span class="sub-short">Hair Tinsel</span></button></div>
+<div class="menu-subs" data-for="smoothing" hidden><button type="button" data-jump="sub-nanoplasty"><span class="sub-full">Nanoplasty</span><span class="sub-short">Nanoplasty</span></button><button type="button" data-jump="sub-smoothfiller"><span class="sub-full">SmoothFiller</span><span class="sub-short">SmoothFiller</span></button><button type="button" data-jump="sub-perms"><span class="sub-full">Perms &amp; Straightening</span><span class="sub-short">Perms</span></button></div>
 <div class="menu-subs" data-for="extensions" hidden><span class="menu-subs__static">Great Lengths tape extensions</span></div>
 <div class="menu-subs" data-for="mens" hidden><button type="button" data-jump="sub-menscuts"><span class="sub-full">Men&#8217;s Cuts</span><span class="sub-short">Men&#8217;s Cuts</span></button><button type="button" data-jump="sub-mensperm"><span class="sub-full">Men&#8217;s Perm</span><span class="sub-short">Men&#8217;s Perm</span></button></div>
-<div class="menu-subs" data-for="tf" hidden><span class="menu-subs__static">Showing Tue&#8211;Fri prices only</span><button type="button" data-tf-off>Show all services</button></div>
+<div class="menu-subs" data-for="tf" hidden><span class="menu-subs__static">Showing midweek (Tue&#8211;Fri) prices only</span><button type="button" data-tf-off>Show all services</button></div>
 </div>
 <div class="svc-search" id="svcSearch" hidden>
 <div class="svc-search__box">
@@ -3775,51 +3791,9 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="menu-tfnote">
 <p class="offers-note"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg><span>Packages marked <strong>Tuesday&#8211;Friday</strong> are available on those days only.</span></p>
 </div>
-<section class="menu-group has-tf" id="menu-colour" data-group="colour" data-label="Colour" aria-labelledby="menu-colour-t">
-<h3 class="menu-group__title" id="menu-colour-t">Colour <span>10 services</span></h3>
-<div class="menu-sub has-tf" id="sub-colouring">
-<h4 class="menu-sub__title">All-Over Colour &amp; Toner</h4>
-<div class="menu-rows">
-<details class="menu-item" id="svc-all-over-colour" data-name="All Over Colour" data-alias="All Over Colour Package" data-price="from $229">
-<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">All Over Colour</span><span class="menu-row__short">Root-to-tip colour with up to 100% grey coverage</span></span><span class="menu-row__price">from $229</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVxF_C_4mQMY3w_h9tMAd_0s" rel="noopener" target="_blank" aria-label="Book All Over Colour online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
-<div class="menu-item__body">
-<p class="pricing-item__desc">Your colour, perfected. Every Hair Avenue colour service uses Wella's Koleston Perfect ME+ — the world's most advanced professional permanent colour. With Pure Balance Technology, it neutralises free radicals caused by mineral build-up in your hair, delivering richer, truer-to-tone results with significantly less damage, colour after colour.</p>
-<p class="pricing-item__desc">The ME+ molecule is a Wella-exclusive breakthrough — over seven years of research and 3,000+ formulations tested — that reduces the risk of developing a new colour allergy by up to 60 times. Gorgeous colour shouldn't come with compromise, and with Koleston Perfect, it doesn't.</p>
-<p class="pricing-item__desc desc-emphasis">Up to 100% grey coverage, up to 5 levels of lift, and natural depth and shine that lasts.</p>
-<p class="pricing-item__desc menu-tiers">Short $229 &#183; Medium $249 &#183; Long $279 &#183; Extra long $309. Add a haircut for $65.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVxF_C_4mQMY3w_h9tMAd_0s" rel="noopener" target="_blank">Book Now</a>
-</div>
-</details>
-<details class="menu-item menu-item--tf has-tf" id="svc-all-over-colour-tf" data-name="All Over Colour, midweek" data-alias="All Over Colour Package + 50% Off Haircut|All Over Colour Package + Midweek Haircut Discount|All Over Colour — Tue–Fri Special" data-price="from $210">
-<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__tag">Tue&#8211;Fri only</span><span class="menu-row__name">All Over Colour, midweek</span><span class="menu-row__short">Save up to $19. Add a haircut for only $45</span></span><span class="menu-row__price">from $210</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV3YuKrD_7sTrdGKw9pkhjg8" rel="noopener" target="_blank" aria-label="Book All Over Colour, midweek online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
-<div class="menu-item__body">
-<p class="menu-deal__title"><span>Tue&#8211;Fri special</span>All Over Colour Package + Midweek Haircut Discount</p>
-<p class="pricing-item__desc">A complete all-over colour refresh using Wella Professional colour &#8212; fresh, vibrant coverage from root to tip with expert application. Includes a consultation, luxurious shampoo, full colour application &amp; a polished blow wave finish. Book midweek and add a haircut for $45 (normally $65).</p>
-<details class="pkg-details">
-<summary class="pkg-details__toggle">What&#8217;s included<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
-<div class="pkg-details__body">
-<div class="pkg-bonuses">
-<span class="pkg-bonus pkg-bonus--discount"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" x2="8.12" y1="4" y2="15.88"></line><line x1="14.47" x2="20" y1="14.48" y2="20"></line><line x1="8.12" x2="12" y1="8.12" y2="12"></line></svg><strong>50% Off</strong> Intense Mist Hair Treatment <small>($20 &#8212; normally $40)</small></span>
-<span class="pkg-bonus pkg-bonus--discount"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" x2="8.12" y1="4" y2="15.88"></line><line x1="14.47" x2="20" y1="14.48" y2="20"></line><line x1="8.12" x2="12" y1="8.12" y2="12"></line></svg><strong>Discounted</strong> Hair Cut Add-On <small>($45 &#8212; normally $65)</small></span>
-</div>
-</div>
-</details>
-<p class="pricing-item__desc menu-tiers">Short $210 &#183; Medium $234 &#183; Long $269 &#183; Extra long $299. Add a haircut for $45.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV3YuKrD_7sTrdGKw9pkhjg8" rel="noopener" target="_blank">Book Now</a>
-</div>
-</details>
-<details class="menu-item" id="svc-toner-gloss" data-name="Toner / Gloss Maintenance" data-price="from $165" data-alias="Toner / Gloss Maintenance (with blow wave)">
-<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Toner / Gloss Maintenance</span><span class="menu-row__short">With blow wave. Refreshes tone and shine between colours</span></span><span class="menu-row__price">from $165</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0qDbPSFl2GQFmyEixso_5Q" rel="noopener" target="_blank" aria-label="Book Toner / Gloss Maintenance online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
-<div class="menu-item__body">
-<p class="pricing-item__desc">Bring your colour back to life between appointments. A gloss (or toner) is a gentle, bleach-free colour that sits over your existing shade &#8212; taking out brassy yellow or orange tones, evening out patchy or dull colour, and adding depth, richness and shine. Think of it as a top coat for your colour, lasting around 4&#8211;6 weeks.</p>
-<p class="pricing-item__desc">Your gloss is mixed to suit your hair using Wella professional colour, and the package is completed with a professional blow wave and styling.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0qDbPSFl2GQFmyEixso_5Q" rel="noopener" target="_blank">Book Now</a>
-</div>
-</details>
-</div>
-</div>
-<div class="menu-sub" id="sub-regrowth">
-<h4 class="menu-sub__title">Grey Blending &amp; Regrowth</h4>
+<section class="menu-group" id="menu-grey" data-group="grey" data-label="Grey Blending" aria-labelledby="menu-grey-t">
+<h3 class="menu-group__title" id="menu-grey-t">Grey Blending <span>2 services</span></h3>
+<div class="menu-sub" id="sub-grey">
 <div class="menu-rows">
 <details class="menu-item" id="svc-grey-blending-first" data-name="Grey Blending — First Time" data-price="from $575">
 <summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Grey Blending &#8212; First Time</span><span class="menu-row__short">Your first grey blend, with gloss and blow wave</span></span><span class="menu-row__price">from $575</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV6mGnLVeD6QbatjKTtZVU30" rel="noopener" target="_blank" aria-label="Book Grey Blending — First Time online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
@@ -3835,31 +3809,48 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV6mGnLVeD6QbatjKTtZVU30" rel="noopener" target="_blank">Book Now</a>
 </div>
 </details>
-<details class="menu-item" id="svc-regrowth" data-name="Regrowth" data-price="from $199" data-alias="Regrowth Package">
-<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Regrowth</span><span class="menu-row__short">Root colour and grey cover, with blow wave</span></span><span class="menu-row__price">from $199</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-2CYQcH03edgARkSEc1xXo" rel="noopener" target="_blank" aria-label="Book Regrowth online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
+</div>
+</div>
+</section>
+<section class="menu-group has-tf" id="menu-balayage" data-group="balayage" data-label="Balayage" aria-labelledby="menu-balayage-t">
+<h3 class="menu-group__title" id="menu-balayage-t">Balayage <span>1 service</span></h3>
+<div class="menu-sub has-tf" id="sub-balayage">
+<div class="menu-rows">
+<details class="menu-item" id="svc-balayage" data-name="Balayage" data-alias="Balayage — Full Head Lightening Package" data-price="from $415">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Balayage</span><span class="menu-row__short">Full head, with toner, WellaPlex and blow wave</span></span><span class="menu-row__price">from $415</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0b39yNcvZ1XnvdShve23Mg" rel="noopener" target="_blank" aria-label="Book Balayage online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
 <div class="menu-item__body">
-<p class="pricing-item__desc">Just need your roots refreshed? Seamlessly blend new growth with your existing colour for a flawless, natural finish &#8212; ideal for regular colour maintenance and grey cover, with no bleach needed. Includes Wella regrowth colour, shampoo &amp; a polished blow wave or iron-styled finish.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-2CYQcH03edgARkSEc1xXo" rel="noopener" target="_blank">Book Now</a>
+<p class="pricing-item__desc">A tailored balayage colour experience designed for a vibrant, easy-to-maintain look with a gorgeous face-framing glow. Our stylists use strategic placement techniques for maximum visual impact with minimal upkeep between visits. Includes a gloss/toner, WellaPlex bond protection and a blow wave finish. Ultra Blonde (from $595) and Colour Correction (from $670) options available when you book.</p>
+<p class="pricing-item__desc menu-tiers">Short $415 &#183; Medium $470 &#183; Long $505 &#183; Extra long $565. Prices include the WellaPlex bond builder ($20, normally $40). Add a haircut for $65.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0b39yNcvZ1XnvdShve23Mg" rel="noopener" target="_blank">Book Now</a>
 </div>
 </details>
-<details class="menu-item" id="svc-regrowth-toner" data-name="Regrowth + All Over Toner" data-price="from $230" data-alias="Regrowth + All Over Toner Package">
-<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Regrowth + All Over Toner</span><span class="menu-row__short">Roots plus a full toner refresh</span></span><span class="menu-row__price">from $230</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV7cS6yvWGVZdj26jjsS84r8" rel="noopener" target="_blank" aria-label="Book Regrowth + All Over Toner online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<details class="menu-item menu-item--tf has-tf" id="svc-balayage-tf" data-name="Balayage, midweek" data-alias="Balayage Signature Special|Balayage — Tue–Fri Special" data-price="from $395">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__tag">Tue&#8211;Fri only</span><span class="menu-row__name">Balayage, midweek</span><span class="menu-row__short">Save up to $75. Add a haircut for only $45</span></span><span class="menu-row__price">from $395</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVzO1Js8jlGXGQs07gAe5Sko" rel="noopener" target="_blank" aria-label="Book Balayage, midweek online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
 <div class="menu-item__body">
-<p class="pricing-item__desc">Revitalise your look with expert regrowth colour paired with a complete toner refresh. This package delivers seamless, vibrant coverage from roots to ends, ensuring your shade stays rich, even and beautifully blended throughout.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV7cS6yvWGVZdj26jjsS84r8" rel="noopener" target="_blank">Book Now</a>
+<p class="menu-deal__title"><span>Tue&#8211;Fri special</span>Balayage Signature Special + Discounted Haircut</p>
+<p class="pricing-item__desc">Our signature all-inclusive Balayage Package performed by our colour specialists. Stunning, salon-quality colour with a complete treatment and finish &#8212; everything you need in one appointment, at an exceptional value.</p>
+<details class="pkg-details">
+<summary class="pkg-details__toggle">What&#8217;s included<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+<div class="pkg-details__body">
+<div class="pkg-bonuses">
+<span class="pkg-bonus pkg-bonus--free"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="9 12 11 14 15 10"></polyline></svg>Foils with balayage technique</span>
+<span class="pkg-bonus pkg-bonus--free"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="9 12 11 14 15 10"></polyline></svg>Professional toner</span>
+<span class="pkg-bonus pkg-bonus--free"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="9 12 11 14 15 10"></polyline></svg>WellaPlex Bond Builder included</span>
+<span class="pkg-bonus pkg-bonus--free"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="9 12 11 14 15 10"></polyline></svg>Blow wave finish</span>
+<span class="pkg-bonus pkg-bonus--discount"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" x2="8.12" y1="4" y2="15.88"></line><line x1="14.47" x2="20" y1="14.48" y2="20"></line><line x1="8.12" x2="12" y1="8.12" y2="12"></line></svg><strong>Discounted</strong> Hair Cut Add-On <small>($45 &#8212; normally $65)</small></span>
+</div>
 </div>
 </details>
-<details class="menu-item" id="svc-scalp-bleach" data-name="Scalp Bleach Regrowth + Toner" data-price="from $320">
-<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Scalp Bleach Regrowth + Toner</span><span class="menu-row__short">Blonde roots lifted, toned and blow waved</span></span><span class="menu-row__price">from $320</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVwvCD5fUIGpAR13s5zzX528" rel="noopener" target="_blank" aria-label="Book Scalp Bleach Regrowth + Toner online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
-<div class="menu-item__body">
-<p class="pricing-item__desc">Lift your roots to a flawless, even blonde with our expert scalp bleach regrowth service. Carefully applied to minimise damage while achieving a seamless, bright result. Includes a professional toner &amp; polished blow wave.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVwvCD5fUIGpAR13s5zzX528" rel="noopener" target="_blank">Book Now</a>
+<p class="pricing-item__desc menu-tiers">Short $395 &#183; Medium $439 &#183; Long $469 &#183; Extra long $490. Prices include the WellaPlex bond builder ($20, normally $40). Ultra blonde from $570, colour correction from $620. Add a haircut for $45.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVzO1Js8jlGXGQs07gAe5Sko" rel="noopener" target="_blank">Book Now</a>
 </div>
 </details>
 </div>
 </div>
-<div class="menu-sub has-tf" id="sub-highlights">
-<h4 class="menu-sub__title">Foils &amp; Balayage</h4>
+</section>
+<section class="menu-group has-tf" id="menu-foils" data-group="foils" data-label="Foils / Highlights" aria-labelledby="menu-foils-t">
+<h3 class="menu-group__title" id="menu-foils-t">Foils / Highlights <span>2 services</span></h3>
+<div class="menu-sub has-tf" id="sub-foils">
 <div class="menu-rows">
 <details class="menu-item" id="svc-full-foils" data-name="Full-Head Foils" data-alias="Full-Head Foils / Blonde Package" data-price="from $370">
 <summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Full-Head Foils</span><span class="menu-row__short">Blonde package with toner, WellaPlex and blow wave</span></span><span class="menu-row__price">from $370</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV_2sKO91oCqwKSEoY0JbueA" rel="noopener" target="_blank" aria-label="Book Full-Head Foils online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
@@ -3906,33 +3897,74 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV4b5ngtlA2aIcoz-AGTU3Vo" rel="noopener" target="_blank">Book Now</a>
 </div>
 </details>
-<details class="menu-item" id="svc-balayage" data-name="Balayage" data-alias="Balayage — Full Head Lightening Package" data-price="from $415">
-<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Balayage</span><span class="menu-row__short">Full head, with toner, WellaPlex and blow wave</span></span><span class="menu-row__price">from $415</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0b39yNcvZ1XnvdShve23Mg" rel="noopener" target="_blank" aria-label="Book Balayage online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
+</div>
+</div>
+</section>
+<section class="menu-group has-tf" id="menu-colour" data-group="colour" data-label="Colour, Regrowth &amp; Toner" aria-labelledby="menu-colour-t">
+<h3 class="menu-group__title" id="menu-colour-t">Colour, Regrowth &amp; Toner <span>5 services</span></h3>
+<div class="menu-sub has-tf" id="sub-colouring">
+<h4 class="menu-sub__title">All-Over Colour &amp; Toner</h4>
+<div class="menu-rows">
+<details class="menu-item" id="svc-all-over-colour" data-name="All Over Colour" data-alias="All Over Colour Package" data-price="from $229">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">All Over Colour</span><span class="menu-row__short">Root-to-tip colour with up to 100% grey coverage</span></span><span class="menu-row__price">from $229</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVxF_C_4mQMY3w_h9tMAd_0s" rel="noopener" target="_blank" aria-label="Book All Over Colour online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
 <div class="menu-item__body">
-<p class="pricing-item__desc">A tailored balayage colour experience designed for a vibrant, easy-to-maintain look with a gorgeous face-framing glow. Our stylists use strategic placement techniques for maximum visual impact with minimal upkeep between visits. Includes a gloss/toner, WellaPlex bond protection and a blow wave finish. Ultra Blonde (from $595) and Colour Correction (from $670) options available when you book.</p>
-<p class="pricing-item__desc menu-tiers">Short $415 &#183; Medium $470 &#183; Long $505 &#183; Extra long $565. Prices include the WellaPlex bond builder ($20, normally $40). Add a haircut for $65.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0b39yNcvZ1XnvdShve23Mg" rel="noopener" target="_blank">Book Now</a>
+<p class="pricing-item__desc">Your colour, perfected. Every Hair Avenue colour service uses Wella's Koleston Perfect ME+ — the world's most advanced professional permanent colour. With Pure Balance Technology, it neutralises free radicals caused by mineral build-up in your hair, delivering richer, truer-to-tone results with significantly less damage, colour after colour.</p>
+<p class="pricing-item__desc">The ME+ molecule is a Wella-exclusive breakthrough — over seven years of research and 3,000+ formulations tested — that reduces the risk of developing a new colour allergy by up to 60 times. Gorgeous colour shouldn't come with compromise, and with Koleston Perfect, it doesn't.</p>
+<p class="pricing-item__desc desc-emphasis">Up to 100% grey coverage, up to 5 levels of lift, and natural depth and shine that lasts.</p>
+<p class="pricing-item__desc menu-tiers">Short $229 &#183; Medium $249 &#183; Long $279 &#183; Extra long $309. Add a haircut for $65.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVxF_C_4mQMY3w_h9tMAd_0s" rel="noopener" target="_blank">Book Now</a>
 </div>
 </details>
-<details class="menu-item menu-item--tf has-tf" id="svc-balayage-tf" data-name="Balayage, midweek" data-alias="Balayage Signature Special|Balayage — Tue–Fri Special" data-price="from $395">
-<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__tag">Tue&#8211;Fri only</span><span class="menu-row__name">Balayage, midweek</span><span class="menu-row__short">Save up to $75. Add a haircut for only $45</span></span><span class="menu-row__price">from $395</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVzO1Js8jlGXGQs07gAe5Sko" rel="noopener" target="_blank" aria-label="Book Balayage, midweek online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<details class="menu-item menu-item--tf has-tf" id="svc-all-over-colour-tf" data-name="All Over Colour, midweek" data-alias="All Over Colour Package + 50% Off Haircut|All Over Colour Package + Midweek Haircut Discount|All Over Colour — Tue–Fri Special" data-price="from $210">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__tag">Tue&#8211;Fri only</span><span class="menu-row__name">All Over Colour, midweek</span><span class="menu-row__short">Save up to $19. Add a haircut for only $45</span></span><span class="menu-row__price">from $210</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV3YuKrD_7sTrdGKw9pkhjg8" rel="noopener" target="_blank" aria-label="Book All Over Colour, midweek online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
 <div class="menu-item__body">
-<p class="menu-deal__title"><span>Tue&#8211;Fri special</span>Balayage Signature Special + Discounted Haircut</p>
-<p class="pricing-item__desc">Our signature all-inclusive Balayage Package performed by our colour specialists. Stunning, salon-quality colour with a complete treatment and finish &#8212; everything you need in one appointment, at an exceptional value.</p>
+<p class="menu-deal__title"><span>Tue&#8211;Fri special</span>All Over Colour Package + Midweek Haircut Discount</p>
+<p class="pricing-item__desc">A complete all-over colour refresh using Wella Professional colour &#8212; fresh, vibrant coverage from root to tip with expert application. Includes a consultation, luxurious shampoo, full colour application &amp; a polished blow wave finish. Book midweek and add a haircut for $45 (normally $65).</p>
 <details class="pkg-details">
 <summary class="pkg-details__toggle">What&#8217;s included<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
 <div class="pkg-details__body">
 <div class="pkg-bonuses">
-<span class="pkg-bonus pkg-bonus--free"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="9 12 11 14 15 10"></polyline></svg>Foils with balayage technique</span>
-<span class="pkg-bonus pkg-bonus--free"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="9 12 11 14 15 10"></polyline></svg>Professional toner</span>
-<span class="pkg-bonus pkg-bonus--free"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="9 12 11 14 15 10"></polyline></svg>WellaPlex Bond Builder included</span>
-<span class="pkg-bonus pkg-bonus--free"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="9 12 11 14 15 10"></polyline></svg>Blow wave finish</span>
+<span class="pkg-bonus pkg-bonus--discount"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" x2="8.12" y1="4" y2="15.88"></line><line x1="14.47" x2="20" y1="14.48" y2="20"></line><line x1="8.12" x2="12" y1="8.12" y2="12"></line></svg><strong>50% Off</strong> Intense Mist Hair Treatment <small>($20 &#8212; normally $40)</small></span>
 <span class="pkg-bonus pkg-bonus--discount"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" x2="8.12" y1="4" y2="15.88"></line><line x1="14.47" x2="20" y1="14.48" y2="20"></line><line x1="8.12" x2="12" y1="8.12" y2="12"></line></svg><strong>Discounted</strong> Hair Cut Add-On <small>($45 &#8212; normally $65)</small></span>
 </div>
 </div>
 </details>
-<p class="pricing-item__desc menu-tiers">Short $395 &#183; Medium $439 &#183; Long $469 &#183; Extra long $490. Prices include the WellaPlex bond builder ($20, normally $40). Ultra blonde from $570, colour correction from $620. Add a haircut for $45.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVzO1Js8jlGXGQs07gAe5Sko" rel="noopener" target="_blank">Book Now</a>
+<p class="pricing-item__desc menu-tiers">Short $210 &#183; Medium $234 &#183; Long $269 &#183; Extra long $299. Add a haircut for $45.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV3YuKrD_7sTrdGKw9pkhjg8" rel="noopener" target="_blank">Book Now</a>
+</div>
+</details>
+<details class="menu-item" id="svc-toner-gloss" data-name="Toner / Gloss Maintenance" data-price="from $165" data-alias="Toner / Gloss Maintenance (with blow wave)">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Toner / Gloss Maintenance</span><span class="menu-row__short">With blow wave. Refreshes tone and shine between colours</span></span><span class="menu-row__price">from $165</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0qDbPSFl2GQFmyEixso_5Q" rel="noopener" target="_blank" aria-label="Book Toner / Gloss Maintenance online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<div class="menu-item__body">
+<p class="pricing-item__desc">Bring your colour back to life between appointments. A gloss (or toner) is a gentle, bleach-free colour that sits over your existing shade &#8212; taking out brassy yellow or orange tones, evening out patchy or dull colour, and adding depth, richness and shine. Think of it as a top coat for your colour, lasting around 4&#8211;6 weeks.</p>
+<p class="pricing-item__desc">Your gloss is mixed to suit your hair using Wella professional colour, and the package is completed with a professional blow wave and styling.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV0qDbPSFl2GQFmyEixso_5Q" rel="noopener" target="_blank">Book Now</a>
+</div>
+</details>
+</div>
+</div>
+<div class="menu-sub" id="sub-regrowth">
+<h4 class="menu-sub__title">Regrowth</h4>
+<div class="menu-rows">
+<details class="menu-item" id="svc-regrowth" data-name="Regrowth" data-price="from $199" data-alias="Regrowth Package">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Regrowth</span><span class="menu-row__short">Root colour and grey cover, with blow wave</span></span><span class="menu-row__price">from $199</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-2CYQcH03edgARkSEc1xXo" rel="noopener" target="_blank" aria-label="Book Regrowth online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<div class="menu-item__body">
+<p class="pricing-item__desc">Just need your roots refreshed? Seamlessly blend new growth with your existing colour for a flawless, natural finish &#8212; ideal for regular colour maintenance and grey cover, with no bleach needed. Includes Wella regrowth colour, shampoo &amp; a polished blow wave or iron-styled finish.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-2CYQcH03edgARkSEc1xXo" rel="noopener" target="_blank">Book Now</a>
+</div>
+</details>
+<details class="menu-item" id="svc-regrowth-toner" data-name="Regrowth + All Over Toner" data-price="from $230" data-alias="Regrowth + All Over Toner Package">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Regrowth + All Over Toner</span><span class="menu-row__short">Roots plus a full toner refresh</span></span><span class="menu-row__price">from $230</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV7cS6yvWGVZdj26jjsS84r8" rel="noopener" target="_blank" aria-label="Book Regrowth + All Over Toner online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<div class="menu-item__body">
+<p class="pricing-item__desc">Revitalise your look with expert regrowth colour paired with a complete toner refresh. This package delivers seamless, vibrant coverage from roots to ends, ensuring your shade stays rich, even and beautifully blended throughout.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV7cS6yvWGVZdj26jjsS84r8" rel="noopener" target="_blank">Book Now</a>
+</div>
+</details>
+<details class="menu-item" id="svc-scalp-bleach" data-name="Scalp Bleach Regrowth + Toner" data-price="from $320">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Scalp Bleach Regrowth + Toner</span><span class="menu-row__short">Blonde roots lifted, toned and blow waved</span></span><span class="menu-row__price">from $320</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVwvCD5fUIGpAR13s5zzX528" rel="noopener" target="_blank" aria-label="Book Scalp Bleach Regrowth + Toner online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<div class="menu-item__body">
+<p class="pricing-item__desc">Lift your roots to a flawless, even blonde with our expert scalp bleach regrowth service. Carefully applied to minimise damage while achieving a seamless, bright result. Includes a professional toner &amp; polished blow wave.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFVwvCD5fUIGpAR13s5zzX528" rel="noopener" target="_blank">Book Now</a>
 </div>
 </details>
 </div>
@@ -3995,9 +4027,10 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 </div>
 </div>
 </section>
-<section class="menu-group has-tf" id="menu-blowwave" data-group="blowwave" data-label="Blow Wave" aria-labelledby="menu-blowwave-t">
-<h3 class="menu-group__title" id="menu-blowwave-t">Blow Wave <span>2 services</span></h3>
+<section class="menu-group has-tf" id="menu-blowwave" data-group="blowwave" data-label="Blow Wave / Upstyle" aria-labelledby="menu-blowwave-t">
+<h3 class="menu-group__title" id="menu-blowwave-t">Blow Wave / Upstyle <span>6 services</span></h3>
 <div class="menu-sub has-tf" id="sub-blowwave">
+<h4 class="menu-sub__title">Blow Wave</h4>
 <div class="menu-rows">
 <details class="menu-item" id="svc-blow-wave" data-name="Blow Wave" data-alias="Blow Wave Package" data-price="from $95">
 <summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Blow Wave</span><span class="menu-row__short">Shampoo, scalp massage and hydration mask included</span></span><span class="menu-row__price">from $95</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-KQ8wNrIOec5oeIcIKKXuo" rel="noopener" target="_blank" aria-label="Book Blow Wave online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
@@ -4025,10 +4058,8 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 </details>
 </div>
 </div>
-</section>
-<section class="menu-group" id="menu-upstyle" data-group="upstyle" data-label="Upstyle / Special Occasion" aria-labelledby="menu-upstyle-t">
-<h3 class="menu-group__title" id="menu-upstyle-t">Upstyle / Special Occasion <span>4 services</span></h3>
 <div class="menu-sub" id="sub-upstyle">
+<h4 class="menu-sub__title">Upstyle / Special Occasion</h4>
 <div class="menu-rows">
 <details class="menu-item" id="svc-upstyle" data-name="Upstyle" data-price="from $195" data-alias="Upstyle (no Shampoo)|Upstyle">
 <summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Upstyle <small>(no shampoo)</small></span><span class="menu-row__short">Formal styling on clean, dry hair</span></span><span class="menu-row__price">from $195</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/services/nDM-vbXAZ4f_tM8lOQaFV-83KVI_nv3DzoQU4cJP1o0" rel="noopener" target="_blank" aria-label="Book Upstyle online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
@@ -4066,34 +4097,8 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 </div>
 </div>
 </section>
-<section class="menu-group has-tf" id="menu-perms" data-group="perms" data-label="Perms" aria-labelledby="menu-perms-t">
-<h3 class="menu-group__title" id="menu-perms-t">Perms <span>2 services</span></h3>
-<div class="menu-sub has-tf" id="sub-perms">
-<h4 class="menu-sub__title">Perms &amp; Permanent Straightening</h4>
-<p class="menu-hint menu-hint--sub">Looking for a men&#8217;s perm? <a href="#mens-perm" class="link-green" data-menu-jump>See Men&#8217;s Perm<span class="chev" aria-hidden="true">&rsaquo;</span></a></p>
-<div class="menu-rows">
-<details class="menu-item has-tf" id="svc-womens-perm" data-name="Women’s Perm" data-price="from $230" data-alias="Women’s Perm Package|Women&#x27;s Perm Package|Perm Package">
-<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__tag">Tue&#8211;Fri only</span><span class="menu-row__name">Women&#8217;s Perm</span><span class="menu-row__short">Waves, curls or root volume</span></span><span class="menu-row__price">from $230</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV4D4Wv0tvnnaakLnEH0gJ3A" rel="noopener" target="_blank" aria-label="Book Women’s Perm online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
-<div class="menu-item__body">
-<span class="pkg-availability"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>Available Tuesday &#8211; Friday</span>
-<p class="pricing-item__desc">Soft beach waves, defined curls or lasting volume at the roots &#8212; a modern perm tailored to your hair, with a shampoo, nourishing hair mask and dry-off finish included. Choose a full perm by hair length, a root perm for lift without changing your lengths, or a quick fringe-only perm when you book. Add a haircut for $65 if you&#8217;d like one.</p>
-<p class="pricing-item__desc">Results last several months and grow out softly with no harsh line.</p>
-<p class="pricing-item__desc">Fringe perm $99, root perm $150 and full perms from $230 (short, clipper back and sides) &#8212; priced by hair length when you book, and very long or thick hair may need extra product. First perm with us? Book the perm consultation first ($35).</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV4D4Wv0tvnnaakLnEH0gJ3A" rel="noopener" target="_blank" aria-label="Book the Women's Perm Package online">Book Now</a>
-</div>
-</details>
-<details class="menu-item" id="svc-shiseido" data-name="Shiseido Permanent Straightening" data-price="from $415" data-alias="Permanent Hair Straightening – Shiseido">
-<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Shiseido Permanent Straightening</span><span class="menu-row__short">Permanently sleek, straight hair</span></span><span class="menu-row__price">from $415</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-zzElVzy_MmGWgG3taNIog" rel="noopener" target="_blank" aria-label="Book Shiseido Permanent Straightening online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
-<div class="menu-item__body">
-<p class="pricing-item__desc">A professional Shiseido Japanese hair straightening treatment that permanently restructures the hair&#8217;s internal bonds — transforming wavy, curly or coarse hair into sleek, frizz-free, low-maintenance strands. Long-lasting results &#8212; up to 8 months before regrowth shows. A consultation is required prior to booking; not recommended for heavily bleached or severely damaged hair. Formaldehyde-free and gentler than many keratin treatments. Prices include the $35 consultation: short $415, medium $515, long $615.</p>
-<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-zzElVzy_MmGWgG3taNIog" rel="noopener" target="_blank">Book Now</a>
-</div>
-</details>
-</div>
-</div>
-</section>
-<section class="menu-group has-tf" id="menu-smoothing" data-group="smoothing" data-label="Nanoplasty &amp; SmoothFiller" aria-labelledby="menu-smoothing-t">
-<h3 class="menu-group__title" id="menu-smoothing-t">Nanoplasty &amp; SmoothFiller <span>2 services</span></h3>
+<section class="menu-group has-tf" id="menu-smoothing" data-group="smoothing" data-label="Nanoplasty / Perms" aria-labelledby="menu-smoothing-t">
+<h3 class="menu-group__title" id="menu-smoothing-t">Nanoplasty / Perms <span>4 services</span></h3>
 <div class="menu-sub has-tf" id="sub-nanoplasty">
 <h4 class="menu-sub__title">Nanoplasty</h4>
 <div class="menu-rows">
@@ -4137,6 +4142,29 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="ba-item"><img alt="Before SmoothFiller" loading="lazy" src="images/wella/wella-smoothfiller-before.webp" width="480" height="480" class="ba-item__img"/><span class="ba-item__tag">Before</span></div>
 <div class="ba-item"><img alt="After SmoothFiller" loading="lazy" src="images/wella/wella-smoothfiller-after.webp" width="480" height="480" class="ba-item__img"/><span class="ba-item__tag">After</span></div>
 </div>
+</div>
+</details>
+</div>
+</div>
+<div class="menu-sub has-tf" id="sub-perms">
+<h4 class="menu-sub__title">Perms &amp; Permanent Straightening</h4>
+<p class="menu-hint menu-hint--sub">Looking for a men&#8217;s perm? <a href="#mens-perm" class="link-green" data-menu-jump>See Men&#8217;s Perm<span class="chev" aria-hidden="true">&rsaquo;</span></a></p>
+<div class="menu-rows">
+<details class="menu-item has-tf" id="svc-womens-perm" data-name="Women’s Perm" data-price="from $230" data-alias="Women’s Perm Package|Women&#x27;s Perm Package|Perm Package">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__tag">Tue&#8211;Fri only</span><span class="menu-row__name">Women&#8217;s Perm</span><span class="menu-row__short">Waves, curls or root volume</span></span><span class="menu-row__price">from $230</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV4D4Wv0tvnnaakLnEH0gJ3A" rel="noopener" target="_blank" aria-label="Book Women’s Perm online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<div class="menu-item__body">
+<span class="pkg-availability"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>Available Tuesday &#8211; Friday</span>
+<p class="pricing-item__desc">Soft beach waves, defined curls or lasting volume at the roots &#8212; a modern perm tailored to your hair, with a shampoo, nourishing hair mask and dry-off finish included. Choose a full perm by hair length, a root perm for lift without changing your lengths, or a quick fringe-only perm when you book. Add a haircut for $65 if you&#8217;d like one.</p>
+<p class="pricing-item__desc">Results last several months and grow out softly with no harsh line.</p>
+<p class="pricing-item__desc">Fringe perm $99, root perm $150 and full perms from $230 (short, clipper back and sides) &#8212; priced by hair length when you book, and very long or thick hair may need extra product. First perm with us? Book the perm consultation first ($35).</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV4D4Wv0tvnnaakLnEH0gJ3A" rel="noopener" target="_blank" aria-label="Book the Women's Perm Package online">Book Now</a>
+</div>
+</details>
+<details class="menu-item" id="svc-shiseido" data-name="Shiseido Permanent Straightening" data-price="from $415" data-alias="Permanent Hair Straightening – Shiseido">
+<summary class="menu-row"><span class="menu-row__main"><span class="menu-row__name">Shiseido Permanent Straightening</span><span class="menu-row__short">Permanently sleek, straight hair</span></span><span class="menu-row__price">from $415</span><a class="menu-row__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-zzElVzy_MmGWgG3taNIog" rel="noopener" target="_blank" aria-label="Book Shiseido Permanent Straightening online">Book</a><span class="menu-row__chev" aria-hidden="true"></span></summary>
+<div class="menu-item__body">
+<p class="pricing-item__desc">A professional Shiseido Japanese hair straightening treatment that permanently restructures the hair&#8217;s internal bonds — transforming wavy, curly or coarse hair into sleek, frizz-free, low-maintenance strands. Long-lasting results &#8212; up to 8 months before regrowth shows. A consultation is required prior to booking; not recommended for heavily bleached or severely damaged hair. Formaldehyde-free and gentler than many keratin treatments. Prices include the $35 consultation: short $415, medium $515, long $615.</p>
+<a class="pricing-item__book" href="https://www.phorest.com/salon/hairavenue/book/service-groups/nDM-vbXAZ4f_tM8lOQaFV-zzElVzy_MmGWgG3taNIog" rel="noopener" target="_blank">Book Now</a>
 </div>
 </details>
 </div>
@@ -4219,8 +4247,8 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 </div>
 </details>
 </section>
-<section class="menu-group has-tf" id="menu-mens" data-group="mens" data-label="Men&#8217;s" aria-labelledby="menu-mens-t">
-<h3 class="menu-group__title" id="menu-mens-t">Men&#8217;s <span>3 services</span></h3>
+<section class="menu-group has-tf" id="menu-mens" data-group="mens" data-label="Men&#8217;s Haircuts / Perm" aria-labelledby="menu-mens-t">
+<h3 class="menu-group__title" id="menu-mens-t">Men&#8217;s Haircuts / Perm <span>3 services</span></h3>
 <div class="menu-sub has-tf" id="sub-menscuts">
 <h4 class="menu-sub__title">Men&#8217;s Cuts</h4>
 <div class="menu-rows">
