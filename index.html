@@ -7,7 +7,7 @@
 <meta content="upgrade-insecure-requests" http-equiv="Content-Security-Policy"/>
 <title>Hairdresser &amp; Hair Salon in Braddon, Canberra | Hair Avenue</title>
 <meta content="Braddon&#8217;s top-rated hairdresser &amp; hair salon: colour, balayage, Great Lengths extensions, smoothing &amp; cuts. 4.9★ from 200+ Google reviews. Book online." name="description"/>
-<meta content="index, follow" name="robots"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
 <meta content="Hair Avenue Braddon" name="author"/>
 <link href="https://hairavenue.com.au/" rel="canonical"/>
 <link href="favicon-32x32.png" rel="icon" type="image/png" sizes="32x32"/>
@@ -683,8 +683,18 @@
        the spacing; the gap grows with the width and is back to the normal 32px at 900px, where the rules above apply
        unchanged. Text size and bar height (70px, 62px once scrolled) stay as on desktop: the sticky services bar
        (top: 62px) relies on that height. Added 11 Nov 2026. */
-    @media (min-width: 769px) and (max-width: 899px) {
+    @media (min-width: 769px) and (max-width: 859px) {
       .nav__links { gap: clamp(14px, calc(14px + (100vw - 769px) * 0.14), 32px); }
+      .nav__link, .nav__book { white-space: nowrap; }
+      .nav__book { padding: 8px 16px; }
+      .nav__li-work { display: none; } /* no room for a sixth link on an upright iPad (810 to 834px); Our Work is the second band on the page and in the footer */
+    }
+    /* 19 Nov 2026: "Our Work" added as a sixth link. With it the menu needs about 950px to sit at the normal 32px spacing,
+       so from 860px to 979px the links close up and Book Now is a little narrower; the gap grows with the width and is
+       back to 32px at 980px. Below 860px the link is left out (rule above), so upright iPads look exactly as before.
+       Bar height and text size are unchanged. */
+    @media (min-width: 860px) and (max-width: 979px) {
+      .nav__links { gap: clamp(14px, calc(16px + (100vw - 860px) * 0.133), 32px); }
       .nav__link, .nav__book { white-space: nowrap; }
       .nav__book { padding: 8px 16px; }
     }
@@ -3633,6 +3643,7 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <li><a class="nav__link" href="#services">Services &amp; Pricing</a></li>
 <li><a class="nav__link" href="#loyalty">Rewards</a></li>
 <li><a class="nav__link" href="#team">Our Team</a></li>
+<li class="nav__li-work"><a class="nav__link" href="/our-work/">Our Work</a></li>
 <li><a class="nav__link" href="/reviews/">Reviews</a></li>
 <li><a class="nav__book" href="#services">Book Now</a></li>
 </ul>

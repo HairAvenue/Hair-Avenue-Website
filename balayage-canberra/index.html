@@ -5,7 +5,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Balayage Canberra | Hand-Painted Colour | Hair Avenue</title>
 <meta name="description" content="Balayage in Canberra by Wella-trained colourists. Hand-painted, low-maintenance colour from $395 Tue–Fri or $415 Saturdays at Hair Avenue Braddon. 4.9★ from 200+ reviews. Book online."/>
-<meta name="robots" content="index, follow"/>
+<meta name="robots" content="index, follow, max-image-preview:large"/>
 <link rel="canonical" href="https://hairavenue.com.au/balayage-canberra/"/>
 <link href="/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32"/>
 <link href="/favicon-16x16.png" rel="icon" type="image/png" sizes="16x16"/>
@@ -194,6 +194,32 @@ details a{color:#2E7D42;text-decoration:underline}
 .gq small{display:block;font-style:normal;font-size:.74rem;color:#86868b}
 .gq-more{margin-top:14px;font-size:.84rem;color:#424245}
 .gq-more a{color:#2E7D42;text-decoration:underline}
+/* ===== Our Work row (19 Nov 2026) =====
+   A band of photos from the gallery page /our-work/, chosen to match this page by LOOK (we do not know which service each client had,
+   so captions describe the hair, not the service). Each photo opens in the gallery viewer. Phones get a swipe rail. */
+.wk-row{position:relative;background:#0d1a10;color:#f4efe4;padding:58px 0 54px}
+.wk-row::before{content:'';position:absolute;top:0;left:5%;right:5%;height:1px;background:linear-gradient(90deg,transparent,#C9A96E 20%,#E8D49A 50%,#C9A96E 80%,transparent)}
+.wk-row__eyebrow{font-size:.68rem;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:var(--gold)}
+.wk-row h2{font-family:'New York',ui-serif,'Iowan Old Style','Palatino Linotype',Palatino,Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(1.7rem,3.6vw,2.3rem);line-height:1.12;letter-spacing:-.01em;color:#fff;margin:12px 0 10px}
+.wk-row h2 em{font-style:italic;background:linear-gradient(100deg,#b8944f 0%,#E8D49A 45%,#C9A96E 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;padding-right:.06em}
+.wk-row__lede{color:rgba(244,239,228,.7);font-size:.95rem;line-height:1.7;max-width:60ch;margin-bottom:28px}
+.wk-row__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px 14px}
+.wk-row__tile{display:block}
+.wk-row__ph{position:relative;display:block;aspect-ratio:4/5;overflow:hidden;border-radius:3px;background:#16291c;isolation:isolate}
+.wk-row__ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.5s cubic-bezier(.2,.7,.2,1)}
+.wk-row__ph::after{content:'';position:absolute;inset:0;border:1px solid rgba(232,212,154,0);pointer-events:none;transition:inset .55s cubic-bezier(.2,.7,.2,1),border-color .55s ease}
+.wk-row__cap{display:block;margin-top:10px;font-size:.8rem;line-height:1.4;color:rgba(244,239,228,.74);transition:color .3s}
+@media (hover:hover){.wk-row__tile:hover img{transform:scale(1.055)}.wk-row__tile:hover .wk-row__ph::after{inset:9px;border-color:rgba(232,212,154,.8)}.wk-row__tile:hover .wk-row__cap{color:#E8D49A}}
+.wk-row__tile:focus-visible{outline:1px solid #E8D49A;outline-offset:4px}
+.wk-row__more{display:flex;flex-wrap:wrap;gap:10px 30px;margin-top:30px}
+.wk-row__more a{font-size:.9rem;font-weight:600;color:#E8D49A;border-bottom:1px solid rgba(232,212,154,.4);padding-bottom:2px;transition:color .25s,border-color .25s}
+.wk-row__more a:hover{color:#fff;border-color:#E8D49A}
+.wk-row__more .chev{display:inline-block;margin-left:.35em;transition:transform .25s}
+.wk-row__more a:hover .chev{transform:translateX(3px)}
+@media(max-width:760px){.wk-row{padding:46px 0 42px}.wk-row__lede{margin-bottom:22px}
+.wk-row__grid{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x proximity;margin:0 -24px;padding:0 24px 2px;scroll-padding-left:24px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.wk-row__grid::-webkit-scrollbar{display:none}.wk-row__tile{flex:0 0 min(56vw,230px);scroll-snap-align:start}.wk-row__more{margin-top:24px}}
+@media (prefers-reduced-motion:reduce){.wk-row__ph img,.wk-row__ph::after{transition:none}}
 /* ===== Christmas strip + footer greeting (11 Nov 2026) =====
    Shown only while <html> has the class "xmas" (Christmas look, until 26 Dec 2026) or "hols" (salon closed, 24 Dec 2026 to 11 Jan 2027).
    The script at the end of <head> sets them by date, so the page goes back to normal by itself. Preview: ?xmas=on, ?xmas=closed, ?xmas=after, ?xmas=off. */
@@ -264,6 +290,24 @@ html.xmas p.footer__hols,html.hols p.footer__hols{display:block;margin:0 0 16px;
 <p>Clients come to us for balayage from across Canberra &#8212; Civic, Turner, Reid, Ainslie, Dickson, Lyneham and O&#8217;Connor are minutes away, and many travel in from Gungahlin, Belconnen, Woden and Queanbeyan. Parking and the light rail are both close to the salon on Lonsdale Street.</p>
 </div>
 <img class="photo" src="/images/salon/13-foils-action.webp" alt="Hand-woven foils being placed through a blonde client's hair at Hair Avenue Braddon" width="1600" height="1066" loading="lazy"/>
+</div>
+</section>
+<section class="wk-row" aria-labelledby="wk-row-title">
+<div class="container">
+<p class="wk-row__eyebrow">Our Work</p>
+<h2 id="wk-row-title">Soft, lived-in colour from our <em>chairs</em></h2>
+<p class="wk-row__lede">Darker roots melting into brighter ends, with caramel and honey through brunette. Every photo is one of our own clients, photographed in the salon.</p>
+<div class="wk-row__grid">
+<a class="wk-row__tile" href="/our-work/#p-04"><span class="wk-row__ph"><img src="/images/work-thumbs/04-golden-balayage-curls.webp" alt="Brunette melting into golden blonde, with long curls — Hair Avenue Braddon" width="640" height="800" loading="lazy" decoding="async"/></span><span class="wk-row__cap">Brunette melting into golden blonde</span></a>
+<a class="wk-row__tile" href="/our-work/#p-05"><span class="wk-row__ph"><img src="/images/work-thumbs/05-rooted-blonde-curls.webp" alt="Dark roots melting into blonde curled ends — Hair Avenue Braddon" width="640" height="800" loading="lazy" decoding="async"/></span><span class="wk-row__cap">Dark roots, blonde curled ends</span></a>
+<a class="wk-row__tile" href="/our-work/#p-14"><span class="wk-row__ph"><img src="/images/work-thumbs/14-caramel-honey-curls.webp" alt="Caramel and honey blonde with long curls — Hair Avenue Braddon" width="640" height="800" loading="lazy" decoding="async"/></span><span class="wk-row__cap">Caramel and honey blonde</span></a>
+<a class="wk-row__tile" href="/our-work/#p-22"><span class="wk-row__ph"><img src="/images/work-thumbs/22-blonde-balayage-glossy-curls.webp" alt="Brunette with blonde lengths and glossy curls — Hair Avenue Braddon" width="640" height="800" loading="lazy" decoding="async"/></span><span class="wk-row__cap">Brunette with blonde lengths</span></a>
+<a class="wk-row__tile" href="/our-work/#p-21"><span class="wk-row__ph"><img src="/images/work-thumbs/21-bronde-waves.webp" alt="Soft bronde waves with caramel ends — Hair Avenue Braddon" width="640" height="800" loading="lazy" decoding="async"/></span><span class="wk-row__cap">Soft bronde, caramel ends</span></a>
+<a class="wk-row__tile" href="/our-work/#p-31"><span class="wk-row__ph"><img src="/images/work-thumbs/31-brunette-ash-waves.webp" alt="Brunette with ash blonde ends and long waves — Hair Avenue Braddon" width="640" height="800" loading="lazy" decoding="async"/></span><span class="wk-row__cap">Brunette with ash blonde ends</span></a>
+<a class="wk-row__tile" href="/our-work/#p-11"><span class="wk-row__ph"><img src="/images/work-thumbs/11-mushroom-blonde-curls.webp" alt="Mushroom blonde lengths with soft curled ends — Hair Avenue Braddon" width="640" height="800" loading="lazy" decoding="async"/></span><span class="wk-row__cap">Mushroom blonde lengths</span></a>
+<a class="wk-row__tile" href="/our-work/#p-03"><span class="wk-row__ph"><img src="/images/work-thumbs/03-honey-blonde-curls.webp" alt="Honey blonde lengths with soft curls — Hair Avenue Braddon" width="640" height="800" loading="lazy" decoding="async"/></span><span class="wk-row__cap">Honey blonde lengths</span></a>
+</div>
+<p class="wk-row__more"><a href="/our-work/#blonde">See more of our blonde work<span class="chev" aria-hidden="true">&rsaquo;</span></a><a href="/our-work/#brunette">See more of our brunette work<span class="chev" aria-hidden="true">&rsaquo;</span></a></p>
 </div>
 </section>
 <section style="background:#eef3ee">

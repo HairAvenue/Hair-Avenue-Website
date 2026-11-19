@@ -1,28 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://hairavenue.com.au/</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/02-golden-blonde-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/26-glossy-chocolate-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/39-vivid-red-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/44-silver-grey-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/09-icy-blonde-highlights.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/51-blonde-chignon-pin.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/30-sleek-ash-highlights.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/14-caramel-honey-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/04-golden-balayage-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/34-espresso-glossy-curls.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://hairavenue.com.au/hair-colour-canberra/</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/26-glossy-chocolate-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/39-vivid-red-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/34-espresso-glossy-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/38-rose-copper-waves.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/24-chocolate-layered-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/37-copper-bob.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/25-ash-brunette-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/40-auburn-copper-ends.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://hairavenue.com.au/balayage-canberra/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/04-golden-balayage-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/05-rooted-blonde-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/14-caramel-honey-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/22-blonde-balayage-glossy-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/21-bronde-waves.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/31-brunette-ash-waves.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/11-mushroom-blonde-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/03-honey-blonde-curls.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://hairavenue.com.au/blonde-specialist-canberra/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/02-golden-blonde-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/09-icy-blonde-highlights.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/07-beige-blonde-waves.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/01-ash-blonde-lob.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/18-long-golden-highlights.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/16-bright-blonde-shadow-root.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/12-beige-blonde-bouncy-ends.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/08-blonde-blunt-lob.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://hairavenue.com.au/hair-smoothfiller-canberra/</loc>
@@ -50,9 +153,21 @@
   </url>
   <url>
     <loc>https://hairavenue.com.au/wedding-hair-canberra/</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/51-blonde-chignon-pin.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/49-blonde-woven-bun.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/50-brunette-curly-updo.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/48-silver-low-chignon.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://hairavenue.com.au/terms-and-conditions/</loc>
@@ -110,9 +225,162 @@
   </url>
   <url>
     <loc>https://hairavenue.com.au/our-work/</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/02-golden-blonde-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/26-glossy-chocolate-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/39-vivid-red-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/44-silver-grey-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/09-icy-blonde-highlights.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/51-blonde-chignon-pin.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/30-sleek-ash-highlights.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/14-caramel-honey-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/04-golden-balayage-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/34-espresso-glossy-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/38-rose-copper-waves.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/07-beige-blonde-waves.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/25-ash-brunette-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/11-mushroom-blonde-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/23-brunette-caramel-highlights.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/01-ash-blonde-lob.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/45-grey-blended-bob.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/49-blonde-woven-bun.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/18-long-golden-highlights.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/31-brunette-ash-waves.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/37-copper-bob.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/12-beige-blonde-bouncy-ends.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/35-brunette-copper-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/22-blonde-balayage-glossy-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/10-long-ash-blonde.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/28-face-framing-caramel.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/13-golden-blonde-fringe.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/40-auburn-copper-ends.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/27-long-sleek-brunette.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/43-long-silver-ash.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/03-honey-blonde-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/48-silver-low-chignon.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/16-bright-blonde-shadow-root.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/29-glossy-bronde-waves.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/21-bronde-waves.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/32-straight-brunette-highlights.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/41-golden-copper-lob.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/05-rooted-blonde-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/08-blonde-blunt-lob.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/24-chocolate-layered-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/15-sleek-blonde-highlights.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/42-soft-ash-bob.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/36-brunette-caramel-ribbons.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/50-brunette-curly-updo.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/20-long-golden-bronde.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/46-blonde-pink-purple-ends.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/19-bronde-flicked-ends.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/33-blunt-brunette-lob.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/06-ash-blonde-waves.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/47-short-defined-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work/17-golden-highlights-straight.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://hairavenue.com.au/reviews/</loc>
@@ -128,9 +396,21 @@
   </url>
   <url>
     <loc>https://hairavenue.com.au/grey-blending-canberra/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/44-silver-grey-curls.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/45-grey-blended-bob.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/43-long-silver-ash.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://hairavenue.com.au/images/work-thumbs/42-soft-ash-bob.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://hairavenue.com.au/guides/grey-blending-vs-full-coverage/</loc>
