@@ -39,7 +39,7 @@
   </url>
   <url>
     <loc>https://hairavenue.com.au/hair-colour-canberra/</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -69,7 +69,7 @@
   </url>
   <url>
     <loc>https://hairavenue.com.au/balayage-canberra/</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -99,7 +99,7 @@
   </url>
   <url>
     <loc>https://hairavenue.com.au/blonde-specialist-canberra/</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -147,7 +147,7 @@
   </url>
   <url>
     <loc>https://hairavenue.com.au/regrowth-canberra/</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -177,7 +177,7 @@
   </url>
   <url>
     <loc>https://hairavenue.com.au/guides/</loc>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -396,7 +396,7 @@
   </url>
   <url>
     <loc>https://hairavenue.com.au/grey-blending-canberra/</loc>
-    <lastmod>2026-11-24</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -413,8 +413,14 @@
     </image:image>
   </url>
   <url>
+    <loc>https://hairavenue.com.au/guides/how-much-does-grey-blending-cost/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://hairavenue.com.au/guides/grey-blending-vs-full-coverage/</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
