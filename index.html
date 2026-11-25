@@ -3135,7 +3135,8 @@
     .team__grid--scroll img { -webkit-user-drag: none; user-select: none; }
     .team__grid--scroll.is-dragging .team-card { transform: none; }
 
-    /* ===== services heading: lives outside .section-header (static since the 10 Nov 2026 price-menu rebuild; only the group bar is pinned) ===== */
+    /* ===== services heading: lives outside .section-header (static since the 10 Nov 2026 price-menu rebuild; only the group bar is pinned,
+       and from 25 Nov 2026 the bar carries a compact copy of the heading while pinned: see .menu-bar__title) ===== */
     .section--services-green .section-header { margin-bottom: 0; }
     @media (max-width: 768px) { #services .section-label { margin-bottom: 14px; } }
     @media (min-width: 769px) { .section--services-green .section-label { margin-bottom: 16px; } }
@@ -3224,6 +3225,12 @@
     .section--services-green .services-title { color: #ffffff; text-align: center; margin: 4px 0 24px; }
     .section--services-green .services-card.svc-menu { max-width: 1040px; background: #ffffff; display: block; }
     .svc-menu .menu-bar { position: sticky; top: 62px; z-index: 95; background: rgba(255,255,255,0.93); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid rgba(201,169,110,0.65); border-radius: 20px 20px 0 0; }
+    /* 25 Nov 2026 (user request): a compact copy of the section heading rides at the top of the bar, shown only while the bar is pinned
+       under the nav (by then the big heading above the card has scrolled away). The menu script sets .is-pinned; a pill jump pre-pins
+       so the bar is already at its taller height when the landing spot is worked out. */
+    .svc-menu .menu-bar__title { display: none; margin: 0; padding: 12px 14px 0; text-align: center; font-family: var(--ff-display); font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; color: #142a18; }
+    .svc-menu .menu-bar.is-pinned .menu-bar__title { display: block; }
+    .svc-menu .menu-bar.is-pinned .menu-bar__groups { padding-top: 8px; }
     /* pills restyled 11 Nov 2026: white medallion pills with a gold hairline; slightly bigger photo and text from 1100px wide */
     .svc-menu .menu-bar__groups { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; padding: 13px 14px 9px; }
     .svc-menu .menu-pill { -webkit-appearance: none; appearance: none; display: inline-flex; align-items: center; gap: 9px; margin: 0; padding: 4px 14px 4px 4px; border: 0; border-radius: 980px; background: linear-gradient(180deg, #ffffff 0%, #f8f5ee 100%); color: #142a18; font-family: var(--ff-body); font-size: 13px; font-weight: 600; line-height: 1.25; letter-spacing: -0.005em; white-space: nowrap; cursor: pointer; box-shadow: inset 0 0 0 1px rgba(201,169,110,0.5), 0 1px 2px rgba(20,42,24,0.06); transition: background 0.2s ease, color 0.2s ease, box-shadow 0.25s ease, transform 0.25s ease; -webkit-tap-highlight-color: transparent; }
@@ -3368,6 +3375,8 @@
     @media (max-width: 768px) {
       .section--services-green .services-title { margin: 2px 0 16px; }
       .svc-menu .menu-bar { top: 64px; }
+      .svc-menu .menu-bar__title { font-size: 1.05rem; padding: 10px 8px 0; }
+      .svc-menu .menu-bar.is-pinned .menu-bar__groups { padding-top: 6px; }
       .svc-menu .menu-bar__groups { gap: 4px; padding: 9px 4px 6px; }
       /* Phone pills (restyled 11 Nov 2026): no photos here, so the look comes from a champagne fill, a full gold edge, a soft shadow
          and medium-weight deep green text. The rows are tight (about 3px spare in row two at 390px): the 7px side padding pays for
@@ -3761,9 +3770,10 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <div class="section-header reveal">
 <span class="section-label">What We Offer</span>
 </div>
-<h2 class="section-title services-title reveal">Hair Salon Services &amp; <span class="hl hl--light">Pricing</span></h2>
+<h2 class="section-title services-title reveal">Services &amp; <span class="hl hl--light">Pricing</span></h2>
 <div class="services-card svc-menu reveal">
 <div class="menu-bar" id="menuBar">
+<div class="menu-bar__title" aria-hidden="true">Services &amp; <span class="hl">Pricing</span></div>
 <div class="menu-bar__groups" role="group" aria-label="Service groups">
 <button type="button" class="menu-pill is-active" data-group="grey" data-jump="menu-grey"><img class="menu-pill__pic" src="images/tabs/tab-colouring.jpg" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Grey Blending</span></button>
 <button type="button" class="menu-pill" data-group="balayage" data-jump="menu-balayage"><img class="menu-pill__pic" src="images/tabs/tab-balayage-team.jpg?v=2" alt="" width="120" height="120" loading="lazy" decoding="async"><span>Balayage</span></button>
@@ -5344,6 +5354,8 @@ window.addEventListener('load', function() {
   function norm(x){ return String(x || '').toLowerCase().replace(/[\u2018\u2019]/g, "'").replace(/\s+/g, ' ').trim(); }
   function shown(el){ return !!(el && el.offsetParent !== null); }
   function barTop(){ return parseFloat(getComputedStyle(bar).top) || 62; }
+  /* 25 Nov 2026: .is-pinned shows the compact heading in the bar once the top of the card has gone under the nav */
+  function markPinned(){ bar.classList.toggle('is-pinned', card.getBoundingClientRect().top < barTop() + 2); }
   /* 11 Nov 2026 (user request): each group title parks under the bar while its group is on screen. --menu-stick is the line it
      parks on (1px under the bar's lower edge, so no gap can open); .is-stuck (hairline + shadow) is set only while a title is
      parked. A jump to anything inside a group leaves room for that group's parked title. */
@@ -5354,7 +5366,7 @@ window.addEventListener('load', function() {
   function markStuck(){ var t = stuckTitle(); titles.forEach(function(x){ if (x) x.classList.toggle('is-stuck', x === t); }); }
   function titleRoom(el){ var g = el && !el.classList.contains('menu-group') ? el.closest('.menu-group') : null, t = g ? g.querySelector('.menu-group__title') : null; return t ? t.offsetHeight : 0; }
   function offset(el){ return barTop() + bar.offsetHeight + 10 + titleRoom(el); }
-  function scrollToEl(el){ hold(el); var y = el.getBoundingClientRect().top + window.pageYOffset - offset(el); window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' }); }
+  function scrollToEl(el){ bar.classList.add('is-pinned'); hold(el); var y = el.getBoundingClientRect().top + window.pageYOffset - offset(el); window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' }); }
   function pick(list, line){ var hit = null, first = null; for (var i = 0; i < list.length; i++){ if (!shown(list[i])) continue; if (!first) first = list[i]; if (list[i].getBoundingClientRect().top <= line) hit = list[i]; } return hit || first; }
   /* light one group pill and one sub-heading (no pill is lit while the Tue–Fri view is on) */
   function paint(gk, sk){
@@ -5363,7 +5375,7 @@ window.addEventListener('load', function() {
       subSets.forEach(function(ss){ ss.hidden = ss.getAttribute('data-for') !== (tf ? 'tf' : gk); }); }
     if (sk !== curSub){ curSub = sk; subBtns.forEach(function(b){ b.classList.toggle('is-current', b.getAttribute('data-jump') === sk); }); }
   }
-  function spy(){ ticking = false; setStick(); markStuck(); if (jumping) return;
+  function spy(){ ticking = false; setStick(); markStuck(); if (jumping) return; markPinned();
     var line = barTop() + bar.offsetHeight + 28;
     var g = pick(groups, line), gk = g ? g.getAttribute('data-group') : null;
     var s = g ? pick([].slice.call(g.querySelectorAll('.menu-sub')), line + titleRoom(g.firstElementChild)) : null, sk = s ? s.id : null;
