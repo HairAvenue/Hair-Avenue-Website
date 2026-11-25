@@ -742,20 +742,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 28px 56px 44px;
+      padding: 4px 56px 44px; /* 25 Nov 2026: the text tucks straight under the fan's soft fade, so the picture and the headline read as one hero */
       position: relative;
       background: radial-gradient(ellipse 70% 55% at 50% 42%, rgba(201,169,110,0.09), transparent 70%);
     }
-    /* Thin gold accent line at the top of the panel — matches careers section */
-    .hero__panel::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 8%;
-      right: 8%;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, #C9A96E 20%, #E8D49A 50%, #C9A96E 80%, transparent);
-    }
+    /* 25 Nov 2026: the thin gold line that used to mark the top of the panel is gone; the fan now fades into the green and the text follows directly */
+    .hero__panel::before { content: none; }
     .hero__content {
       text-align: center;
       max-width: 460px;
@@ -2735,13 +2727,7 @@
       }
       .hero__media::after { content: none; }
       .hero__img { width: 100%; height: auto; }
-      .hero__panel { padding: 48px 28px 56px; }
-      .hero__panel::before {
-        top: 0; bottom: auto; left: 50%;
-        transform: translateX(-50%);
-        width: 36px; height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(201,169,110,0.45), transparent);
-      }
+      .hero__panel { padding: 26px 28px 56px; } /* 25 Nov 2026: no divider tick; the text sits just under the cropped fan */
       .hero__content { max-width: 100%; }
       .hero__eyebrow { margin-bottom: 20px; }
       .hero__title { margin-bottom: 40px; }
@@ -3520,7 +3506,7 @@
     html.xmas .hero, html.hols .hero { grid-template-rows: max-content auto minmax(auto, 1fr); }
     /* 25 Nov 2026: short desktop windows (old 1366x768 laptops) get tighter text under the banner */
     @media (min-width: 769px) and (max-height: 700px) {
-      .hero__panel { padding: 18px 56px 28px; }
+      .hero__panel { padding: 4px 56px 28px; }
       .hero__eyebrow { margin-bottom: 12px; }
       .hero__title { margin-bottom: 22px; }
       .hero__proof { margin-top: 18px; }
@@ -3569,7 +3555,7 @@
        In a portrait window the hero takes its natural height instead of stretching to fill the screen. */
     @media (min-width: 769px) and (orientation: portrait) {
       .hero { min-height: auto; }
-      .hero__panel { padding: 36px 56px 64px; }
+      .hero__panel { padding: 4px 56px 64px; }
     }
     /* ===== Our Work band (19 Nov 2026): a rail of ten photos that leads to the gallery page /our-work/ ===== */
     .work-band { position: relative; background: #0d1a10; padding: 104px 0 96px; overflow: hidden; }
