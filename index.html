@@ -736,6 +736,8 @@
     }
     /* 25 Nov 2026: the old photo-to-panel gradient bleed is off; the montage already sits on the hero gradient. */
     .hero__media::after { content: none; }
+    /* the <picture> wrapper only switches files (phones get the crop to the fan's widest point); the img stays the flex item */
+    .hero__media picture { display: contents; }
     .hero__panel {
       display: flex;
       align-items: center;
@@ -2729,7 +2731,7 @@
         padding-top: 0;
         min-height: auto;
         grid-template-columns: 1fr;
-        grid-template-rows: auto auto; /* 25 Nov 2026: the seven-colour fan picture (2000x761) full width at its own height, then the text */
+        grid-template-rows: auto auto; /* 25 Nov 2026: on phones the fan is cropped to its widest point (1544x761) and runs edge to edge at its own height, then the text */
       }
       .hero__media::after { content: none; }
       .hero__img { width: 100%; height: auto; }
@@ -3563,7 +3565,7 @@
        paddings forced the hero column to 400px, so the hero text sat about 12px right of centre and was clipped. */
     @media (max-width: 768px) { .hero { grid-template-columns: minmax(0, 1fr); } }
     @media (max-width: 400px) { .hero__panel { padding-left: 20px; padding-right: 20px; } .hero__content { padding: 0; } }
-    /* 25 Nov 2026: every screen, phones included, shows the same seven-colour fan picture full width above the text.
+    /* 25 Nov 2026: desktop shows the whole fan picture with its glow; phones (768px and below) get the crop to the fan's widest point so the faces stay large.
        In a portrait window the hero takes its natural height instead of stretching to fill the screen. */
     @media (min-width: 769px) and (orientation: portrait) {
       .hero { min-height: auto; }
@@ -3681,7 +3683,10 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 <span class="xmas-baubles" aria-hidden="true"><svg viewBox="0 0 150 150"><defs><radialGradient id="xbGold" cx="35%" cy="30%" r="78%"><stop offset="0" stop-color="#fff6dc"/><stop offset="0.32" stop-color="#e8d49a"/><stop offset="0.72" stop-color="#b8924f"/><stop offset="1" stop-color="#7a5c22"/></radialGradient><radialGradient id="xbRed" cx="35%" cy="30%" r="78%"><stop offset="0" stop-color="#e9909c"/><stop offset="0.3" stop-color="#b3384b"/><stop offset="0.74" stop-color="#7d1a2b"/><stop offset="1" stop-color="#450b16"/></radialGradient></defs><g class="xb xb--1"><line x1="34" y1="0" x2="34" y2="60" stroke="#E8D49A" stroke-opacity="0.75" stroke-width="1"/><rect x="30" y="59" width="8" height="6" rx="1.5" fill="#b8924f"/><circle cx="34" cy="85" r="21" fill="url(#xbGold)"/><ellipse cx="27" cy="76" rx="5" ry="8" fill="#ffffff" fill-opacity="0.32" transform="rotate(-28 27 76)"/></g><g class="xb xb--2"><line x1="82" y1="0" x2="82" y2="27" stroke="#E8D49A" stroke-opacity="0.75" stroke-width="1"/><rect x="78.5" y="26" width="7" height="5" rx="1.5" fill="#b8924f"/><circle cx="82" cy="46" r="15.5" fill="url(#xbRed)"/><ellipse cx="77" cy="40" rx="3.6" ry="6" fill="#ffffff" fill-opacity="0.3" transform="rotate(-28 77 40)"/></g><g class="xb xb--3"><line x1="120" y1="0" x2="120" y2="84" stroke="#E8D49A" stroke-opacity="0.75" stroke-width="1"/><rect x="117" y="83" width="6" height="5" rx="1.5" fill="#b8924f"/><circle cx="120" cy="100" r="12.5" fill="url(#xbGold)"/><ellipse cx="116" cy="95" rx="3" ry="5" fill="#ffffff" fill-opacity="0.32" transform="rotate(-28 116 95)"/></g></svg></span>
 </div>
 <div class="hero__media">
+<picture>
+<source media="(max-width: 768px)" srcset="images/hero-colour-fan-mobile-1000.webp 1000w, images/hero-colour-fan-mobile-1544.webp 1544w" sizes="100vw" width="1544" height="761"/>
 <img alt="Seven hair colours side by side: silver waves, copper red, ash blonde, glossy brunette, silver grey, golden blonde and dark blonde" class="hero__img" fetchpriority="high" src="images/hero-colour-fan-full-1200.webp" srcset="images/hero-colour-fan-full-1200.webp 1200w, images/hero-colour-fan-full-2000.webp 2000w, images/hero-colour-fan-full-3000.webp 3000w" sizes="100vw" width="2000" height="761"/>
+</picture>
 </div>
 <div class="hero__panel">
 <div class="hero__content">
