@@ -3147,7 +3147,9 @@
        between arrows, and a line of the seven names runs along the bottom. The .team__grid--scroll / .team__strip / .team__edge /
        .team__progress rules above are unused since this change (kept for an easy revert). Positions are set by the script after
        the markup; these rules do the look. */
-    .team-flow { margin-top: 4px; }
+    .team-flow { margin-top: 4px; touch-action: pan-y; }
+    .team-flow.is-dragging { user-select: none; -webkit-user-select: none; }
+    .team-flow.is-dragging .team-flow__item, .team-flow__item.no-move { transition: none; }
     .team-flow__stage { position: relative; height: 486px; perspective: 1500px; perspective-origin: 50% 42%; overflow: hidden; outline: none; touch-action: pan-y; }
     .team-flow__stage:focus-visible { box-shadow: inset 0 0 0 2px rgba(201,169,110,0.6); border-radius: 20px; }
     .team-flow__item { position: absolute; left: 50%; top: 20px; width: 320px; height: 426px; margin-left: -160px; padding: 0; border: 0; background: none; cursor: pointer; transform-style: preserve-3d; transition: transform 0.65s cubic-bezier(0.22,0.61,0.36,1), opacity 0.65s ease; -webkit-tap-highlight-color: transparent; }
@@ -3162,7 +3164,8 @@
     .team-flow__photo.team-card__photo--soon .team-card__soon { bottom: 20px; }
     .team-flow__panels { position: relative; max-width: 760px; margin: 6px auto 0; padding: 0 60px; }
     .team-flow__panel { display: none; text-align: center; }
-    .team-flow__panel.is-active { display: block; animation: revealFadeIn 0.5s ease both; }
+    .team-flow__panel.is-active { display: block; }
+    .team-flow__panel.pop { animation: revealFadeIn 0.5s ease both; }
     .team-flow__panel .team-card__name { font-family: 'New York', ui-serif, Georgia, 'Times New Roman', serif; font-style: italic; font-weight: 400; font-size: 2.4rem; letter-spacing: -0.01em; line-height: 1.1; color: #ffffff; margin: 0 0 8px; }
     .team-flow__panel .team-card__role { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #E8D49A; margin: 0 0 18px; padding-bottom: 16px; position: relative; }
     .team-flow__panel .team-card__role::after { content: ''; position: absolute; left: 50%; bottom: 0; width: 40px; height: 1px; transform: translateX(-50%); background: linear-gradient(90deg, transparent, #C9A96E, transparent); }
@@ -3202,7 +3205,7 @@
     }
     @media (prefers-reduced-motion: reduce) {
       .team-flow__item, .team-flow__photo::after { transition: none; }
-      .team-flow__panel.is-active { animation: none; }
+      .team-flow__panel.pop { animation: none; }
     }
 
     /* ===== services heading: lives outside .section-header (static since the 10 Nov 2026 price-menu rebuild; only the group bar is pinned,
@@ -4700,40 +4703,108 @@ if ('IntersectionObserver' in window && !(window.matchMedia && window.matchMedia
 </div>
 <script>
 /* 26 Nov 2026: team coverflow. Positions the seven photo cards around the chosen one (three each side, wrapping), shows that
-   stylist's panel and lights her name on the line. Moves by the arrows, a tap on a side card or a name, a sideways swipe on the
-   stage, or the left/right keys once the stage has focus. */
+   stylist's panel and lights her name on the line. Moves by the arrows, a tap on a side card or a name, a drag or trackpad swipe anywhere on the
+   block (cards, name and bio included), or the left/right keys once the stage has focus. 27 Nov 2026: the drag follows the
+   finger and settles on the nearest card, a flick carries it further, and the name and bio follow the front card as it turns. */
 (function(){
   var flow = document.getElementById('teamFlow'); if (!flow) return;
   var stage = flow.querySelector('.team-flow__stage');
   var items = [].slice.call(flow.querySelectorAll('.team-flow__item'));
   var panels = [].slice.call(flow.querySelectorAll('.team-flow__panel'));
   var marks = [].slice.call(flow.querySelectorAll('.team-flow__line button'));
-  var n = items.length, cur = 0, downX = null, dragMoved = false;
+  var n = items.length, cur = 0, pos = 0, shown = -1, suppressClick = false; /* cur: the settled card; pos: where the row sits right now, fractional mid-drag */
   function cfg(){ return window.matchMedia('(max-width: 768px)').matches ? { x:[0,126,200,256,300], z:[0,-95,-170,-235,-295], r:50 } : { x:[0,252,398,508,600], z:[0,-170,-270,-350,-430], r:46 }; }
-  function render(){
-    var c = cfg();
+  function wrap(i){ return ((i % n) + n) % n; }
+  function dist(i, p){ return ((i - p) % n + n + 3.5) % n - 3.5; } /* -3.5..3.5: the row wraps so the front card always has three each side */
+  function lerp(arr, a){ var k = Math.floor(a); return k >= 4 ? arr[4] : arr[k] + (arr[k + 1] - arr[k]) * (a - k); }
+  function place(p){
+    var c = cfg(), near = wrap(Math.round(p)), dragging = flow.classList.contains('is-dragging');
     items.forEach(function(el, i){
-      var d = ((i - cur) % n + n + 3) % n - 3; /* -3..3: the row wraps so the active card always has three each side */
-      var a = Math.min(Math.abs(d), 4), s = d < 0 ? -1 : 1;
-      el.style.transform = 'translateX(' + (s * c.x[a]) + 'px) translateZ(' + c.z[a] + 'px) rotateY(' + (d === 0 ? 0 : s * c.r) + 'deg)';
-      el.style.zIndex = 10 - a; el.style.opacity = a >= 4 ? 0 : 1;
-      el.classList.toggle('is-active', d === 0); el.setAttribute('aria-pressed', d === 0 ? 'true' : 'false');
+      var d = dist(i, p), a = Math.min(Math.abs(d), 4), sgn = d < 0 ? -1 : 1, rot = a < 1 ? a * c.r : c.r;
+      el.style.transform = 'translateX(' + (sgn * lerp(c.x, a)).toFixed(1) + 'px) translateZ(' + lerp(c.z, a).toFixed(1) + 'px) rotateY(' + (sgn * rot).toFixed(1) + 'deg)';
+      el.style.zIndex = 10 - Math.round(a); el.style.opacity = a <= 3 ? 1 : Math.max(0, 1 - (a - 3) * 2);
+      el.classList.toggle('is-active', i === near); el.setAttribute('aria-pressed', i === near ? 'true' : 'false');
     });
-    panels.forEach(function(p, i){ p.classList.toggle('is-active', i === cur); });
-    marks.forEach(function(m, i){ m.classList.toggle('is-active', i === cur); m.setAttribute('aria-current', i === cur ? 'true' : 'false'); });
+    panels.forEach(function(pn, i){ pn.classList.toggle('is-active', i === near); });
+    if (near !== shown) { /* the panel fades in on a tap or a key press; mid-drag it simply follows the card */
+      shown = near; var pn = panels[near];
+      pn.classList.remove('pop'); if (!dragging) { void pn.offsetWidth; pn.classList.add('pop'); }
+    }
+    marks.forEach(function(m, i){ m.classList.toggle('is-active', i === near); m.setAttribute('aria-current', i === near ? 'true' : 'false'); });
   }
-  function go(i){ cur = ((i % n) + n) % n; render(); }
-  items.forEach(function(el, i){ el.addEventListener('click', function(){ if (!dragMoved) go(i); }); });
+  function settle(target){
+    var from = pos; cur = wrap(target);
+    flow.classList.remove('is-dragging');
+    items.forEach(function(el, i){ /* the card at the very back swaps sides on a wrap: it jumps there rather than flying across the front */
+      var d0 = dist(i, from), d1 = dist(i, cur);
+      if (Math.abs(d0) > 2.5 && Math.abs(d1) > 2.5 && (d0 < 0) !== (d1 < 0)) el.classList.add('no-move');
+    });
+    pos = cur; place(pos);
+    void flow.offsetWidth;
+    items.forEach(function(el){ el.classList.remove('no-move'); });
+  }
+  function go(i){ settle(i); }
+  flow.addEventListener('click', function(e){ if (suppressClick) { e.stopPropagation(); e.preventDefault(); } }, true);
+  items.forEach(function(el, i){ el.addEventListener('click', function(){ go(i); }); });
   marks.forEach(function(m, i){ m.addEventListener('click', function(){ go(i); }); });
   flow.querySelector('.team-flow__nav--prev').addEventListener('click', function(){ go(cur - 1); });
   flow.querySelector('.team-flow__nav--next').addEventListener('click', function(){ go(cur + 1); });
   stage.addEventListener('keydown', function(e){ if (e.key === 'ArrowLeft') { go(cur - 1); e.preventDefault(); } if (e.key === 'ArrowRight') { go(cur + 1); e.preventDefault(); } });
-  stage.addEventListener('pointerdown', function(e){ downX = e.clientX; dragMoved = false; });
-  stage.addEventListener('pointermove', function(e){ if (downX !== null && Math.abs(e.clientX - downX) > 8) dragMoved = true; });
-  stage.addEventListener('pointerup', function(e){ if (downX === null) return; var dx = e.clientX - downX; downX = null; if (Math.abs(dx) > 40) { go(dx < 0 ? cur + 1 : cur - 1); setTimeout(function(){ dragMoved = false; }, 50); } });
-  stage.addEventListener('pointercancel', function(){ downX = null; });
-  window.addEventListener('resize', render);
-  render();
+
+  /* Drag anywhere on the block (cards, name, bio, names line): the row follows the finger, then settles on the nearest card; a flick carries it on. */
+  var drag = null;
+  flow.addEventListener('pointerdown', function(e){
+    if (e.button > 0 || (e.target.closest && e.target.closest('.team-flow__nav'))) return;
+    drag = { id: e.pointerId, x0: e.clientX, y0: e.clientY, start: pos, lastX: e.clientX, lastT: e.timeStamp, vx: 0, axis: null };
+  });
+  flow.addEventListener('pointermove', function(e){
+    if (!drag || e.pointerId !== drag.id) return;
+    var dx = e.clientX - drag.x0, dy = e.clientY - drag.y0;
+    if (!drag.axis) {
+      if (Math.abs(dx) < 6 && Math.abs(dy) < 6) return;
+      drag.axis = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y';
+      if (drag.axis === 'x') { flow.classList.add('is-dragging'); try { flow.setPointerCapture(drag.id); } catch (_) {} if (window.getSelection) { var sel = window.getSelection(); if (sel && sel.removeAllRanges) sel.removeAllRanges(); } }
+    }
+    if (drag.axis !== 'x') return;
+    var dt = e.timeStamp - drag.lastT; if (dt > 0) drag.vx = 0.7 * drag.vx + 0.3 * ((e.clientX - drag.lastX) / dt);
+    drag.lastX = e.clientX; drag.lastT = e.timeStamp;
+    pos = drag.start - dx / cfg().x[1]; place(pos);
+  });
+  function endDrag(e, cancelled){
+    if (!drag || e.pointerId !== drag.id) return;
+    var d = drag; drag = null;
+    if (d.axis !== 'x') return;
+    suppressClick = true; setTimeout(function(){ suppressClick = false; }, 60);
+    var base = Math.round(d.start), target = Math.round(pos);
+    if (!cancelled) {
+      var step = cfg().x[1], dx = e.clientX - d.x0;
+      target = Math.round(pos - (d.vx * 180) / step);
+      if (target === base && Math.abs(dx) > 40) target = base + (dx < 0 ? 1 : -1);
+      target = Math.max(base - 3, Math.min(base + 3, target));
+    }
+    settle(target);
+  }
+  flow.addEventListener('pointerup', function(e){ endDrag(e, false); });
+  flow.addEventListener('pointercancel', function(e){ endDrag(e, true); });
+  flow.addEventListener('selectstart', function(e){ if (drag) e.preventDefault(); });
+  flow.addEventListener('dragstart', function(e){ e.preventDefault(); });
+
+  /* Sideways trackpad swipe (or a tilt wheel) turns the row too; up-and-down scrolling is left to the page. */
+  var wheelTimer = null, wheelIdle = true, lastWheel = 0;
+  flow.addEventListener('wheel', function(e){
+    if (Math.abs(e.deltaX) <= Math.abs(e.deltaY) || Math.abs(e.deltaX) < 2) return;
+    e.preventDefault();
+    var now = e.timeStamp;
+    if (!wheelIdle && now - lastWheel < 200) { lastWheel = now; return; } /* the momentum tail of a swipe that already settled */
+    wheelIdle = true; lastWheel = now;
+    flow.classList.add('is-dragging');
+    pos += (e.deltaX * (e.deltaMode === 1 ? 24 : e.deltaMode === 2 ? 240 : 1)) / cfg().x[1]; place(pos);
+    clearTimeout(wheelTimer);
+    wheelTimer = setTimeout(function(){ wheelIdle = false; lastWheel = performance.now(); settle(Math.round(pos)); }, 140);
+  }, { passive: false });
+
+  window.addEventListener('resize', function(){ place(pos); });
+  place(pos);
 })();
 </script>
 </div>
